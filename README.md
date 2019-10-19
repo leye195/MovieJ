@@ -1,6 +1,6 @@
 ##MovieJ 
 MovieJ는 The movie DB에서 제공하는 API를 이용하여 영화 정보를 제공합니다.
-React 공부 및 포트폴리오를 위해 만들어졌습니다.  
+React 공부 및 포트폴리오를 위해 만들었습니다.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
