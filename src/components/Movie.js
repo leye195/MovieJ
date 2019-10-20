@@ -1,19 +1,16 @@
 import React from 'react';
 import '../style/Movie.css';
+import {Link} from 'react-router-dom';
 class Movie extends React.Component{
+
     render(){
-        const{title,release_date,poster,overview}=this.props;
+        const{id,title,release_date,poster,overview}=this.props;
         const imgUrl="https://image.tmdb.org/t/p/w500"+poster;
-        const style={
-            display:"flex",
-            margin:"10px",
-            padding:"10px"
-        };
         return(
             <div className="movie_wrapper">
-                <div className="movie_container" style={style}>
+                <div className="movie_container">
                     <div className="img_contents">
-                        <img alt={title} src={imgUrl}/>
+                        <Link to={`/movie_detail/`+id}><img alt={title} src={imgUrl}/></Link>
                     </div>
                     <div className="item_content">
                         <h2 className="item_title">{title}</h2>
@@ -23,7 +20,7 @@ class Movie extends React.Component{
                             <p className="overview">{overview}</p>
                         </div>
                         <div className="more">
-                            More...
+                            <Link to={`/movie_detail/`+id}>More...</Link>
                         </div>
                     </div>
                 </div>

@@ -62,7 +62,6 @@ class MovieList extends React.Component{
         })
         return(
         <div>
-            <header><h1>MovieJ</h1></header>
             <SearchBar></SearchBar>
             <div className="movies_wrapper">
                 {movies}

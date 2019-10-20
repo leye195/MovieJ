@@ -1,11 +1,20 @@
-header h1{
+header div{
     padding-left:20px;
     padding-right:20px;
-    color:#882200;
     padding-top: 20px;
     padding-bottom: 20px;
     margin: 0;
     background-color: #b5666682;
+}
+header h1{
+    display: initial;
+    background-color: white;
+    border: black solid 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+header h1 a{
+    color:#882200;
 }
 .movies_wrapper{
     display: flex;

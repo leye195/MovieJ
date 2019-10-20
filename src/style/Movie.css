@@ -4,6 +4,11 @@
     z-index: 0;
     box-shadow: 0 2px 19px 3px rgba(0, 0, 0, 0.1);
 }
+.movie_container{
+    display:flex;
+    margin:10px;
+    padding:10px;
+}
 .img_contents img{
     display: block;
     width: 300px;
@@ -43,6 +48,10 @@
     line-height: 1.2em;
     margin-top: 30px;  
 }
+a{
+    text-decoration: none;
+    color:black;
+}
 .more{
     width: 100%;
     border-top: 1px solid #e3e3e3;
@@ -54,4 +63,5 @@
     left: 0;
     cursor: pointer;
     font-weight: 500;
+    text-decoration: none;
 }
