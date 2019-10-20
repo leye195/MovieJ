@@ -1,0 +1,26 @@
+.detail{
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+}
+.info_container{
+    color:white;
+    margin-left: 20px;
+}
+.movie_title {
+    font-size: 3.5rem;
+    display: inline-block;
+    margin-bottom: 0px;
+}
+.overview h3{
+    font-size: 2.5rem;
+}
+.overview p{
+    font-size: 1.2rem;
+    line-height: 1.4em;
+    font-weight: 500;
+}
