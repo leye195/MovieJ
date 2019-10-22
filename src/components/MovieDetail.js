@@ -1,6 +1,7 @@
 import React from 'react';
 import '../style/MovieDetail.css';
 import * as services from '../services/posts'; 
+import {Link} from 'react-router-dom';
 class MovieDetail extends React.Component{
     constructor(props){
         super(props);
@@ -14,12 +15,22 @@ class MovieDetail extends React.Component{
             status:'',
             runtime:0,
             release_date:"",
-            tagline:""
+            tagline:"",
+            revenue:0,
+            review:{
+                review_id:0,
+                author:"",
+                content:""
+            }
         };
+    }
+    shouldComponentUpdate(nextProps,nextState){
+        return nextState!==this.state;
     }
     componentDidMount(){
         const{id}=this.props;
         this.getDetail(id);
+        this.getReviews(id);
     }
     getDetail=async(id)=>{
         const movie_info=await services.getMovieInfo(id);
@@ -36,18 +47,27 @@ class MovieDetail extends React.Component{
             state:movie_info.data.status,
             runtime:movie_info.data.runtime,
             release_date:movie_info.data.release_date,
-            tagline:movie_info.data.tagline
+            tagline:movie_info.data.tagline,
+            revenue:movie_info.data.revenue
         })
         let detail=document.getElementsByClassName("detail");
-        console.log(detail);
         detail[0].style.backgroundImage="url(https://image.tmdb.org/t/p/w500"+this.state.backdrop+")";
     }
+    getReviews=async(id)=>{
+        const reviews=await services.getReviews(id);
+        console.log(reviews);
+        this.setState({
+            review:reviews.data.results[reviews.data.results.length-1]
+        })
+    }
     render(){
-        const{title,overview,vote_average,poster_path,tagline,runtime,release_date}=this.state;
-        //const backgroundImg=`https://image.tmdb.org/t/p/w500`+backdrop
+        const{id,title,overview,vote_average,poster_path,tagline,runtime,release_date,revenue,review}=this.state;
+        //console.log(review.author);
         return (
+            <div>
             <div className="detail">
-                <div className="movie_wrapper" style={{width:"1350px", display:"flex"}}>
+                <div className="custom_bg">
+                <div className="movie_wrapper" style={{width:"1350px", display:"flex",padding:"10px"}}>
                     <div className="img_container">
                         <img alt={title} src={`https://image.tmdb.org/t/p/w500`+poster_path}></img>
                     </div>
@@ -59,12 +79,28 @@ class MovieDetail extends React.Component{
                             <p><b>{overview}</b></p>
                         </div>
                         <div className="vote_rate">
-                            <h2>Average Rate: {vote_average}</h2>
+                            <h2>Average Rate: {vote_average}/10</h2>
                         </div>
                         <p>Release Date: {release_date}</p>
-                        <p>Running Timg: {runtime} mins</p>
+                        <p>Running Time: {runtime} mins</p>
+                        <p>Box Office: ${revenue.toLocaleString()}</p>
                     </div>
                 </div>
+                </div>
+            </div>
+            <div className="menu">
+                <h3>Review</h3>
+            </div>
+            <div className="review_container">
+                <div className="card">
+                    <h3 className="review_author">A review Written by {review.author}</h3>
+                    <p className="review_content">{review.content}</p>
+                    <Link to={`/movie_review/`+id}>Read more...</Link>
+                </div>
+                <p className="read_all">
+                    <Link to={`/movie_review/`}>Read All Reviews</Link>
+                </p>
+            </div>
             </div>
         );
     }

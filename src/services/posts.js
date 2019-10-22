@@ -6,3 +6,6 @@ export function getAllMovies(page=1){
 export function getMovieInfo(id){
     return axios.get("https://api.themoviedb.org/3/movie/"+id+"?api_key=93041e50ffd37dbace90ae54a55c67f3&language=en-US")
 }
+export function getReviews(id){
+    return axios.get("https://api.themoviedb.org/3/movie/"+id+"/reviews?api_key=93041e50ffd37dbace90ae54a55c67f3&language=en-US")
+}

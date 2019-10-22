@@ -1,7 +1,8 @@
 import React from 'react';
 import Home from '../Routes/Home';
 import Detail from '../Routes/Detail';
-import {BrowserRouter as Router,Route,Link} from 'react-router-dom';
+import Review from '../Routes/Review';
+import {BrowserRouter as Router,Route,Link,Switch} from 'react-router-dom';
 
 function App() {
   return (
@@ -14,6 +15,10 @@ function App() {
       <div className="App">
         <Route exact path="/" component={Home}></Route>
         <Route exact path="/movie_detail/:id" component={Detail}></Route>
+        <Switch>
+          <Route path="/movie_review/:id" component={Review}></Route>
+          <Route path="/movie_review" component={Review}></Route>
+        </Switch>
       </div>
     </Router>
   );

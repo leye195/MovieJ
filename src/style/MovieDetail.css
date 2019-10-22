@@ -6,6 +6,12 @@
     display: flex;
     align-items: flex-start;
     flex-wrap: nowrap;
+    padding:0px;
+    z-index: 1;
+}
+.custom_bg{
+    width: 100%;
+    background-image: radial-gradient(circle at 20% 50%, rgba(50, 20, 20, 0.61) 0%, rgba(0, 0, 0, 0.88) 100%);
 }
 .info_container{
     color:white;
@@ -23,4 +29,29 @@
     font-size: 1.2rem;
     line-height: 1.4em;
     font-weight: 500;
+}
+.menu h3{
+    margin: 20px auto;
+    width: 1350px;
+    font-size: 1.5rem;
+}
+.review_container{
+    margin: 0 auto;
+    width: 1350px;
+}
+.card{
+    border: 1px solid #e3e3e3;
+    padding: 20px 40px 20px 40px;
+    box-shadow:1px 3px 10px 1px grey;
+}
+.review_content{
+    font-size: 1.2rem;
+    text-align: justify;
+    height: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre-wrap;
+}
+.read_all{
+    font-size: 1.3rem;
 }
