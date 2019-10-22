@@ -29,6 +29,9 @@ class MovieList extends React.Component{
         });
         //return movies.data.results;
     }
+    handleView=()=>{
+        
+    }
     handleNext=()=>{
         const{cur_page,total_pages}=this.state;
         console.log("Next");
@@ -63,8 +66,15 @@ class MovieList extends React.Component{
         return(
         <div>
             <SearchBar></SearchBar>
+            <div className="select_wrapper">
+                <select>
+                    <option>Poster Card</option>
+                    <option>Backdrop Card</option>
+                </select>
+                </div>
             <div className="movies_wrapper">
                 {movies}
+                
             </div>
             <div className="btns">
                 <Button labelPosition='left' icon='left chevron' content='Back' onClick={this.handlePrev}/>
