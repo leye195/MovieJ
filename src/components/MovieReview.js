@@ -12,7 +12,6 @@ class MovieReview extends React.Component{
     }
     getData=async()=>{
         const{r_id}=this.props;
-        console.log(r_id);
         const review=await services.getReview(r_id);
         this.setState({
             review:review.data
@@ -20,8 +19,6 @@ class MovieReview extends React.Component{
     }
     render(){
         const{review}=this.state;
-        const{title}=this.props;
-        //console.log(review);
         return (
             <div className="review card">
                 <h2 className="review_author">A review written by {review.author}</h2>

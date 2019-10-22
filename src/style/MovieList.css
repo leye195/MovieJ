@@ -19,6 +19,7 @@ header h1 a{
 .movies_wrapper{
     display: flex;
     flex-wrap: wrap;
+    margin-top: 20px;
 }
 .btns{
     width: fit-content;

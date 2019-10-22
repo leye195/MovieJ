@@ -1,6 +1,6 @@
 .movie_wrapper{
     width: 800px;
-    margin: auto auto;
+    margin: 10px auto;
     z-index: 0;
     box-shadow: 0 2px 19px 3px rgba(0, 0, 0, 0.1);
 }
@@ -45,7 +45,10 @@
     color: #4d4d4d;
     font-size: 1.2em;
     line-height: 1.2em;
-    margin-top: 30px;  
+    margin-top: 30px;
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
 }
 a{
     text-decoration: none;

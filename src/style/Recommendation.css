@@ -1,0 +1,26 @@
+.recommendation{
+    margin: 0 auto;
+    width: 1300px;
+}
+.recommendation_container{
+    display: -webkit-box;
+    -webkit-overflow-scrolling: touch;
+    width: 1300px;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    white-space: nowrap;
+    box-sizing: border-box;
+    padding-bottom: 16px;
+    padding-right: 40px;
+}
+.recommendation_wrapper{
+    margin: 10px;
+    cursor: pointer;
+}
+.recommendation_wrapper img{
+    width: 420px;
+    height: 400px;
+}
+.recommendation_wrapper p{
+    font-size:1.2rem;
+}

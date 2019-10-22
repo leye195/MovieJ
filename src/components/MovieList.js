@@ -23,7 +23,6 @@ class MovieList extends React.Component{
     }
     getMovies=async(page)=>{
         const movies=await services.getAllMovies(page);
-        //console.log(movies.data.total_pages); total_pages
         this.setState({
             total_pages:movies.data.total_pages,
             movie_list:movies.data.results

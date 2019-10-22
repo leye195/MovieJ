@@ -2,6 +2,7 @@ import React from 'react';
 import '../style/MovieDetail.css';
 import * as services from '../services/posts'; 
 import {Link} from 'react-router-dom';
+import Recommendation from "./Recommendation";
 class MovieDetail extends React.Component{
     constructor(props){
         super(props);
@@ -54,7 +55,7 @@ class MovieDetail extends React.Component{
     }
     getReviews=async(id)=>{
         const reviews=await services.getReviews(id);
-        console.log(reviews);
+        //console.log(reviews);
         if(reviews.data.results.length>0){
             this.setState({
                 review:reviews.data.results[reviews.data.results.length-1]
@@ -72,7 +73,7 @@ class MovieDetail extends React.Component{
                 <p className="review_content">{review.content}</p>
                 <Link to={`/movie_review/`+id+`/`+review.id+'?title='+title}>Read more...</Link>
             </div>
-            <p className="read_all">x
+            <p className="read_all">
                 <Link to={`/movie_review/`+id+'?title='+title}>Read All Reviews</Link>
             </p>
             </div>
@@ -108,6 +109,8 @@ class MovieDetail extends React.Component{
             <div className="review_container">
                 {review_tag}
             </div>
+            <hr></hr>
+                <Recommendation id={this.props.id}></Recommendation>
             </div>
         );
     }

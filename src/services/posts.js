@@ -12,3 +12,6 @@ export function getReviews(id){
 export function getReview(r_id){
     return axios.get("https://api.themoviedb.org/3/review/"+r_id+"?api_key=93041e50ffd37dbace90ae54a55c67f3");
 }
+export function getRecommendations(id){
+    return axios.get('https://api.themoviedb.org/3/movie/'+id+'/recommendations?api_key=93041e50ffd37dbace90ae54a55c67f3&language=en-US&page=1')
+}
