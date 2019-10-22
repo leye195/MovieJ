@@ -16,8 +16,8 @@ function App() {
         <Route exact path="/" component={Home}></Route>
         <Route exact path="/movie_detail/:id" component={Detail}></Route>
         <Switch>
-          <Route path="/movie_review/:id" component={Review}></Route>
-          <Route path="/movie_review" component={Review}></Route>
+          <Route path="/movie_review/:id/:r_id" component={Review}></Route>
+          <Route path="/movie_review/:id/" component={Review}></Route>
         </Switch>
       </div>
     </Router>

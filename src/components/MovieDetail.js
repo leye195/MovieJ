@@ -17,11 +17,7 @@ class MovieDetail extends React.Component{
             release_date:"",
             tagline:"",
             revenue:0,
-            review:{
-                review_id:0,
-                author:"",
-                content:""
-            }
+            review:undefined
         };
     }
     shouldComponentUpdate(nextProps,nextState){
@@ -50,19 +46,37 @@ class MovieDetail extends React.Component{
             tagline:movie_info.data.tagline,
             revenue:movie_info.data.revenue
         })
+        console.log("-----------Backdrop-----------");
+        console.log(this.state.backdrop);
+        console.log("-----------Backdrop-----------");
         let detail=document.getElementsByClassName("detail");
         detail[0].style.backgroundImage="url(https://image.tmdb.org/t/p/w500"+this.state.backdrop+")";
     }
     getReviews=async(id)=>{
         const reviews=await services.getReviews(id);
         console.log(reviews);
-        this.setState({
-            review:reviews.data.results[reviews.data.results.length-1]
-        })
+        if(reviews.data.results.length>0){
+            this.setState({
+                review:reviews.data.results[reviews.data.results.length-1]
+            })
+        }
     }
     render(){
         const{id,title,overview,vote_average,poster_path,tagline,runtime,release_date,revenue,review}=this.state;
-        //console.log(review.author);
+        let review_tag=<div className="review_notice">Sorry, We don't have any reviews for this movie</div>;
+        if(review!==undefined){
+            review_tag=
+            <div>
+            <div className="card">
+                <h3 className="review_author">A review Written by {review.author}</h3>
+                <p className="review_content">{review.content}</p>
+                <Link to={`/movie_review/`+id+`/`+review.id+'?title='+title}>Read more...</Link>
+            </div>
+            <p className="read_all">x
+                <Link to={`/movie_review/`+id+'?title='+title}>Read All Reviews</Link>
+            </p>
+            </div>
+        }
         return (
             <div>
             <div className="detail">
@@ -92,14 +106,7 @@ class MovieDetail extends React.Component{
                 <h3>Review</h3>
             </div>
             <div className="review_container">
-                <div className="card">
-                    <h3 className="review_author">A review Written by {review.author}</h3>
-                    <p className="review_content">{review.content}</p>
-                    <Link to={`/movie_review/`+id}>Read more...</Link>
-                </div>
-                <p className="read_all">
-                    <Link to={`/movie_review/`}>Read All Reviews</Link>
-                </p>
+                {review_tag}
             </div>
             </div>
         );

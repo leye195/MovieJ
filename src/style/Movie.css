@@ -35,16 +35,15 @@
     width: 100%;
     line-height: 1.2em;
     margin: 0;
-    
+
 }
 .overview_container p{
     word-wrap: break-word;
-
     font-size: 1.0rem;
     margin-top: 20px;
     margin-bottom: 20px;
     color: #4d4d4d;
-    font-size: 0.9em;
+    font-size: 1.2em;
     line-height: 1.2em;
     margin-top: 30px;  
 }

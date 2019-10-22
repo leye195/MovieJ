@@ -2,6 +2,7 @@ import React from 'react';
 import Movie from './Movie';
 import SearchBar from './SearchBar';
 import '../style/MovieList.css';
+import { Button } from 'semantic-ui-react';
 import * as services from '../services/posts'; 
 class MovieList extends React.Component{
     constructor(props){
@@ -67,8 +68,8 @@ class MovieList extends React.Component{
                 {movies}
             </div>
             <div className="btns">
-                <button onClick={this.handlePrev}>Prev</button>
-                <button onClick={this.handleNext}>Next</button>
+                <Button labelPosition='left' icon='left chevron' content='Back' onClick={this.handlePrev}/>
+                <Button labelPosition='right' icon='right chevron' content='Next' onClick={this.handleNext}/>
             </div>
         </div>
         )

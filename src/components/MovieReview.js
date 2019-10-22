@@ -1,26 +1,33 @@
 import React from 'react';
-
+import * as services from '../services/posts';
 class MovieReview extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            id:this.props.id
+            review:{}
         };
     }
+    componentDidMount(){
+        this.getData();
+    }
+    getData=async()=>{
+        const{r_id}=this.props;
+        console.log(r_id);
+        const review=await services.getReview(r_id);
+        this.setState({
+            review:review.data
+        });
+    }
     render(){
-        //const{id}=this.props.id;
+        const{review}=this.state;
+        const{title}=this.props;
+        //console.log(review);
         return (
-            <div>
-                MovieReview
-                {this.state.id}
+            <div className="review card">
+                <h2 className="review_author">A review written by {review.author}</h2>
+                <p className="all">{review.content}</p>
             </div>
         );
     }
 };
-MovieReview.defaultProps={
-    id:0,
-    author:"",
-    content:"",
-
-}
 export default MovieReview;

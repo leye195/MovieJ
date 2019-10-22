@@ -36,22 +36,32 @@
     font-size: 1.5rem;
 }
 .review_container{
-    margin: 0 auto;
+    margin: 20px auto;
     width: 1350px;
 }
 .card{
     border: 1px solid #e3e3e3;
     padding: 20px 40px 20px 40px;
     box-shadow:1px 3px 10px 1px grey;
+    margin: 35px;
 }
 .review_content{
+    display: -webkit-box;
+    -webkit-line-clamp: 14;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+    line-height: 1.2em;
     font-size: 1.2rem;
     text-align: justify;
-    height: 300px;
+    /* height: 300px; */
+    height: 16.6em;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: pre-wrap;
 }
 .read_all{
     font-size: 1.3rem;
+}
+.review_notice{
+    font-size: 1.2rem;
 }
