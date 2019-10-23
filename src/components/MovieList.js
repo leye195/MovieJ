@@ -11,16 +11,15 @@ class MovieList extends React.Component{
             total_pages:0,
             movie_list:[],
             cur_page:1,
-            view_flag:0
+            view:"poster"
         }
     }
     shouldComponentUpdate(nextProps,nextState){
-        return nextState!==this.state;
+        return true;
     }
     componentDidMount(){
         const{cur_page}=this.state;
         this.getMovies(cur_page);
-        //console.log(cur_page);
     }
     getMovies=async(page)=>{
         const movies=await services.getAllMovies(page);
@@ -33,11 +32,11 @@ class MovieList extends React.Component{
     handleView=(e)=>{
         console.log(e.target.value);
         this.setState({
-            view_flag:e.target.value
+            view:e.target.value
         })
-        if(e.target.value===0){
+        if(e.target.value==="poster"){
 
-        }else if(e.target.value===1){
+        }else if(e.target.value==="backdrop"){
 
         }
     }
@@ -66,11 +65,10 @@ class MovieList extends React.Component{
         }
     }
     render(){
-        const{movie_list,cur_page}=this.state;
-        //console.log(movie_list);
+        const{movie_list,cur_page,view}=this.state;
         const movies=movie_list.map((movie,i)=>{
             return <Movie id={movie.id} key={movie.id} title={movie.title} release_date={movie.release_date} 
-                    poster={movie.poster_path} overview={movie.overview}></Movie>
+                    poster={this.state.view==="poster"?movie.poster_path:movie.backdrop_path} overview={movie.overview} view={view}></Movie>
         })
         return(
         <div>
@@ -78,8 +76,8 @@ class MovieList extends React.Component{
             <div className="select_wrapper">
                 <span><b>View </b></span>
                 <select onChange={this.handleView}>
-                    <option value={0}>Poster Card</option>
-                    <option value={1}>Backdrop Card</option>
+                    <option value="poster">Poster Card</option>
+                    <option value="backdrop">Backdrop Card</option>
                 </select>
                 </div>
             <div className="movies_wrapper">

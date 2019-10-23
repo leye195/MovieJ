@@ -1,18 +1,37 @@
-.movie_wrapper{
+.poster{
     width: 800px;
     margin: 10px auto;
     z-index: 0;
     box-shadow: 0 2px 19px 3px rgba(0, 0, 0, 0.1);
 }
-.movie_container{
+.backdrop{
+    width: 800px;
+    margin: 10px auto;
+    z-index: 0;
+    box-shadow: 0 2px 19px 3px rgba(0, 0, 0, 0.1);
+}
+.poster .movie_container{
     display:flex;
     margin:10px;
     padding:0px;
 }
-.img_contents img{
+.backdrop .movie_container{
+    margin:10px;
+    padding:0px;
+}
+.posterimg_contents img{
     display: block;
     width: 300px;
     height: 450px;
+    border-width: 0px;
+    outline: none;
+    cursor: pointer;
+}
+.backdropimg_contents img{
+    display: block;
+    width: 90%;
+    height: 450px;
+    margin: 0 auto;
     border-width: 0px;
     outline: none;
     cursor: pointer;
@@ -21,9 +40,19 @@
     font-size:2.0rem;
     margin-top: 10px;
 }
-.item_content{
+.posteritem_content{
     position: relative;
     padding:10px;
+}
+.backdropitem_content{
+    position: relative;
+    padding:10px;
+}
+.backdropitem_content .overview_container, .backdropitem_content .more{
+    display: none;
+}
+.backdropitem_content p{
+    font-size:1.1rem;
 }
 .overview_container h3{
     font-size: 1.5rem;
