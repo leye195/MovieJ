@@ -10,11 +10,13 @@
     width: 1000px;
     margin: 0 auto;
 }
+
 .sub{
     position: relative;
     top: 0;
     left: 0;
 }
+
 .sub span{
     position: absolute;
     top: 0;
@@ -22,7 +24,6 @@
     display: flex;
     line-height: 48px;
     font-weight: 400;
-
     background-color: #d2cbce80;
     padding-left: 5px;
     padding-right: 5px;
@@ -30,9 +31,10 @@
     cursor: pointer;
 }
 .sub input[type="text"]{
-    height: 44px;
-    width: 100%;
-    border: none;
+    height: 40px;
     padding-left: 70px;
     padding-right: 70px;
+    width: 95%;
+    border-right: 1px solid #00000040;
+    border-radius: 10px;
 }

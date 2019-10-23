@@ -7,7 +7,7 @@
 .movie_container{
     display:flex;
     margin:10px;
-    padding:10px;
+    padding:0px;
 }
 .img_contents img{
     display: block;
@@ -58,6 +58,7 @@ a{
     width: 100%;
     border-top: 1px solid #e3e3e3;
     padding: 10px;
+    padding-right: 0;
     font-weight: 300;
     font-size: 1.3rem;
     position: absolute;

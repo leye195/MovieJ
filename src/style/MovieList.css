@@ -26,11 +26,15 @@ header h1 a{
     height: 25px;
     position: relative;
     text-align: right;
-    right: 350px;
+    right: 150px;
     margin-top: 20px;
 }
+.select_wrapper span{
+    padding-right: 5px;
+    font-size: larger;
+}
 .select_wrapper select{
-    width: 150px;
+    width: 250px;
     height: 30px;
 }
 .btns{
@@ -43,4 +47,8 @@ header h1 a{
     height: 50px;
     width: 150px;
     border-radius: 10px;
+}
+.btns span{
+    padding-left: 20px;
+    padding-right: 20px;
 }
