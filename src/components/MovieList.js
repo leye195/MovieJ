@@ -15,7 +15,7 @@ class MovieList extends React.Component{
         }
     }
     shouldComponentUpdate(nextProps,nextState){
-        return true;
+        return this.state!==nextState;
     }
     componentDidMount(){
         const{cur_page}=this.state;
