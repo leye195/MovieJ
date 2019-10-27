@@ -11,7 +11,8 @@ class MovieList extends React.Component{
             total_pages:0,
             movie_list:[],
             cur_page:1,
-            view:"poster"
+            view:"poster",
+            lan:'ko-KR'
         }
     }
     shouldComponentUpdate(nextProps,nextState){
@@ -22,10 +23,12 @@ class MovieList extends React.Component{
         this.getMovies(cur_page);
     }
     getMovies=async(page)=>{
-        const movies=await services.getAllMovies(page);
+        const{lan}=this.props;
+        const movies=await services.getAllMovies(page,lan);
         this.setState({
             total_pages:movies.data.total_pages,
-            movie_list:movies.data.results
+            movie_list:movies.data.results,
+            lan:lan
         });
         //return movies.data.results;
     }
@@ -41,34 +44,34 @@ class MovieList extends React.Component{
         }
     }
     handleNext=()=>{
-        const{cur_page,total_pages}=this.state;
+        const{cur_page,total_pages,lan}=this.state;
         console.log("Next");
         if(cur_page<total_pages){
             this.setState({
                 cur_page:cur_page+1
             })
-            this.getMovies(cur_page+1);
+            this.getMovies(cur_page+1,lan);
         }else{
             alert("Done");
         }
     }
     handlePrev=()=>{
-        const{cur_page}=this.state;
+        const{cur_page,lan}=this.state;
         console.log("Prev");
         if(cur_page>1){
             this.setState({
                 cur_page:cur_page-1
             })
-            this.getMovies(cur_page-1);
+            this.getMovies(cur_page-1,lan);
         }else{
             alert("Page can not less than 1");
         }
     }
     render(){
-        const{movie_list,cur_page,view}=this.state;
+        const{movie_list,cur_page,view,lan}=this.state;
         const movies=movie_list.map((movie,i)=>{
             return <Movie id={movie.id} key={movie.id} title={movie.title} release_date={movie.release_date} 
-                    poster={this.state.view==="poster"?movie.poster_path:movie.backdrop_path} overview={movie.overview} view={view}></Movie>
+                    poster={this.state.view==="poster"?movie.poster_path:movie.backdrop_path} overview={movie.overview} view={view} lan={"/"+lan}></Movie>
         })
         return(
         <div>

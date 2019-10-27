@@ -22,7 +22,7 @@
 .posterimg_contents img{
     display: block;
     width: 300px;
-    height: 450px;
+    height: 400px;
     border-width: 0px;
     outline: none;
     cursor: pointer;
@@ -76,7 +76,7 @@
     line-height: 1.2em;
     margin-top: 30px;
     display: -webkit-box;
-    -webkit-line-clamp: 8;
+    -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
 }
 a{

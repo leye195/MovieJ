@@ -3,6 +3,7 @@ import '../style/MovieDetail.css';
 import * as services from '../services/posts'; 
 import {Link} from 'react-router-dom';
 import Recommendation from "./Recommendation";
+import TrendView from './TrendView';
 class MovieDetail extends React.Component{
     constructor(props){
         super(props);
@@ -25,15 +26,15 @@ class MovieDetail extends React.Component{
         return nextState!==this.state;
     }
     componentDidMount(){
-        const{id}=this.props;
-        this.getDetail(id);
+        const{id,lan}=this.props;
+        this.getDetail(id,lan);
         this.getReviews(id);
     }
-    getDetail=async(id)=>{
-        const movie_info=await services.getMovieInfo(id);
-        console.log("--------------------------");
-        console.log(movie_info.data);
-        console.log("-----------Done-----------");
+    getDetail=async(id,lan)=>{
+        const movie_info=await services.getMovieInfo(id,lan);
+        //console.log("--------------------------");
+        //console.log(movie_info.data);
+        //console.log("-----------Done-----------");
         this.setState({
             id:id,
             title:movie_info.data.title,
@@ -47,9 +48,9 @@ class MovieDetail extends React.Component{
             tagline:movie_info.data.tagline,
             revenue:movie_info.data.revenue
         })
-        console.log("-----------Backdrop-----------");
-        console.log(this.state.backdrop);
-        console.log("-----------Backdrop-----------");
+        //console.log("-----------Backdrop-----------");
+        //console.log(this.state.backdrop);
+        //console.log("-----------Backdrop-----------");
         let detail=document.getElementsByClassName("detail");
         detail[0].style.backgroundImage="url(https://image.tmdb.org/t/p/w500"+this.state.backdrop+")";
     }
@@ -64,6 +65,7 @@ class MovieDetail extends React.Component{
     }
     render(){
         const{id,title,overview,vote_average,poster_path,tagline,runtime,release_date,revenue,review}=this.state;
+        const{lan}=this.props;
         let review_tag=<div className="review_notice">Sorry, We don't have any reviews for this movie</div>;
         if(review!==undefined){
             review_tag=
@@ -90,27 +92,35 @@ class MovieDetail extends React.Component{
                         <h2 className="movie_title">{title}</h2>
                         <h3>{tagline}</h3>
                         <div className="overview">
-                            <h3>OverView</h3>
+                            <h3>{lan==="en-US"?"OverView":"줄거리"}</h3>
                             <p><b>{overview}</b></p>
                         </div>
                         <div className="vote_rate">
-                            <h2>Average Rate: {vote_average}/10</h2>
+                            <h2>{lan==="en-US"?"Average Rate: "+vote_average:"평균 평점: "+vote_average}/10</h2>
                         </div>
-                        <p>Release Date: {release_date}</p>
-                        <p>Running Time: {runtime} mins</p>
+                        <p>{lan==="es-US"?"Release Date: "+release_date:"개봉 일: "+release_date}</p>
+                        <p> {lan==="en-US"?"Running Time: "+runtime+"mins":"재생 시간: "+runtime+"분"} </p>
                         <p>Box Office: ${revenue.toLocaleString()}</p>
+                        <div className="movie_link" style={{color:"white"}}>
+                            Link Space
+                        </div>
                     </div>
+                    
                 </div>
                 </div>
             </div>
             <div className="menu">
-                <h3>Review</h3>
+                <h3>{lan==="en-US"?"Review":"리뷰"}</h3>
             </div>
             <div className="review_container">
                 {review_tag}
             </div>
             <hr></hr>
-                <Recommendation id={this.props.id}></Recommendation>
+            <Recommendation id={this.props.id} lan={lan}/>
+            <div className="trend menu">
+                <h3>TrendView</h3>
+                <TrendView/>
+            </div>
             </div>
         );
     }

@@ -12,9 +12,9 @@ class Recommendation extends React.Component{
         this.getRecommendations();
     }
     getRecommendations=async()=>{
-        const{id}=this.props;
+        const{id,lan}=this.props;
         console.log("id: "+id);
-        const list=await services.getRecommendations(id);
+        const list=await services.getRecommendations(id,lan);
         this.setState({
             recommendations:list.data.results
         });
@@ -22,11 +22,12 @@ class Recommendation extends React.Component{
     }
     render(){
         const{recommendations}=this.state;
+        const{lan}=this.props;
         //const{history}=this.props;
         let rr=recommendations.slice(0,10);
         const data_list=rr.map((item)=>{
             return <div className="recommendation_wrapper" key={item.id} onClick={()=>{}}>
-                        <a href={`/movie_detail/`+item.id}>
+                        <a href={`/movie_detail/`+item.id+"/"+lan}>
                             <img alt={item.title} src={"https://image.tmdb.org/t/p/w500"+item.poster_path}></img>
                             <p>{item.title}</p>
                         </a>
@@ -35,7 +36,7 @@ class Recommendation extends React.Component{
         return(
             <div className="recommendation">
                 <div className="menu">
-                    <h3>Recommendations</h3>
+                    <h3>{lan==="en-US"?"Recommendations":"추천 영화"}</h3>
                 </div>
                 <div className="recommendation_container">
                     {data_list}
