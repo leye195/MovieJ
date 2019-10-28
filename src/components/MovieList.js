@@ -2,7 +2,7 @@ import React from 'react';
 import Movie from './Movie';
 import SearchBar from './SearchBar';
 import '../style/MovieList.css';
-import { Button } from 'semantic-ui-react'; 
+import Button from '@material-ui/core/Button';
 import * as services from '../services/posts'; 
 class MovieList extends React.Component{
     constructor(props){
@@ -12,15 +12,26 @@ class MovieList extends React.Component{
             movie_list:[],
             cur_page:1,
             view:"poster",
-            lan:'ko-KR'
+            lan:'ko-KR',
+            completed:0
         }
     }
     shouldComponentUpdate(nextProps,nextState){
         return this.state!==nextState;
     }
     componentDidMount(){
+        this.timer=setInterval(this.progress,20);
         const{cur_page}=this.state;
         this.getMovies(cur_page);
+    }
+    componentWillUnmount(){
+        clearInterval(this.timer);
+    }
+    progress=()=>{
+        const{completed}=this.state;
+        this.setState({
+            completed:completed >= 100 ? 0 : completed + 1
+        })
     }
     getMovies=async(page)=>{
         const{lan}=this.props;
@@ -84,12 +95,13 @@ class MovieList extends React.Component{
                 </select>
                 </div>
             <div className="movies_wrapper">
+
                 {movies}
             </div>
             <div className="btns">
-                <Button labelPosition='left' icon='left chevron' content='Back' onClick={this.handlePrev}/>
+                <Button variant="contained" color="primary" onClick={this.handlePrev}>Previous</Button>
                 <span><b>{cur_page}</b></span>
-                <Button labelPosition='right' icon='right chevron' content='Next' onClick={this.handleNext}/>
+                <Button variant="contained" color="primary" onClick={this.handleNext}>Next</Button>
             </div>
         </div>
         )

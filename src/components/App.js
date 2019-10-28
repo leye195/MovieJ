@@ -3,7 +3,7 @@ import Home from '../Routes/Home';
 import Detail from '../Routes/Detail';
 import Review from '../Routes/Review';
 import NoMatch from '../Routes/NoMatch';
-import {BrowserRouter as Router,Route,Link,Switch} from 'react-router-dom';
+import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
 import '../style/App.css';
 
 function App() {

@@ -1,7 +1,6 @@
 import React from 'react';
 import MovieList from '../components/MovieList';
 import Header from '../components/Header';
-import {BrowserRouter as Router,Route,Link,Switch} from 'react-router-dom';
 class Home extends React.Component{
     render(){
         const{match}=this.props;

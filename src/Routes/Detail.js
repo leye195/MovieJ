@@ -1,7 +1,6 @@
 import React from 'react';
 import MovieDetail from '../components/MovieDetail';
 import Header from '../components/Header';
-import {Link} from 'react-router-dom';
 class Detail extends React.Component{
     render(){
         const{match}=this.props;

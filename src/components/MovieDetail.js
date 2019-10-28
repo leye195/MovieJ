@@ -2,7 +2,8 @@ import React from 'react';
 import '../style/MovieDetail.css';
 import * as services from '../services/posts'; 
 import {Link} from 'react-router-dom';
-import Recommendation from "./Recommendation";
+import Recommendation from './Recommendation';
+import Loading from './Loading';
 import TrendView from './TrendView';
 class MovieDetail extends React.Component{
     constructor(props){
@@ -19,17 +20,26 @@ class MovieDetail extends React.Component{
             release_date:"",
             tagline:"",
             revenue:0,
-            review:undefined
+            review:undefined,
+            completed:0
         };
     }
     shouldComponentUpdate(nextProps,nextState){
         return nextState!==this.state;
     }
     componentDidMount(){
+        this.timer=setInterval(this.progress,30);
         const{id,lan}=this.props;
         this.getDetail(id,lan);
         this.getReviews(id);
     }
+    componentWillUnmount() {
+        clearInterval(this.timer);
+    }       
+    progress = () => {
+        const { completed } = this.state;
+        this.setState({ completed: completed >= 100 ? clearInterval(this.timer) : completed + 1 });
+    };
     getDetail=async(id,lan)=>{
         const movie_info=await services.getMovieInfo(id,lan);
         //console.log("--------------------------");
@@ -53,6 +63,7 @@ class MovieDetail extends React.Component{
         //console.log("-----------Backdrop-----------");
         let detail=document.getElementsByClassName("detail");
         detail[0].style.backgroundImage="url(https://image.tmdb.org/t/p/w500"+this.state.backdrop+")";
+
     }
     getReviews=async(id)=>{
         const reviews=await services.getReviews(id);
@@ -66,7 +77,7 @@ class MovieDetail extends React.Component{
     render(){
         const{id,title,overview,vote_average,poster_path,tagline,runtime,release_date,revenue,review}=this.state;
         const{lan}=this.props;
-        let review_tag=<div className="review_notice">Sorry, We don't have any reviews for this movie</div>;
+        let review_tag=<div className="review_notice">{lan==="en-US"?"Sorry, We do not have any reviews for this movie":"리뷰가 없습니다."}</div>;
         if(review!==undefined){
             review_tag=
             <div>
@@ -82,6 +93,9 @@ class MovieDetail extends React.Component{
         }
         return (
             <div>
+                <div>
+                <Loading value={this.state.completed} ></Loading>}
+                </div>
             <div className="detail">
                 <div className="custom_bg">
                 <div className="movie_wrapper" style={{width:"1350px", display:"flex",padding:"10px"}}>
