@@ -6,9 +6,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### Client
 Front-End technologies used in the project
--React
--React-Router v5
--Redux(Add soon)
+-React<br/>
+-React-Router v5<br/>
+-Redux(Add soon)<br/>
 
 ## Available Scripts
 
