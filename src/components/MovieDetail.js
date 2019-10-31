@@ -9,6 +9,7 @@ class MovieDetail extends React.Component{
     constructor(props){
         super(props);
         this.state={
+            info:{
             id:0,
             title:'',
             overview:'',
@@ -21,7 +22,9 @@ class MovieDetail extends React.Component{
             tagline:"",
             revenue:0,
             review:undefined,
-            completed:0
+            },
+            completed:0,
+            load:false
         };
     }
     shouldComponentUpdate(nextProps,nextState){
@@ -32,6 +35,9 @@ class MovieDetail extends React.Component{
         const{id,lan}=this.props;
         this.getDetail(id,lan);
         this.getReviews(id);
+        this.setState({
+            load:true
+        })
     }
     componentWillUnmount() {
         clearInterval(this.timer);
@@ -46,6 +52,7 @@ class MovieDetail extends React.Component{
         //console.log(movie_info.data);
         //console.log("-----------Done-----------");
         this.setState({
+            info:{
             id:id,
             title:movie_info.data.title,
             overview:movie_info.data.overview,
@@ -57,13 +64,16 @@ class MovieDetail extends React.Component{
             release_date:movie_info.data.release_date,
             tagline:movie_info.data.tagline,
             revenue:movie_info.data.revenue
+            }
         })
         //console.log("-----------Backdrop-----------");
         //console.log(this.state.backdrop);
         //console.log("-----------Backdrop-----------");
         let detail=document.getElementsByClassName("detail");
-        detail[0].style.backgroundImage="url(https://image.tmdb.org/t/p/w500"+this.state.backdrop+")";
-
+        if(this.state.info.backdrop!==undefined)
+            detail[0].style.backgroundImage="url(https://image.tmdb.org/t/p/w500"+this.state.info.backdrop+")";
+        else
+            detail[0].style.backgroundImage="url(/Users/yjlee/Documents/WorkSpace/moviej/src/img/collect.gif)";
     }
     getReviews=async(id)=>{
         const reviews=await services.getReviews(id);
@@ -75,7 +85,8 @@ class MovieDetail extends React.Component{
         }
     }
     render(){
-        const{id,title,overview,vote_average,poster_path,tagline,runtime,release_date,revenue,review}=this.state;
+        const{info,load}=this.state;
+        const{id,title,overview,vote_average,poster_path,tagline,runtime,release_date,revenue,review}=info;
         const{lan}=this.props;
         let review_tag=<div className="review_notice">{lan==="en-US"?"Sorry, We do not have any reviews for this movie":"리뷰가 없습니다."}</div>;
         if(review!==undefined){
@@ -91,10 +102,11 @@ class MovieDetail extends React.Component{
             </p>
             </div>
         }
+        //console.log(revenue);
         return (
             <div>
                 <div>
-                <Loading value={this.state.completed} ></Loading>}
+                <Loading value={this.state.completed} load={load}></Loading>}
                 </div>
             <div className="detail">
                 <div className="custom_bg">
@@ -114,7 +126,7 @@ class MovieDetail extends React.Component{
                         </div>
                         <p>{lan==="es-US"?"Release Date: "+release_date:"개봉 일: "+release_date}</p>
                         <p> {lan==="en-US"?"Running Time: "+runtime+"mins":"재생 시간: "+runtime+"분"} </p>
-                        <p>Box Office: ${revenue.toLocaleString()}</p>
+                        <p>Box Office: ${revenue!==undefined?revenue.toLocaleString():0}</p>
                         <div className="movie_link" style={{color:"white"}}>
                             Link Space
                         </div>

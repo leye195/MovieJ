@@ -4,6 +4,11 @@ React 공부 및 포트폴리오를 위해 만들었습니다.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+### Client
+Front-End technologies used in the project
+-React
+-React-Router v5
+
 ## Available Scripts
 
 In the project directory, you can run:

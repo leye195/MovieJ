@@ -1,5 +1,8 @@
 import React from 'react';
 import * as services from '../services/posts'; 
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+
 import '../style/Recommendation.css';
 class Recommendation extends React.Component{
     constructor(props){
@@ -26,15 +29,21 @@ class Recommendation extends React.Component{
         //const{history}=this.props;
         let rr=recommendations.slice(0,10);
         const data_list=rr.map((item)=>{
-            return <div className="recommendation_wrapper" key={item.id} onClick={()=>{}}>
+            return <Card key={item.id}>
+                    <div className="recommendation_wrapper" key={item.id} onClick={()=>{}}>
+                        <CardContent>
                         <a href={`/movie_detail/`+item.id+"/"+lan}>
                             <img alt={item.title} src={"https://image.tmdb.org/t/p/w500"+item.poster_path}></img>
                             <p>{item.title}</p>
                         </a>
-                   </div>
+                        </CardContent>
+                    </div>
+                   </Card>
         })
         return(
+            
             <div className="recommendation">
+               
                 <div className="menu">
                     <h3>{lan==="en-US"?"Recommendations":"추천 영화"}</h3>
                 </div>
@@ -42,6 +51,7 @@ class Recommendation extends React.Component{
                     {data_list}
                 </div>
             </div>
+            
         )
     }
 }
