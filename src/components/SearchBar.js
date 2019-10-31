@@ -1,24 +1,34 @@
 import React from 'react';
+import * as services from '../services/posts'; 
 import '../style/SearchBar.css';
 class SearchBar extends React.Component{
     state={
         focused:false,
         keyword:'',
+        results:[]
     }
     componentDidMount() {
         this.input.addEventListener('focus', this.focus);
         this.input.addEventListener('blur', this.focus);
+    }
+    doSearch=async(key,lan="ko-KR")=>{
+        const search=await services.getSearch(key,lan);
+        this.setState({
+            results:search.data.results
+        })
+        console.log(this.state.results);
     }
     handleChange=(e)=>{
         const{value}=e.target;
         this.setState({
             keyword:value
         });
-        console.log(this.state.keyword);
+        this.doSearch(value);
     }
     handleClick=()=>{
         const{keyword}=this.state;
         console.log("keyword: "+keyword);
+        this.doSearch(keyword);
     }
     handleEnter=(e)=>{
         if(e.charCode===13){

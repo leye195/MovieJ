@@ -15,3 +15,6 @@ export function getReview(r_id){
 export function getRecommendations(id,lan="ko-KR"){
     return axios.get('https://api.themoviedb.org/3/movie/'+id+'/recommendations?api_key=93041e50ffd37dbace90ae54a55c67f3&language='+lan+'&page=1')
 }
+export function getSearch(keyword,lan="ko-KR"){
+    return axios.get("https://api.themoviedb.org/3/search/movie?api_key=93041e50ffd37dbace90ae54a55c67f3&language="+lan+"&query="+keyword+"&include_adult=true")
+}
