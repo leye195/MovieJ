@@ -43,9 +43,7 @@ class SearchBar extends React.Component{
             <div className="search_bar">
                 <section className="search">
                     <div className="sub">
-                        <span>
-                            <i className="material-icons">Search</i>
-                        </span>
+                        
                         <input ref={input => this.input = input} type="text" placeholder="Movie Title"
                             className={['input', this.state.focused && 'input-focused'].join(' ')}
                             onChange={this.handleChange} value={this.state.keyword} 
@@ -53,6 +51,16 @@ class SearchBar extends React.Component{
                         />
                     </div>
                 </section>
+                <div className="search-animation-container">
+                    <div className="search-list-container">
+                        <ul>
+                           <li>11111</li>
+                           <li>22222</li>
+                           <li>33333</li>
+                           <li>44444</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         )
     }
