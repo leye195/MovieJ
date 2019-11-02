@@ -106,7 +106,7 @@ class MovieDetail extends React.Component{
         return (
             <div>
                 <div>
-                <Loading value={this.state.completed} load={load}></Loading>}
+                <Loading value={this.state.completed} load={load}></Loading>
                 </div>
             <div className="detail">
                 <div className="custom_bg">

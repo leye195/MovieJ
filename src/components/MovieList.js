@@ -1,6 +1,5 @@
 import React from 'react';
 import Movie from './Movie';
-import SearchBar from './SearchBar';
 import '../style/MovieList.css';
 import Button from '@material-ui/core/Button';
 import * as services from '../services/posts'; 
@@ -86,14 +85,13 @@ class MovieList extends React.Component{
         })
         return(
         <div>
-            <SearchBar></SearchBar>
             <div className="select_wrapper">
                 <span><b>View </b></span>
                 <select onChange={this.handleView}>
                     <option value="poster">Poster Card</option>
                     <option value="backdrop">Backdrop Card</option>
                 </select>
-                </div>
+            </div>
             <div className="movies_wrapper">
 
                 {movies}

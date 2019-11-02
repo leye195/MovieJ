@@ -1,6 +1,7 @@
 import React from 'react';
 import MovieList from '../components/MovieList';
 import Header from '../components/Header';
+import SearchBar from '../components/SearchBar';
 class Home extends React.Component{
     render(){
         const{match}=this.props;
@@ -15,6 +16,7 @@ class Home extends React.Component{
         return (
             <div>
                 <Header lan={lan_url}></Header>
+                <SearchBar></SearchBar>
                 {movies}
             </div>
         );
