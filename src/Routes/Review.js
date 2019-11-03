@@ -17,7 +17,7 @@ class Review extends React.Component{
         const{match,location}=this.props;
         let tag="";
         const title=new URLSearchParams(location.search).get('title');
-        console.log(match.params);
+        //console.log(match.params);
         if(match.params.r_id===undefined){
             tag=<MovieReviewList id={match.params.id} title={title} lan={match.params.lan}></MovieReviewList>
         }else{
@@ -30,7 +30,6 @@ class Review extends React.Component{
                     <h2>{title}</h2>
                     <h3>← Back to Detail</h3>
                 </div>
-                
                 {tag}
             </div>
         )

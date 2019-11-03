@@ -4,6 +4,7 @@ import * as services from '../services/posts';
 import {Link} from 'react-router-dom';
 import Recommendation from './Recommendation';
 import Loading from './Loading';
+import CastingList from './CastingList';
 import TrendView from './TrendView';
 class MovieDetail extends React.Component{
     constructor(props){
@@ -52,7 +53,6 @@ class MovieDetail extends React.Component{
         const movie_info=await services.getMovieInfo(id,lan);
         const reviews=await services.getReviews(id,lan);
         if(reviews.data.results.length>0){
-            console.log("1111");
             this.setState({
                 info:{
                 id:id,
@@ -88,9 +88,7 @@ class MovieDetail extends React.Component{
         }
         //console.log("--------------------------");
         //console.log(movie_info.data);
-        //console.log("-----------Done-----------");
-        
-        //console.log("-----------Backdrop-----------");
+        //console.log("-----------Done-----------"); 
         //console.log(this.state.backdrop);
         //console.log("-----------Backdrop-----------");
         let detail=document.getElementsByClassName("detail");
@@ -147,9 +145,12 @@ class MovieDetail extends React.Component{
                             Link Space
                         </div>
                     </div>
-                    
                 </div>
                 </div>
+            </div>
+            <div className="casting menu">
+                <h3>Casting</h3>
+                <CastingList></CastingList>
             </div>
             <div className="menu">
                 <h3>{lan==="en-US"?"Review":"리뷰"}</h3>
