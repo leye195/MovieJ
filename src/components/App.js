@@ -12,20 +12,18 @@ function App() {
   return (
     <Router>
       <div className="App">
-
         <Switch>
           <Route exact path="/" component={Home}></Route>
           <Route path="/ko-KR" component={Home}></Route>
           <Route path="/en-US" component={Home}></Route>
           <Route path="/movie_detail/:id/:lan" component={Detail}></Route>
           <Route path="/movie_detail/:id" component={Detail}></Route>
-          <Route path="/movie_review/:id/:r_id" component={Review}></Route>
-          <Route path="/movie_review/:id/" component={Review}></Route>
+          <Route path="/movie_review/:id/:lan/:r_id" component={Review}></Route>
+          <Route path="/movie_review/:id/:lan" component={Review}></Route>
           <Route path="/search" component={Search}></Route>
           <Route component={NoMatch}></Route>
         </Switch>
       </div>
-
     </Router>
   );
 }

@@ -9,24 +9,25 @@ class MovieReviewList extends React.Component{
         }
     }
     componentDidMount(){
-        const{id}=this.props;
-        this.getReviews(id);
+        const{id,lan}=this.props;
+        this.getReviews(id,lan);
     }
-    getReviews=async(id)=>{
-        const reviews=await services.getReviews(id);
-        //console.log(reviews.data.results);
+    getReviews=async(id,lan)=>{
+        const reviews=await services.getReviews(id,lan);
+        console.log(reviews.data.results);
         this.setState({
             reviews:reviews.data.results
         })
     }
     render(){
         const{reviews}=this.state;
-        const{id,title}=this.props;
+        const{id,title,lan}=this.props;
+        console.log(lan);
         const review_list=reviews.map((review)=>{
             return <div key={review.id} className="card">
                         <h2 className="review_author">A review written by {review.author}</h2>
                         <p className="review_content">{review.content}</p>
-                        <Link to={`/movie_review/`+id+`/`+review.id+"?title="+title}>Read more...</Link>
+                        <Link to={`/movie_review/`+id+`/`+lan+`/`+review.id+"?title="+title}>Read more...</Link>
                    </div>
         });
         return(

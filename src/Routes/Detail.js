@@ -9,7 +9,7 @@ class Detail extends React.Component{
         return (
             <div>
                 <Header to="/movie_detail" lan={"/"+match.params.lan} id={"/"+match.params.id}/>
-                <SearchBar></SearchBar>
+                <SearchBar lan={"/"+match.params.lan}></SearchBar>
                 <MovieDetail id={match.params.id} lan={match.params.lan}></MovieDetail>      
             </div>
         );

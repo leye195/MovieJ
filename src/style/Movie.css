@@ -43,6 +43,7 @@
 .posteritem_content{
     position: relative;
     padding:10px;
+    width: 100%;
 }
 .backdropitem_content{
     position: relative;

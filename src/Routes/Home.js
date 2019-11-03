@@ -7,7 +7,7 @@ class Home extends React.Component{
         const{match}=this.props;
         const lan_url=match.url;
         let movies="";
-        console.log(match);
+        console.log(lan_url);
         if(lan_url==="/" || lan_url==="/ko-KR"){
             movies=<MovieList lan="ko-KR"></MovieList>
         }else if(lan_url==="/en-US"){
@@ -15,8 +15,8 @@ class Home extends React.Component{
         }
         return (
             <div>
-                <Header lan={lan_url}></Header>
-                <SearchBar></SearchBar>
+                <Header lan={lan_url==="/"||lan_url==="/ko-KR"?"ko-KR":"en-US"}></Header>
+                <SearchBar lan={lan_url==="/"||lan_url==="/ko-KR"?"ko-KR":"en-US"}></SearchBar>
                 {movies}
             </div>
         );

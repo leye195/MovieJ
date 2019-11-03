@@ -16,7 +16,7 @@ class Movie extends React.Component{
                         <p>{lan==="en-US"?"release date: "+release_date:"개봉 일: "+release_date}</p>
                         <div className="overview_container">
                             <h3>Over View</h3>
-                            <p className="overview">{overview}</p>
+                            <p className="overview">{overview===""?"해당 언어의 줄거리가 존재하지 않습니다":overview}</p>
                         </div>
                         <div className="more">
                             <Link to={`/movie_detail/`+id+lan}>More...</Link>

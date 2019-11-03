@@ -21,7 +21,9 @@ class SearchBar extends React.Component{
     }
     handleChange=(e)=>{
         const{value}=e.target;
+        const{lan}=this.props;
         console.log(value);
+        console.log(lan);
         this.setState({
             keyword:value
         })
@@ -31,7 +33,7 @@ class SearchBar extends React.Component{
             n[1]="search_hide";
             search_list.className=n.join(" ");
         }else{
-            this.doSearch(value);
+            this.doSearch(value,lan);
             let n=search_list.className.split(" ");
             n[1]="search_active";
             search_list.className=n.join(" ");
@@ -40,8 +42,9 @@ class SearchBar extends React.Component{
     }
     handleClick=()=>{
         const{keyword}=this.state;
+        const{lan}=this.props;
         console.log("keyword: "+keyword);
-        window.location.assign('/search?p='+keyword);
+        window.location.assign('/search?p='+keyword+"&language="+lan);
     }
     handleEnter=(e)=>{
         if(e.charCode===13){
