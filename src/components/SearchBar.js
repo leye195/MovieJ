@@ -14,7 +14,6 @@ class SearchBar extends React.Component{
     doSearch=async(key,lan="ko-KR")=>{
         const search=await services.getSearch(key,lan);
         this.setState({
-            //keyword:key,
             results:search.data.results
         })
         console.log(this.state.results);
@@ -22,8 +21,7 @@ class SearchBar extends React.Component{
     handleChange=(e)=>{
         const{value}=e.target;
         const{lan}=this.props;
-        console.log(value);
-        console.log(lan);
+        //console.log(value);console.log(lan);
         this.setState({
             keyword:value
         })
@@ -38,7 +36,6 @@ class SearchBar extends React.Component{
             n[1]="search_active";
             search_list.className=n.join(" ");
         }
-
     }
     handleClick=()=>{
         const{keyword}=this.state;

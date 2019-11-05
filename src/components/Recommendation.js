@@ -50,7 +50,6 @@ class Recommendation extends React.Component{
                     {rr.length===0?(lan!=="ko-KR"?"No recommendation":"추천 영화가 없습니다."):data_list}
                 </div>
             </div>
-            
         )
     }
 }

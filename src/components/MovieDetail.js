@@ -25,7 +25,8 @@ class MovieDetail extends React.Component{
             review:undefined,
             },
             completed:0,
-            load:false
+            load:false,
+            credits:{}
         };
     }
     shouldComponentUpdate(nextProps,nextState){
@@ -52,6 +53,8 @@ class MovieDetail extends React.Component{
     getDetail=async(id,lan)=>{
         const movie_info=await services.getMovieInfo(id,lan);
         const reviews=await services.getReviews(id,lan);
+        const credits=await services.getCredits(id);
+        console.log(credits);
         if(reviews.data.results.length>0){
             this.setState({
                 info:{
@@ -67,7 +70,8 @@ class MovieDetail extends React.Component{
                 tagline:movie_info.data.tagline,
                 revenue:movie_info.data.revenue,
                 review:reviews.data.results[reviews.data.results.length-1]
-                }
+                },
+                credits:credits.data
             })
         }else{
             this.setState({
@@ -83,7 +87,8 @@ class MovieDetail extends React.Component{
                 release_date:movie_info.data.release_date,
                 tagline:movie_info.data.tagline,
                 revenue:movie_info.data.revenue
-                }
+                },
+                credits:credits.data.results
             })
         }
         //console.log("--------------------------");
@@ -98,7 +103,7 @@ class MovieDetail extends React.Component{
             detail[0].style.backgroundImage="url(/Users/yjlee/Documents/WorkSpace/moviej/src/img/collect.gif)";
     }
     render(){
-        const{info,load}=this.state;
+        const{info,load,credits}=this.state;
         const{id,title,overview,vote_average,poster_path,tagline,runtime,release_date,revenue,review}=info;
         const{lan}=this.props;
         //console.log(review);
@@ -116,7 +121,6 @@ class MovieDetail extends React.Component{
             </p>
             </div>
         }
-        //console.log(revenue);
         return (
             <div>
                 <div>
@@ -149,8 +153,8 @@ class MovieDetail extends React.Component{
                 </div>
             </div>
             <div className="casting menu">
-                <h3>Casting</h3>
-                <CastingList></CastingList>
+                <h3>{lan==="en-US"?"Casting":"출연/제작"}</h3>
+                <CastingList credits={credits}></CastingList>
             </div>
             <div className="menu">
                 <h3>{lan==="en-US"?"Review":"리뷰"}</h3>

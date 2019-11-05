@@ -40,18 +40,14 @@ class MovieList extends React.Component{
             movie_list:movies.data.results,
             lan:lan
         });
-        //return movies.data.results;
     }
     handleView=(e)=>{
         console.log(e.target.value);
         this.setState({
             view:e.target.value
         })
-        if(e.target.value==="poster"){
-
-        }else if(e.target.value==="backdrop"){
-
-        }
+        //if(e.target.value==="poster")
+        //}else if(e.target.value==="backdrop")
     }
     handleNext=()=>{
         const{cur_page,total_pages,lan}=this.state;
@@ -93,7 +89,6 @@ class MovieList extends React.Component{
                 </select>
             </div>
             <div className="movies_wrapper">
-
                 {movies}
             </div>
             <div className="btns">
@@ -105,5 +100,4 @@ class MovieList extends React.Component{
         )
     }
 }
-
 export default MovieList;
