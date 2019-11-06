@@ -71,7 +71,7 @@ class SearchBar extends React.Component{
                     <h3>{"Keyword Searches"}</h3>
                     <div className="search-list-container">
                         <ul>
-                           {result}
+                           {results.length>0?result:" No result"}
                         </ul>
                     </div>
                 </div>

@@ -5,6 +5,9 @@ import Review from '../Routes/Review';
 import NoMatch from '../Routes/NoMatch';
 import Search from '../Routes/Search';
 import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
+import {faGithub} from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import '../style/App.css';
 
 function App() {
@@ -23,6 +26,12 @@ function App() {
           <Route path="/search" component={Search}></Route>
           <Route component={NoMatch}></Route>
         </Switch>
+        <footer>
+          CopyRight@YJDaniel
+          <div>
+            <a className="giticon" href="https://github.com/leye195"><FontAwesomeIcon icon={faGithub} size="2x"></FontAwesomeIcon></a>
+          </div>
+        </footer>
       </div>
     </Router>
   );
