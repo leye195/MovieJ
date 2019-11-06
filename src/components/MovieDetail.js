@@ -32,8 +32,6 @@ class MovieDetail extends React.Component{
     shouldComponentUpdate(nextProps,nextState){
         return nextState!==this.state;
     }
-    componentDidUpdate(){
-    }
     componentDidMount(){
         this.timer=setInterval(this.progress,30);
         const{id,lan}=this.props;
@@ -53,8 +51,7 @@ class MovieDetail extends React.Component{
     getDetail=async(id,lan)=>{
         const movie_info=await services.getMovieInfo(id,lan);
         const reviews=await services.getReviews(id,lan);
-        const credits=await services.getCredits(id);
-        console.log(credits);
+        //console.log(credits);
         if(reviews.data.results.length>0){
             this.setState({
                 info:{
@@ -70,8 +67,7 @@ class MovieDetail extends React.Component{
                 tagline:movie_info.data.tagline,
                 revenue:movie_info.data.revenue,
                 review:reviews.data.results[reviews.data.results.length-1]
-                },
-                credits:credits.data
+                }
             })
         }else{
             this.setState({
@@ -87,15 +83,13 @@ class MovieDetail extends React.Component{
                 release_date:movie_info.data.release_date,
                 tagline:movie_info.data.tagline,
                 revenue:movie_info.data.revenue
-                },
-                credits:credits.data.results
+                }
             })
         }
         //console.log("--------------------------");
         //console.log(movie_info.data);
         //console.log("-----------Done-----------"); 
         //console.log(this.state.backdrop);
-        //console.log("-----------Backdrop-----------");
         let detail=document.getElementsByClassName("detail");
         if(this.state.info.backdrop!==undefined)
             detail[0].style.backgroundImage="url(https://image.tmdb.org/t/p/w500"+this.state.info.backdrop+")";
@@ -103,10 +97,9 @@ class MovieDetail extends React.Component{
             detail[0].style.backgroundImage="url(/Users/yjlee/Documents/WorkSpace/moviej/src/img/collect.gif)";
     }
     render(){
-        const{info,load,credits}=this.state;
+        const{info,load}=this.state;
         const{id,title,overview,vote_average,poster_path,tagline,runtime,release_date,revenue,review}=info;
         const{lan}=this.props;
-        //console.log(review);
         var review_tag=<div className="review_notice">{lan==="en-US"?"Sorry, We do not have any reviews for this movie":"리뷰가 없습니다."}</div>;
         if(review!==undefined){
             review_tag=
@@ -120,7 +113,7 @@ class MovieDetail extends React.Component{
                 <Link to={`/movie_review/`+id+`/`+lan+'?title='+title}>Read All Reviews</Link>
             </p>
             </div>
-        }
+        }   
         return (
             <div>
                 <div>
@@ -153,8 +146,8 @@ class MovieDetail extends React.Component{
                 </div>
             </div>
             <div className="casting menu">
-                <h3>{lan==="en-US"?"Casting":"출연/제작"}</h3>
-                <CastingList credits={credits}></CastingList>
+                <h3>{lan==="en-US"?"Casting":"출연진"}</h3>
+                <CastingList id={this.props.id}></CastingList>
             </div>
             <div className="menu">
                 <h3>{lan==="en-US"?"Review":"리뷰"}</h3>
@@ -172,5 +165,4 @@ class MovieDetail extends React.Component{
         );
     }
 };
-
 export default MovieDetail;

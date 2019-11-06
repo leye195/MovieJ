@@ -50,7 +50,7 @@
     margin-bottom: 0px;
 }
 .search_active{
-    display: block;
+    display: block; 
 }
 .search_hide{
     display: none;

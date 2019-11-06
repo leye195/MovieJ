@@ -3,12 +3,15 @@
     margin: 10px auto;
     z-index: 0;
     box-shadow: 0 2px 19px 3px rgba(0, 0, 0, 0.1);
+    transition:all 2s;
 }
 .backdrop{
     width: 800px;
     margin: 10px auto;
     z-index: 0;
     box-shadow: 0 2px 19px 3px rgba(0, 0, 0, 0.1);
+    transition-timing-function: ease-in-out;;
+    transition:all 2s;
 }
 .poster .movie_container{
     display:flex;
