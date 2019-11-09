@@ -1,8 +1,10 @@
 #loading_wrapper{
-    position: absolute;
+    position: fixed;
     width: 100%;
-    height: 2000px;
+    height: 2700px;
     text-align: center;
     line-height:45;
     background-color: #171414c2;
+    top:0;
+
 }

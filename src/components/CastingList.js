@@ -24,8 +24,9 @@ class CastingList extends React.Component{
     }
     render(){
         const{cast}=this.state;
+        console.log(cast);
         const cast_tag=cast.map((item)=>{
-            return <Cast id={item.cast_id} key={item.cast_id} chacter={item.character} name={item.name} profile={item.profile_path}></Cast>
+            return <Cast id={item.id} key={item.cast_id} chacter={item.character} name={item.name} profile={item.profile_path}></Cast>
         })
         return(
             <div className="cast_container">

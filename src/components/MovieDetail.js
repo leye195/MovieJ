@@ -5,7 +5,6 @@ import {Link} from 'react-router-dom';
 import Recommendation from './Recommendation';
 import Loading from './Loading';
 import CastingList from './CastingList';
-import TrendView from './TrendView';
 class MovieDetail extends React.Component{
     constructor(props){
         super(props);
@@ -146,7 +145,7 @@ class MovieDetail extends React.Component{
                 </div>
             </div>
             <div className="casting menu">
-                <h3>{lan==="en-US"?"Casting":"출연진"}</h3>
+                <h3>{lan==="en-US"?"Actors":"출연진"}</h3>
                 <CastingList id={this.props.id}></CastingList>
             </div>
             <div className="menu">
@@ -157,10 +156,6 @@ class MovieDetail extends React.Component{
             </div>
             <hr></hr>
             <Recommendation id={this.props.id} lan={lan}/>
-            <div className="trend menu">
-                <h3>TrendView</h3>
-                <TrendView/>
-            </div>
             </div>
         );
     }

@@ -21,3 +21,9 @@ export function getSearch(keyword,lan="ko-KR"){
 export function getCredits(id){
     return axios.get("https://api.themoviedb.org/3/movie/"+id+"/credits?api_key=93041e50ffd37dbace90ae54a55c67f3")
 }
+export function movie_credit(person_id,lan="en-US"){
+    return axios.get("https://api.themoviedb.org/3/person/"+person_id+"/movie_credits?api_key=93041e50ffd37dbace90ae54a55c67f3&language="+lan);
+}
+export function get_actor_img(person_id){
+    return axios.get("https://api.themoviedb.org/3/person/"+person_id+"/images?api_key=93041e50ffd37dbace90ae54a55c67f3");
+}

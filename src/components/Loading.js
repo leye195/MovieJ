@@ -4,7 +4,6 @@ import '../style/Loading.css';
 
 class Loading extends React.Component{
     render(){
-        //const{classes}=styles;
         const{value,load}=this.props;
         //console.log(value);
         return(

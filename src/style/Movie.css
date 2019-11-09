@@ -5,6 +5,9 @@
     box-shadow: 0 2px 19px 3px rgba(0, 0, 0, 0.1);
     transition:all 2s;
 }
+.poster:hover{
+    box-shadow: 5px 5px 10px 5px rgba(136, 133, 133, 0.58);
+}
 .backdrop{
     width: 800px;
     margin: 10px auto;
@@ -12,6 +15,9 @@
     box-shadow: 0 2px 19px 3px rgba(0, 0, 0, 0.1);
     transition-timing-function: ease-in-out;;
     transition:all 2s;
+}
+.backdrop:hover{
+    box-shadow: 5px 5px 10px 5px rgba(136, 133, 133, 0.58);
 }
 .poster .movie_container{
     display:flex;
@@ -29,6 +35,8 @@
     border-width: 0px;
     outline: none;
     cursor: pointer;
+}
+.posterimg_contents img:before{
 }
 .backdropimg_contents img{
     display: block;

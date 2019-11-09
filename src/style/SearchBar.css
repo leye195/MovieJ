@@ -1,20 +1,19 @@
 .search_bar{
-    
     border-bottom: 1px solid #dedede;
 }
 .search{
-    height: 40px;
     width: 100%;
     background-color: #fff;
     height: 46px;
-    width: 100%;
-    margin: 0 auto;
+    border-bottom: 1px solid #dedede;
 }
 
 .sub{
     position: relative;
     top: 0;
     left: 0;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .sub span{
@@ -30,13 +29,50 @@
     border-radius: 10px 0px 0px 10px;
     cursor: pointer;
 }
-.sub input[type="text"]{
-    height: 40px;
-    width: 97%;
-    border-right: 1px solid #00000040;
-    padding-left: 30px;
-    padding-right: 30px;
+@media(min-width:375px){
+    .sub input[type="text"]{
+        height: 40px;
+        width: 100%;
+        /* border-right: 1px solid #00000040; */
+        padding-left: 30px;
+        padding-right: 30px;
+        border-radius: 0;
+        padding: 0 30px;
+        /* height: 46px; */
+        box-sizing: border-box;
+        border: none;
+    } 
 }
+@media(min-width:768px){
+    .sub input[type="text"]{
+        font-size: medium;
+        height: 40px;
+        width: 100%;
+        /* border-right: 1px solid #00000040; */
+        padding-left: 30px;
+        padding-right: 30px;
+        border-radius: 0;
+        padding: 0 30px;
+        /* height: 46px; */
+        box-sizing: border-box;
+        border: none;
+    }   
+}
+@media(min-width:1024px){
+    .sub input[type="text"]{
+        height: 40px;
+        width: 100%;
+        /* border-right: 1px solid #00000040; */
+        padding-left: 30px;
+        padding-right: 30px;
+        border-radius: 0;
+        padding: 0 30px;
+        /* height: 46px; */
+        box-sizing: border-box;
+        border: none;
+    } 
+}
+
 .search-animation-container{
     position: absolute;
     display: block;

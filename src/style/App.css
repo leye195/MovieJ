@@ -17,21 +17,56 @@
 .App-link {
   color: #09d3ac;
 }
-.language-container{
-  display: -webkit-inline-box;
-  position: relative;
-  left: 80%;
-  
-  font-weight: 500;
-  font-size: 1.1rem;
+@media(min-width:375px){
+  .language-container{
+    display: -webkit-inline-box;
+    position: relative;
+    left: 50%;
+    font-weight: 500;
+    font-size: 1.1rem;
+  }
+  .language-container span{
+    margin: 7px;
+    padding: 5px;
+    border: 3px solid white;
+    border-radius: 4px;
+    cursor: pointer;
+    color:white;
+  }
 }
-.language-container span{
-  margin: 7px;
-  padding: 5px;
-  border: 3px solid white;
-  border-radius: 4px;
-  cursor: pointer;
-  color:white;
+@media(min-width:768px){
+  .language-container{
+    display: -webkit-inline-box;
+    position: relative;
+    left: 70%;
+    font-weight: 500;
+    font-size: 1.1rem;
+  }
+  .language-container span{
+    margin: 7px;
+    padding: 5px;
+    border: 3px solid white;
+    border-radius: 4px;
+    cursor: pointer;
+    color:white;
+  }
+}
+@media(min-width:1024px){
+  .language-container{
+    display: -webkit-inline-box;
+    position: relative;
+    left: 80%;
+    font-weight: 500;
+    font-size: 1.1rem;
+  }
+  .language-container span{
+    margin: 7px;
+    padding: 5px;
+    border: 3px solid white;
+    border-radius: 4px;
+    cursor: pointer;
+    color:white;
+  }
 }
 footer{
   width: 100%;

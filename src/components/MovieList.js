@@ -9,22 +9,21 @@ class MovieList extends React.Component{
         this.state={
             total_pages:0,
             movie_list:[],
-            cur_page:1,
+            cur_page:0,
             view:"poster",
             lan:'ko-KR',
             completed:0
         }
     }
     shouldComponentUpdate(nextProps,nextState){
-        return this.state!==nextState;
+        return this.state.cur_page!==nextState.cur_page;
     }
     componentDidMount(){
         this.timer=setInterval(this.progress,20);
         const{cur_page}=this.state;
-        this.getMovies(cur_page);
+        this.getMovies(cur_page+1);
     }
     componentWillUnmount(){
-        clearInterval(this.timer);
     }
     progress=()=>{
         const{completed}=this.state;
@@ -38,7 +37,8 @@ class MovieList extends React.Component{
         this.setState({
             total_pages:movies.data.total_pages,
             movie_list:movies.data.results,
-            lan:lan
+            lan:lan,
+            cur_page:page
         });
     }
     handleView=(e)=>{

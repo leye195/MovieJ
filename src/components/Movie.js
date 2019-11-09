@@ -1,15 +1,20 @@
 import React from 'react';
 import '../style/Movie.css';
+import default_movie from '../img/default_movie.png'
 import {Link} from 'react-router-dom';
 class Movie extends React.Component{
+    handleError=()=>{
+        return default_movie;
+    }
     render(){
         const{id,title,release_date,poster,overview,view,lan}=this.props;
         const imgUrl="https://image.tmdb.org/t/p/w500"+poster;
+        console.log(poster);
         return(
             <div className={view}>
                 <div className="movie_container">
                     <div className={view+"img_contents"}>
-                        <Link to={`/movie_detail/`+id+lan}><img alt={title} src={imgUrl}/></Link>
+                        <Link to={`/movie_detail/`+id+lan}><img alt={title} src={imgUrl} onError={this.handleError}/></Link>
                     </div>
                     <div className={view+"item_content"}>
                         <h2 className="item_title">{title}</h2>

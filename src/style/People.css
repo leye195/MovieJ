@@ -1,0 +1,10 @@
+.m_container{
+    display: flex;
+}
+.m_aside{
+    position: static;
+    width: 25%;
+}
+.m_div{
+    width: 75%;
+}
