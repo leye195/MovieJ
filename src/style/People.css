@@ -5,6 +5,15 @@
     position: static;
     width: 25%;
 }
+.m_aside
+.m_aside>div{
+    width: 200px;
+    margin: auto auto;
+}
+.m_aside>div>img{
+    width: 200px;
+    box-sizing: border-box;
+}
 .m_div{
     width: 75%;
 }

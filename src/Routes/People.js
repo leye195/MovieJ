@@ -47,9 +47,11 @@ class People extends React.Component{
                 <Header></Header>
                 <div className="m_container">
                     <aside className="m_aside">
-                        <img src={actor_img} alt="actor"></img>
                         <div>
-                            Name
+                            <img src={actor_img} alt="actor"></img>
+                            <div>
+                                Name
+                            </div>
                         </div>
                     </aside>
                     <section className="m_div">
