@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
+import default_movie from '../img/default_movie.png';
 import '../style/People.css';
 import user from '../img/user.svg'
 import * as services from '../services/posts';
@@ -31,13 +32,13 @@ class People extends React.Component{
     }
     render(){
         const{m_credits,actor_img}=this.state;
-        //console.log(m_credits);
+        console.log(m_credits);
         const item_list=m_credits.map((item)=>(
-                <div key={item.id} id={item.id}>
-                <img src={"https://image.tmdb.org/t/p/w500"+item.poster_path} alt={item.title}/>
+            <div className="m_item" key={item.id} id={item.id}>
+                <img src={item.poster_path!==null?"https://image.tmdb.org/t/p/w500"+item.poster_path:default_movie} alt={item.title}/>
                 <div>
                     <p>{item.title}</p>
-                    <p>{item.character}</p>
+                    <p>{item.character!==""?item.character:"None"}</p>
                 </div>
             </div>
         ))
@@ -55,7 +56,7 @@ class People extends React.Component{
                         </div>
                     </aside>
                     <section className="m_div">
-                        <div>
+                        <div className="m_wrapper"> 
                             {item_list}
                         </div>
                     </section>
