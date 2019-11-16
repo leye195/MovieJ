@@ -1,30 +1,26 @@
 import React from 'react';
 import * as services from '../services/posts'; 
 import '../style/SearchBar.css';
+import {connect} from 'react-redux';  
+import * as actions from '../actions';
 class SearchBar extends React.Component{
-    state={
-        focused:false,
-        keyword:'',
-        results:[],
-    }
-    componentDidMount() {
-        this.input.addEventListener('focus', this.focus);
-        this.input.addEventListener('blur', this.focus);
-    }
+    componentDidMount() {}
     doSearch=async(key,lan="ko-KR")=>{
         const search=await services.getSearch(key,lan);
-        this.setState({
-            results:search.data.results
-        })
-        console.log(this.state.results);
+        //this.setState({
+          //  results:search.data.results
+        //})
+        this.props.handleSearch(search.data.results);
     }
     handleChange=(e)=>{
         const{value}=e.target;
         const{lan}=this.props;
         //console.log(value);console.log(lan);
-        this.setState({
-            keyword:value
-        })
+        //this.setState({
+          //  keyword:value
+        //})
+        this.props.handleInput(value);
+        console.log(this.props.keyword);
         let search_list=document.querySelector(".search-animation-container");
         if(value===""){
             let n=search_list.className.split(" ");
@@ -38,7 +34,7 @@ class SearchBar extends React.Component{
         }
     }
     handleClick=()=>{
-        const{keyword}=this.state;
+        const{keyword}=this.props;
         const{lan}=this.props;
         console.log("keyword: "+keyword);
         window.location.assign('/search?p='+keyword+"&language="+lan);
@@ -48,21 +44,18 @@ class SearchBar extends React.Component{
             this.handleClick()
         }
     }
-    focus=()=>{
-        this.setState((state) => ({ focused: !state.focused }))
-    }
     render(){
-        const{results}=this.state;
+        const results=this.props.results;
         const result=results.map((item)=>{
-            return <li key={item.id} id={item.id}><a href={"/search?p="+encodeURI(item.title)}>{item.title}</a></li>
+           return <li key={item.id} id={item.id}><a href={"/search?p="+encodeURI(item.title)}>{item.title}</a></li>
         })
         return(
             <div className="search_bar">
                 <section className="search">
                     <div className="sub">
                         <input ref={input => this.input = input} type="text" placeholder="Movie Title"
-                            className={['input', this.state.focused && 'input-focused'].join(' ')}
-                            onChange={this.handleChange} value={this.state.keyword} 
+                            className={'input'}
+                            onChange={this.handleChange} value={this.props.keyword} 
                             onKeyPress={this.handleEnter}
                         />
                     </div>
@@ -79,4 +72,16 @@ class SearchBar extends React.Component{
         )
     }
 }
-export default SearchBar;
+const mapStateToProps=(state)=>{
+    return{
+        keyword:state.search.keyword,
+        results:state.search.results
+    };
+}
+const mapDispatchToProps=(dispatch)=>{
+    return{
+        handleInput:(keyword)=>{dispatch(actions.get_keyword(keyword))},
+        handleSearch:(results)=>{dispatch(actions.search(results))}
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(SearchBar);
