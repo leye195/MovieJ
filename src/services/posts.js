@@ -27,3 +27,6 @@ export function movie_credit(person_id,lan="en-US"){
 export function get_actor_img(person_id){
     return axios.get("https://api.themoviedb.org/3/person/"+person_id+"/images?api_key=93041e50ffd37dbace90ae54a55c67f3");
 }
+export function get_actor_info(person_id){
+    return axios.get("https://api.themoviedb.org/3/person/"+person_id+"?api_key=93041e50ffd37dbace90ae54a55c67f3");
+}

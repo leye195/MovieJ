@@ -19,7 +19,7 @@
     width: 75%;
 }
 .m_wrapper div{
-    display: inline-block;
+    display: inline-table;
 }
 
 @media(min-width:768px){
@@ -34,7 +34,7 @@
 }
 @media(min-width:1440px){
     .m_div img{
-        width: 400px;
+        width: 300px;
         height: 400px;
     }
     .m_aside>div>img{
@@ -61,4 +61,34 @@
 .m_item div{
     display: block;
     margin-top: 10px;
+    width: 300px;
+}
+.actor_info[arial-expanded=false]{
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+    transition: height 200ms;
+}
+.actor_info[arial-expanded=true]{
+    position: relative;
+    height: 390px;
+    
+}
+.shade{
+    width: 65%;
+    height: 100%;
+    position: absolute;
+    background-image: -webkit-linear-gradient(top,rgba(243,243,243,0) 0%,#fff 100%);
+    top: auto;
+    bottom: 0;
+    visibility: visible;
+}
+.actor_info p{
+    font-size: 20px;
+    line-height: 1.428571429;
+    color: #333;
+    width: 65%;
+}
+.m_div div>span{
+    cursor: pointer;
 }
