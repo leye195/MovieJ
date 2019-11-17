@@ -4,7 +4,6 @@ import './style/index.css';
 import App from './components/App';
 import {createStore} from 'redux';
 import reducers from './reducers';
-import * as actions from './actions';
 import {Provider} from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 

@@ -1,13 +1,29 @@
 import * as types from './ActionTypes';
 
-export function nextbtn(){
+export function nextbtn(cur_page){
     return {
-        type:types.NEXT_BTN
+        type:types.NEXT_BTN,
+        cur_page
     };
 }
-export function previousbtn(){
+export function previousbtn(cur_page){
     return{
-        type:types.PREVIOUS_BTN
+        type:types.PREVIOUS_BTN,
+        cur_page
+    };
+}
+export function view(view){
+    return{
+        type:types.VIEW,
+        view
+    }
+}
+export function get_movielist(movie_list,total_pages,cur_page){
+    return{
+        type:types.MOVIELIST,
+        movie_list,
+        total_pages,
+        cur_page,
     };
 }
 export function get_keyword(keyword){
@@ -20,6 +36,11 @@ export function search(results){
     return{
         type:types.SEARCH,
         results,
-
     };
+}
+export function language(lan){
+    return{
+        type:types.LANGUAGE,
+        lan
+    }
 }

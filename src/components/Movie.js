@@ -9,7 +9,7 @@ class Movie extends React.Component{
     render(){
         const{id,title,release_date,poster,overview,view,lan}=this.props;
         const imgUrl="https://image.tmdb.org/t/p/w500"+poster;
-        console.log(poster);
+        //console.log(poster);
         return(
             <div className={view}>
                 <div className="movie_container">

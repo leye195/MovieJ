@@ -5,22 +5,21 @@ import {connect} from 'react-redux';
 import * as actions from '../actions';
 class SearchBar extends React.Component{
     componentDidMount() {}
-    doSearch=async(key,lan="ko-KR")=>{
-        const search=await services.getSearch(key,lan);
-        //this.setState({
-          //  results:search.data.results
-        //})
+
+    /*** 
+     *  Function: doSearch(key,lan)
+     *  ajax 통신을 통해 api에서 데이터를 가져옴  
+     ***/
+    doSearch=async(keyword,lan="ko-KR")=>{
+        const search=await services.getSearch(keyword,lan);
+        //this.setState({results:search.data.results})
         this.props.handleSearch(search.data.results);
     }
     handleChange=(e)=>{
         const{value}=e.target;
         const{lan}=this.props;
-        //console.log(value);console.log(lan);
-        //this.setState({
-          //  keyword:value
-        //})
+        //this.setState({keyword:value})
         this.props.handleInput(value);
-        console.log(this.props.keyword);
         let search_list=document.querySelector(".search-animation-container");
         if(value===""){
             let n=search_list.className.split(" ");
@@ -34,15 +33,12 @@ class SearchBar extends React.Component{
         }
     }
     handleClick=()=>{
-        const{keyword}=this.props;
-        const{lan}=this.props;
-        console.log("keyword: "+keyword);
+        const{keyword,lan}=this.props;
+        //console.log("keyword: "+keyword);
         window.location.assign('/search?p='+keyword+"&language="+lan);
     }
     handleEnter=(e)=>{
-        if(e.charCode===13){
-            this.handleClick()
-        }
+        if(e.charCode===13){this.handleClick()}
     }
     render(){
         const results=this.props.results;

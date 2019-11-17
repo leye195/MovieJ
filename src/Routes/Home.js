@@ -2,16 +2,26 @@ import React from 'react';
 import MovieList from '../components/MovieList';
 import Header from '../components/Header';
 import SearchBar from '../components/SearchBar';
+import * as actions from '../actions';
+import {connect} from 'react-redux';  
 class Home extends React.Component{
+    shouldComponentUpdate(nextProps,nextState){
+        const url=this.props.match.url;
+        if(url.substr(1,url.length)!==this.props.lan){
+            this.props.handleLanguage(url.substr(1,url.length));
+            console.log(this.props.lan+"?");
+            return true;
+        }
+        return false;
+    }
     render(){
-        const{match}=this.props;
-        const lan_url=match.url;
+        const lan_url=this.props.match.url;
         let movies="";
-        //console.log(lan_url);
+        console.log(lan_url+":");
         if(lan_url==="/" || lan_url==="/ko-KR"){
-            movies=<MovieList lan="ko-KR"></MovieList>
+            movies=<MovieList lang="ko-KR"></MovieList>
         }else if(lan_url==="/en-US"){
-            movies=<MovieList lan="en-US"></MovieList>
+            movies=<MovieList lang="en-US"></MovieList>
         }
         return (
             <div>
@@ -24,5 +34,16 @@ class Home extends React.Component{
         );
     }
 };
-
-export default Home;
+const mapStateToProps=(state)=>{
+    return{
+        lan:state.movielist.lan,
+    };
+}
+const mapDispatchToProps=(dispatch)=>{
+    return{
+        handleLanguage:(lan)=>{
+            dispatch(actions.language(lan))
+        }
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Home);
