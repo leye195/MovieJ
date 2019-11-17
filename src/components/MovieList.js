@@ -8,9 +8,8 @@ import * as services from '../services/posts';
 
 class MovieList extends React.Component{
     shouldComponentUpdate(nextProps,nextState){
-        if(this.props.lan!==nextProps.lan){
+        if(this.props.lan!==nextProps.lan)
             return true;
-        }
         if(this.props.cur_page!==nextProps.cur_page)
             return true;
         if(this.props.view!==nextProps.view)

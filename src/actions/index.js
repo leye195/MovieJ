@@ -44,3 +44,9 @@ export function language(lan){
         lan
     }
 }
+export function actor_info(actor){
+    return{
+        type:types.ACTOR_INFO,
+        actor
+    }
+}

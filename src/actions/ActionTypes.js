@@ -5,3 +5,5 @@ export const MOVIELIST="MOVIELIST";
 export const KEYWORD="KEYWORD";
 export const SEARCH="SEARCH";
 export const LANGUAGE="LANGUAGE";
+export const ACTOR_INFO="ACTOR_INFO";
+export const ACTOR_IMG="ACTOR_IMG";
