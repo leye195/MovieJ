@@ -21,8 +21,7 @@ class MovieDetail extends React.Component{
             release_date:"",
             tagline:"",
             revenue:0,
-            review:undefined,
-            },
+            review:undefined,},
             completed:0,
             load:false,
             credits:{}
@@ -34,7 +33,6 @@ class MovieDetail extends React.Component{
     componentDidMount(){
         this.timer=setInterval(this.progress,30);
         const{id,lan}=this.props;
-        //this.getReviews(id,lan);
         this.getDetail(id,lan);
         this.setState({
             load:true
@@ -50,7 +48,6 @@ class MovieDetail extends React.Component{
     getDetail=async(id,lan)=>{
         const movie_info=await services.getMovieInfo(id,lan);
         const reviews=await services.getReviews(id,lan);
-        //console.log(credits);
         if(reviews.data.results.length>0){
             this.setState({
                 info:{
@@ -85,10 +82,6 @@ class MovieDetail extends React.Component{
                 }
             })
         }
-        //console.log("--------------------------");
-        //console.log(movie_info.data);
-        //console.log("-----------Done-----------"); 
-        //console.log(this.state.backdrop);
         let detail=document.getElementsByClassName("detail");
         if(this.state.info.backdrop!==undefined)
             detail[0].style.backgroundImage="url(https://image.tmdb.org/t/p/w500"+this.state.info.backdrop+")";
