@@ -13,6 +13,9 @@
     padding-bottom: 16px;
     padding-right: 40px;
 }
+.recommendation_container::-webkit-scrollbar{
+    display: none;
+}
 .recommendation_wrapper{
     margin: 10px;
     cursor: pointer;

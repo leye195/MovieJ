@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../components/Header';
+import SearchBar from '../components/SearchBar';
 //import Loading from '../components/Loading';
 import default_movie from '../img/default_movie.png';
 import '../style/People.css';
@@ -49,12 +50,12 @@ class People extends React.Component{
             shade.style.visibility="visible";
             
         }
-        console.log(ele);
+        //console.log(ele);
     }
     render(){
         const{m_credits,actor_img,actor_info}=this.state;
-        const item_list=m_credits.map((item)=>(
-            <div className="m_item" key={item.id} id={item.id}>
+        const item_list=m_credits.map((item,i)=>(
+            <div className="m_item" key={i} id={i}>
                 <img src={item.poster_path!==null?"https://image.tmdb.org/t/p/w500"+item.poster_path:default_movie} alt={item.title}/>
                 <div>
                     <p>{item.title}</p>
@@ -66,22 +67,25 @@ class People extends React.Component{
         return(
             <div>
                 <Header></Header>
+                <SearchBar></SearchBar>
                 <div className="m_container">
                     <aside className="m_aside">
                         <div>
                             <img src={actor_img} alt="actor"></img>
+                            <p><a href="#overview">Biography</a></p>
+                            <p><a href="#credits">Credits</a></p>                        
                         </div>
                     </aside>
-                    <section className="m_div">
+                    <section className="m_div" onScroll={this.handleShowup}>
                         <div>
                             <h1>{actor_info.name}</h1>
-                            <div className="actor_info" arial-expanded="false">
+                            <div className="actor_info" id="overview" arial-expanded="false">
                                 <div className="shade" ></div>
                                 <p>{actor_info.biography}</p>
                             </div>
                             <span data-read-more-toggle="overview" more="false" onClick={this.data_more}>Read more</span>
                         </div>
-                        <h2>Credits</h2>
+                        <h2 id="credits">Credits</h2>
                         <div className="m_wrapper"> 
                             {item_list}
                         </div>

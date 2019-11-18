@@ -5,6 +5,9 @@
     overflow-x: auto;
     overflow-y: hidden;
 }
+.cast_container::-webkit-scrollbar{
+    display: none;
+}
 .cast_item{
     margin: 5px;
     padding:5px;
