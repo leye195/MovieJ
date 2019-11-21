@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/MovieJ/static/css/main.d983cca2.chunk.css",
+    "main.js": "/MovieJ/static/js/main.53b46239.chunk.js",
+    "main.js.map": "/MovieJ/static/js/main.53b46239.chunk.js.map",
+    "runtime-main.js": "/MovieJ/static/js/runtime-main.66447fc6.js",
+    "runtime-main.js.map": "/MovieJ/static/js/runtime-main.66447fc6.js.map",
+    "static/js/2.441bf977.chunk.js": "/MovieJ/static/js/2.441bf977.chunk.js",
+    "static/js/2.441bf977.chunk.js.map": "/MovieJ/static/js/2.441bf977.chunk.js.map",
+    "index.html": "/MovieJ/index.html",
+    "precache-manifest.c16ed3cb0cc7e91b8f5c7ba99ede4011.js": "/MovieJ/precache-manifest.c16ed3cb0cc7e91b8f5c7ba99ede4011.js",
+    "service-worker.js": "/MovieJ/service-worker.js",
+    "static/css/main.d983cca2.chunk.css.map": "/MovieJ/static/css/main.d983cca2.chunk.css.map",
+    "static/media/powered_by_rectangle_green.svg": "/MovieJ/static/media/powered_by_rectangle_green.27b65cb4.svg",
+    "static/media/user.svg": "/MovieJ/static/media/user.ac194a4b.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.66447fc6.js",
+    "static/js/2.441bf977.chunk.js",
+    "static/css/main.d983cca2.chunk.css",
+    "static/js/main.53b46239.chunk.js"
+  ]
+}
