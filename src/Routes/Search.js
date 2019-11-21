@@ -32,26 +32,27 @@ class Search extends React.Component{
         const{location}=this.props;
         const{results,page}=this.state;
         const query=new URLSearchParams(location.search);
-        //const lan=match;
+        const lan=query.get('language');
         console.log("location: "+query);
         const result_list=results.map((movie)=>{
             return <Movie id={movie.id} key={movie.id} title={movie.title} release_date={movie.release_date} 
-                    poster={movie.poster_path} overview={movie.overview} view={"poster"} lan={"/"+query.get('language')}></Movie>
+                    poster={movie.poster_path} overview={movie.overview} view={"poster"} 
+                    lan={"/"+lan} avg_rate={movie.vote_average}></Movie>
 
         })
         return(
             <div>
-                <Header lan={query.get("language")==="ko-KR"?"ko-KR":"en-US"}></Header>
-                <SearchBar lan={query.get("language")==="ko-KR"?"ko-KR":"en-US"}></SearchBar>
+                <Header lan={lan==="ko-KR"?"ko-KR":"en-US"}></Header>
+                <SearchBar lan={lan==="ko-KR"?"ko-KR":"en-US"}></SearchBar>
                 <div className="search_results_container" style={{padding:"10px"}}> 
                     <h2>
                         Search > Results
                     </h2>
                     {result_list}
                     <div className="btns">
-                    <Button variant="contained" color="primary" onClick={this.handlePrev}>Previous</Button>
+                    <Button variant="contained" color="primary" onClick={this.handlePrev}>{lan!=="ko-KR"?'Previous':'이전'}</Button>
                     <span><b>{page}</b></span>
-                    <Button variant="contained" color="primary" onClick={this.handleNext}>Next</Button>
+                    <Button variant="contained" color="primary" onClick={this.handleNext}>{lan!=="ko-KR"?'Previous':'다음'}</Button>
             </div>
                 </div>
             </div>

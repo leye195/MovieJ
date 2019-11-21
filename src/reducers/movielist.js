@@ -3,12 +3,14 @@ import * as types from '../actions/ActionTypes';
 const initialState={
     total_pages:0,
     movie_list:[],
-    cur_page:0,
+    cur_page:-1,
     lan:"ko-KR",
     view:"poster",
 }
 export default function movielist(state=initialState,action){
     switch(action.type){
+        case types.PAGE:
+            return {...state,cur_page:action.cur_page};
         case types.NEXT_BTN:
             return{...state,cur_page:action.cur_page+1};
         case types.PREVIOUS_BTN:

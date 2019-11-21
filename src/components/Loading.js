@@ -4,16 +4,13 @@ import '../style/Loading.css';
 
 class Loading extends React.Component{
     render(){
-        const{value,load}=this.props;
-        //console.log(value);
+        const{value}=this.props;
         return(
             <div>
-                {
-                value<100||load===false?
+                {value<100?
                 <div id="loading_wrapper">
                     <CircularProgress  color="secondary" value={this.props.value} variant="determinate"></CircularProgress>
-                </div>:<div></div>
-                }
+                </div>:<div></div>}
             </div>
         )
     }

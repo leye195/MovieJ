@@ -7,9 +7,8 @@ class Movie extends React.Component{
         return default_movie;
     }
     render(){
-        const{id,title,release_date,poster,overview,view,lan}=this.props;
+        const{id,title,release_date,poster,overview,view,lan,avg_rate}=this.props;
         const imgUrl="https://image.tmdb.org/t/p/w500"+poster;
-        //console.log(poster);
         return(
             <div className={view}>
                 <div className="movie_container">
@@ -17,10 +16,12 @@ class Movie extends React.Component{
                         <Link to={`/movie_detail/`+id+lan}><img alt={title} src={imgUrl} onError={this.handleError}/></Link>
                     </div>
                     <div className={view+"item_content"}>
-                        <h2 className="item_title">{title}</h2>
+                        <div>
+                            <h2 className="item_title">{title}</h2>
+                            <h3 className="item_rate">{`${avg_rate}/10`}</h3>
+                        </div>
                         <p>{lan==="en-US"?"release date: "+release_date:"개봉 일: "+release_date}</p>
                         <div className="overview_container">
-                            <h3>Over View</h3>
                             <p className="overview">{overview===""?"해당 언어의 줄거리가 존재하지 않습니다":overview}</p>
                         </div>
                         <div className="more">

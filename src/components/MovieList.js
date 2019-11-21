@@ -1,5 +1,6 @@
 import React from 'react';
 import Movie from './Movie';
+import Loading from './Loading';
 import '../style/MovieList.css';
 import Button from '@material-ui/core/Button';
 import {connect} from 'react-redux';  
@@ -14,49 +15,80 @@ class MovieList extends React.Component{
             return true;
         if(this.props.view!==nextProps.view)
             return true;
+        if(this.props.completed!==nextProps.completed)
+            return true;
         return false;
     }
     componentDidMount(){
-        const{cur_page}=this.props;
-        this.getMovies(cur_page+1);
+        this.timer=setInterval(this.progress,30);
+        let cur_page=localStorage.cur_page;
+        //console.log("From MovieList: "+cur_page);
+        if(!cur_page)
+            cur_page=this.props.cur_page;
+        if(cur_page===-1)
+            this.getMovies(1);
+        else
+            this.getMovies(cur_page);
     }
-    componentWillUnmount(){}
+    componentDidUpdate(prevProps,prevState){
+        if(prevProps.cur_page!==this.props.cur_page)
+            localStorage.cur_page=this.props.cur_page;
+    }
+    componentWillUnmount() {
+        clearInterval(this.timer);
+    }       
+    progress = () => {
+        const { completed } = this.props;
+        if(completed >= 100)
+            clearInterval(this.timer)
+        else
+            this.props.page_loading(completed+1);
+    };
     getMovies=async(page)=>{
         const lan=this.props.lang;
-        console.log(lan+"::");
         const movies=await services.getAllMovies(page,lan);
+        console.log(movies);
         this.props.handleMovielist(movies.data.results,movies.data.total_pages,page);
     }
     ChangeView=(e)=>{
-        //console.log(e.target.value);
         this.props.handleView(e.target.value);
+    }
+    To_first=()=>{
+        this.getMovies(1);
+    }
+    To_end=()=>{
+        const{total_pages}=this.props;
+        this.getMovies(total_pages);
     }
     onNext=()=>{
         const{cur_page,total_pages}=this.props;
-        //console.log("Next");
         if(cur_page<total_pages){
-            this.getMovies(cur_page+1);
+            this.getMovies(Number(cur_page)+1);
         }else{
             alert("Done");
         }
     }
     onPrev=()=>{
         const{cur_page}=this.props;
-        //console.log("Prev");
         if(cur_page>1){
-            this.getMovies(cur_page-1);
+            this.getMovies(Number(cur_page)-1);
         }else{
             alert("Page can not less than 1");
         }
     }
     render(){
-        const{movie_list,cur_page,view,lan,total_pages}=this.props;
+        const{movie_list,cur_page,view,lan,total_pages,completed}=this.props;
         const movies=movie_list.map((movie,i)=>{
             return <Movie id={movie.id} key={movie.id} title={movie.title} release_date={movie.release_date} 
-                    poster={view==="poster"?movie.poster_path:movie.backdrop_path} overview={movie.overview} view={view} lan={"/"+lan}></Movie>
+                    poster={view==="poster"?movie.poster_path:movie.backdrop_path} 
+                    overview={movie.overview} view={view} lan={"/"+lan} avg_rate={movie.vote_average}>
+                    </Movie>
         })
         return(
         <div>
+            <div>
+                <Loading value={completed }></Loading>
+            </div>
             <div className="select_wrapper">
                 <span><b>View </b></span>
                 <select onChange={this.ChangeView}>
@@ -68,9 +100,20 @@ class MovieList extends React.Component{
                 {movies}
             </div>
             <div className="btns">
-                <Button variant="contained" color="primary" onClick={this.onPrev}>Previous</Button>
+                <Button onClick={this.To_first}>
+                {lan!=="ko-KR"?'To First':'처음'}
+                </Button>
+                <Button variant="contained" color="primary" onClick={this.onPrev}>
+                    {lan!=="ko-KR"?'Previous':'이전'}
+                </Button>
                 <span><b>{`${cur_page}/${total_pages}`}</b></span>
-                <Button variant="contained" color="primary" onClick={this.onNext}>Next</Button>
+                <Button variant="contained" color="primary" onClick={this.onNext}>
+                {lan!=="ko-KR"?'Next':'다음'}
+                </Button>
+                <Button onClick={this.To_end}>
+                {lan!=="ko-KR"?'To End':'마지막'}
+                </Button>
+
             </div>
         </div>
         )
@@ -83,21 +126,22 @@ const mapStateToProps=(state)=>{
         cur_page:state.movielist.cur_page,
         view:state.movielist.view,
         lan:state.movielist.lan,
+        completed:state.load.completed
     };
 }
 const mapDispatchToProps=(dispatch)=>{
     return{
-        handlePrev:(cur_page)=>{
-            dispatch(actions.previousbtn(cur_page))
-        },
-        handleNext:(cur_page)=>{
-            dispatch(actions.nextbtn(cur_page))
+        handlePage:(cur_page)=>{
+            dispatch(actions.page(cur_page))
         },
         handleView:(view)=>{
             dispatch(actions.view(view))
         },
         handleMovielist:(movie_list,total_pages,cur_page)=>{
             dispatch(actions.get_movielist(movie_list,total_pages,cur_page))
+        },
+        page_loading:(completed)=>{
+            dispatch(actions.loading(completed))
         }
     }
 }

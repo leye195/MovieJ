@@ -1,5 +1,11 @@
 import * as types from './ActionTypes';
 
+export function page(cur_page){
+    return {
+        type:types.PAGE,
+        cur_page
+    };
+}
 export function nextbtn(cur_page){
     return {
         type:types.NEXT_BTN,
@@ -48,5 +54,11 @@ export function actor_info(actor){
     return{
         type:types.ACTOR_INFO,
         actor
+    }
+}
+export function loading(completed){
+    return{
+        type:types.LOADING,
+        completed
     }
 }

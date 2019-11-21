@@ -48,13 +48,23 @@
     cursor: pointer;
 }
 .item_title{
+    display: inline-block;
     font-size:2.0rem;
     margin-top: 10px;
+    margin-bottom: 0px;
+}
+.item_rate{
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .posteritem_content{
     position: relative;
     padding:10px;
     width: 100%;
+}
+.posteritem_content p{
+    margin: 0;
 }
 .backdropitem_content{
     position: relative;
@@ -81,12 +91,11 @@
 .overview_container p{
     word-wrap: break-word;
     font-size: 1.0rem;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     color: #4d4d4d;
     font-size: 1.2em;
     line-height: 1.2em;
-    margin-top: 30px;
+    margin-top: 40px;
     display: -webkit-box;
     -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
