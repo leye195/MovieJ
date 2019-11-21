@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8fe182fff3c26c2ce02697025048fd19",
+    "revision": "4a5454b12c443f56015358705468a186",
     "url": "/MovieJ/index.html"
   },
   {
-    "revision": "a044165bdcc6ad12eb8d",
+    "revision": "477230b6d427c77a5b86",
     "url": "/MovieJ/static/css/main.d983cca2.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/MovieJ/static/js/2.441bf977.chunk.js"
   },
   {
-    "revision": "a044165bdcc6ad12eb8d",
-    "url": "/MovieJ/static/js/main.a059fb93.chunk.js"
+    "revision": "477230b6d427c77a5b86",
+    "url": "/MovieJ/static/js/main.2b7939b0.chunk.js"
   },
   {
     "revision": "39f14567b84e30a9d2aa",
