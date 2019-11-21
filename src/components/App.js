@@ -8,6 +8,8 @@ import People from '../Routes/People';
 import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
 import {faGithub} from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import powered_by_rectangle_green from '../img/powered_by_rectangle_green.svg'
+
 
 import '../style/App.css';
 
@@ -29,9 +31,10 @@ function App() {
           <Route component={NoMatch}></Route>
         </Switch>
         <footer>
-          CopyRight@YJDaniel
+          <a className="giticon" href="https://github.com/leye195"><FontAwesomeIcon icon={faGithub} size="2x"></FontAwesomeIcon></a>
+          <p style={{marginTop:"0px"}}>CopyRight@YJDaniel</p>            
           <div>
-            <a className="giticon" href="https://github.com/leye195"><FontAwesomeIcon icon={faGithub} size="2x"></FontAwesomeIcon></a>
+            <img src={powered_by_rectangle_green} alt="tmdb" style={{width:"150px"}}></img>
           </div>
         </footer>
       </div>

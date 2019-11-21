@@ -19,6 +19,7 @@ html{
 .App-link {
   color: #09d3ac;
 }
+
 @media(min-width:375px){
   .language-container{
     display: -webkit-inline-box;

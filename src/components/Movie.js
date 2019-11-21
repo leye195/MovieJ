@@ -3,6 +3,7 @@ import '../style/Movie.css';
 import default_movie from '../img/default_movie.png'
 import {Link} from 'react-router-dom';
 class Movie extends React.Component{
+    //default img 설정
     handleError=()=>{
         return default_movie;
     }
@@ -13,21 +14,21 @@ class Movie extends React.Component{
             <div className={view}>
                 <div className="movie_container">
                     <div className={view+"img_contents"}>
-                        <Link to={`/movie_detail/`+id+lan}><img alt={title} src={imgUrl} onError={this.handleError}/></Link>
+                        <Link to={`/movie_detail/`+id+'/'+lan}><img alt={title} src={imgUrl} onError={this.handleError}/></Link>
                     </div>
                     <div className={view+"item_content"}>
                         <div>
                             <h2 className="item_title">{title}</h2>
                         </div>
                         <div>
-                            <p><strong>{lan==="en-US"?"release date: "+release_date:"개봉 일: "+release_date}</strong></p>
+                            <p><strong>{lan==="en-US"?"Release Date: "+release_date:"개봉 일: "+release_date}</strong></p>
                             <h3 className="item_rate">{`${avg_rate}/10`}</h3>    
                         </div>
                         <div className="overview_container">
                             <p className="overview">{overview===""?"해당 언어의 줄거리가 존재하지 않습니다":overview}</p>
                         </div>
                         <div className="more">
-                            <Link to={`/movie_detail/`+id+lan}>More...</Link>
+                            <Link to={`/movie_detail/`+id+'/'+lan}>{lan==="en-US"?"More...":"더 보기..."}</Link>
                         </div>
                     </div>
                 </div>

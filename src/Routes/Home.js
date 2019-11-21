@@ -5,24 +5,30 @@ import SearchBar from '../components/SearchBar';
 import * as actions from '../actions';
 import {connect} from 'react-redux';  
 class Home extends React.Component{
-    shouldComponentUpdate(nextProps,nextState){
+    constructor(props){
+        super(props)
+        const url=this.props.match.url;
+        this.props.handleLanguage(url.substr(1,url.length));
+    }
+    /*shouldComponentUpdate(nextProps,nextState){
         const url=this.props.match.url;
         if(url.substr(1,url.length)!==this.props.lan){
             this.props.handleLanguage(url.substr(1,url.length));
             return true;
         }
         return false;
-    }    
+    }  */  
     render(){
         const lan_url=this.props.match.url;
-        const query=new URLSearchParams(this.props.location.search);
-
+        //const query=new URLSearchParams(this.props.location.search);
+        
         let movies="";
+        console.log(this.props.lan);
         //console.log(lan_url+":");
         if(lan_url==="/" || lan_url==="/ko-KR")
-            movies=<MovieList lang="ko-KR" p={query.get('page')}></MovieList>
+            movies=<MovieList lang="ko-KR"></MovieList>
         else if(lan_url==="/en-US")
-            movies=<MovieList lang="en-US" p={query.get('page')}></MovieList>
+            movies=<MovieList lang="en-US"></MovieList>
         return (
             <div>
                 <div>

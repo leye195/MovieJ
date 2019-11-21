@@ -46,7 +46,7 @@ class MovieList extends React.Component{
     getMovies=async(page)=>{
         const lan=this.props.lang;
         const movies=await services.getAllMovies(page,lan);
-        console.log(movies);
+        //console.log(movies);
         this.props.handleMovielist(movies.data.results,movies.data.total_pages,page);
     }
     ChangeView=(e)=>{
@@ -75,16 +75,17 @@ class MovieList extends React.Component{
     }
     render(){
         const{movie_list,cur_page,view,lan,total_pages,completed}=this.props;
+       // console.log(lan);
         const movies=movie_list.map((movie,i)=>{
             return <Movie id={movie.id} key={movie.id} title={movie.title} release_date={movie.release_date} 
                     poster={view==="poster"?movie.poster_path:movie.backdrop_path} 
-                    overview={movie.overview} view={view} lan={"/"+lan} avg_rate={movie.vote_average}>
+                    overview={movie.overview} view={view} lan={lan} avg_rate={movie.vote_average}>
                     </Movie>
         })
         return(
         <div>
             <div>
-                <Loading value={completed }></Loading>
+                <Loading value={completed}></Loading>
             </div>
             <div className="select_wrapper">
                 <span><b>View </b></span>

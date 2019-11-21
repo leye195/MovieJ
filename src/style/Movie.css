@@ -57,9 +57,11 @@
     display: inline-block;
     padding-left: 10px;
     padding-right: 10px;
-    background-color: silver;
+    background-color: #a871ff;
+    color:white;
     border-radius: 10px;
     margin: 10px;
+    box-shadow: 5px 5px 14px 5px rgba(37, 36, 36, 0.19);
 }
 .posteritem_content{
     position: relative;
@@ -69,6 +71,7 @@
 .posteritem_content p{
     display: inline-block;
     margin: 0;
+    font-size: 1.2rem;
 }
 .backdropitem_content{
     position: relative;
@@ -78,7 +81,7 @@
     display: none;
 }
 .backdropitem_content p{
-    font-size:1.1rem;
+    font-size:1.2rem;
 }
 .overview_container h3{
     font-size: 1.5rem;
