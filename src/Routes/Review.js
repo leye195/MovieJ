@@ -9,9 +9,9 @@ class Review extends React.Component{
         const{history,match,location}=this.props;
         const title=new URLSearchParams(location.search).get('title');
         if(match.params.r_id===undefined)
-            history.push('/movie_detail/'+match.params.id+'/'+match.params.lan);
+            history.push('MovieJ/movie_detail/'+match.params.id+'/'+match.params.lan);
         else
-            history.push('/movie_review/'+match.params.id+'/'+match.params.lan+"?title="+title);
+            history.push('MovieJ/movie_review/'+match.params.id+'/'+match.params.lan+"?title="+title);
     }
     render(){
         const{match,location}=this.props;

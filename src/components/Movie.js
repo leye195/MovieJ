@@ -14,7 +14,7 @@ class Movie extends React.Component{
             <div className={view}>
                 <div className="movie_container">
                     <div className={view+"img_contents"}>
-                        <Link to={`/movie_detail/`+id+'/'+lan}><img alt={title} src={imgUrl} onError={this.handleError}/></Link>
+                        <Link to={`MovieJ/movie_detail/`+id+'/'+lan}><img alt={title} src={imgUrl} onError={this.handleError}/></Link>
                     </div>
                     <div className={view+"item_content"}>
                         <div>
@@ -28,7 +28,7 @@ class Movie extends React.Component{
                             <p className="overview">{overview===""?"해당 언어의 줄거리가 존재하지 않습니다":overview}</p>
                         </div>
                         <div className="more">
-                            <Link to={`/movie_detail/`+id+'/'+lan}>{lan==="en-US"?"More...":"더 보기..."}</Link>
+                            <Link to={`MovieJ/movie_detail/`+id+'/'+lan}>{lan==="en-US"?"More...":"더 보기..."}</Link>
                         </div>
                     </div>
                 </div>

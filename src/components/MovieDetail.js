@@ -99,10 +99,10 @@ class MovieDetail extends React.Component{
             <div className="card">
                 <h3 className="review_author">A review Written by {review.author}</h3>
                 <p className="review_content">{review.content}</p>
-                <Link to={`/movie_review/`+id+`/`+lan+`/`+review.id+'?title='+title}>Read more...</Link>
+                <Link to={`MovieJ/movie_review/`+id+`/`+lan+`/`+review.id+'?title='+title}>Read more...</Link>
             </div>
             <p className="read_all">
-                <Link to={`/movie_review/`+id+`/`+lan+'?title='+title}>Read All Reviews</Link>
+                <Link to={`MovieJ/movie_review/`+id+`/`+lan+'?title='+title}>Read All Reviews</Link>
             </p>
             </div>
         }   
