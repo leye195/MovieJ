@@ -6,6 +6,7 @@ import default_movie from '../img/default_movie.png';
 import '../style/People.css';
 import user from '../img/user.svg'
 import * as services from '../services/posts';
+import {Link} from 'react-router-dom';
 class People extends React.Component{
     constructor(props){
         super(props);
@@ -55,6 +56,7 @@ class People extends React.Component{
     render(){
         const{m_credits,actor_img,actor_info}=this.state;
         const item_list=m_credits.map((item,i)=>(
+            <Link to={`/movie_detail/`+item.id}>
             <div className="m_item" key={i} id={i}>
                 <img src={item.poster_path!==null?"https://image.tmdb.org/t/p/w500"+item.poster_path:default_movie} alt={item.title}/>
                 <div>
@@ -62,6 +64,7 @@ class People extends React.Component{
                     <p>{item.character!==""?item.character:"None"}</p>
                 </div>
             </div>
+            </Link>
         ))
         console.log(m_credits);
         return(

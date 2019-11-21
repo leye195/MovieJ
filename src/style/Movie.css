@@ -57,6 +57,9 @@
     display: inline-block;
     padding-left: 10px;
     padding-right: 10px;
+    background-color: silver;
+    border-radius: 10px;
+    margin: 10px;
 }
 .posteritem_content{
     position: relative;
@@ -64,6 +67,7 @@
     width: 100%;
 }
 .posteritem_content p{
+    display: inline-block;
     margin: 0;
 }
 .backdropitem_content{

@@ -15,12 +15,14 @@ class Home extends React.Component{
     }    
     render(){
         const lan_url=this.props.match.url;
+        const query=new URLSearchParams(this.props.location.search);
+
         let movies="";
-        console.log(lan_url+":");
+        //console.log(lan_url+":");
         if(lan_url==="/" || lan_url==="/ko-KR")
-            movies=<MovieList lang="ko-KR"></MovieList>
+            movies=<MovieList lang="ko-KR" p={query.get('page')}></MovieList>
         else if(lan_url==="/en-US")
-            movies=<MovieList lang="en-US"></MovieList>
+            movies=<MovieList lang="en-US" p={query.get('page')}></MovieList>
         return (
             <div>
                 <div>

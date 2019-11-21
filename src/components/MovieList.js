@@ -2,7 +2,6 @@ import React from 'react';
 import Movie from './Movie';
 import Loading from './Loading';
 import '../style/MovieList.css';
-import Button from '@material-ui/core/Button';
 import {connect} from 'react-redux';  
 import * as actions from '../actions';
 import * as services from '../services/posts'; 
@@ -96,19 +95,19 @@ class MovieList extends React.Component{
             </div>
             <div className="movies_wrapper">{movies}</div>
             <div className="btns">
-                <Button variant="contained" onClick={this.To_first}>
+                <button onClick={this.To_first} disabled={cur_page>1?false:true}>
                 {lan!=="ko-KR"?'To First':'처음'}
-                </Button>
-                <Button variant="contained" color="primary" onClick={this.onPrev}>
+                </button>
+                <button onClick={this.onPrev} disabled={cur_page>1?false:true}>
                     {lan!=="ko-KR"?'Previous':'이전'}
-                </Button>
+                </button>
                 <span><b>{`${cur_page}/${total_pages}`}</b></span>
-                <Button variant="contained" color="primary" onClick={this.onNext}>
+                <button onClick={this.onNext} disabled={cur_page<total_pages?false:true}>
                 {lan!=="ko-KR"?'Next':'다음'}
-                </Button>
-                <Button variant="contained" onClick={this.To_end}>
+                </button>
+                <button  onClick={this.To_end} disabled={cur_page<total_pages?false:true}>
                 {lan!=="ko-KR"?'To End':'마지막'}
-                </Button>
+                </button>
             </div>
         </div>
         )
