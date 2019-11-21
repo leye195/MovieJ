@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/MovieJ/static/css/main.d983cca2.chunk.css",
-    "main.js": "/MovieJ/static/js/main.53b46239.chunk.js",
-    "main.js.map": "/MovieJ/static/js/main.53b46239.chunk.js.map",
+    "main.js": "/MovieJ/static/js/main.4d6014b8.chunk.js",
+    "main.js.map": "/MovieJ/static/js/main.4d6014b8.chunk.js.map",
     "runtime-main.js": "/MovieJ/static/js/runtime-main.66447fc6.js",
     "runtime-main.js.map": "/MovieJ/static/js/runtime-main.66447fc6.js.map",
     "static/js/2.441bf977.chunk.js": "/MovieJ/static/js/2.441bf977.chunk.js",
     "static/js/2.441bf977.chunk.js.map": "/MovieJ/static/js/2.441bf977.chunk.js.map",
     "index.html": "/MovieJ/index.html",
-    "precache-manifest.1de7b09f75d46f2e2b98d75371d16ce8.js": "/MovieJ/precache-manifest.1de7b09f75d46f2e2b98d75371d16ce8.js",
+    "precache-manifest.194e998626a08e471dedd5f6031d621e.js": "/MovieJ/precache-manifest.194e998626a08e471dedd5f6031d621e.js",
     "service-worker.js": "/MovieJ/service-worker.js",
     "static/css/main.d983cca2.chunk.css.map": "/MovieJ/static/css/main.d983cca2.chunk.css.map",
     "static/media/powered_by_rectangle_green.svg": "/MovieJ/static/media/powered_by_rectangle_green.27b65cb4.svg",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.66447fc6.js",
     "static/js/2.441bf977.chunk.js",
     "static/css/main.d983cca2.chunk.css",
-    "static/js/main.53b46239.chunk.js"
+    "static/js/main.4d6014b8.chunk.js"
   ]
 }
