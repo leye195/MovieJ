@@ -12,9 +12,9 @@ export default function movielist(state=initialState,action){
         case types.PAGE:
             return {...state,cur_page:action.cur_page};
         case types.NEXT_BTN:
-            return{...state,cur_page:action.cur_page+1};
+            return{...state,cur_page:state.cur_page+1};
         case types.PREVIOUS_BTN:
-            return{...state,cur_page:action.cur_page-1};
+            return{...state,cur_page:state.cur_page-1};
         case types.VIEW:
             return{...state,view:action.view};
         case types.MOVIELIST:

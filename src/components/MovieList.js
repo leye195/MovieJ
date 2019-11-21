@@ -62,19 +62,17 @@ class MovieList extends React.Component{
     }
     onNext=()=>{
         const{cur_page,total_pages}=this.props;
-        if(cur_page<total_pages){
+        if(cur_page<total_pages)
             this.getMovies(Number(cur_page)+1);
-        }else{
+        else
             alert("Done");
-        }
     }
     onPrev=()=>{
         const{cur_page}=this.props;
-        if(cur_page>1){
+        if(cur_page>1)
             this.getMovies(Number(cur_page)-1);
-        }else{
+        else
             alert("Page can not less than 1");
-        }
     }
     render(){
         const{movie_list,cur_page,view,lan,total_pages,completed}=this.props;
@@ -96,9 +94,7 @@ class MovieList extends React.Component{
                     <option value="backdrop">Backdrop Card</option>
                 </select>
             </div>
-            <div className="movies_wrapper">
-                {movies}
-            </div>
+            <div className="movies_wrapper">{movies}</div>
             <div className="btns">
                 <Button variant="contained" onClick={this.To_first}>
                 {lan!=="ko-KR"?'To First':'처음'}
@@ -113,7 +109,6 @@ class MovieList extends React.Component{
                 <Button variant="contained" onClick={this.To_end}>
                 {lan!=="ko-KR"?'To End':'마지막'}
                 </Button>
-
             </div>
         </div>
         )
