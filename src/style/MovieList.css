@@ -47,6 +47,7 @@ header h1 a{
     height: 50px;
     width: 150px;
     border-radius: 10px;
+    margin: 3px;
 }
 .btns span{
     padding-left: 20px;

@@ -100,7 +100,7 @@ class MovieList extends React.Component{
                 {movies}
             </div>
             <div className="btns">
-                <Button onClick={this.To_first}>
+                <Button variant="contained" onClick={this.To_first}>
                 {lan!=="ko-KR"?'To First':'처음'}
                 </Button>
                 <Button variant="contained" color="primary" onClick={this.onPrev}>
@@ -110,7 +110,7 @@ class MovieList extends React.Component{
                 <Button variant="contained" color="primary" onClick={this.onNext}>
                 {lan!=="ko-KR"?'Next':'다음'}
                 </Button>
-                <Button onClick={this.To_end}>
+                <Button variant="contained" onClick={this.To_end}>
                 {lan!=="ko-KR"?'To End':'마지막'}
                 </Button>
 
