@@ -46,7 +46,7 @@ class MovieList extends React.Component{
     getMovies=async(page)=>{
         const lan=this.props.lang;
         const movies=await services.getAllMovies(page,lan);
-        //console.log(movies);
+        console.log(movies);
         this.props.handleMovielist(movies.data.results,movies.data.total_pages,page);
     }
     ChangeView=(e)=>{

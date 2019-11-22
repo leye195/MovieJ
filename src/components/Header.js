@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 class Header extends React.Component{
     render(){
         const{to,id,lan}=this.props;
@@ -6,10 +7,10 @@ class Header extends React.Component{
         return(
             <header>
             <div>
-                <h1><a href={lan}>MovieJ</a></h1>
+                <h1><Link to={lan}>MovieJ</Link></h1>
                 <p className="language-container">
-                <a href={lan!=="en-US"?"/MovieJ"+to+id+"/en-US":"#"} ><span className="en">En</span></a>
-                <a href={lan!=="ko-KR"?"/MovieJ"+to+id+"/ko-KR":"#"}><span className="kr">Kr</span></a>
+                <Link to={lan!=="en-US"?"/MovieJ"+to+id+"/en-US":"#"} ><span className="en">En</span></Link>
+                <Link to={lan!=="ko-KR"?"/MovieJ"+to+id+"/ko-KR":"#"}><span className="kr">Kr</span></Link>
                 </p>
             </div>
             </header> 
