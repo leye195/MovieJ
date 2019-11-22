@@ -35,7 +35,7 @@ class SearchBar extends React.Component{
     handleClick=()=>{
         const{keyword,lan}=this.props;
         //console.log("keyword: "+keyword);
-        window.location.assign('/search?p='+keyword+"&language="+lan);
+        window.location.assign('/MovieJ/search?p='+keyword+"&language="+lan);
     }
     handleEnter=(e)=>{
         if(e.charCode===13){this.handleClick()}
