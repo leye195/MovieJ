@@ -8,8 +8,8 @@ class Header extends React.Component{
             <div>
                 <h1><a href={lan}>MovieJ</a></h1>
                 <p className="language-container">
-                <a href={lan!=="en-US"?to+id+"MovieJ/en-US":"#"} ><span className="en">En</span></a>
-                <a href={lan!=="ko-KR"?to+id+"MovieJ/ko-KR":"#"}><span className="kr">Kr</span></a>
+                <a href={lan!=="en-US"?to+id+"/en-US":"#"} ><span className="en">En</span></a>
+                <a href={lan!=="ko-KR"?to+id+"/ko-KR":"#"}><span className="kr">Kr</span></a>
                 </p>
             </div>
             </header> 
