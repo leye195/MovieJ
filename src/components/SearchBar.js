@@ -43,7 +43,7 @@ class SearchBar extends React.Component{
     render(){
         const results=this.props.results;
         const result=results.map((item)=>{
-           return <li key={item.id} id={item.id}><a href={"/search?p="+encodeURI(item.title)}>{item.title}</a></li>
+           return <li key={item.id} id={item.id}><a href={"/MovieJ/search?p="+encodeURI(item.title)}>{item.title}</a></li>
         })
         return(
             <div className="search_bar">

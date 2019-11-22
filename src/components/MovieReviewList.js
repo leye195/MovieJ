@@ -27,7 +27,7 @@ class MovieReviewList extends React.Component{
             return <div key={review.id} className="card">
                         <h2 className="review_author">A review written by {review.author}</h2>
                         <p className="review_content">{review.content}</p>
-                        <Link to={`MovieJ/movie_review/`+id+`/`+lan+`/`+review.id+"?title="+title}>Read more...</Link>
+                        <Link to={`/MovieJ/movie_review/`+id+`/`+lan+`/`+review.id+"?title="+title}>Read more...</Link>
                    </div>
         });
         return(

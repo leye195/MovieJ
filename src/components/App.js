@@ -22,12 +22,12 @@ function App() {
           <Route exact path="/MovieJ" component={Home}></Route>
           <Route path="/MovieJ/ko-KR" component={Home}></Route>
           <Route path="/MovieJ/en-US" component={Home}></Route>
-          <Route path="/movie_detail/:id/:lan" component={Detail}></Route>
-          <Route path="/movie_detail/:id" component={Detail}></Route>
-          <Route path="/movie_review/:id/:lan/:r_id" component={Review}></Route>
-          <Route path="/movie_review/:id/:lan" component={Review}></Route>
+          <Route path="/MovieJ//movie_detail/:id/:lan" component={Detail}></Route>
+          <Route path="/MovieJ//movie_detail/:id" component={Detail}></Route>
+          <Route path="/MovieJ//movie_review/:id/:lan/:r_id" component={Review}></Route>
+          <Route path="/MovieJ//movie_review/:id/:lan" component={Review}></Route>
           <Route path="/MovieJ/search" component={Search}></Route>
-          <Route path="/people/:name" component={People}></Route>
+          <Route path="/MovieJ//people/:name" component={People}></Route>
           <Route component={NoMatch}></Route>
         </Switch>
         <footer>

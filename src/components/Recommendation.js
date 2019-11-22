@@ -33,7 +33,7 @@ class Recommendation extends React.Component{
             return <Card key={item.id}>
                     <div className="recommendation_wrapper" key={item.id} onClick={()=>{}}>
                         <CardContent>
-                        <a href={`/movie_detail/`+item.id+"/"+lan}>
+                        <a href={`/MovieJ/movie_detail/`+item.id+"/"+lan}>
                             <img alt={item.title} src={"https://image.tmdb.org/t/p/w500"+item.poster_path}></img>
                             <p>{item.title}</p>
                         </a>
