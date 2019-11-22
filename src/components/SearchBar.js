@@ -35,7 +35,7 @@ class SearchBar extends React.Component{
     handleClick=()=>{
         const{keyword,lan}=this.props;
         //console.log("keyword: "+keyword);
-        window.location.assign('/MovieJ/search?p='+keyword+"&language="+lan);
+        window.location.assign('/search?p='+keyword+"&language="+lan);
     }
     handleEnter=(e)=>{
         if(e.charCode===13){this.handleClick()}
@@ -43,7 +43,7 @@ class SearchBar extends React.Component{
     render(){
         const results=this.props.results;
         const result=results.map((item)=>{
-           return <li key={item.id} id={item.id}><a href={"/MovieJ/search?p="+encodeURI(item.title)}>{item.title}</a></li>
+           return <li key={item.id} id={item.id}><a href={"/search?p="+encodeURI(item.title)}>{item.title}</a></li>
         })
         return(
             <div className="search_bar">
