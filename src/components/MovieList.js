@@ -22,7 +22,6 @@ class MovieList extends React.Component{
         this.timer=setInterval(this.progress,30);
         let cur_page=localStorage.cur_page;
         let view=localStorage.view;
-        //console.log("From MovieList: "+cur_page);
         if(!cur_page)
             cur_page=this.props.cur_page;
         if(!view)
