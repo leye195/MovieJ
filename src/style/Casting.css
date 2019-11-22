@@ -4,6 +4,8 @@
     width: 62%;
     overflow-x: auto;
     overflow-y: hidden;
+    border: 1px solid #a4a4ad73;
+    border-radius: 10px;
 }
 .cast_container::-webkit-scrollbar{
     display: none;
@@ -17,11 +19,12 @@
     color:black;
     cursor: pointer;
     box-shadow: 3px 2px 2px 0px #999;
+    height: 245px;
 }
 .cast_item img{
-    width: 192px;
-    height: 200px;
-    border-radius:10px ;
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
 }
 .arrow_btn{
     display: flex;

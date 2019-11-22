@@ -1,23 +1,25 @@
 .poster{
-    width: 800px;
+    width: 600px;
     margin: 10px auto;
     z-index: 0;
     box-shadow: 0 2px 19px 3px rgba(0, 0, 0, 0.1);
-    transition:all 2s;
 }
 .poster:hover{
     box-shadow: 5px 5px 10px 5px rgba(136, 133, 133, 0.58);
+    transition-timing-function: ease;
+    transition: ease 2s;
 }
 .backdrop{
-    width: 800px;
+    width: 350px;
     margin: 10px auto;
     z-index: 0;
     box-shadow: 0 2px 19px 3px rgba(0, 0, 0, 0.1);
-    transition-timing-function: ease-in-out;;
-    transition:all 2s;
+    transition-timing-function: ease;
 }
 .backdrop:hover{
     box-shadow: 5px 5px 10px 5px rgba(136, 133, 133, 0.58);
+    transition-timing-function: ease;
+    transition: ease 2s;
 }
 .poster .movie_container{
     display:flex;
@@ -31,7 +33,7 @@
 .posterimg_contents img{
     display: block;
     width: 300px;
-    height: 400px;
+    height: 300px;
     border-width: 0px;
     outline: none;
     cursor: pointer;
@@ -41,7 +43,7 @@
 .backdropimg_contents img{
     display: block;
     width: 90%;
-    height: 450px;
+    height: 300px;
     margin: 0 auto;
     border-width: 0px;
     outline: none;
@@ -49,7 +51,7 @@
 }
 .item_title{
     display: inline-block;
-    font-size:2.0rem;
+    font-size:1.5rem;
     margin-top: 10px;
     margin-bottom: 0px;
 }
@@ -71,7 +73,7 @@
 .posteritem_content p{
     display: inline-block;
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 1.0rem;
 }
 .backdropitem_content{
     position: relative;
@@ -81,7 +83,8 @@
     display: none;
 }
 .backdropitem_content p{
-    font-size:1.2rem;
+    font-size:1.0rem;
+    display: inline-block;
 }
 .overview_container h3{
     font-size: 1.5rem;
@@ -100,7 +103,6 @@
     font-size: 1.0rem;
     margin-bottom: 0px;
     color: #4d4d4d;
-    font-size: 1.2em;
     line-height: 1.2em;
     margin-top: 40px;
     display: -webkit-box;
@@ -117,7 +119,7 @@ a{
     padding: 10px;
     padding-right: 0;
     font-weight: 300;
-    font-size: 1.3rem;
+    font-size: 1rem;
     position: absolute;
     bottom: 0;
     left: 0;

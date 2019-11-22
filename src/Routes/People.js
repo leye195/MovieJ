@@ -56,8 +56,8 @@ class People extends React.Component{
     render(){
         const{m_credits,actor_img,actor_info}=this.state;
         const item_list=m_credits.map((item,i)=>(
-            <Link to={`/movie_detail/`+item.id}>
-            <div className="m_item" key={i} id={i}>
+            <Link to={`/movie_detail/`+item.id} key={i}>
+            <div className="m_item"  id={i}>
                 <img src={item.poster_path!==null?"https://image.tmdb.org/t/p/w500"+item.poster_path:default_movie} alt={item.title}/>
                 <div>
                     <p>{item.title}</p>
@@ -71,17 +71,17 @@ class People extends React.Component{
             <div>
                 <Header></Header>
                 <SearchBar></SearchBar>
-                <div className="m_container">
+                <div className="m_container" id="to_top">
                     <aside className="m_aside">
                         <div>
                             <img src={actor_img} alt="actor"></img>
-                            <p><a href="#overview">Biography</a></p>
+                            <p><a href="#to_top">Biography</a></p>
                             <p><a href="#credits">Credits</a></p>                        
                         </div>
                     </aside>
                     <section className="m_div" onScroll={this.handleShowup}>
                         <div>
-                            <h1>{actor_info.name}</h1>
+                            <h1 id="actor_name">{actor_info.name}</h1>
                             <div className="actor_info" id="overview" arial-expanded="false">
                                 <div className="shade" ></div>
                                 <p>{actor_info.biography}</p>

@@ -3,6 +3,7 @@ import MovieReview from '../components/MovieReview';
 import MovieReviewList from '../components/MovieReviewList';
 import SearchBar from '../components/SearchBar';
 import '../style/Review.css';
+import Header from '../components/Header';
 class Review extends React.Component{
     handleBack=()=>{
         console.log("Back Clicked");
@@ -15,17 +16,19 @@ class Review extends React.Component{
     }
     render(){
         const{match,location}=this.props;
+        const {lan,r_id,id}=match.params;
         let tag="";
         const title=new URLSearchParams(location.search).get('title');
         //console.log(match.params);
         if(match.params.r_id===undefined){
-            tag=<MovieReviewList id={match.params.id} title={title} lan={match.params.lan}></MovieReviewList>
+            tag=<MovieReviewList id={id} title={title} lan={lan}></MovieReviewList>
         }else{
-            tag=<MovieReview id={match.params.id} r_id={match.params.r_id} title={title} lan={match.params.lan}></MovieReview>
+            tag=<MovieReview id={id} r_id={r_id} title={title} lan={lan}></MovieReview>
         }
         return(
             <div>
-                <SearchBar lan={match.params.lan}></SearchBar>
+                <Header lan={lan==="ko-KR"?"ko-KR":"en-US"}></Header>
+                <SearchBar lan={lan==="ko-KR"?"ko-KR":"en-US"}></SearchBar>
                 <div className="back" onClick={this.handleBack}>
                     <h2>{title}</h2>
                     <h3>← Back to Detail</h3>

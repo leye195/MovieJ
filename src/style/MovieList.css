@@ -1,8 +1,8 @@
 header div{
     padding-left:20px;
     padding-right:20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     margin: 0;
     background-color: #b5666682;
 }
@@ -12,6 +12,7 @@ header h1{
     border: black solid 5px;
     padding: 5px;
     cursor: pointer;
+    font-size: 1.3rem;
 }
 header h1 a{
     color:#882200;
@@ -26,7 +27,7 @@ header h1 a{
     height: 25px;
     position: relative;
     text-align: right;
-    right: 150px;
+    right: 60px;
     margin-top: 20px;
 }
 .select_wrapper span{

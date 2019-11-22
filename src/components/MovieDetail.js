@@ -125,9 +125,9 @@ class MovieDetail extends React.Component{
                             <p><b>{overview===""?"줄거리가 존재하지 않습니다":overview}</b></p>
                         </div>
                         <div className="vote_rate">
-                            <h2>{lan==="en-US"?"Average Rate: "+vote_average:"평균 평점: "+vote_average}/10</h2>
+                            <h2>{lan==="en-US"?<p>{`Average Rate:${vote_average}/10`}</p>:<p>{`평균 평점: ${vote_average}/10`}</p>}</h2>
                         </div>
-                        <p>{lan==="es-US"?"Release Date: "+release_date:"개봉 일: "+release_date}</p>
+                        <p>{lan==="es-US"?"Released: "+release_date:"개봉 일: "+release_date}</p>
                         <p> {lan==="en-US"?"Running Time: "+runtime+"mins":"재생 시간: "+runtime+"분"} </p>
                         <p>Box Office: ${revenue!==undefined?revenue.toLocaleString():0}</p>
                         <div className="movie_link" style={{color:"white"}}>

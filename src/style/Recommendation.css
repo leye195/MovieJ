@@ -5,13 +5,18 @@
 .recommendation_container{
     display: -webkit-box;
     -webkit-overflow-scrolling: touch;
-    width: 1330px;
+    width: 1200px;
     overflow-y: hidden;
     overflow-x: scroll;
     white-space: nowrap;
     box-sizing: border-box;
     padding-bottom: 16px;
-    padding-right: 40px;
+    padding-right: 120px;
+    padding-left: 120px;
+}
+.MuiCardContent-root:last-child {
+    /* padding-bottom: 24px; */
+    padding-bottom: 0px;
 }
 .recommendation_container::-webkit-scrollbar{
     display: none;
@@ -24,9 +29,9 @@
     padding:0;
 }
 .recommendation_wrapper img{
-    width: 420px;
-    height: 400px;
+    width: 320px;
+    height: 300px;
 }
 .recommendation_wrapper p{
-    font-size:1.2rem;
+    font-size:1.0rem;
 }

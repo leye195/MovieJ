@@ -18,21 +18,21 @@
     margin-left: 20px;
 }
 .movie_title {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     display: inline-block;
     margin-bottom: 0px;
 }
 .overview h3{
-    font-size: 2.5rem;
+    font-size: 2.0rem;
 }
 .overview p{
-    font-size: 1.2rem;
+    font-size: 1rem;
     line-height: 1.4em;
     font-weight: 500;
 }
 .menu h3{
     margin: 20px auto;
-    width: 1300px;
+    width: 1150px;
     font-size: 1.5rem;
 }
 .review_container{
@@ -43,7 +43,7 @@
     border: 1px solid #e3e3e3;
     padding: 20px 40px 20px 40px;
     box-shadow:1px 3px 10px 1px grey;
-    margin: 35px;
+    margin: 35px 50px;
 }
 .review_content{
     display: -webkit-box;
@@ -60,11 +60,17 @@
     white-space: pre-wrap;
 }
 .read_all{
-    font-size: 1.3rem;
+    font-size: 1.0rem;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 .review_notice{
     font-size: 1.2rem;
+    padding-left: 120px;
+    padding-right: 120px;
 }
-.img_container:hover{
-
+.img_container img{
+    height: 500px;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
