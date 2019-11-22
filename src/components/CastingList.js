@@ -16,7 +16,7 @@ class CastingList extends React.Component{
     }
     getCredits=async(id)=>{
         const credits=await services.getCredits(id);
-        console.log(credits.data.cast);
+        //console.log(credits.data.cast);
         this.setState({
             cast:credits.data.cast,
             crew:credits.data.crew
@@ -24,7 +24,7 @@ class CastingList extends React.Component{
     }
     render(){
         const{cast}=this.state;
-        console.log(cast);
+        //onsole.log(cast);
         const cast_tag=cast.map((item)=>{
             return <Cast id={item.id} key={item.cast_id} chacter={item.character} name={item.name} profile={item.profile_path}></Cast>
         })

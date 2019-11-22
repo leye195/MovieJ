@@ -2,7 +2,7 @@ import React from 'react';
 class Header extends React.Component{
     render(){
         const{to,id,lan}=this.props;
-        console.log("Header: "+lan);
+        //console.log("Header: "+lan);
         return(
             <header>
             <div>

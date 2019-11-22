@@ -69,8 +69,10 @@ class People extends React.Component{
         console.log(m_credits);
         return(
             <div>
-                <Header></Header>
-                <SearchBar></SearchBar>
+                <div>
+                    <Header></Header>
+                    <SearchBar></SearchBar>
+                </div>
                 <div className="m_container" id="to_top">
                     <aside className="m_aside">
                         <div>

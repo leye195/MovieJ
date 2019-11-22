@@ -16,12 +16,12 @@ class Recommendation extends React.Component{
     }
     getRecommendations=async()=>{
         const{id,lan}=this.props;
-        console.log("id: "+id);
+        //console.log("id: "+id);
         const list=await services.getRecommendations(id,lan);
         this.setState({
             recommendations:list.data.results
         });
-        console.log(this.state.recommendations);
+        //console.log(this.state.recommendations);
     }
     render(){
         const{recommendations}=this.state;
