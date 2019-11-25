@@ -1,3 +1,31 @@
+header h1 a{
+    color:#882200;
+}
+header div{
+    padding-left:20px;
+    padding-right:20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 0;
+    background-color: #b5666682;
+}
+.select_wrapper{
+    width: 100%;
+    height: 25px;
+    position: relative;
+    text-align: right;
+    right: 60px;
+    margin-top: 20px;
+}
+.select_wrapper span{
+    padding-right: 5px;
+    font-size: larger;
+}
+.select_wrapper select{
+    width: 250px;
+    height: 30px;
+    border: 1px solid #8d949461;
+}
 @media(min-width:426px){
     .btns span{
         padding-left: 20px;
@@ -14,6 +42,14 @@
     .btns button:disabled{
         background-color: #0826b9a8;
         color: white;
+    }
+    header h1{
+        display: initial;
+        background-color: white;
+        border: black solid 5px;
+        padding: 5px;
+        cursor: pointer;
+        font-size: 1.3rem;
     }
 }
 @media(max-width:425px) and (min-width:320px){
@@ -34,49 +70,52 @@
         background-color: #0826b9a8;
         color: white;
     }
-}
-header div{
-    padding-left:20px;
-    padding-right:20px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin: 0;
-    background-color: #b5666682;
+    header div{
+        height: 200px;
+        padding-left:20px;
+        padding-right:20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin: 0;
+        background-color: #b5666682;
+    }   
+    header h1{
+        display: initial;
+        background-color: white;
+        border: black solid 5px;
+        padding: 5px;
+        cursor: pointer;
+        font-size: 3.5rem;
+        top: 45px;
+        position: relative;
+    }
+    .select_wrapper span{
+        padding-right: 5px;
+        font-size: larger;
+    }
+    .select_wrapper select{
+        width: 250px;
+        height: 60px;
+        border: 1px solid #8d949461;
+        font-size: 1.8rem;
+    }
+    .select_wrapper{
+        width: 100%;
+        height: 60px;
+        position: relative;
+        text-align: right;
+        right: 60px;
+        margin-top: 20px;
+        font-size: 2.0rem;
+    }
 }
 
-header h1{
-    display: initial;
-    background-color: white;
-    border: black solid 5px;
-    padding: 5px;
-    cursor: pointer;
-    font-size: 1.3rem;
-}
-header h1 a{
-    color:#882200;
-}
 .movies_wrapper{
     display: flex;
     flex-wrap: wrap;
     margin-top: 20px;
 }
-.select_wrapper{
-    width: 100%;
-    height: 25px;
-    position: relative;
-    text-align: right;
-    right: 60px;
-    margin-top: 20px;
-}
-.select_wrapper span{
-    padding-right: 5px;
-    font-size: larger;
-}
-.select_wrapper select{
-    width: 250px;
-    height: 30px;
-    border: 1px solid #8d949461;
-}
+
 .btns{
     width: fit-content;
     margin: 0 auto;

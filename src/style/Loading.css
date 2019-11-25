@@ -8,3 +8,41 @@
     top:0;
     z-index: 1;
 }
+.MuiCircularProgress-colorSecondary{
+    width: 110px!important;
+    height: 110px !important;
+}
+
+/* Tablet Device */
+@media all and (min-width:768px) and (max-width:1024px) {
+    .MuiCircularProgress-colorSecondary{
+        width: 38px !important;
+        height: 35px !important;
+    }
+    #loading_wrapper{
+        position: fixed;
+        width: 100%;
+        height: 2700px;
+        text-align: center;
+        line-height:45;
+        background-color: #171414c2;
+        top:0;
+        z-index: 1;
+    }
+  }
+  @media all and (min-width:1025px) {
+    .MuiCircularProgress-colorSecondary{
+        width: 40px !important; 
+        height:40px !important;
+    }
+    #loading_wrapper{
+        position: fixed;
+        width: 100%;
+        height: 2700px;
+        text-align: center;
+        line-height:45;
+        background-color: #171414c2;
+        top:0;
+        z-index: 1;
+    }
+  }

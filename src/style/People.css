@@ -1,4 +1,13 @@
 
+.m_div img{
+    width: 300px;
+    height: 300px;
+}
+.m_aside>div>img{
+    width: 220px;
+    height: 350px;
+    box-sizing: border-box;
+}
 .m_container{
     display: flex;
     padding-top: 10px;
@@ -10,7 +19,8 @@
 .m_aside>div{
     position: fixed;
     left:50px;
-    width: 200px;
+    height: 375px;
+    width: 250px;
     margin: auto auto;
     border: 5px solid rgba(109, 107, 107, 0.13);
     padding: 10px;
@@ -23,8 +33,161 @@
 .m_aside a{
     padding: 7px 0;
     transition: all .5s;
-    font-size: 1.0rem;
+    font-size: 2.3rem;
 }
+.actor_info p{
+    font-size: 2.0rem;
+    line-height: 1.428571429;
+    color: #333;
+    width: 65%;
+}
+.m_div div>span{
+    cursor: pointer;
+    font-size: 2.0rem;
+}
+.actor_info[arial-expanded=true]{
+    position: relative;
+    padding-bottom: 10px;
+    max-height: 3000px;
+    transition: max-height 300ms;
+}
+.m_item div{
+    display: block;
+    margin-top: 10px;
+    width: 300px;
+    font-size: 2.0rem;
+}
+#actor_name{
+    font-size: 3.0rem;
+}
+@media (max-width:1024px) and (min-width:768px){
+    .m_div img{
+        width: 200px;
+        height: 200px;
+    }
+    .m_aside>div>img{
+        width: 170px;
+        height: 180px;
+        box-sizing: border-box;
+    }
+    .m_container{
+        display: flex;
+        padding-top: 10px;
+    }
+    .m_aside{
+        position: static;
+        width: 25%;
+    }
+    .m_aside>div{
+        position: fixed;
+        left:50px;
+        width: 200px;
+        height: 210px;        
+
+        margin: auto auto;
+        border: 5px solid rgba(109, 107, 107, 0.13);
+        padding: 10px;
+        box-shadow: 0 0 20px 0 #666;
+    }
+    .m_aside p{
+        padding:5px;
+        border-bottom: 1px solid #7d7b7b4f;
+    }
+    .m_aside a{
+        padding: 7px 0;
+        transition: all .5s;
+        font-size: 1.5rem;
+    }
+    .actor_info p{
+        font-size: 1rem;
+        line-height: 1.428571429;
+        color: #333;
+        width: 65%;
+    }
+    .m_div div>span{
+        cursor: pointer;
+        font-size: 1.0rem;
+    }
+    .actor_info[arial-expanded=true]{
+        position: relative;
+        padding-bottom: 10px;
+        max-height: 1000px;
+        transition: max-height 300ms;
+    }
+    .m_item div{
+        display: block;
+        margin-top: 10px;
+        width: 300px;
+        font-size: 1.0rem;
+    }
+    #actor_name{
+        font-size: 1.5rem;
+    }
+}
+@media all and (min-width:1440px){
+    .m_div img{
+        width: 240px;
+        height: 250px;
+    }
+    .m_aside>div>img{
+        width: 170px;
+        height: 220px;
+        box-sizing: border-box;
+    }
+    .m_container{
+        display: flex;
+        padding-top: 10px;
+    }
+    .m_aside{
+        position: static;
+        width: 25%;
+    }
+    .m_aside>div{
+        position: fixed;
+        left:50px;
+        width: 200px;
+        height: 250px;
+        margin: auto auto;
+        border: 5px solid rgba(109, 107, 107, 0.13);
+        padding: 10px;
+        box-shadow: 0 0 20px 0 #666;
+    }
+    .m_aside p{
+        padding:5px;
+        border-bottom: 1px solid #7d7b7b4f;
+    }
+    .m_aside a{
+        padding: 7px 0;
+        transition: all .5s;
+        font-size: 1.0rem;
+    }
+    .actor_info p{
+        font-size: 1rem;
+        line-height: 1.428571429;
+        color: #333;
+        width: 65%;
+    }
+    .m_div div>span{
+        cursor: pointer;
+        font-size: 1.0rem;
+    }
+    .actor_info[arial-expanded=true]{
+        position: relative;
+        padding-bottom: 10px;
+        max-height: 1000px;
+        transition: max-height 300ms;
+    }
+    .m_item div{
+        display: block;
+        margin-top: 10px;
+        width: 300px;
+        font-size: 1.0rem;
+    }
+    #actor_name{
+        font-size: 1.2rem;
+    }
+}
+
 .m_div{
     box-sizing: border-box;
     width: 75%;
@@ -32,40 +195,6 @@
 }
 .m_wrapper div{
     display: inline-table;
-}
-
-@media(min-width:768px){
-    .m_div img{
-        width: 200px;
-        height: 200px;
-    }
-    .m_aside>div>img{
-        width: 150px;
-        height: 180px;
-        box-sizing: border-box;
-    }
-}
-@media(min-width:1440px){
-    .m_div img{
-        width: 300px;
-        height: 300px;
-    }
-    .m_aside>div>img{
-        width: 200px;
-        height: 220px;
-        box-sizing: border-box;
-    }
-}
-@media(width:768px){
-    .m_div img{
-        width: 180px;
-        height: 180px;
-    }
-    .m_aside>div>img{
-        width: 150px;
-        height: 170px;
-        box-sizing: border-box;
-    }
 }
 .m_item{
     display:contents;
@@ -78,18 +207,7 @@
     margin-top: 10px;
     width: 300px;
 }
-.actor_info[arial-expanded=false]{
-    position: relative;
-    overflow: hidden;
-    max-height: 300px;
-    transition: max-height 300ms;
-}
-.actor_info[arial-expanded=true]{
-    position: relative;
-    padding-bottom: 10px;
-    max-height: 1000px;
-    transition: max-height 300ms;
-}
+
 .shade{
     width: 65%;
     height: 100%;
@@ -99,14 +217,11 @@
     bottom: 0;
     visibility: visible;
 }
-.actor_info p{
-    font-size: 1rem;
-    line-height: 1.428571429;
-    color: #333;
-    width: 65%;
-}
-.m_div div>span{
-    cursor: pointer;
+.actor_info[arial-expanded=false]{
+    position: relative;
+    overflow: hidden;
+    max-height: 300px;
+    transition: max-height 300ms;
 }
 h3[showup="false"]{
     display: none;

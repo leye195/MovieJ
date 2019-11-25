@@ -19,10 +19,10 @@ class Movie extends React.Component{
                     <div className={view+"item_content"}>
                         <div>
                             <h2 className="item_title">{title}</h2>
+                            <h5 className="item_rate">{`${avg_rate}/10`}</h5>    
                         </div>
                         <div>
                             <p><strong>{lan==="en-US"?"Released: "+release_date:"개봉 일: "+release_date}</strong></p>
-                            <h5 className="item_rate">{`${avg_rate}/10`}</h5>    
                         </div>
                         <div className="overview_container">
                             <p className="overview">{overview===""?"해당 언어의 줄거리가 존재하지 않습니다":overview}</p>
