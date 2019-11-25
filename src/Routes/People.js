@@ -70,10 +70,11 @@ class People extends React.Component{
         return(
             <div>
                 <div>
+                    <div id="to_top"></div>
                     <Header></Header>
                     <SearchBar></SearchBar>
                 </div>
-                <div className="m_container" id="to_top">
+                <div className="m_container" >
                     <aside className="m_aside">
                         <div>
                             <img src={actor_img} alt="actor"></img>

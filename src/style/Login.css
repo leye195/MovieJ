@@ -1,0 +1,28 @@
+.form_container h2{
+    text-align: center;
+}
+#form{
+    text-align: center;
+    margin: 10px;
+    padding: 80px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+#form div{
+    width: 350px;
+    margin: 10px auto;
+}
+#form input[type="text"],#form input[type="password"]{
+    width: 350px;
+    height: 30px;
+    padding: 5px;
+}
+#form input[type="submit"],button{
+    width:100px;
+    margin: 5px;
+    color: white;
+    border-radius: 5px;
+}
+#form input[type="submit"]{
+    background-color: #203af3;
+}

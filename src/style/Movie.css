@@ -73,25 +73,32 @@
         box-shadow: 0 2px 19px 3px rgba(0, 0, 0, 0.1);
         transition-timing-function: ease;
     }
+    .poster .movie_container{
+        display:flex;
+        margin:10px;
+        padding:0px;
+        /*width: 300px;*/
+    }
 }
 @media(max-width:425px) and (min-width:320px){
     .poster{
-        width: 1000px;
-        margin: 10px auto;
+        width: 424px;
+        /*margin: 10px auto;*/
+
         z-index: 0;
         box-shadow: 0 2px 19px 3px rgba(0, 0, 0, 0.1);
     }
     .posterimg_contents img {
         display: block;
-        width: 350px;
-        height: 400px;
+        width: 150px;
+        height: 300px;
         border-width: 0px;
         outline: none;
         cursor: pointer;
     }
     .overview_container p {
         word-wrap: break-word;
-        font-size: 1.7rem !important; 
+        font-size: 1.0rem !important; 
         margin-bottom: 0px;
         color: #4d4d4d;
         line-height: 1.2em;
@@ -102,7 +109,7 @@
     }
     .item_title {
         display: inline;
-        font-size: 2.5rem;
+        font-size: 1.0rem;
         margin-top: 0px;
         margin-bottom: 10px;
     }
@@ -112,7 +119,7 @@
         padding: 5px;
         padding-right: 0;
         font-weight: 300;
-        font-size: 2.0rem;
+        font-size: 1.0rem;
         position: absolute;
         bottom: 0;
         left: 0;
@@ -123,7 +130,7 @@
     .posteritem_content p{
         display: inline-block;
         margin-top: 12px;
-        font-size: 2.0rem;
+        font-size: 1.0rem;
     }
     .item_rate{
         display: inline;
@@ -134,7 +141,7 @@
         border-radius: 10px;
         margin: 10px;
         box-shadow: 5px 5px 14px 5px rgba(37, 36, 36, 0.19);
-        font-size: 2.0rem;
+        font-size: 1.0rem;
     }
     .backdrop{
         width: 600px;
@@ -143,6 +150,11 @@
         box-shadow: 0 2px 19px 3px rgba(0, 0, 0, 0.1);
         transition-timing-function: ease;
     }
+    .poster .movie_container{
+        display:flex;
+        margin:10px;
+        padding:0px;
+    }
 }
 
 .backdrop:hover{
@@ -150,11 +162,7 @@
     transition-timing-function: ease;
     transition: ease 2s;
 }
-.poster .movie_container{
-    display:flex;
-    margin:10px;
-    padding:0px;
-}
+
 .backdrop .movie_container{
     margin:10px;
     padding:0px;
