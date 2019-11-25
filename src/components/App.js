@@ -5,6 +5,8 @@ import Review from '../Routes/Review';
 import NoMatch from '../Routes/NoMatch';
 import Search from '../Routes/Search';
 import People from '../Routes/People';
+import Login from '../Routes/Login';
+import SignUp from '../Routes/SignUp';
 import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
 import {faGithub} from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -28,6 +30,8 @@ function App() {
           <Route path="/movie_review/:id/:lan" component={Review}></Route>
           <Route path="/search" component={Search}></Route>
           <Route path="/people/:name" component={People}></Route>
+          <Route path="/login" component={Login}></Route>
+          <Route path="/signup" component={SignUp}></Route>
           <Route component={NoMatch}></Route>
         </Switch>
         <footer>

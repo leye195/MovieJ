@@ -10,6 +10,7 @@ class Header extends React.Component{
                 <p className="language-container">
                 <a href={lan!=="en-US"?to+id+"/en-US":"#"} ><span className="en">En</span></a>
                 <a href={lan!=="ko-KR"?to+id+"/ko-KR":"#"}><span className="kr">Kr</span></a>
+                <a href={"/login"}><span>Login</span></a>
                 </p>
             </div>
             </header> 
