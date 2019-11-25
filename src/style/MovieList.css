@@ -84,10 +84,13 @@ header div{
         background-color: white;
         border: black solid 5px;
         padding: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
         cursor: pointer;
         font-size: 3.5rem;
         top: 45px;
         position: relative;
+        left: 17%;
     }
     .select_wrapper span{
         padding-right: 5px;
@@ -95,9 +98,9 @@ header div{
     }
     .select_wrapper select{
         width: 250px;
-        height: 60px;
+        height: 50px;
         border: 1px solid #8d949461;
-        font-size: 1.8rem;
+        font-size: 1.2rem;
     }
     .select_wrapper{
         width: 100%;
@@ -106,7 +109,7 @@ header div{
         text-align: right;
         right: 60px;
         margin-top: 20px;
-        font-size: 2.0rem;
+        /*font-size: 2.0rem;*/    
     }
 }
 

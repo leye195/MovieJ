@@ -9,11 +9,11 @@
     padding-bottom: 40px;
 }
 #form div{
-    width: 300px;
+    width: 350px;
     margin: 10px auto;
 }
 #form input[type="text"],#form input[type="password"]{
-    width: 300px;
+    width: 350px;
     height: 30px;
     padding: 5px;
 }
