@@ -20,17 +20,17 @@ class MovieList extends React.Component{
     }
     componentDidMount(){
         this.timer=setInterval(this.progress,30);
-        let cur_page=localStorage.cur_page;
+        //let cur_page=localStorage.cur_page;
         let view=localStorage.view;
-        if(!cur_page)
-            cur_page=this.props.cur_page;
+        //if(!cur_page)
+            //cur_page=this.props.cur_page;
         if(!view)
             view=this.props.view;
         this.props.handleView(view);
-        if(cur_page===-1)
-            this.getMovies(1);
-        else
-            this.getMovies(cur_page);
+        //if(cur_page===-1)
+        this.getMovies(1);
+        //else
+            //this.getMovies(cur_page);
     }
     componentDidUpdate(prevProps,prevState){
         if(prevProps.cur_page!==this.props.cur_page)
@@ -100,18 +100,8 @@ class MovieList extends React.Component{
             </div>
             <div className="movies_wrapper">{movies}</div>
             <div className="btns">
-                <button onClick={this.To_first} disabled={cur_page>1?false:true}>
-                {lan!=="ko-KR"?'First':'처음'}
-                </button>
-                <button onClick={this.onPrev} disabled={cur_page>1?false:true}>
-                    {lan!=="ko-KR"?'Prev':'이전'}
-                </button>
-                <span><b>{`${cur_page}/${total_pages}`}</b></span>
                 <button onClick={this.onNext} disabled={cur_page<total_pages?false:true}>
-                {lan!=="ko-KR"?'Next':'다음'}
-                </button>
-                <button  onClick={this.To_end} disabled={cur_page<total_pages?false:true}>
-                {lan!=="ko-KR"?'End':'마지막'}
+                {lan!=="ko-KR"?'Show more':'더 보기'}
                 </button>
             </div>
         </div>
