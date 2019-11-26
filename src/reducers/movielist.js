@@ -20,7 +20,7 @@ export default function movielist(state=initialState,action){
         case types.MOVIELIST:
             return{
                 ...state,
-                movie_list:action.movie_list,
+                movie_list:state.movie_list.concat(action.movie_list),
                 total_pages:action.total_pages,
                 cur_page:action.cur_page,
             };
