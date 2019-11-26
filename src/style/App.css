@@ -53,8 +53,8 @@ html, body {
   .language-container{
     display: -webkit-inline-box;
     position: relative;
-    left: 20%;
-    top: 60px;
+    left: 18%;
+    top: 30px;
     font-weight: 500;
     font-size: 1.5rem;
   }

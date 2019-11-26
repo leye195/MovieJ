@@ -4,8 +4,8 @@
     height: 300px;
 }
 .m_aside>div>img{
-    width: 220px;
-    height: 350px;
+    width: 65px;
+    height: 120px;
     box-sizing: border-box;
 }
 .m_container{
@@ -18,9 +18,9 @@
 }
 .m_aside>div{
     position: fixed;
-    left:50px;
-    height: 375px;
-    width: 250px;
+    left:0px;
+    height: 155px;
+    width: 95px;
     margin: auto auto;
     border: 5px solid rgba(109, 107, 107, 0.13);
     padding: 10px;
@@ -33,17 +33,17 @@
 .m_aside a{
     padding: 7px 0;
     transition: all .5s;
-    font-size: 2.3rem;
+    font-size: 0.7rem;
 }
 .actor_info p{
-    font-size: 2.0rem;
+    font-size: 0.9rem;
     line-height: 1.428571429;
     color: #333;
-    width: 65%;
+    width: 80%;
 }
 .m_div div>span{
     cursor: pointer;
-    font-size: 2.0rem;
+    font-size: 0.9rem;
 }
 .actor_info[arial-expanded=true]{
     position: relative;
@@ -55,10 +55,19 @@
     display: block;
     margin-top: 10px;
     width: 300px;
-    font-size: 2.0rem;
+    font-size: 1.0rem;
 }
 #actor_name{
-    font-size: 3.0rem;
+    font-size: 1.0rem;
+}
+.shade{
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    background-image: -webkit-linear-gradient(top,rgba(243,243,243,0) 0%,#fff 100%);
+    top: auto;
+    bottom: 0;
+    visibility: visible;
 }
 @media (max-width:1024px) and (min-width:768px){
     .m_div img{
@@ -66,8 +75,8 @@
         height: 200px;
     }
     .m_aside>div>img{
-        width: 170px;
-        height: 180px;
+        width: 120px;
+        height: 160px;
         box-sizing: border-box;
     }
     .m_container{
@@ -80,9 +89,9 @@
     }
     .m_aside>div{
         position: fixed;
-        left:50px;
-        width: 200px;
-        height: 210px;        
+        left:1%;
+        width: 150px;
+        height: 195px;        
 
         margin: auto auto;
         border: 5px solid rgba(109, 107, 107, 0.13);
@@ -91,12 +100,12 @@
     }
     .m_aside p{
         padding:5px;
-        border-bottom: 1px solid #58555591
+        border-bottom: 1px solid #58555591;
     }
     .m_aside a{
         padding: 7px 0;
         transition: all .5s;
-        font-size: 1.5rem;
+        font-size: 1.0rem;
     }
     .actor_info p{
         font-size: 1rem;
@@ -123,10 +132,12 @@
     #actor_name{
         font-size: 1.5rem;
     }
+    .shade{
+        width: 65%;
+    }
 }
 @media all and (min-width:1440px){
     .m_div img{
-        width: 240px;
         height: 250px;
     }
     .m_aside>div>img{
@@ -186,6 +197,9 @@
     #actor_name{
         font-size: 1.2rem;
     }
+    .shade{
+        width: 65%;
+    }
 }
 
 .m_div{
@@ -201,21 +215,14 @@
     column-gap:15px;
     padding-left: 5px;
     padding-right: 5px;
+    border-radius: 5px;
+    border: 1px solid #c3bdc333;
+    text-align: center;
 }
 .m_item div{
     display: block;
     margin-top: 10px;
     width: 300px;
-}
-
-.shade{
-    width: 65%;
-    height: 100%;
-    position: absolute;
-    background-image: -webkit-linear-gradient(top,rgba(243,243,243,0) 0%,#fff 100%);
-    top: auto;
-    bottom: 0;
-    visibility: visible;
 }
 .actor_info[arial-expanded=false]{
     position: relative;

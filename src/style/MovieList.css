@@ -71,7 +71,7 @@ header div{
         color: white;
     }
     header div{
-        height: 200px;
+        height: 150px;
         padding-left:20px;
         padding-right:20px;
         padding-top: 5px;
@@ -87,10 +87,10 @@ header div{
         padding-left: 10px;
         padding-right: 10px;
         cursor: pointer;
-        font-size: 3.5rem;
-        top: 45px;
+        font-size: 1.8rem;
+        top: 30px;
         position: relative;
-        left: 17%;
+        left: 5%;
     }
     .select_wrapper span{
         padding-right: 5px;
