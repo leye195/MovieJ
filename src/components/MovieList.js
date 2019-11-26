@@ -21,16 +21,14 @@ class MovieList extends React.Component{
     componentDidMount(){
         this.timer=setInterval(this.progress,30);
         //let cur_page=localStorage.cur_page;
-        let view=localStorage.view;
         //if(!cur_page)
             //cur_page=this.props.cur_page;
+        let view=localStorage.view;
+       
         if(!view)
             view=this.props.view;
         this.props.handleView(view);
-        //if(cur_page===-1)
         this.getMovies(1);
-        //else
-            //this.getMovies(cur_page);
     }
     componentDidUpdate(prevProps,prevState){
         if(prevProps.cur_page!==this.props.cur_page)
@@ -59,27 +57,13 @@ class MovieList extends React.Component{
     ChangeView=(e)=>{
         this.props.handleView(e.target.value);
     }
-    To_first=()=>{
-        this.getMovies(1);
-    }
-    To_end=()=>{
-        const{total_pages}=this.props;
-        this.getMovies(total_pages);
-    }
     onNext=()=>{
         const{cur_page,total_pages}=this.props;
         if(cur_page<total_pages)
             this.getMovies(Number(cur_page)+1);
         else
             alert("Done");
-    }
-    onPrev=()=>{
-        const{cur_page}=this.props;
-        if(cur_page>1)
-            this.getMovies(Number(cur_page)-1);
-        else
-            alert("Page can not less than 1");
-    }
+    }   
     render(){
         const{movie_list,cur_page,view,lan,total_pages,completed}=this.props;
         const movies=movie_list.map((movie,i)=>{

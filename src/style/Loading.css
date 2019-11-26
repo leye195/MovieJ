@@ -9,8 +9,8 @@
     z-index: 1;
 }
 .MuiCircularProgress-colorSecondary{
-    width: 110px!important;
-    height: 110px !important;
+    width: 50px!important;
+    height: 50px !important;
 }
 
 /* Tablet Device */

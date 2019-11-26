@@ -5,14 +5,14 @@ import {connect} from 'react-redux';
 import * as actions from '../actions';
 class SearchBar extends React.Component{
     componentDidMount() {}
-
     /*** 
-     *  Function: doSearch(key,lan)
+     *  Function: doSearch(keyword,lan)
+     * @param keyword  Search keyword
+     * @param lan  language
      *  ajax 통신을 통해 api에서 데이터를 가져옴  
      ***/
     doSearch=async(keyword,lan="ko-KR")=>{
         const search=await services.getSearch(keyword,lan);
-        //this.setState({results:search.data.results})
         this.props.handleSearch(search.data.results);
     }
     handleChange=(e)=>{
@@ -22,19 +22,21 @@ class SearchBar extends React.Component{
         this.props.handleInput(value);
         let search_list=document.querySelector(".search-animation-container");
         if(value===""){
-            let n=search_list.className.split(" ");
-            n[1]="search_hide";
-            search_list.className=n.join(" ");
+            const hasClass=search_list.classList.contains("search_active");
+            if(hasClass)
+                search_list.classList.remove("search_active");
+            search_list.classList.add("search_hide");
+            
         }else{
             this.doSearch(value,lan);
-            let n=search_list.className.split(" ");
-            n[1]="search_active";
-            search_list.className=n.join(" ");
+            const hasClass=search_list.classList.contains("search_hide");
+            if(hasClass)
+                search_list.classList.remove("search_hide");
+            search_list.classList.add("search_active");
         }
     }
     handleClick=()=>{
         const{keyword,lan}=this.props;
-        //console.log("keyword: "+keyword);
         window.location.assign('/search?p='+keyword+"&language="+lan);
     }
     handleEnter=(e)=>{
@@ -43,25 +45,21 @@ class SearchBar extends React.Component{
     render(){
         const results=this.props.results;
         const result=results.map((item)=>{
-           return <li key={item.id} id={item.id}><a href={"/search?p="+encodeURI(item.title)}>{item.title}</a></li>
+           return <li className="search_item" key={item.id} id={item.id}><a href={"/search?p="+encodeURI(item.title)}>{item.title}</a></li>
         })
         return(
             <div className="search_bar">
                 <section className="search">
                     <div className="sub">
                         <input ref={input => this.input = input} type="text" placeholder="Movie Title"
-                            className={'input'}
-                            onChange={this.handleChange} value={this.props.keyword} 
-                            onKeyPress={this.handleEnter}
-                        />
+                            className={'input'}onChange={this.handleChange} value={this.props.keyword} 
+                            onKeyPress={this.handleEnter}/>
                     </div>
                 </section>
                 <div className="search-animation-container search_hide">
                     <h3>{"Keyword Searches"}</h3>
                     <div className="search-list-container">
-                        <ul>
-                           {results.length>0?result:" No result"}
-                        </ul>
+                        <ul >{results.length>0?result:" No result"}</ul>
                     </div>
                 </div>
             </div>
