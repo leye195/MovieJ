@@ -4,7 +4,7 @@ const initialState={
     total_pages:0,
     movie_list:[],
     cur_page:-1,
-    lan:"ko-KR",
+    lan:"en-US",
     view:"poster",
 }
 export default function movielist(state=initialState,action){

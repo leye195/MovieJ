@@ -48,10 +48,12 @@ class MovieList extends React.Component{
         else
             this.props.page_loading(completed+1);
     };
+    /**
+     * @param page : For loading page's data from API
+     **/
     getMovies=async(page)=>{
         const lan=this.props.lang;
         const movies=await services.getAllMovies(page,lan);
-        //console.log(movies);
         this.props.handleMovielist(movies.data.results,movies.data.total_pages,page);
     }
     ChangeView=(e)=>{
@@ -110,12 +112,12 @@ class MovieList extends React.Component{
 }
 const mapStateToProps=(state)=>{
     return{
-        total_pages:state.movielist.total_pages,
-        movie_list:state.movielist.movie_list,
-        cur_page:state.movielist.cur_page,
-        view:state.movielist.view,
-        lan:state.movielist.lan,
-        completed:state.load.completed
+        total_pages:state.movielist.total_pages,//total pages in movielist
+        movie_list:state.movielist.movie_list, //movie data list
+        cur_page:state.movielist.cur_page,// current page
+        view:state.movielist.view, //view: post or backdrop
+        lan:state.movielist.lan, //language: ko-KR or en-US
+        completed:state.load.completed //check loading is finished or not
     };
 }
 const mapDispatchToProps=(dispatch)=>{
