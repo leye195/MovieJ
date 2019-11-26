@@ -113,7 +113,7 @@ class MovieDetail extends React.Component{
                 </div>
             <div className="detail">
                 <div className="custom_bg">
-                <div className="movie_wrapper" style={{display:"flex",padding:"40px"}}>
+                <div className="movie_wrapper">
                     <div className="img_container">
                         <img alt={title} src={`https://image.tmdb.org/t/p/w500`+poster_path}></img>
                     </div>

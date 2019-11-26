@@ -49,7 +49,25 @@ html, body {
   color: #09d3ac;
 }
 
-@media(min-width:375px){
+@media(min-width:320px){
+  .language-container{
+    display: -webkit-inline-box;
+    position: relative;
+    left: 7%;
+    top: 30px;
+    font-weight: 500;
+    font-size: 1.5rem;
+  }
+  .language-container span{
+    margin: 7px;
+    padding: 5px;
+    border: 3px solid white;
+    border-radius: 4px;
+    cursor: pointer;
+    color:white;
+  }
+}
+@media(min-width:425px){
   .language-container{
     display: -webkit-inline-box;
     position: relative;

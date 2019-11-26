@@ -1,18 +1,17 @@
+/* Mobile Device */
 .recommendation{
-    margin: 0 auto;
-    width: 1300px;
+    margin: 0 auto;   
 }
 .recommendation_container{
     display: -webkit-box;
     -webkit-overflow-scrolling: touch;
-    width: 1200px;
     overflow-y: hidden;
     overflow-x: scroll;
     white-space: nowrap;
     box-sizing: border-box;
     padding-bottom: 16px;
-    padding-right: 120px;
-    padding-left: 120px;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 .MuiCardContent-root:last-child {
     /* padding-bottom: 24px; */
@@ -24,14 +23,55 @@
 .recommendation_wrapper{
     margin: 10px;
     cursor: pointer;
+    width: 130px;
+    height: 245px;
+}
+.recommendation_wrapper div{
+    padding:0;
+}
+.recommendation_wrapper img{
+    width: 130px;
+    height: 200px;
+}
+.recommendation_wrapper p{
+    font-size:0.6rem;
+    white-space: normal;
+}
+/* Tablet Device */
+@media all and (min-width:768px) {
+.recommendation{
+    margin: 0 auto;   
+}
+.recommendation_container{
+    display: -webkit-box;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    white-space: nowrap;
+    box-sizing: border-box;
+    padding-bottom: 16px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.MuiCardContent-root:last-child {
+    /* padding-bottom: 24px; */
+    padding-bottom: 0px;
+}
+.recommendation_container::-webkit-scrollbar{
+    display: none;
+}
+.recommendation_wrapper{
+    margin: 10px;
+    cursor: pointer;
+    width:100%;
 }
 .recommendation_wrapper div{
     padding:0;
 }
 .recommendation_wrapper img{
     width: 320px;
-    height: 300px;
 }
 .recommendation_wrapper p{
     font-size:1.0rem;
+}
 }
