@@ -23,15 +23,15 @@ class Home extends React.Component{
         //const query=new URLSearchParams(this.props.location.search);        
         let movies="";
         //console.log(lan_url+":");
-        if(lan_url==="/" || lan_url==="/ko-KR")
+        if(lan_url==="/ko-KR")
             movies=<MovieList lang="ko-KR"></MovieList>
-        else if(lan_url==="/en-US")
+        else if(lan_url==="/" ||lan_url==="/en-US")
             movies=<MovieList lang="en-US"></MovieList>
         return (
             <div>
                 <div>
-                    <Header lan={lan_url==="/"||lan_url==="/ko-KR"?"ko-KR":"en-US"}></Header>
-                    <SearchBar lan={lan_url==="/"||lan_url==="/ko-KR"?"ko-KR":"en-US"}></SearchBar>
+                    <Header lan={lan_url==="/"||lan_url!=="/ko-KR"?"ko-KR":"en-US"}></Header>
+                    <SearchBar lan={lan_url==="/"||lan_url!=="/ko-KR"?"ko-KR":"en-US"}></SearchBar>
                 </div>
                 {movies}
             </div>
