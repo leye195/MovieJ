@@ -17,6 +17,9 @@
 .cast_item p{
     font-size:0.8rem;
 }
+.cast_container{
+    animation: fadeIn 3.0s;
+}
 @media all and (min-width:768px){
     .cast_container{
         display: flex;

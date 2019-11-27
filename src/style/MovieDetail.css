@@ -11,11 +11,13 @@
 .overview h3{
     font-size: 1.5rem;
 }
+
 .img_container img{
     height: 500px;
     width: 100%;
     margin-top: 40px;
     margin-bottom: 40px;
+    animation: fadeIn 4.5s;
 }
 /* Tablet Device */
 @media all and (min-width:768px) {

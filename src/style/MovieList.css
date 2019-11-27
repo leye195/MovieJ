@@ -33,11 +33,12 @@ header div{
     }
     .btns button{
         height: 50px;
-        width: 150px;
+        width: 400px;
         border-radius: 10px;
         margin: 3px;
         background-color: #0826b9d9;
         color: white;
+        font-size: 1.0rem;
     }
     .btns button:disabled{
         background-color: #0826b9a8;
@@ -60,9 +61,10 @@ header div{
     }
     .btns button{
         height: 50px;
-        width: 50px;
+        width: 350px;
         border-radius: 10px;
         margin: 3px;
+        font-size: large;
         background-color: #0826b9d9;
         color: white;
     }

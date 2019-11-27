@@ -1,3 +1,6 @@
+.posterimg_contents img,.backdrop{
+    animation: fadeIn 4.0s;
+}
 
 /* Mobile Device */
 @media all and (min-width:768px) {

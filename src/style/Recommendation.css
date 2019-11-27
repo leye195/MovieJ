@@ -32,6 +32,7 @@
 .recommendation_wrapper img{
     width: 130px;
     height: 200px;
+    animation: fadeIn 3.0s;
 }
 .recommendation_wrapper p{
     font-size:0.6rem;
