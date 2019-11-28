@@ -1,0 +1,11 @@
+module.exports=(app)=>{
+    app.get('/api/User',(req,res)=>{
+        res.end();
+    })
+    app.get('/api/User/:userid',(req,res)=>{
+        res.end();
+    })
+    app.post('/api/User',(req,res)=>{
+        res.end();
+    })
+}
