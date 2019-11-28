@@ -26,12 +26,17 @@ header div{
     height: 30px;
     border: 1px solid #8d949461;
 }
+.btns button{
+    box-shadow: 3px 3px 4px 2px #00000059 !important;
+}   
+
 @media(min-width:426px){
     .btns span{
         padding-left: 20px;
         padding-right: 20px;
     }
     .btns button{
+        all: unset;
         height: 50px;
         width: 400px;
         border-radius: 10px;
@@ -39,10 +44,8 @@ header div{
         background-color: #0826b9d9;
         color: white;
         font-size: 1.0rem;
-    }
-    .btns button:disabled{
-        background-color: #0826b9a8;
-        color: white;
+        text-align: center;
+        cursor: pointer;
     }
     header h1{
         display: initial;
@@ -60,6 +63,7 @@ header div{
         font-size: 0.2rem;
     }
     .btns button{
+        all: unset;
         height: 50px;
         width: 350px;
         border-radius: 10px;
@@ -67,11 +71,10 @@ header div{
         font-size: large;
         background-color: #0826b9d9;
         color: white;
+        text-align: center;
+        cursor: pointer;
     }
-    .btns button:disabled{
-        background-color: #0826b9a8;
-        color: white;
-    }
+    
     header div{
         height: 150px;
         padding-left:20px;
@@ -126,5 +129,12 @@ header div{
     margin: 0 auto;
     padding-top:10px;
     padding-bottom: 10px;
+}
+.btns button:active{
+    transform: scale(0.9);
+}
+.btns button:disabled{
+    background-color: #0826b9a8;
+    color: white;
 }
 

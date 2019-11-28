@@ -46,39 +46,43 @@ class MovieDetail extends React.Component{
         this.setState({ completed: completed >= 100 ? clearInterval(this.timer) : completed + 1 });
     };
     getDetail=async(id,lan)=>{
-        const movie_info=await services.getMovieInfo(id,lan);
-        const reviews=await services.getReviews(id,lan);
-        if(reviews.data.results.length>0){
+        //const movie_info=await services.getMovieInfo(id,lan);
+        //const reviews=await services.getReviews(id,lan);
+        const info=await Promise.all([
+            services.getMovieInfo(id,lan),
+            services.getReviews(id,lan)
+        ]);
+        if(info[1].data.results.length>0){
             this.setState({
                 info:{
                 id:id,
-                title:movie_info.data.title,
-                overview:movie_info.data.overview,
-                vote_average:movie_info.data.vote_average,
-                backdrop:movie_info.data.backdrop_path,
-                poster_path:movie_info.data.poster_path,
-                state:movie_info.data.status,
-                runtime:movie_info.data.runtime,
-                release_date:movie_info.data.release_date,
-                tagline:movie_info.data.tagline,
-                revenue:movie_info.data.revenue,
-                review:reviews.data.results[reviews.data.results.length-1]
+                title:info[0].data.title,
+                overview:info[0].data.overview,
+                vote_average:info[0].data.vote_average,
+                backdrop:info[0].data.backdrop_path,
+                poster_path:info[0].data.poster_path,
+                state:info[0].data.status,
+                runtime:info[0].data.runtime,
+                release_date:info[0].data.release_date,
+                tagline:info[0].data.tagline,
+                revenue:info[0].data.revenue,
+                review:info[1].data.results[info[1].data.results.length-1]
                 }
             })
         }else{
             this.setState({
                 info:{
                 id:id,
-                title:movie_info.data.title,
-                overview:movie_info.data.overview,
-                vote_average:movie_info.data.vote_average,
-                backdrop:movie_info.data.backdrop_path,
-                poster_path:movie_info.data.poster_path,
-                state:movie_info.data.status,
-                runtime:movie_info.data.runtime,
-                release_date:movie_info.data.release_date,
-                tagline:movie_info.data.tagline,
-                revenue:movie_info.data.revenue
+                title:info[0].data.title,
+                overview:info[0].data.overview,
+                vote_average:info[0].data.vote_average,
+                backdrop:info[0].data.backdrop_path,
+                poster_path:info[0].data.poster_path,
+                state:info[0].data.status,
+                runtime:info[0].data.runtime,
+                release_date:info[0].data.release_date,
+                tagline:info[0].data.tagline,
+                revenue:info[0].data.revenue,
                 }
             })
         }

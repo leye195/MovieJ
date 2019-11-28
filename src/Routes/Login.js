@@ -7,7 +7,6 @@ import '../style/Login.css';
 class Login extends Component {
     render() {
         //const{lan}=this.props;
-        //console.log(lan);
         return (
             <div>
                 <Header></Header>   
