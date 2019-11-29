@@ -8,9 +8,26 @@ class Header extends React.Component{
         if(document.cookie){
             const user_info=JSON.parse(document.cookie);
             if(user_info.loggedIn)
-                return true;
+                return user_info;
         }
-        return false;
+        return {loggedIn:false};
+    }
+    handleClick=(e)=>{
+        const callout=document.querySelector(".callout"),menu=document.querySelector(".menu");
+        if(callout.classList.contains('m_show')){
+            callout.classList.remove('m_show');
+            callout.classList.add('m_hide');
+        }else{
+            callout.classList.remove('m_hide');
+            callout.classList.add('m_show');
+        }
+        if(menu.classList.contains('m_show')){
+            menu.classList.remove('m_show');
+            menu.classList.add('m_hide');
+        }else{
+            menu.classList.remove('m_hide');
+            menu.classList.add('m_show');
+        }
     }
     handleLogOut=()=>{
         return this.props.logoutRequest()
@@ -23,16 +40,24 @@ class Header extends React.Component{
     }
     render(){
         const{to,id,lan}=this.props;
-        const loggedIn=this.checkLogin();
+        const check=this.checkLogin();
         return(
             <header>
             <div>
                 <h1 style={{Fontsize:"1.5rem"}}><Link to={lan==="en-US"?"/en-US":"/ko-KR"}>MovieJ</Link></h1>
+                <span></span>
                 <p className="language-container">
                     <a href={lan!=="en-US"?to+id+"/en-US":"#"} ><span className="en">En</span></a>
                     <a href={lan!=="ko-KR"?to+id+"/ko-KR":"#"}><span className="kr">Kr</span></a>
-                    {loggedIn===true?<a href onClick={this.handleLogOut}><span>LogOut</span></a>:<a href={"/login"}><span>Login</span></a>}
+                    {check.loggedIn===true? <span id="user" onClick={this.handleClick}>{check.name}</span>:
+                    <a href={"/login"}><span>Login</span></a>}
                 </p>
+                <div class="callout m_hide"></div>
+                <div className="menu m_hide">
+                    <ul className="menu_list">
+                        <li><span onClick={this.handleLogOut}>LogOut</span></li>
+                    </ul>
+                </div>
             </div>
             </header> 
         )

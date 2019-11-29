@@ -1,5 +1,4 @@
 import * as types from './ActionTypes';
-
 /*SET PAGE */
 export function page(cur_page){
     return {
@@ -72,7 +71,6 @@ export function loading(completed){
         completed
     }
 }
-
 /*LOGIN*/
 export function login(){
     return{

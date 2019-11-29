@@ -18,7 +18,7 @@ module.exports = function(app,User){
         let user=User;
         user.findOne({name:req.body.id,password:req.body.password},(err,data)=>{
             if(err)return res.status(500).json({msg:'database failure',error:1});
-            if(!data)return res.status(404).json({msg:'user not found',error:1});
+            if(!data)return res.status(404).json({msg:'user not found',error:2});
             sess=req.session;
             sess.loginInfo={
                 _id:data._id,
@@ -44,7 +44,7 @@ module.exports = function(app,User){
     app.post('/api/users',(req,res)=>{
         //console.log(req.body.params);
         User.findOne({name:req.body.params.name},(err,data)=>{
-            if(err)return res.status(500).json({error:'database failure'});
+            if(err)return res.status(500).json({msg:'database failure',error:1});
             if(data===null){
                 let user=new User();
                 user.name=req.body.params.name;
@@ -52,14 +52,14 @@ module.exports = function(app,User){
                 user.save((error)=>{
                     if(error){
                         console.error(error);
-                        res.json({result:0});
+                        res.json({msg:'Save failure',error:2});
                         return;
                     }
                     else
                         res.json({error:0,result:1});
                 });
             }else
-                res.json({error:'id already exists',result:0});        
+                res.json({msg:'id already exists',result:0,error:3});        
         })
     })
 };

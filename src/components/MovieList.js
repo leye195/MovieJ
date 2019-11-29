@@ -20,11 +20,7 @@ class MovieList extends React.Component{
     }
     componentDidMount(){
         this.timer=setInterval(this.progress,30);
-        //let cur_page=localStorage.cur_page;
-        //if(!cur_page)
-            //cur_page=this.props.cur_page;
         let view=localStorage.view;
-       
         if(!view)
             view=this.props.view;
         this.props.handleView(view);
@@ -67,7 +63,7 @@ class MovieList extends React.Component{
     render(){
         const{movie_list,cur_page,view,lan,total_pages,completed}=this.props;
         const movies=movie_list.map((movie,i)=>{
-            return <Movie id={movie.id} key={movie.id} title={movie.title} release_date={movie.release_date} 
+            return <Movie id={movie.id} key={i} title={movie.title} release_date={movie.release_date} 
                     poster={view==="poster"?movie.poster_path:movie.backdrop_path} 
                     overview={movie.overview} view={view} lan={lan} avg_rate={movie.vote_average}>
                     </Movie>
@@ -106,18 +102,10 @@ const mapStateToProps=(state)=>{
 }
 const mapDispatchToProps=(dispatch)=>{
     return{
-        handlePage:(cur_page)=>{
-            dispatch(actions.page(cur_page))
-        },
-        handleView:(view)=>{
-            dispatch(actions.view(view))
-        },
-        handleMovielist:(movie_list,total_pages,cur_page)=>{
-            dispatch(actions.get_movielist(movie_list,total_pages,cur_page))
-        },
-        page_loading:(completed)=>{
-            dispatch(actions.loading(completed))
-        }
+        handlePage:(cur_page)=>{dispatch(actions.page(cur_page))},
+        handleView:(view)=>{dispatch(actions.view(view))},
+        handleMovielist:(movie_list,total_pages,cur_page)=>{dispatch(actions.get_movielist(movie_list,total_pages,cur_page))},
+        page_loading:(completed)=>{dispatch(actions.loading(completed))}
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(MovieList);
