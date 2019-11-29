@@ -6,7 +6,7 @@ import default_movie from '../img/default_movie.png';
 import '../style/People.css';
 import user from '../img/user.svg'
 import * as services from '../services/posts';
-import {Link} from './node_modules/react-router-dom';
+import {Link} from 'react-router-dom';
 class People extends React.Component{
     constructor(props){
         super(props);

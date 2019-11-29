@@ -3,7 +3,7 @@ import MovieList from '../components/MovieList';
 import Header from '../components/Header';
 import SearchBar from '../components/SearchBar';
 import * as actions from '../actions';
-import {connect} from './node_modules/react-redux';  
+import {connect} from 'react-redux';  
 class Home extends React.Component{
     constructor(props){
         super(props)
