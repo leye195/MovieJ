@@ -3,12 +3,17 @@ MovieJ는 The movie DB에서 제공하는 API를 이용하여 영화 정보를 �
 React 공부 및 포트폴리오를 위해 만들었습니다.
 
 Link:https://moviej.herokuapp.com/en-US
+
 ### Client
 Front-End technologies used in the project<br/>
 -React<br/>
 -React-Router v5<br/>
 -Redux<br/>
 
+### Server
+Back-End technologies used in the project<br/>
+-Express<br/>
+-MongoDB</br>
 
 ## Available Scripts
 

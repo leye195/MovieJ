@@ -1,4 +1,7 @@
 module.exports = function(app,User){
+    /**
+     * Users: Get /api/users
+     */
     app.get('/api/users',(req,res)=>{
         let users=User;
         console.log(User);
@@ -25,6 +28,11 @@ module.exports = function(app,User){
             res.json({error:0,data});
         });
     });
+
+    /**
+     * Sign Up: Post /api/users
+     * body sample: {"name":"test","password":"test"}
+     */
     app.post('/api/users',(req,res)=>{
         console.log(req.body.params);
         User.findOne({name:req.body.params.name},(err,data)=>{
@@ -34,7 +42,6 @@ module.exports = function(app,User){
                 let user=new User();
                 user.name=req.body.params.name;
                 user.password=req.body.params.password;
-                //console.log(req.body);
                 user.save((error)=>{
                     if(error){
                         console.error(error);
