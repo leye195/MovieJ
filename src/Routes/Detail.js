@@ -1,4 +1,4 @@
-import React from 'react';
+import React from './node_modules/react';
 import MovieDetail from '../components/MovieDetail';
 import Header from '../components/Header';
 import SearchBar from '../components/SearchBar';

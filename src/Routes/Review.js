@@ -1,4 +1,4 @@
-import React from 'react';
+import React from './node_modules/react';
 import MovieReview from '../components/MovieReview';
 import MovieReviewList from '../components/MovieReviewList';
 import SearchBar from '../components/SearchBar';

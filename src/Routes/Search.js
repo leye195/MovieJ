@@ -1,8 +1,8 @@
-import React from 'react';
+import React from './node_modules/react';
 import Header from '../components/Header';
 import SearchBar from '../components/SearchBar';
 import Movie from '../components/Movie';
-import Button from '@material-ui/core/Button';  
+import Button from './node_modules/@material-ui/core/Button';  
 import * as services from '../services/posts'; 
 class Search extends React.Component{
     state={

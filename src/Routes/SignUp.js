@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from './node_modules/react';
 //import * as actions from '../actions';
-import {connect} from 'react-redux'; 
+import {connect} from './node_modules/react-redux'; 
 import Header from '../components/Header';
-import {Link} from 'react-router-dom';
+import {Link} from './node_modules/react-router-dom';
 import '../style/Login.css';
 import * as services from '../services/posts'; 
 class SignUp extends Component {
