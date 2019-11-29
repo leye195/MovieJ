@@ -1,11 +1,14 @@
 import * as types from './ActionTypes';
 
+/*SET PAGE */
 export function page(cur_page){
     return {
         type:types.PAGE,
         cur_page
     };
 }
+
+/*Button for Next,Previous and View */
 export function nextbtn(cur_page){
     return {
         type:types.NEXT_BTN,
@@ -24,6 +27,8 @@ export function view(view){
         view
     }
 }
+
+/*GET MOVIE DATA LIST*/
 export function get_movielist(movie_list,total_pages,cur_page){
     return{
         type:types.MOVIELIST,
@@ -32,6 +37,8 @@ export function get_movielist(movie_list,total_pages,cur_page){
         cur_page,
     };
 }
+
+/*SEARCH*/
 export function get_keyword(keyword){
     return{
         type:types.KEYWORD,
@@ -44,12 +51,15 @@ export function search(results){
         results,
     };
 }
+
+/*LANGUAGE*/
 export function language(lan){
     return{
         type:types.LANGUAGE,
         lan
     }
 }
+/*ACTOR INFORMATION*/
 export function actor_info(actor){
     return{
         type:types.ACTOR_INFO,
@@ -61,4 +71,22 @@ export function loading(completed){
         type:types.LOADING,
         completed
     }
+}
+
+/*LOGIN*/
+export function login(){
+    return{
+        type:types.LOGIN
+    };
+}
+export function loginSuccess(name){
+    return{
+        type:types.LOGIN_SUCCESS,
+        name
+    };
+}
+export function loginFailure(){
+    return{
+        type:types.LOGIN_FAILURE
+    };
 }

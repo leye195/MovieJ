@@ -9,3 +9,8 @@ export const LANGUAGE="LANGUAGE";
 export const ACTOR_INFO="ACTOR_INFO";
 export const ACTOR_IMG="ACTOR_IMG";
 export const LOADING="LOADING";
+
+//Login
+export const LOGIN="LOGIN";
+export const LOGIN_SUCCESS="LOGIN_SUCCESS";
+export const LOGIN_FAILURE="LOGIN_FAILURE";

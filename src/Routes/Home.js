@@ -9,20 +9,12 @@ class Home extends React.Component{
         super(props)
         const url=this.props.match.url;
         this.props.handleLanguage(url.substr(1,url.length));
-    }
-    /*shouldComponentUpdate(nextProps,nextState){
-        const url=this.props.match.url;
-        if(url.substr(1,url.length)!==this.props.lan){
-            this.props.handleLanguage(url.substr(1,url.length));
-            return true;
-        }
-        return false;
-    }  */  
+    } 
+    
     render(){
         const lan_url=this.props.match.url;
-        //const query=new URLSearchParams(this.props.location.search);        
         let movies="";
-        //console.log(lan_url+":");
+
         if(lan_url==="/ko-KR")
             movies=<MovieList lang="ko-KR"></MovieList>
         else if(lan_url==="/" ||lan_url==="/en-US")
@@ -39,7 +31,9 @@ class Home extends React.Component{
     }
 };
 const mapStateToProps=(state)=>{
-    return{lan:state.movielist.lan};
+    return{
+        lan:state.movielist.lan
+    };
 }
 const mapDispatchToProps=(dispatch)=>{
     return{

@@ -4,17 +4,46 @@ import {connect} from 'react-redux';
 import Header from '../components/Header';
 import {Link} from 'react-router-dom';
 import '../style/Login.css';
+import * as actions from '../actions';
+import * as services from '../services/posts'; 
 class Login extends Component {
+    /*getResult=async(id,pw)=>{
+        const result=await services.login(id,pw);
+        console.log(result.data);
+        if(result.error===0){
+
+        }else
+            alert("id or password is wrong");
+    }*/
+    handleLogin=(e)=>{
+        e.preventDefault();
+        const id=document.querySelector("#id"),pw=document.querySelector("#password");
+        return this.props.loginRequest(id.value,pw.value)
+            .then(()=>{
+                if(this.props.status==="success"){
+                    let loginData={
+                        loggedIn:true,
+                        name:id.value
+                    }
+                    document.cookie=JSON.stringify(loginData);
+                    this.props.history.push('/');
+                    return true;
+                }else{
+                    alert("Incorrect ID or Password");
+                    return false;
+                }
+            })
+        //console.log(this.props);
+    }
     render() {
-        //const{lan}=this.props;
         return (
             <div>
                 <Header></Header>   
                 <div className="form_container">
                     <h2>Login </h2>
-                <form id="form" method="get">
-                    <div><input type="text" placeholder="Id" name="id"></input></div>
-                    <div><input type="password" placeholder="Password" name="password"></input></div>
+                <form id="form" method="post" onSubmit={this.handleLogin}>
+                    <div><input id="id" type="text" placeholder="ID"></input></div>
+                    <div><input id="password" type="password" placeholder="Password"></input></div>
                     <div>
                         <input type="submit" value="Login"></input>
                         <button><Link to={"/signup"}>Sign Up</Link></button>
@@ -26,6 +55,22 @@ class Login extends Component {
     }
 }
 const mapStateToProps=(state)=>{
-    return{lan:state.movielist.lan};
+    return{
+        lan:state.movielist.lan,
+        status:state.login.login.status
+    };
 }
-export default connect(mapStateToProps)(Login);
+const mapDispatchToProps=(dispatch)=>{
+    return{
+        loginRequest:(name,pw)=>{
+            dispatch(actions.login());
+            return services.login(name,pw)
+                .then((response)=>{
+                    dispatch(actions.loginSuccess(name))
+                }).catch((err)=>{
+                    dispatch(actions.loginFailure())
+                });
+        }
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Login);

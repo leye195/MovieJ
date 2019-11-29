@@ -5,6 +5,10 @@ import SearchBar from '../components/SearchBar';
 import '../style/Review.css';
 import Header from '../components/Header';
 class Review extends React.Component{
+
+    /**
+     * Back to detail or review page
+     */
     handleBack=()=>{
         console.log("Back Clicked");
         const{history,match,location}=this.props;
