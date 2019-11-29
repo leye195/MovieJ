@@ -14,3 +14,5 @@ export const LOADING="LOADING";
 export const LOGIN="LOGIN";
 export const LOGIN_SUCCESS="LOGIN_SUCCESS";
 export const LOGIN_FAILURE="LOGIN_FAILURE";
+//Logout
+export const LOGOUT="LOGOUT";

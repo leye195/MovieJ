@@ -90,3 +90,8 @@ export function loginFailure(){
         type:types.LOGIN_FAILURE
     };
 }
+export function logout(){
+    return{
+        type:types.LOGOUT
+    };
+}

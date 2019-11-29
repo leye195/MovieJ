@@ -1,10 +1,10 @@
 module.exports = function(app,User){
+    var sess=require('express-session'); 
     /**
      * Users: Get /api/users
      */
     app.get('/api/users',(req,res)=>{
         let users=User;
-        console.log(User);
         users.find((err,data)=>{
             if(err)return res.status(500).send({error:'database failure'});
             res.json(data);
@@ -19,25 +19,32 @@ module.exports = function(app,User){
         user.findOne({name:req.body.id,password:req.body.password},(err,data)=>{
             if(err)return res.status(500).json({msg:'database failure',error:1});
             if(!data)return res.status(404).json({msg:'user not found',error:1});
-            let sess=req.session;
+            sess=req.session;
+            sess.loginInfo={
+                _id:data._id,
+                name:data.name,
+            }
             console.log(sess);
-            //sess.loginInfo={
-              //  _id:data._id,
-                //name:data.name,
-            //}
             res.json({error:0,data});
         });
     });
+    app.post('/api/users/logout',(req,res)=>{
+        if(req.session){
+            req.session.destroy((err)=>{
+                if(err)res.status(404).json({msg:"log out failure",error:1,result:0})
+                res.json({error:0,result:1})
+            })   
+        }        
+    })
 
     /**
      * Sign Up: Post /api/users
      * body sample: {"name":"test","password":"test"}
      */
     app.post('/api/users',(req,res)=>{
-        console.log(req.body.params);
+        //console.log(req.body.params);
         User.findOne({name:req.body.params.name},(err,data)=>{
             if(err)return res.status(500).json({error:'database failure'});
-            //console.log(data)
             if(data===null){
                 let user=new User();
                 user.name=req.body.params.name;
@@ -51,9 +58,8 @@ module.exports = function(app,User){
                     else
                         res.json({error:0,result:1});
                 });
-            }else{
+            }else
                 res.json({error:'id already exists',result:0});        
-            }
         })
     })
 };

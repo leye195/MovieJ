@@ -13,6 +13,13 @@ export default function loginRequest(state=initialState,action){
                     staus:'waiting'
                 }
             };
+        case types.LOGOUT:
+            return{
+                ...state,
+                login:{
+                    status:'waiting'
+                }
+            }
         case types.LOGIN_SUCCESS:
             return{
                 ...state,
