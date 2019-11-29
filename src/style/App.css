@@ -1,6 +1,7 @@
 * {
 	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+  box-sizing: border-box;
+  justify-content: center;
 }
 html{
   scroll-behavior: smooth;
@@ -8,7 +9,7 @@ html{
 ul,li{
   list-style: none;
 }
-.language-container span,.u-container span{
+.language-container span{
   margin: 7px;
   padding: 5px;
   border: 3px solid white;
@@ -30,24 +31,44 @@ footer{
 .giticon:hover{
   opacity: 1;
 }
-
+.callout{
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 6px;
+  border-color: #b56666;
+  border-bottom-color: #fbfbfbf2;
+  right: 140px;
+  padding: 0;
+  z-index: 0;
+  top: 66px;
+}
+.menu{
+    position: absolute;
+    width: 150px;
+    height: 30%;
+    z-index: 3;
+    background: #fbfbfbf2;
+    border-radius: 10px;
+    box-shadow: 1px 1px 4px 0px #ababab;
+    right: 65px;
+}
+.menu_list{
+  padding-left: 25px;
+  margin-top: 5px;
+}
+.menu_list li{
+  cursor: pointer;
+}
+.m_show{
+  visibility:visible;
+}
+.m_hide{
+  visibility: hidden;
+}
 .App-logo {
   height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #09d3ac;
 }
 
 @keyframes fadeIn{
@@ -57,31 +78,12 @@ footer{
       opacity: 1;
   }
 }
-/* Mobile Device */
 html, body {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
 }
-/* Tablet Device */
-@media all and (min-width:768px) and (max-width:1024px) {
-  html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-  }
-}
-@media all and (min-width:1025px) {
-  html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-  }
-}
-
 @media(min-width:320px){
   .language-container{
     display: -webkit-inline-box;
@@ -91,7 +93,7 @@ html, body {
     font-weight: 500;
     font-size: 1.5rem;
   }
-  .language-container span,.u-container span{
+  .language-container span{
     margin: 7px;
     padding: 5px;
     border: 3px solid white;
@@ -109,7 +111,6 @@ html, body {
     font-weight: 500;
     font-size: 1.2rem;
   }
-  
 }
 @media(min-width:768px){
   .language-container{
@@ -139,39 +140,4 @@ html, body {
     color:white;
   }
 }
-.callout{
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 6px;
-  border-color: #b56666;
-  border-bottom-color: #fbfbfbf2;
-  right: 140px;
-  padding: 0;
-  z-index: 0;
-  top: 66px;
-}
-.menu{
-    position: absolute;
-    width: 150px;
-    height: 30%;
-    z-index: 3;
-    background: #fbfbfbf2;
-    border-radius: 10px;
-    box-shadow: 1px 1px 4px 0px #ababab;
-    right: 65px;
-}
-menuitem{
-  padding-left: 25px;
-  margin-top: 5px;
-}
-.menu_list li{
-  cursor: pointer;
-}
-.m_show{
-  visibility:visible;
-}
-.m_hide{
-  visibility: hidden;
-}
+
