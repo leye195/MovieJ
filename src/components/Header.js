@@ -13,7 +13,7 @@ class Header extends React.Component{
         return {loggedIn:false};
     }
     handleClick=(e)=>{
-        const callout=document.querySelector(".callout"),menu=document.querySelector(".menu");
+        const callout=document.querySelector(".callout"),menu=document.querySelector(".header_menu");
         if(callout.classList.contains('m_show')){
             callout.classList.remove('m_show');
             callout.classList.add('m_hide');
