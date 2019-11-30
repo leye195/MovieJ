@@ -44,7 +44,7 @@ class Header extends React.Component{
         return(
             <header>
             <div>
-                <h1 style={{Fontsize:"1.5rem"}}><Link to={lan==="en-US"?"/en-US":"/ko-KR"}>MovieJ</Link></h1>
+                <h1 style={{Fontsize:"1.5rem"}}><a href={lan==="en-US"?"/en-US":"/ko-KR"}>MovieJ</a></h1>
                 <span></span>
                 <p className="language-container">
                     <a href={lan!=="en-US"?to+id+"/en-US":"#"} ><span className="en">En</span></a>
@@ -53,7 +53,7 @@ class Header extends React.Component{
                     <a href={"/login"}><span>Login</span></a>}
                 </p>
                 <div class="callout m_hide"></div>
-                <div className="menu m_hide">
+                <div className="header_menu m_hide">
                     <ul className="menu_list">
                         <li><span onClick={this.handleLogOut}>LogOut</span></li>
                     </ul>

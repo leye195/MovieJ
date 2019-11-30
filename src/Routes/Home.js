@@ -22,8 +22,8 @@ class Home extends React.Component{
         return (
             <div>
                 <div>
-                    <Header lan={lan_url==="/"||lan_url!=="/ko-KR"?"ko-KR":"en-US"}></Header>
-                    <SearchBar lan={lan_url==="/"||lan_url!=="/ko-KR"?"ko-KR":"en-US"}></SearchBar>
+                    <Header lan={lan_url==="/"||lan_url!=="/ko-KR"?"en-US":"ko-KR"}></Header>
+                    <SearchBar lan={lan_url==="/"||lan_url!=="/ko-KR"?"en-US":"ko-KR"}></SearchBar>
                 </div>
                 {movies}
             </div>
