@@ -52,7 +52,7 @@ class Header extends React.Component{
                     {check.loggedIn===true? <span id="user" onClick={this.handleClick}>{check.name}</span>:
                     <a href={"/login"}><span>Login</span></a>}
                 </p>
-                <div class="callout m_hide"></div>
+                <div className="callout m_hide"></div>
                 <div className="header_menu m_hide">
                     <ul className="menu_list">
                         <li><span onClick={this.handleLogOut}>LogOut</span></li>
