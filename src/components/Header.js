@@ -40,6 +40,7 @@ class Header extends React.Component{
     render(){
         const{to,id,lan}=this.props;
         const check=this.checkLogin();
+        console.log("??"+lan);
         return(
             <header>
             <div>
@@ -67,7 +68,7 @@ class Header extends React.Component{
 Header.defaultProps={
     to:'',
     id:'',
-    lan:'/en-US'
+    lan:'en-US'
 }
 const mapStateToProps=(state)=>{
     return{status:state.login.login.status};

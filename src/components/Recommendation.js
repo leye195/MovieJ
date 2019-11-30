@@ -21,14 +21,12 @@ class Recommendation extends React.Component{
         this.setState({
             recommendations:list.data.results
         });
-        //console.log(this.state.recommendations);
     }
     render(){
         const{recommendations}=this.state;
         const{lan}=this.props;
         //const{history}=this.props;
         let rr=recommendations.slice(0,10);
-        //console.log(rr.length);
         const data_list=rr.map((item)=>{
             return <Card key={item.id}>
                     <div className="recommendation_wrapper" key={item.id} onClick={()=>{}}>
@@ -44,7 +42,7 @@ class Recommendation extends React.Component{
         return(
             <div className="recommendation">
                 <div className="menu">
-                    <h3>{lan==="en-US"?"Recommendations":"추천 영화"}</h3>
+                    <h3>{lan!=="ko-KR"?"Recommendations":"추천 영화"}</h3>
                 </div>
                 <div className="recommendation_container">
                     {rr.length===0?(lan!=="ko-KR"?"No recommendation":"추천 영화가 없습니다."):data_list}

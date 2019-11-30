@@ -45,6 +45,12 @@ class MovieDetail extends React.Component{
         const { completed } = this.state;
         this.setState({ completed: completed >= 100 ? clearInterval(this.timer) : completed + 1 });
     };
+    checkLanguage=()=>{
+        const{lan}=this.props;
+        if(lan===""||lan==="en-US")
+            return true;
+        return false;
+    }
     getDetail=async(id,lan)=>{
         //const movie_info=await services.getMovieInfo(id,lan);
         //const reviews=await services.getReviews(id,lan);
@@ -96,17 +102,17 @@ class MovieDetail extends React.Component{
         const{info,load}=this.state;
         const{id,title,overview,vote_average,poster_path,tagline,runtime,release_date,revenue,review}=info;
         const{lan}=this.props;
-        var review_tag=<div className="review_notice">{lan==="en-US"?"Sorry, We do not have any reviews for this movie":"리뷰가 없습니다."}</div>;
+        var review_tag=<div className="review_notice">{this.checkLanguage?"Sorry, We do not have any reviews for this movie":"리뷰가 없습니다."}</div>;
         if(review!==undefined){
             review_tag=
             <div>
             <div className="card">
                 <h3 className="review_author">A review Written by {review.author}</h3>
                 <p className="review_content">{review.content}</p>
-                <Link to={`/movie_review/`+id+`/`+lan+`/`+review.id+'?title='+title}>Read more...</Link>
+                <Link to={`/movie_review/${id}/${lan}/${review.id}?title=${title}`}>Read more...</Link>
             </div>
             <p className="read_all">
-                <Link to={`/movie_review/`+id+`/`+lan+'?title='+title}>Read All Reviews</Link>
+                <Link to={`/movie_review/${id}/${lan}?title=${title}`}>Read All Reviews</Link>
             </p>
             </div>
         }   
@@ -125,14 +131,14 @@ class MovieDetail extends React.Component{
                         <h2 className="movie_title">{title}</h2>
                         <h3>{tagline}</h3>
                         <div className="overview">
-                            <h3>{lan==="en-US"?"OverView":"줄거리"}</h3>
-                            <p><b>{overview===""?"줄거리가 존재하지 않습니다":overview}</b></p>
+                            <h3>{this.checkLanguage?"OverView":"줄거리"}</h3>
+                            <p><b>{overview===""?(this.checkLanguage?("We don't have an overview"):("해당 언어의 줄거리가 존재하지 않습니다")):overview}</b></p>
                         </div>
                         <div className="vote_rate">
-                            <h2>{lan==="en-US"?<p>{`Average Rate:${vote_average}/10`}</p>:<p>{`평균 평점: ${vote_average}/10`}</p>}</h2>
+                            <h2>{this.checkLanguage?<p>{`Average Rate:${vote_average}/10`}</p>:<p>{`평균 평점: ${vote_average}/10`}</p>}</h2>
                         </div>
-                        <p>{lan==="es-US"?"Released: "+release_date:"개봉 일: "+release_date}</p>
-                        <p> {lan==="en-US"?"Running Time: "+runtime+"mins":"재생 시간: "+runtime+"분"} </p>
+                        <p>{this.checkLanguage?"Released: "+release_date:"개봉 일: "+release_date}</p>
+                        <p> {this.checkLanguage?"Running Time: "+runtime+"mins":"재생 시간: "+runtime+"분"} </p>
                         <p>Box Office: ${revenue!==undefined?revenue.toLocaleString():0}</p>
                         <div className="movie_link" style={{color:"white"}}>
                             Link Space
@@ -142,11 +148,11 @@ class MovieDetail extends React.Component{
                 </div>
             </div>
             <div className="casting menu">
-                <h3>{lan==="en-US"?"Actors":"출연진"}</h3>
+                <h3>{this.checkLanguage?"Actors":"출연진"}</h3>
                 <CastingList id={this.props.id}></CastingList>
             </div>
             <div className="menu">
-                <h3>{lan==="en-US"?"Review":"리뷰"}</h3>
+                <h3>{this.checkLanguage?"Review":"리뷰"}</h3>
             </div>
             <div className="review_container">
                 {review_tag}
