@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux'; 
 import * as actions from '../actions';
 import * as services from '../services/posts'; 
-import {Link} from 'react-router-dom';
 class Header extends React.Component{
     checkLogin=()=>{
         if(document.cookie){
@@ -55,6 +54,8 @@ class Header extends React.Component{
                 <div className="callout m_hide"></div>
                 <div className="header_menu m_hide">
                     <ul className="menu_list">
+                        <li><span>Favorites</span></li>
+                        <li><span>Edit</span></li>
                         <li><span onClick={this.handleLogOut}>LogOut</span></li>
                     </ul>
                 </div>

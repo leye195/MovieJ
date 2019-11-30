@@ -28,7 +28,21 @@ header div{
 }
 .btns button{
     box-shadow: 3px 3px 4px 2px #00000059 !important;
+    font-family: -webkit-body;
 }   
+.btns{
+    width: fit-content;
+    margin: 0 auto;
+    padding-top:10px;
+    padding-bottom: 10px;
+}
+.btns button:active{
+    transform: scale(0.9);
+}
+.btns button:disabled{
+    background-color: #0826b9a8;
+    color: white;
+}
 
 @media(min-width:426px){
     .btns span{
@@ -73,6 +87,7 @@ header div{
         color: white;
         text-align: center;
         cursor: pointer;
+        
     }
     
     header div{
@@ -82,7 +97,7 @@ header div{
         padding-top: 5px;
         padding-bottom: 5px;
         margin: 0;
-        background-color: #b5666682;
+        background-color: #b56666
     }   
     header h1{
         display: inline-block;
@@ -124,17 +139,4 @@ header div{
     margin-top: 20px;
 }
 
-.btns{
-    width: fit-content;
-    margin: 0 auto;
-    padding-top:10px;
-    padding-bottom: 10px;
-}
-.btns button:active{
-    transform: scale(0.9);
-}
-.btns button:disabled{
-    background-color: #0826b9a8;
-    color: white;
-}
 

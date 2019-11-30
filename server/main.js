@@ -19,8 +19,8 @@ db.on('error',console.error);
 db.once('open',()=>{
     console.log("Connected to mongodb server");
 })
-//mongoose.connect(`mongodb://localhost/moviej_db`);
-mongoose.connect(`mongodb://heroku_lkcv7xs8:4hapnt3gst805fkqenk41ghics@ds251158.mlab.com:51158/heroku_lkcv7xs8`);
+mongoose.connect(`mongodb://localhost/moviej_db`);
+//mongoose.connect(`mongodb://heroku_lkcv7xs8:4hapnt3gst805fkqenk41ghics@ds251158.mlab.com:51158/heroku_lkcv7xs8`);
 const user=require('./models/users');
 const port=process.env.PORT || 8080;
 const router=require('./routes')(app,user);

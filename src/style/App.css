@@ -47,7 +47,8 @@ footer{
 .header_menu{
     position: absolute;
     width: 150px;
-    height: 30%;
+    height: 20%;
+    padding:0px;
     z-index: 3;
     background: #fbfbfbf2;
     border-radius: 10px;
@@ -55,11 +56,16 @@ footer{
     right: 65px;
 }
 .menu_list{
-  padding-left: 25px;
+  padding-left: 0px;
   margin-top: 5px;
+  
 }
 .menu_list li{
   cursor: pointer;
+  text-align: center;
+  margin: 7px;
+  color: #7b8280;
+  font-family: -webkit-body;
 }
 .m_show{
   visibility:visible;
