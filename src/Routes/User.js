@@ -4,12 +4,14 @@ import SearchBar from '../components/SearchBar';
 
 class User extends Component {
     render() {
+        const info=this.props;
+        console.log(info.location.pathname);
         return (
             <div>
                 <Header></Header>
                 <SearchBar></SearchBar>
-                <div className="userpage">
-                    
+                <div className="">
+                    Users Fa
                 </div>
             </div>
         );
