@@ -7,16 +7,14 @@ import Search from '../Routes/Search';
 import People from '../Routes/People';
 import Login from '../Routes/Login';
 import SignUp from '../Routes/SignUp';
+import User from '../Routes/User';
 import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
 import {faGithub} from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import powered_by_rectangle_green from '../img/powered_by_rectangle_green.svg'
-
-
 import '../style/App.css';
 
 function App() {
-  
   return (
     <Router>
       <div className="App">
@@ -32,6 +30,7 @@ function App() {
           <Route path="/people/:name" component={People}></Route>
           <Route path="/login" component={Login}></Route>
           <Route path="/signup" component={SignUp}></Route>
+          <Route path="/user" component={User}></Route>
           <Route component={NoMatch}></Route>
         </Switch>
         <footer>
