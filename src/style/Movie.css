@@ -9,6 +9,7 @@
         margin: 10px auto;
         z-index: 0;
         box-shadow: 0 2px 19px 3px rgba(0, 0, 0, 0.1);
+        background-color: white;
     }
     .poster:hover{
         box-shadow: 5px 5px 10px 5px rgba(136, 133, 133, 0.58);
@@ -70,6 +71,7 @@
         box-shadow: 5px 5px 14px 5px rgba(37, 36, 36, 0.19);
     }
     .backdrop{
+        background-color: white;
         width: 330px;
         margin: 10px auto;
         z-index: 0;
@@ -87,7 +89,7 @@
     .poster{
         width: 424px;
         /*margin: 10px auto;*/
-
+        background-color: white;
         z-index: 0;
         box-shadow: 0 2px 19px 3px rgba(0, 0, 0, 0.1);
     }
@@ -147,6 +149,7 @@
         font-size: 1.0rem;
     }
     .backdrop{
+        background-color: white;
         width: 600px;
         margin: 10px auto;
         z-index: 0;

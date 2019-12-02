@@ -69,7 +69,7 @@ class MovieList extends React.Component{
                     </Movie>
         })
         return(
-        <div>
+        <div style={{"backgroundColor":"#efefefa6"}}>
             <div>
                 <Loading value={completed}></Loading>
             </div>

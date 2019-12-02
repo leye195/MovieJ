@@ -12,3 +12,9 @@
     text-align: center;
     line-height: 2;
 }
+#fav a,#edi a{
+    color:white;
+}
+#fav:hover,#edi:hover{
+    background-color: #650000;
+}

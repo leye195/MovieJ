@@ -15,7 +15,7 @@ header div{
     position: relative;
     text-align: right;
     right: 60px;
-    margin-top: 20px;
+    padding-top: 20px;
 }
 .select_wrapper span{
     padding-right: 5px;
@@ -128,7 +128,7 @@ header div{
         position: relative;
         text-align: right;
         right: 60px;
-        margin-top: 20px;
+        padding-top: 20px;
         /*font-size: 2.0rem;*/    
     }
 }
