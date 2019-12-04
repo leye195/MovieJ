@@ -12,6 +12,7 @@ Front-End technologies used in the project<br/>
 
 ### Server
 Back-End technologies used in the project<br/>
+-Node.js<br/>
 -Express<br/>
 -MongoDB</br>
 
