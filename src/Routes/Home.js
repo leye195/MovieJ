@@ -26,6 +26,9 @@ class Home extends React.Component{
                     <SearchBar lan={lan_url==="/"||lan_url!=="/ko-KR"?"en-US":"ko-KR"}></SearchBar>
                 </div>
                 {movies}
+                <div className="upbtn">
+                    <a href="#">Top</a>
+                </div>
             </div>
         );
     }

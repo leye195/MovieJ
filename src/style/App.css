@@ -45,8 +45,9 @@ footer{
 }
 .header_menu{
     position: absolute;
+    display: flex;
     width: 150px;
-    height: 20%;
+    /*height: 20%;*/
     padding:0px;
     z-index: 3;
     background: #fbfbfbf2;
@@ -57,7 +58,8 @@ footer{
 .menu_list{
   padding-left: 0px;
   margin-top: 5px;
-  
+  margin-bottom: 5px;
+  flex-grow: 1;
 }
 .menu_list li{
   cursor: pointer;
@@ -75,7 +77,24 @@ footer{
 .App-logo {
   height: 40vmin;
 }
-
+.upbtn{
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  border-radius: 35px;
+  background-color: #404040e6;
+  color:white;
+  right: 30px;
+  bottom: 30px;
+  text-align: center;
+  box-shadow: 3px 3px 8px 0px #00000091;
+  z-index: 1;
+}
+.upbtn a{
+  position: relative;
+  top: 20px;
+  color: white;
+}
 @keyframes fadeIn{
   from{
       opacity: 0;

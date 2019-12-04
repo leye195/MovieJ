@@ -6,7 +6,7 @@
     line-height:45;
     background-color: #171414c2;
     top:0;
-    z-index: 1;
+    z-index: 2;
 }
 .MuiCircularProgress-colorSecondary{
     width: 50px!important;
@@ -27,7 +27,7 @@
         line-height:45;
         background-color: #171414c2;
         top:0;
-        z-index: 1;
+        
     }
   }
   @media all and (min-width:1025px) {
@@ -43,6 +43,6 @@
         line-height:45;
         background-color: #171414c2;
         top:0;
-        z-index: 1;
+        
     }
   }
