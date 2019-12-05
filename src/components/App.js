@@ -13,7 +13,6 @@ import {faGithub} from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import powered_by_rectangle_green from '../img/powered_by_rectangle_green.svg'
 import '../style/App.css';
-
 function App() {
   return (
     <Router>
@@ -45,5 +44,3 @@ function App() {
   );
 }
 export default App;
-
-//rsc

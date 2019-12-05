@@ -5,12 +5,16 @@ import cookie from 'cookie';
 import * as actions from '../actions';
 import * as services from '../services/posts'; 
 class Header extends React.Component{
+    /**
+     * check User already Login or Not
+     */
     checkLogin=()=>{
-        if(document.cookie==="")
+        const loggedIn=localStorage.loggedIn;
+        if(loggedIn){
+            console.log(loggedIn);
+            return JSON.parse(loggedIn);
+        }else{
             return {loggedIn:false};
-        else{
-            const user_info=cookie.parse(document.cookie);
-            return JSON.parse(user_info.key);
         }
     }
     handleClick=(e)=>{
@@ -30,11 +34,15 @@ class Header extends React.Component{
             menu.classList.add('m_show');
         }
     }
+    /**
+     * User Logout
+     */
     handleLogOut=()=>{
         return this.props.logoutRequest()
         .then(()=>{
             if(this.props.status==="waiting"){
-                document.cookie="key=;Max-Age=0";
+                //document.cookie="key=;Max-Age=0";
+                localStorage.clear(); //localStorage Clear
                 window.location.href="/";
             }
         })
@@ -42,7 +50,7 @@ class Header extends React.Component{
     render(){
         const{to,id,lan}=this.props;
         const check=this.checkLogin();
-        console.log("??"+lan);
+        //console.log("??"+lan);
         return(
             <header>
             <div>

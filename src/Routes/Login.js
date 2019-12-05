@@ -24,8 +24,9 @@ class Login extends Component {
                         loggedIn:true,
                         name:id.value
                     }
-                    document.cookie=`key=${JSON.stringify(loginData)}`;
-                    this.props.history.push('/');
+                    //document.cookie=`key=${JSON.stringify(loginData)}`;
+                    localStorage.loggedIn=JSON.stringify(loginData);
+                    window.location.href="/";
                     return true;
                 }else{
                     alert("Incorrect ID or Password");

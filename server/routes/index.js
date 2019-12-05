@@ -17,8 +17,8 @@ module.exports = function(app,User){
      */
     app.post('/api/users/login',(req,res)=>{
         let user=User;
-        console.log(req.session.loginInfo);
-        if(req.session.loginInfo===undefined){
+        //console.log(req.session.loginInfo);
+        //if(req.session.loginInfo===undefined){
             user.findOne({name:req.body.id,password:req.body.password},(err,data)=>{
                 if(err)return res.status(500).json({msg:'database failure',error:1});
                 if(!data)return res.status(404).json({msg:'user not found',error:2});
@@ -29,16 +29,16 @@ module.exports = function(app,User){
                 }
                 res.json({error:0,data});
             });
-        }else{
-            const r=req.session.loginInfo;
-            res.json({error:0,r});
-        }
+       // }else{
+         //   const r=req.session.loginInfo;
+          //  res.json({error:0,r});
+        //}
     });
     /**
      * Login: Get /api/users/logout
      */
     app.get('/api/users/logout',(req,res)=>{
-        console.log(req.session);
+        //console.log(req.session);
         req.session.destroy((err)=>{
             if(err)
                 res.status(404).json({msg:"log out failure",error:1,result:0})
