@@ -24,7 +24,7 @@ class Login extends Component {
                         loggedIn:true,
                         name:id.value
                     }
-                    document.cookie=JSON.stringify(loginData);
+                    document.cookie=`key=${JSON.stringify(loginData)}`;
                     this.props.history.push('/');
                     return true;
                 }else{

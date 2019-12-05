@@ -38,5 +38,5 @@ export function login(id,pw){
     return axios.post(`http://localhost:8080/api/users/login`,{id:id,password:pw});
 };
 export function logout(){
-    return axios.post(`http://localhost:8080/api/users/logout`);
+    return axios.get(`http://localhost:8080/api/users/logout`);
 }

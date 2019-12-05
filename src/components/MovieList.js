@@ -36,11 +36,11 @@ class MovieList extends React.Component{
         clearInterval(this.timer);
     }       
     progress = () => {
-        const { completed } = this.props;
-        if(completed >= 100)
-            clearInterval(this.timer)
-        else
-            this.props.page_loading(completed+1);
+        //const { completed } = this.props;
+        //if(completed >= 100)
+          //  clearInterval(this.timer)
+        //else
+          //  this.props.page_loading(completed+1);
     };
     /**
      * @param page : For loading page's data from API
@@ -70,9 +70,7 @@ class MovieList extends React.Component{
         })
         return(
         <div style={{"backgroundColor":"#efefefa6"}}>
-            <div>
-                <Loading value={completed}></Loading>
-            </div>
+            <div><Loading></Loading></div>
             <div className="select_wrapper">
                 <span><b>View </b></span>
                 <select onChange={this.ChangeView}>

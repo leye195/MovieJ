@@ -16,7 +16,6 @@ class CastingList extends React.Component{
     }
     getCredits=async(id)=>{
         const credits=await services.getCredits(id);
-        //console.log(credits.data.cast);
         this.setState({
             cast:credits.data.cast,
             crew:credits.data.crew

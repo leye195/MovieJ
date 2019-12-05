@@ -1,16 +1,17 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
+import cookie from 'cookie';
 import * as actions from '../actions';
 import * as services from '../services/posts'; 
 class Header extends React.Component{
     checkLogin=()=>{
-        if(document.cookie){
-            const user_info=JSON.parse(document.cookie);
-            if(user_info.loggedIn)
-                return user_info;
+        if(document.cookie==="")
+            return {loggedIn:false};
+        else{
+            const user_info=cookie.parse(document.cookie);
+            return JSON.parse(user_info.key);
         }
-        return {loggedIn:false};
     }
     handleClick=(e)=>{
         const callout=document.querySelector(".callout"),menu=document.querySelector(".header_menu");
@@ -33,7 +34,7 @@ class Header extends React.Component{
         return this.props.logoutRequest()
         .then(()=>{
             if(this.props.status==="waiting"){
-                document.cookie="";
+                document.cookie="key=;Max-Age=0";
                 window.location.href="/";
             }
         })
@@ -77,7 +78,7 @@ const mapStateToProps=(state)=>{
 const mapDispatchToProps=(dispatch)=>{
     return{
         logoutRequest:()=>{
-            dispatch(actions.logout())
+            dispatch(actions.logout());
             return services.logout()
         }
     }
