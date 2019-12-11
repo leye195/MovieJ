@@ -20,9 +20,10 @@ class MovieList extends React.Component{
     }
     componentDidMount(){
         this.timer=setInterval(this.progress,30);
-        let view=localStorage.view;
+        let view=localStorage.view,select=document.querySelector("select");
         if(!view)
             view=this.props.view;
+        select.value=view;
         this.props.handleView(view);
         this.getMovies(1);
     }

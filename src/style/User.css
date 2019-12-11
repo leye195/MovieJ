@@ -1,6 +1,3 @@
-.userpage-container{
-    
-}
 .u div{
     width: 50%;
     height: 30px;
@@ -12,9 +9,35 @@
     text-align: center;
     line-height: 2;
 }
-#fav a,#edi a{
+#fav_div,#comm_div{
+    background-color:rgba(239, 239, 239, 0.65);
+}
+.f_d,.c_d,.empty{
+    width: 100%;
+    height:400px;
+    position: relative;
+}
+.empty{
+    display: inline;
+    top: 60%;
+    left: 49%;
+    color: #00000042;
+}
+.e_img{
+    position: absolute;
+    top: 35%;
+    left: 47%;
+    height: 25%;
+    opacity: 0.35;
+}
+#fav_div p, #comm_div p{
+    border-bottom: 1px solid #a29ca1;
+    margin: 0px 10px;
+    padding-top: 20px;
+}
+#fav a,#comm a{
     color:white;
 }
-#fav:hover,#edi:hover{
+#fav:hover,#comm:hover{
     background-color: #650000;
 }
