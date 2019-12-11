@@ -29,6 +29,10 @@
     display: inline;
     margin: 8px;
 }
+.fav_btn:active{
+    background: white;
+    color: black;
+}
 /* Mobile Device */
 @media all and (min-width:768px) {
     .poster{
