@@ -1,7 +1,34 @@
 .posterimg_contents img,.backdrop{
     animation: fadeIn 4.0s;
 }
-
+.posterimg_contents{
+    position: relative;
+}
+.posterimg_contents:hover .fav,.backdropimg_contents:hover .fav{
+    visibility: visible;
+}
+.posterimg_contents .fav{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 14%;
+    background: #d8d8d89c;
+    visibility: hidden;
+    z-index: 1;
+}
+.fav_btn{
+    position: absolute;
+    all: unset;
+    border: 1px solid #ffffff;
+    color:white;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 20px;
+    display: inline;
+    margin: 8px;
+}
 /* Mobile Device */
 @media all and (min-width:768px) {
     .poster{
@@ -23,6 +50,7 @@
         border-width: 0px;
         outline: none;
         cursor: pointer;
+        
     }
     .more{
         width: 100%;
@@ -162,7 +190,6 @@
         padding:0px;
     }
 }
-
 .backdrop:hover{
     box-shadow: 5px 5px 10px 5px rgba(136, 133, 133, 0.58);
     transition-timing-function: ease;
@@ -213,4 +240,5 @@ a{
     text-decoration: none;
     color:black;
 }
+
 

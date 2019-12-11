@@ -18,7 +18,6 @@ class User extends Component {
         <div id="comm_div">
             <p>Comments</p>
             <div className="c_d">
-                
                 <div className="empty">Empty</div>
                 <img className="e_img" src={tdwad1} alt="empty"></img>
             </div>

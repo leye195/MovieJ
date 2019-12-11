@@ -11,20 +11,23 @@ class Movie extends React.Component{
         return(
             <div className={view}>
                 <div className="movie_container">
-                    <div className={view+"img_contents"}>
+                    <div className={view+"img_contents"} onMouseEnter={this.handleMouseOn} onMouseOut={this.handleMouseOut}>
                         <Link to={`/movie_detail/`+id+'/'+lan}><img alt={title} src={imgUrl} onError={this.handleError}/></Link>
+                        <div className="fav">
+                            <button className="fav_btn">+</button>
+                        </div>
                     </div>
                     <div className={view+"item_content"}>
                         <div>
                             <h2 className="item_title">{title}</h2>
-                            <h5 className="item_rate">{`${avg_rate}/10`}</h5>    
+                            <h5 className="item_rate">{`${avg_rate}/10`}</h5>
                         </div>
                         <div><p><strong>{lan==="en-US"||lan===""?`Released: ${release_date}`:`개봉 일: ${release_date}`}</strong></p></div>
                         <div className="overview_container">
                             <p className="overview">{overview===""?(lan==="en-US"||lan===""?("We don't have an overview"):("해당 언어의 줄거리가 존재하지 않습니다")):overview}</p>
                         </div>
                         <div className="more">
-                            <Link to={`/movie_detail/`+id+'/'+lan}>{lan==="en-US"||lan===""?"More...":"더 보기..."}</Link>
+                            <Link to={`/movie_detail/`+id+'/'+lan}>{lan==="en-US"||lan===""?"More...":"더 보기..."}</Link>   
                         </div>
                     </div>
                 </div>
