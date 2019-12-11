@@ -16,6 +16,10 @@
     visibility: hidden;
     z-index: 1;
 }
+.fav_btn:active{
+    color:black;
+    background-color:white;
+}
 .fav_btn{
     position: absolute;
     all: unset;

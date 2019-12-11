@@ -2,6 +2,7 @@ import React from 'react';
 import '../style/MovieDetail.css';
 import * as services from '../services/posts'; 
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux'; 
 import Recommendation from './Recommendation';
 import Loading from './Loading';
 import CastingList from './CastingList';
@@ -163,4 +164,10 @@ class MovieDetail extends React.Component{
         );
     }
 };
-export default MovieDetail;
+const mapStateToProps=(state)=>{
+
+}
+const mapStateToDispatch=(dispatch)=>{
+
+}
+export default connect()(MovieDetail);
