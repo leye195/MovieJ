@@ -50,7 +50,6 @@ class Header extends React.Component{
     render(){
         const{to,id,lan}=this.props;
         const check=this.checkLogin();
-        //console.log("??"+lan);
         return(
             <header>
             <div>

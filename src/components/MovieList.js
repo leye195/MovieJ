@@ -36,13 +36,6 @@ class MovieList extends React.Component{
     componentWillUnmount() {
         clearInterval(this.timer);
     }       
-    progress = () => {
-        //const { completed } = this.props;
-        //if(completed >= 100)
-          //  clearInterval(this.timer)
-        //else
-          //  this.props.page_loading(completed+1);
-    };
     /**
      * @param page : For loading page's data from API
      **/

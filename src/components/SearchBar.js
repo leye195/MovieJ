@@ -18,7 +18,6 @@ class SearchBar extends React.Component{
     handleChange=(e)=>{
         const{value}=e.target;
         const{lan}=this.props;
-        //this.setState({keyword:value})
         this.props.handleInput(value);
         let search_list=document.querySelector(".search-animation-container");
         if(value===""){

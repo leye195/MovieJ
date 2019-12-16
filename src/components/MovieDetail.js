@@ -1,5 +1,6 @@
 import React from 'react';
 import '../style/MovieDetail.css';
+import * as actions from '../actions';
 import * as services from '../services/posts'; 
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux'; 
@@ -10,19 +11,6 @@ class MovieDetail extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            info:{
-            id:0,
-            title:'',
-            overview:'',
-            vote_average:0.0,
-            backdrop:'',
-            poster_path:'',
-            status:'',
-            runtime:0,
-            release_date:"",
-            tagline:"",
-            revenue:0,
-            review:undefined,},
             completed:0,
             load:false,
             credits:{}
@@ -53,15 +41,12 @@ class MovieDetail extends React.Component{
         return false;
     }
     getDetail=async(id,lan)=>{
-        //const movie_info=await services.getMovieInfo(id,lan);
-        //const reviews=await services.getReviews(id,lan);
         const info=await Promise.all([
             services.getMovieInfo(id,lan),
             services.getReviews(id,lan)
         ]);
         if(info[1].data.results.length>0){
-            this.setState({
-                info:{
+            const obj={
                 id:id,
                 title:info[0].data.title,
                 overview:info[0].data.overview,
@@ -74,11 +59,10 @@ class MovieDetail extends React.Component{
                 tagline:info[0].data.tagline,
                 revenue:info[0].data.revenue,
                 review:info[1].data.results[info[1].data.results.length-1]
-                }
-            })
+            }
+            this.props.handleInfo(obj);
         }else{
-            this.setState({
-                info:{
+            const obj={
                 id:id,
                 title:info[0].data.title,
                 overview:info[0].data.overview,
@@ -90,18 +74,18 @@ class MovieDetail extends React.Component{
                 release_date:info[0].data.release_date,
                 tagline:info[0].data.tagline,
                 revenue:info[0].data.revenue,
-                }
-            })
+            }
+            this.props.handleInfo(obj);
         }
         let detail=document.getElementsByClassName("detail");
-        if(this.state.info.backdrop!==undefined)
-            detail[0].style.backgroundImage="url(https://image.tmdb.org/t/p/w500"+this.state.info.backdrop+")";
+        if(this.props.info.backdrop!==undefined)
+            detail[0].style.backgroundImage="url(https://image.tmdb.org/t/p/w500"+this.props.info.backdrop+")";
         else
             detail[0].style.backgroundImage="url(/Users/yjlee/Documents/WorkSpace/moviej/src/img/collect.gif)";
     }
     render(){
-        const{info,load}=this.state;
-        const{id,title,overview,vote_average,poster_path,tagline,runtime,release_date,revenue,review}=info;
+        const{load}=this.state;
+        const{id,title,overview,vote_average,poster_path,tagline,runtime,release_date,revenue,review}=this.props.info;
         const{lan}=this.props;
         var review_tag=<div className="review_notice">{this.checkLanguage?"Sorry, We do not have any reviews for this movie":"리뷰가 없습니다."}</div>;
         if(review!==undefined){
@@ -165,9 +149,13 @@ class MovieDetail extends React.Component{
     }
 };
 const mapStateToProps=(state)=>{
-
+    return{
+        info:state.movie_detail.info
+    }
 }
 const mapStateToDispatch=(dispatch)=>{
-
+    return{
+        handleInfo:(info)=>{dispatch(actions.get_movie_detail(info))}
+    }
 }
-export default connect()(MovieDetail);
+export default connect(mapStateToProps,mapStateToDispatch)(MovieDetail);

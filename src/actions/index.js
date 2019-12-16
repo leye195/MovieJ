@@ -36,6 +36,14 @@ export function get_movielist(movie_list,total_pages,cur_page){
         cur_page,
     };
 }
+/*GET MOVIE DETAIL INFO */
+export function get_movie_detail(movieinfo){
+    return{
+        type:types.MOVIE_DETAIL,
+        movieinfo
+    }
+}
+
 
 /*SEARCH*/
 export function get_keyword(keyword){

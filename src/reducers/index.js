@@ -4,12 +4,14 @@ import search from '../reducers/search';
 import actor_info from '../reducers/actor_info';
 import load from '../reducers/load';
 import login from '../reducers/login';
+import movie_detail from '../reducers/movie_info';
 const reducers = combineReducers({
     movielist,
     search,
     actor_info,
     load,
-    login
+    login,
+    movie_detail
 });
 
 export default reducers;
