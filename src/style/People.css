@@ -69,7 +69,7 @@
     bottom: 0;
     visibility: visible;
 }
-@media (max-width:1024px) and (min-width:768px){
+@media all and (min-width:768px){
     .m_div img{
         width: 200px;
         height: 200px;
