@@ -36,13 +36,6 @@ class MovieList extends React.Component{
     componentWillUnmount() {
         clearInterval(this.timer);
     }       
-    progress = () => {
-        //const { completed } = this.props;
-        //if(completed >= 100)
-          //  clearInterval(this.timer)
-        //else
-          //  this.props.page_loading(completed+1);
-    };
     /**
      * @param page : For loading page's data from API
      **/
@@ -51,9 +44,12 @@ class MovieList extends React.Component{
         const movies=await services.getAllMovies(page,lan);
         this.props.handleMovielist(movies.data.results,movies.data.total_pages,page);
     }
+    //ChangeView=(e)=>{
+      //  this.props.handleView(e.target.value);
+    //}
     ChangeView=(e)=>{
         this.props.handleView(e.target.value);
-    }
+    };
     onNext=()=>{
         const{cur_page,total_pages}=this.props;
         if(cur_page<total_pages)
@@ -62,7 +58,7 @@ class MovieList extends React.Component{
             alert("Done");
     }   
     render(){
-        const{movie_list,cur_page,view,lan,total_pages,completed}=this.props;
+        const{movie_list,cur_page,view,lan,total_pages}=this.props;
         const movies=movie_list.map((movie,i)=>{
             return <Movie id={movie.id} key={i} title={movie.title} release_date={movie.release_date} 
                     poster={view==="poster"?movie.poster_path:movie.backdrop_path} 

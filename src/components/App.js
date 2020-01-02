@@ -6,6 +6,7 @@ import NoMatch from '../Routes/NoMatch';
 import Search from '../Routes/Search';
 import People from '../Routes/People';
 import Login from '../Routes/Login';
+
 import SignUp from '../Routes/SignUp';
 import User from '../Routes/User';
 import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';

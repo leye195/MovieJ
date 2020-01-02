@@ -16,7 +16,6 @@ class Recommendation extends React.Component{
     }
     getRecommendations=async()=>{
         const{id,lan}=this.props;
-        //console.log("id: "+id);
         const list=await services.getRecommendations(id,lan);
         this.setState({
             recommendations:list.data.results
@@ -25,7 +24,6 @@ class Recommendation extends React.Component{
     render(){
         const{recommendations}=this.state;
         const{lan}=this.props;
-        //const{history}=this.props;
         let rr=recommendations.slice(0,10);
         const data_list=rr.map((item)=>{
             return <Card key={item.id}>

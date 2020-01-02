@@ -1,7 +1,7 @@
 .search_item:hover{
     background-color: rgba(185, 185, 184, 0.527);
 }
-@media(min-width:375px){
+@media(min-width:320px){
     .sub input[type="text"]{
         height: 65px;
         width: 100%;

@@ -70,7 +70,7 @@ header div{
         font-size: 1.3rem;
     }
 }
-@media(max-width:425px) and (min-width:320px){
+@media(max-width:425px) and (min-width:367px){
     .btns span{
         padding-left: 20px;
         padding-right: 20px;
@@ -79,7 +79,7 @@ header div{
     .btns button{
         all: unset;
         height: 50px;
-        width: 350px;
+        width: 18rem;
         border-radius: 10px;
         margin: 3px;
         font-size: large;
@@ -131,7 +131,68 @@ header div{
         /*font-size: 2.0rem;*/    
     }
 }
-
+@media (max-width:366px) and (min-width:320px){
+    .btns span{
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 0.2rem;
+    }
+    .btns button{
+        all: unset;
+        height: 50px;
+        width: 18rem;
+        border-radius: 10px;
+        margin: 3px;
+        font-size: large;
+        background-color: #0826b9d9;
+        color: white;
+        text-align: center;
+        cursor: pointer;
+    }
+    header div{
+        display: flex;
+        flex-direction: column;
+        height: 150px;
+        padding-left:20px;
+        padding-right:20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin: 0;
+        background-color: #b56666
+    }   
+    header h1{
+        display: inline-block;
+        background-color: white;
+        border: black solid 5px;
+        padding: 5px;
+        padding-left: 35px;
+        padding-right: 35px;
+        cursor: pointer;
+        font-size: 1.3rem;
+        top: 30px;
+        position: relative;
+        text-align: center;
+    }
+    .select_wrapper span{
+        padding-right: 5px;
+        font-size: larger;
+    }
+    .select_wrapper select{
+        width: 250px;
+        height: 35px;
+        border: 1px solid #8d949461;
+        font-size: 1.1rem;
+    }
+    .select_wrapper{
+        width: 100%;
+        height: 60px;
+        position: relative;
+        text-align: right;
+        right: 60px;
+        padding-top: 20px;
+        /*font-size: 2.0rem;*/    
+    }
+}
 .movies_wrapper{
     display: flex;
     flex-wrap: wrap;

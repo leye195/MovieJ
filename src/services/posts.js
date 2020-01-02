@@ -27,8 +27,14 @@ export function movie_credit(person_id,lan="en-US"){
 export function get_actor_img(person_id){
     return axios.get(`https://api.themoviedb.org/3/person/${person_id}/images?api_key=${API_KEY}`);
 }
+
 export function get_actor_info(person_id){
     return axios.get(`https://api.themoviedb.org/3/person/${person_id}?api_key=${API_KEY}`);
+}
+
+//get movie video info 
+export function get_video(id){ 
+    return axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}&language=en-US`);
 }
 
 export function signup(id,pwd){

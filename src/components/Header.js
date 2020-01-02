@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import cookie from 'cookie';
+
 import * as actions from '../actions';
 import * as services from '../services/posts'; 
 class Header extends React.Component{
@@ -11,7 +11,7 @@ class Header extends React.Component{
     checkLogin=()=>{
         const loggedIn=localStorage.loggedIn;
         if(loggedIn){
-            console.log(loggedIn);
+            //console.log(loggedIn);
             return JSON.parse(loggedIn);
         }else{
             return {loggedIn:false};
@@ -50,7 +50,6 @@ class Header extends React.Component{
     render(){
         const{to,id,lan}=this.props;
         const check=this.checkLogin();
-        //console.log("??"+lan);
         return(
             <header>
             <div>

@@ -10,11 +10,9 @@ class Home extends React.Component{
         const url=this.props.match.url;
         this.props.handleLanguage(url.substr(1,url.length));
     } 
-    
     render(){
         const lan_url=this.props.match.url;
         let movies="";
-
         if(lan_url==="/ko-KR")
             movies=<MovieList lang="ko-KR"></MovieList>
         else if(lan_url==="/" ||lan_url==="/en-US")
