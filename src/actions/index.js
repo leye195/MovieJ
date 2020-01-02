@@ -6,7 +6,6 @@ export function page(cur_page){
         cur_page
     };
 }
-
 /*Button for Next,Previous and View */
 export function nextbtn(cur_page){
     return {

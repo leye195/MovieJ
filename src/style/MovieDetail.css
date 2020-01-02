@@ -4,20 +4,21 @@
     padding:40px;
 }
 .movie_title {
-    font-size: 1.5rem;
     display: inline-block;
     margin-bottom: 0px;
 }
-.overview h3{
+.movie_title,.overview h3{
     font-size: 1.5rem;
 }
-
 .img_container img{
     height: 500px;
     width: 100%;
     margin-top: 40px;
     margin-bottom: 40px;
     animation: fadeIn 4.5s;
+}
+.movie_title,.overview h3,.vote_rate{
+    text-shadow:  8px 4px 19px white;
 }
 /* Tablet Device */
 @media all and (min-width:768px) {
@@ -47,8 +48,10 @@
     display: flex;
     align-items: flex-start;
     flex-wrap: nowrap;
-    padding:0px;
     z-index: 1;
+}
+.detail,.movie_link ul{
+    padding:0px;
 }
 .custom_bg{
     width: 100%;
@@ -68,6 +71,7 @@
     margin: 20px auto;
     font-size: 1.5rem;
 }
+/*review section*/
 .review_container{
     margin: 20px auto;
 }
@@ -85,7 +89,6 @@
     line-height: 1.2em;
     font-size: 1.2rem;
     text-align: justify;
-    /* height: 300px; */
     height: 16.6em;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -100,4 +103,18 @@
     font-size: 1.2rem;
     padding-left: 120px;
     padding-right: 120px;
+}
+
+/*video link */
+.video_link{
+    color:white;
+    font-weight: 500;
+    text-shadow: 7px 4px 13px #bbb8b8;
+}
+.video_link img{
+    position: relative;
+    top:5px;
+    margin-right: 4px;
+    width: 20px;
+    height: 20px;
 }

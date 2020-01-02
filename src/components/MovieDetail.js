@@ -7,6 +7,7 @@ import {connect} from 'react-redux';
 import Recommendation from './Recommendation';
 import Loading from './Loading';
 import CastingList from './CastingList';
+import youtube from '../img/youtube.svg';
 class MovieDetail extends React.Component{
     constructor(props){
         super(props);
@@ -43,7 +44,8 @@ class MovieDetail extends React.Component{
     getDetail=async(id,lan)=>{
         const info=await Promise.all([
             services.getMovieInfo(id,lan),
-            services.getReviews(id,lan)
+            services.getReviews(id,lan),
+            services.get_video(id)
         ]);
         if(info[1].data.results.length>0){
             const obj={
@@ -58,7 +60,8 @@ class MovieDetail extends React.Component{
                 release_date:info[0].data.release_date,
                 tagline:info[0].data.tagline,
                 revenue:info[0].data.revenue,
-                review:info[1].data.results[info[1].data.results.length-1]
+                review:info[1].data.results[info[1].data.results.length-1],
+                links:info[2].data.results
             }
             this.props.handleInfo(obj);
         }else{
@@ -74,6 +77,7 @@ class MovieDetail extends React.Component{
                 release_date:info[0].data.release_date,
                 tagline:info[0].data.tagline,
                 revenue:info[0].data.revenue,
+                links:info[2].data.results
             }
             this.props.handleInfo(obj);
         }
@@ -85,9 +89,17 @@ class MovieDetail extends React.Component{
     }
     render(){
         const{load}=this.state;
-        const{id,title,overview,vote_average,poster_path,tagline,runtime,release_date,revenue,review}=this.props.info;
+        const{id,title,overview,vote_average,poster_path,tagline,runtime,release_date,revenue,review,links}=this.props.info;
         const{lan}=this.props;
-        var review_tag=<div className="review_notice">{this.checkLanguage?"Sorry, We do not have any reviews for this movie":"리뷰가 없습니다."}</div>;
+        const links_tag=()=>{
+            const r=links.slice(0,4).map((link,idx)=>{
+                const {key,name}=link;
+                const to=`https://www.youtube.com/watch?v=${key}`;
+                return <li key={key}><a key={key} className="video_link" href={to}><img alt={name} src={youtube}/>{name}</a></li>
+            })
+            return <ul>{r}</ul>;
+        }
+        let review_tag=<div className="review_notice">{this.checkLanguage?"Sorry, We do not have any reviews for this movie":"리뷰가 없습니다."}</div>;
         if(review!==undefined){
             review_tag=
             <div>
@@ -126,7 +138,7 @@ class MovieDetail extends React.Component{
                         <p> {this.checkLanguage?"Running Time: "+runtime+"mins":"재생 시간: "+runtime+"분"} </p>
                         <p>Box Office: ${revenue!==undefined?revenue.toLocaleString():0}</p>
                         <div className="movie_link" style={{color:"white"}}>
-                            Link Space
+                            {links_tag()}
                         </div>
                     </div>
                 </div>

@@ -12,7 +12,8 @@ const initialState={
         release_date:"",
         tagline:"",
         revenue:0,
-        review:undefined
+        review:undefined,
+        links:[]
     }
 }
 export default function movieinfo(state=initialState,action){

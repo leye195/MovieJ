@@ -33,14 +33,14 @@ class SearchBar extends React.Component{
                 search_list.classList.remove("search_hide");
             search_list.classList.add("search_active");
         }
-    }
+    };
     handleClick=()=>{
         const{keyword,lan}=this.props;
         window.location.assign('/search?p='+keyword+"&language="+lan);
     }
     handleEnter=(e)=>{
         if(e.charCode===13){this.handleClick()}
-    }
+    };
     render(){
         const results=this.props.results;
         const result=results.map((item)=>{
@@ -51,7 +51,7 @@ class SearchBar extends React.Component{
                 <section className="search">
                     <div className="sub">
                         <input ref={input => this.input = input} type="text" placeholder="Movie Title"
-                            className={'input'}onChange={this.handleChange} value={this.props.keyword} 
+                            className={'input'} onChange={this.handleChange} value={this.props.keyword} 
                             onKeyPress={this.handleEnter}/>
                     </div>
                 </section>

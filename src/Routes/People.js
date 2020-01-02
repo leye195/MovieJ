@@ -52,7 +52,7 @@ class People extends React.Component{
             
         }
         //console.log(ele);
-    }
+    };
     render(){
         const{m_credits,actor_img,actor_info}=this.state;
         const item_list=m_credits.map((item,i)=>(

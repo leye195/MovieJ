@@ -45,6 +45,14 @@
         font-size:1.0rem;
     }
 }
+@media(max-width:425px) and (min-width:320px){
+    .cast_item img{
+        width: 113px;
+        height: 105px;
+        border-radius: 10px;
+    }
+}
+
 .cast_container{
     display: flex;
     margin: 0 auto; 
