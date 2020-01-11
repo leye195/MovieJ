@@ -10,11 +10,11 @@
 }
 .review_list{
     margin: 20px auto;
-    width: 1300px;
+    width: 100%;
 }
 .review{
     margin: 0 auto;
-    width: 1300px;
+    width: 100%;
 }
 .all{
     line-height: 1.2em;
@@ -24,4 +24,33 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: pre-wrap;
+}
+@media(max-width:424px) and (min-width:320px){
+    .back{
+        cursor: pointer;
+        color:white;
+        padding: 20px;
+        width: 100%;
+        background-image: radial-gradient(circle at 20% 50%, rgba(50, 20, 20, 0.61) 0%, rgba(0, 0, 0, 0.88) 100%);
+    }
+    .back h3{
+        color:#ffffff9c;
+    }
+    .review_list{
+        margin: 20px auto;
+        width: 100%;
+    }
+    .review{
+        margin: 0 auto !important;
+        width: 100% !important;
+    }
+    .all{
+        line-height: 1.2em;
+        font-size: 1.0rem !important;
+        text-align: justify;
+        /* height: 300px; */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: pre-wrap;
+    }
 }

@@ -3,6 +3,7 @@ const bodyparser=require('body-parser');
 const cors=require('cors');
 const app=express();
 const session=require('express-session');
+const helmet=require('helmet');
 //const mongoStore=require('connect-mongo')(session);
 let mongoose=require('mongoose');
 let db=mongoose.connection;
@@ -18,6 +19,7 @@ let options = {
     //}) 
 }
 app.use(session(options));
+app.use(helmet());
 app.use(bodyparser.urlencoded({extended:true}));
 app.use(bodyparser.json());
 app.use(cors());

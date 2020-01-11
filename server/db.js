@@ -6,5 +6,4 @@ module.exports=(name)=>{
         console.log("Connected to mongodb server");
     })
     mongoose.connect(`mongodb://localhost/${name}`);
-    
 }

@@ -108,63 +108,6 @@ html, body {
   width: 100%;
   height: 100%;
 }
-@media(min-width:320px){
-  .language-container{
-    display: -webkit-inline-box;
-    position: relative;
-    left: 0%;
-    top: 25px;
-    font-weight: 500;
-    font-size: 1.0rem;
-    align-self: center;
-  }
-  .language-container span{
-    margin: 7px;
-    padding: 5px;
-    border: 3px solid white;
-    border-radius: 4px;
-    cursor: pointer;
-    color:white;
-  }
-}
-@media(min-width:360px){
-  .language-container{
-    display: -webkit-inline-box;
-    position: relative;
-    left: 7%;
-    top: 30px;
-    font-weight: 500;
-    font-size: 1.5rem;
-  }
-  .language-container span{
-    margin: 7px;
-    padding: 5px;
-    border: 3px solid white;
-    border-radius: 4px;
-    cursor: pointer;
-    color:white;
-  }
-}
-@media(min-width:425px){
-  .language-container{
-    display: -webkit-inline-box;
-    position: relative;
-    left: 18%;
-    top: 30px;
-    font-weight: 500;
-    font-size: 1.2rem;
-  }
-}
-@media(min-width:768px){
-  .language-container{
-    display: -webkit-inline-box;
-    position: relative;
-    left: 61%;
-    top: 0;
-    font-weight: 500;
-    font-size: 0.9rem;
-  }
-}
 @media(min-width:1024px){
   .language-container{
     display: -webkit-inline-box;
@@ -183,4 +126,87 @@ html, body {
     color:white;
   }
 }
+@media all and (min-width:768px){
+  .language-container{
+    display: -webkit-inline-box;
+    position: absolute;
+    left: unset;
+    top: 0;
+    right: 0;
+    line-height: 3.5;
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+}
+@media(min-width:426px) and (max-width:767px){
+  .language-container{
+    display: -webkit-inline-box;
+    position: absolute;
+    right: 0;
+    line-height: 2;
+    font-weight: 500;
+    font-size: 1.2rem;
+  }
+}
+@media (max-width:425px) and (min-width:366px){
+  .language-container{
+    display: -webkit-inline-box;
+    position: relative;
+    left: 7%;
+    top: 30px;
+    font-weight: 500;
+    font-size: 1.2rem;
+  }
+  .language-container span{
+    margin: 7px;
+    padding: 5px;
+    border: 3px solid white;
+    border-radius: 4px;
+    cursor: pointer;
+    color:white;
+  }
+}
+@media (max-width:367px) and (min-width:360px){
+  .language-container{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+
+    top: 0px;
+    font-weight: 500;
+    font-size: 1.2rem;
+  }
+  .language-container span{
+    margin: 7px;
+    padding: 5px;
+    border: 3px solid white;
+    border-radius: 4px;
+    cursor: pointer;
+    color:white;
+  }
+}
+@media (max-width:359px) and (min-width:320px){
+  .language-container{
+    display: -webkit-inline-box;
+    position: relative;
+    left: 0%;
+    top: 25px;
+    font-weight: 500;
+    font-size: 1.0rem;
+    align-self: center;
+  }
+  .language-container span{
+    margin: 7px;
+    padding: 5px;
+    border: 3px solid white;
+    border-radius: 4px;
+    cursor: pointer;
+    color:white;
+  }
+}
+
+
+
 

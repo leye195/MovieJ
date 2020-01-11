@@ -117,10 +117,10 @@
         /*width: 300px;*/
     }
 }
-@media(max-width:425px) and (min-width:320px){
+@media(max-width:767px) and (min-width:426px){
     .poster{
         width: 424px;
-        /*margin: 10px auto;*/
+        margin: 10px auto;
         background-color: white;
         z-index: 0;
         box-shadow: 0 2px 19px 3px rgba(0, 0, 0, 0.1);
@@ -128,6 +128,80 @@
     .posterimg_contents img {
         display: block;
         width: 150px;
+        height: 300px;
+        border-width: 0px;
+        outline: none;
+        cursor: pointer;
+    }
+    .overview_container p {
+        word-wrap: break-word;
+        font-size: 1.0rem !important; 
+        margin-bottom: 0px;
+        color: #4d4d4d;
+        line-height: 1.2em;
+        margin-top: 0px;
+        display: -webkit-box !important; 
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+    }
+    .item_title {
+        display: inline;
+        font-size: 1.0rem;
+    }
+    .more {
+        width: 100%;
+        border-top: 1px solid #e3e3e3;
+        padding: 5px;
+        padding-right: 0;
+        font-weight: 300;
+        font-size: 1.0rem;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        cursor: pointer;
+        font-weight: 500;
+        text-decoration: none;
+    }
+    .posteritem_content p{
+        display: inline-block;
+        margin-top: 12px;
+        font-size: 1.0rem;
+    }
+    .item_rate{
+        display: inline;
+        padding-left: 10px;
+        padding-right: 10px;
+        background-color: #a871ff;
+        color:white;
+        border-radius: 10px;
+        margin: 10px;
+        box-shadow: 5px 5px 14px 5px rgba(37, 36, 36, 0.19);
+        font-size: 1.0rem;
+    }
+    .backdrop{
+        background-color: white;
+        width: 65%;
+        margin: 10px auto;
+        z-index: 0;
+        box-shadow: 0 2px 19px 3px rgba(0, 0, 0, 0.1);
+        transition-timing-function: ease;
+    }
+    .poster .movie_container{
+        display:flex;
+        margin:10px;
+        padding:0px;
+    }
+}
+@media(max-width:425px) and (min-width:320px){
+    .poster{
+        margin: 10px auto;
+        background-color: white;
+        z-index: 0;
+        box-shadow: 0 2px 19px 3px rgba(0, 0, 0, 0.1);
+    }
+    .posterimg_contents img {
+        display: block;
+        width: 120px;
         height: 300px;
         border-width: 0px;
         outline: none;
@@ -167,22 +241,22 @@
     .posteritem_content p{
         display: inline-block;
         margin-top: 12px;
-        font-size: 1.0rem;
+        font-size: 0.7rem;
     }
     .item_rate{
         display: inline;
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-left: 5px;
+        padding-right: 5px;
         background-color: #a871ff;
         color:white;
         border-radius: 10px;
         margin: 10px;
         box-shadow: 5px 5px 14px 5px rgba(37, 36, 36, 0.19);
-        font-size: 1.0rem;
+        font-size: 0.6rem;
     }
     .backdrop{
         background-color: white;
-        width: 600px;
+        width: 63%;
         margin: 10px auto;
         z-index: 0;
         box-shadow: 0 2px 19px 3px rgba(0, 0, 0, 0.1);

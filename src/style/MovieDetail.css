@@ -40,6 +40,110 @@
         margin-bottom: 40px;
     }
 }
+@media (max-width:767px) and (min-width:425px){
+    .movie_wrapper{
+        display:block;
+        padding:40px;
+    }
+    .movie_title {
+        display: inline-block;
+        margin-bottom: 0px;
+    }
+    .movie_title,.overview h3{
+        font-size: 1.5rem;
+    }
+    .img_container{
+        display: flex;
+        justify-content: center;
+    }
+    .img_container img{
+        height: 500px;
+        width: 80%;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        animation: fadeIn 4.5s;
+    }
+    .movie_title,.overview h3,.vote_rate{
+        text-shadow:  8px 4px 19px white;
+    }
+}
+@media (max-width:424px) and (min-width:320px){
+    .movie_wrapper{
+        display:block;
+        padding:40px;
+    }
+    .movie_title {
+        display: inline-block;
+        margin-bottom: 0px;
+    }
+    .movie_title,.overview h3{
+        font-size: 1.2rem;
+    }
+    .vote_rate{
+        font-size: 0.7rem;
+    }
+    .img_container{
+        display: flex;
+        justify-content: center;
+    }
+    .img_container img{
+        height: 380px;
+        width: 67%;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        animation: fadeIn 4.5s;
+    }
+    .movie_title,.overview h3,.vote_rate{
+        text-shadow:  8px 4px 19px white;
+    }
+    .overview p{
+        font-size: 0.8rem !important;
+        line-height: 1.4em;
+        font-weight: 500;
+    }
+    .review_container{
+        margin: 20px auto;
+    }
+    .card{
+        border: 1px solid #e3e3e3;
+        padding: 20px 40px 20px 40px;
+        box-shadow:1px 3px 10px 1px grey;
+        margin: 35px 25px !important;
+    }
+    .review_author{
+        font-size: 0.8rem;
+    }
+    .review_content{
+        display: -webkit-box;
+        -webkit-line-clamp: 14;
+        -webkit-box-orient: vertical;
+        word-wrap: break-word;
+        line-height: 1.2em;
+        font-size: 0.7rem !important;
+        text-align: justify;
+        height: 16.6em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: pre-wrap;
+    }
+    .review_content+a{
+        font-size: 0.7rem;
+    }
+    .read_all{
+        font-size: 0.7rem !important;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .review_notice{
+        font-size: 1.2rem;
+        padding-left: 120px;
+        padding-right: 120px;
+    }
+    .menu h3{
+        margin: 20px auto;
+        font-size: 1.0rem !important;
+    }
+}
 .detail{
     background-repeat: no-repeat;
     width: 100%;

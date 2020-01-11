@@ -44,7 +44,7 @@ header div{
     color: white;
 }
 
-@media(min-width:426px){
+@media (min-width:426px){
     .btns span{
         padding-left: 20px;
         padding-right: 20px;
@@ -68,6 +68,25 @@ header div{
         padding: 5px;
         cursor: pointer;
         font-size: 1.3rem;
+    }
+    .select_wrapper{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 25px;
+        position: relative;
+        right: 0px;
+        padding-top: 20px;
+    }
+    .select_wrapper span{
+        padding-right: 5px;
+        font-size: larger;
+    }
+    .select_wrapper select{
+        width: 250px;
+        height: 30px;
+        border: 1px solid #8d949461;
     }
 }
 @media(max-width:425px) and (min-width:367px){
@@ -184,13 +203,15 @@ header div{
         font-size: 1.1rem;
     }
     .select_wrapper{
+        display: flex;
+        align-items: center;
         width: 100%;
         height: 60px;
         position: relative;
-        text-align: right;
-        right: 60px;
+        text-align: unset;
+        right: 0px;
         padding-top: 20px;
-        /*font-size: 2.0rem;*/    
+        justify-content: center;    
     }
 }
 .movies_wrapper{

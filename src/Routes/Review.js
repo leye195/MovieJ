@@ -2,10 +2,9 @@ import React from 'react';
 import MovieReview from '../components/MovieReview';
 import MovieReviewList from '../components/MovieReviewList';
 import SearchBar from '../components/SearchBar';
-import '../style/Review.css';
 import Header from '../components/Header';
+import '../style/Review.css';
 class Review extends React.Component{
-
     /**
      * Back to detail or review page
      */
@@ -14,16 +13,15 @@ class Review extends React.Component{
         const{history,match,location}=this.props;
         const title=new URLSearchParams(location.search).get('title');
         if(match.params.r_id===undefined)
-            history.push('MovieJ/movie_detail/'+match.params.id+'/'+match.params.lan);
+            history.push('/movie_detail/'+match.params.id+'/'+match.params.lan);
         else
-            history.push('MovieJ/movie_review/'+match.params.id+'/'+match.params.lan+"?title="+title);
+            history.push('/movie_review/'+match.params.id+'/'+match.params.lan+"?title="+title);
     }
     render(){
         const{match,location}=this.props;
         const {lan,r_id,id}=match.params;
-        let tag="";
         const title=new URLSearchParams(location.search).get('title');
-        //console.log(match.params);
+        let tag="";
         if(match.params.r_id===undefined){
             tag=<MovieReviewList id={id} title={title} lan={lan}></MovieReviewList>
         }else{
