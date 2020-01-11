@@ -49,11 +49,7 @@ class Search extends React.Component{
                         Search > Results
                     </h2>
                     {result_list}
-                    <div className="btns">
-                    <Button variant="contained" color="primary" onClick={this.handlePrev}>{lan!=="ko-KR"?'Previous':'이전'}</Button>
-                    <span><b>{page}</b></span>
-                    <Button variant="contained" color="primary" onClick={this.handleNext}>{lan!=="ko-KR"?'Previous':'다음'}</Button>
-            </div>
+                    <div className="btns"></div>
                 </div>
             </div>
         )
