@@ -1,7 +1,7 @@
 const dotenv = require('dotenv');
-dotenv.config();
 const mongoose=require('mongoose');
-mongoose.connect(process.env.LOCAL_DB_URL,{
+dotenv.config();
+mongoose.connect(process.env.HEROKU_DB_URL,{
     useNewUrlParser:true,
     useFindAndModify:false
 });

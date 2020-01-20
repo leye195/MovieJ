@@ -1,4 +1,5 @@
-module.exports = function(app,User){
+const User=require('../models/users');
+module.exports = function(app){
     //let sess=require('express-session'); 
     /**
      * Users: Get /api/users

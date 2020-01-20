@@ -43,8 +43,60 @@ header div{
     background-color: #0826b9a8;
     color: white;
 }
-
-@media (min-width:426px){
+@media all and (min-width:768px){
+    .btns span{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .btns button{
+        all: unset;
+        height: 50px;
+        width: 400px;
+        border-radius: 10px;
+        margin: 3px;
+        background-color: #0826b9d9;
+        color: white;
+        font-size: 1.0rem;
+        text-align: center;
+        cursor: pointer;
+    }
+    header h1{
+        display: inline-block;
+        background-color: white;
+        border: black solid 5px;
+        padding: 5px;
+        cursor: pointer;
+        font-size: 1.3rem;
+    }
+    .select_wrapper{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 25px;
+        position: relative;
+        right: 0px;
+        padding-top: 20px;
+    }
+    .select_wrapper span{
+        padding-right: 5px;
+        font-size: larger;
+    }
+    .select_wrapper select{
+        width: 250px;
+        height: 30px;
+        border: 1px solid #8d949461;
+    }
+}
+@media (max-width:767px) and (min-width:426px){
+    header div{
+        padding-left:20px;
+        padding-right:20px;
+        padding-top: 20px;
+        padding-bottom: 5px;
+        margin: 0;
+        background-color: #b56666;
+    }
     .btns span{
         padding-left: 20px;
         padding-right: 20px;

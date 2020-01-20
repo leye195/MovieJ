@@ -1,7 +1,7 @@
 import axios from 'axios';
 import dotenv from 'dotenv';
-dotenv.config()
-const API_KEY=process.env.MOVIE_API;
+dotenv.config();
+const API_KEY=process.env.REACT_APP_MOVIE_API;
 export const getAllMovies=(page=1,lan="en-US")=>{
     return axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=${lan}"&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}`);
 }

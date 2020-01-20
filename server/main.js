@@ -4,7 +4,9 @@ const cors=require('cors');
 const app=express();
 const session=require('express-session');
 const helmet=require('helmet');
+const morgan=require('morgan');
 const dotenv=require('dotenv');
+require('./db');
 //const mongoStore=require('connect-mongo')(session);
 const fileStore=require('session-file-store')(session);
 let options = {
@@ -17,15 +19,15 @@ let options = {
     //}) 
 }
 dotenv.config();
-app.use(session(options));
 app.use(helmet());
+app.use(session(options));
 app.use(bodyparser.urlencoded({extended:true}));
 app.use(bodyparser.json());
+app.use(morgan("dev"));
 app.use(cors());
-const db=require('./db');
-const user=require('./models/users');
+
 const port=process.env.PORT || 8000;
-const router=require('./routes')(app,user);
-const server=app.listen(port,()=>{
+require('./routes')(app);
+app.listen(port,()=>{
     console.log("Express server has started on port:: "+port);
 })
