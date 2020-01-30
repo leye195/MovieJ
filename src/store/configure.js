@@ -7,7 +7,7 @@ import { createLogger } from "redux-logger";
  */
 const configure = () => {
   const middlewares = [];
-  if (process.env.NODE_ENV === "development") {
+  if (process.env.NODE_ENV !== `production`) {
     const logger = createLogger();
     middlewares.push(logger);
   }
