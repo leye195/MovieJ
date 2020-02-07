@@ -1,102 +1,109 @@
-import * as types from './ActionTypes';
+import * as types from "./ActionTypes";
 /*SET PAGE */
-export function page(cur_page){
-    return {
-        type:types.PAGE,
-        cur_page
-    };
-}
+export const page = cur_page => {
+  return {
+    type: types.PAGE,
+    cur_page
+  };
+};
 /*Button for Next,Previous and View */
-export function nextbtn(cur_page){
-    return {
-        type:types.NEXT_BTN,
-        cur_page
-    };
-}
-export function previousbtn(cur_page){
-    return{
-        type:types.PREVIOUS_BTN,
-        cur_page
-    };
-}
-export function view(view){
-    return{
-        type:types.VIEW,
-        view
-    }
-}
+export const nextbtn = cur_page => {
+  return {
+    type: types.NEXT_BTN,
+    cur_page
+  };
+};
+export const previousbtn = cur_page => {
+  return {
+    type: types.PREVIOUS_BTN,
+    cur_page
+  };
+};
+export const view = view => {
+  return {
+    type: types.VIEW,
+    view
+  };
+};
 
 /*GET MOVIE DATA LIST*/
-export function get_movielist(movie_list,total_pages,cur_page){
-    return{
-        type:types.MOVIELIST,
-        movie_list,
-        total_pages,
-        cur_page,
-    };
-}
+export const get_movielist = (movie_list, total_pages, cur_page) => {
+  return {
+    type: types.MOVIELIST,
+    movie_list,
+    total_pages,
+    cur_page
+  };
+};
 /*GET MOVIE DETAIL INFO */
-export function get_movie_detail(movieinfo){
-    return{
-        type:types.MOVIE_DETAIL,
-        movieinfo
-    }
-}
-
+export const get_movie_detail = movieinfo => {
+  return {
+    type: types.MOVIE_DETAIL,
+    movieinfo
+  };
+};
 
 /*SEARCH*/
-export function get_keyword(keyword){
-    return{
-        type:types.KEYWORD,
-        keyword
-    }
-}
-export function search(results){
-    return{
-        type:types.SEARCH,
-        results,
-    };
-}
+export const get_keyword = keyword => {
+  return {
+    type: types.KEYWORD,
+    keyword
+  };
+};
+export const search = results => {
+  return {
+    type: types.SEARCH,
+    results
+  };
+};
 
 /*LANGUAGE*/
-export function language(lan){
-    return{
-        type:types.LANGUAGE,
-        lan
-    }
-}
+export const language = lan => {
+  return {
+    type: types.LANGUAGE,
+    lan
+  };
+};
 /*ACTOR INFORMATION*/
-export function actor_info(actor){
-    return{
-        type:types.ACTOR_INFO,
-        actor
-    }
-}
-export function loading(completed){
-    return{
-        type:types.LOADING,
-        completed
-    }
-}
+export const actor_info = actor => {
+  return {
+    type: types.ACTOR_INFO,
+    actor
+  };
+};
+export const loading = completed => {
+  return {
+    type: types.LOADING,
+    completed
+  };
+};
 /*LOGIN*/
-export function login(){
-    return{
-        type:types.LOGIN
-    };
-}
-export function loginSuccess(name){
-    return{
-        type:types.LOGIN_SUCCESS,
-        name
-    };
-}
-export function loginFailure(){
-    return{
-        type:types.LOGIN_FAILURE
-    };
-}
-export function logout(){
-    return{
-        type:types.LOGOUT
-    };
-}
+export const login = () => {
+  return {
+    type: types.LOGIN
+  };
+};
+export const loginSuccess = (_id, name) => {
+  return {
+    type: types.LOGIN_SUCCESS,
+    name,
+    _id
+  };
+};
+export const loginFailure = () => {
+  return {
+    type: types.LOGIN_FAILURE
+  };
+};
+export const logout = () => {
+  return {
+    type: types.LOGOUT
+  };
+};
+
+export const favoriteMovie = fav_list => {
+  return {
+    type: types.FAVORITE,
+    fav_list
+  };
+};

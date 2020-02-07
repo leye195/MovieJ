@@ -61,6 +61,10 @@ export const get_video = id => {
   );
 };
 
+//User
+export const getUser = id => {
+  return axios.get(`http://localhost:8080/api/user/${id}`);
+};
 export const signup = (id, name, password) => {
   return axios.post(`http://localhost:8080/api/users`, {
     params: { email: id, name: name, password: password }
@@ -74,4 +78,18 @@ export const login = (id, pw) => {
 };
 export const logout = () => {
   return axios.get(`http://localhost:8080/api/logout`);
+};
+
+export const postFavouriteMovie = data => {
+  const { uid, id: m_id, title, imgUrl, link } = data;
+  return axios.post(`http://localhost:8080/api/fav`, {
+    uid,
+    m_id,
+    title,
+    imgUrl,
+    link
+  });
+};
+export const getFavouriteMovie = id => {
+  return axios.get(`http://localhost:8080/api/fav/${id}`);
 };

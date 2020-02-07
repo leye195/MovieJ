@@ -11,10 +11,12 @@ class Login extends Component {
     const id = document.querySelector("#id"),
       pw = document.querySelector("#password");
     return this.props.loginRequest(id.value, pw.value).then(() => {
-      if (this.props.status === "success") {
+      const { status, _id } = this.props;
+      if (status === "success") {
         let loginData = {
           loggedIn: true,
-          name: id.value
+          name: id.value,
+          _id
         };
         localStorage.loggedIn = JSON.stringify(loginData);
         window.location.href = "/";
@@ -63,7 +65,9 @@ class Login extends Component {
 const mapStateToProps = state => {
   return {
     lan: state.movielist.lan,
-    status: state.login.login.status
+    status: state.login.login.status,
+    _id: state.login.login._id,
+    loggedIn: state.login.login.isLoggedIn
   };
 };
 const mapDispatchToProps = dispatch => {
@@ -71,11 +75,9 @@ const mapDispatchToProps = dispatch => {
     loginRequest: (name, pw) => {
       dispatch(actions.login());
       return services.login(name, pw).then(response => {
-        console.log(response.data);
-        const {
-          data: { success }
-        } = response;
-        if (success === 1) dispatch(actions.loginSuccess(name));
+        //alert(JSON.stringify(response.data.uid));
+        if (response.data.success === 1)
+          dispatch(actions.loginSuccess(response.data.uid, name));
         else dispatch(actions.loginFailure());
       });
     }

@@ -1,94 +1,98 @@
 * {
-	-moz-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-html{
+html {
   scroll-behavior: smooth;
 }
-ul,li{
+ul,
+li {
   list-style: none;
 }
-.language-container span{
+.language-container span {
   margin: 7px;
   padding: 5px;
   border: 3px solid white;
   border-radius: 4px;
   cursor: pointer;
-  color:white;
+  color: white;
 }
-footer{
+footer {
   width: 100%;
-  height: 50px;
+  max-height: 600px;
+  height: 100%;
   padding: 10px;
   line-height: 3;
   opacity: 0.5;
   text-align: center;
 }
-.giticon{
+.giticon {
   opacity: 0.5;
 }
-.giticon:hover{
+.giticon:hover {
   opacity: 1;
 }
 
-.m_show{
-  visibility:visible;
+.m_show {
+  visibility: visible;
 }
-.m_hide{
+.m_hide {
   visibility: hidden;
 }
 .App-logo {
   height: 40vmin;
 }
-.upbtn{
+.upbtn {
   position: fixed;
   width: 60px;
   height: 60px;
   border-radius: 35px;
   background-color: #404040e6;
-  color:white;
+  color: white;
   right: 30px;
   bottom: 30px;
   text-align: center;
   box-shadow: 3px 3px 8px 0px #00000091;
   z-index: 1;
 }
-.upbtn a{
+.upbtn a {
   position: relative;
   top: 20px;
   color: white;
 }
-@keyframes fadeIn{
-  from{
-      opacity: 0;
-  }to{
-      opacity: 1;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
 }
-@media(min-width:1024px){
-  .language-container{
+@media (min-width: 1024px) {
+  .language-container {
     display: -webkit-inline-box;
     position: relative;
     left: 75%;
-    top:0;
+    top: 0;
     font-weight: 500;
     font-size: 0.9rem;
   }
-  .language-container span{
+  .language-container span {
     margin: 7px;
     padding: 5px;
     border: 3px solid white;
     border-radius: 4px;
     cursor: pointer;
-    color:white;
+    color: white;
   }
-  .callout{
+  .callout {
     position: absolute;
     width: 0;
     height: 0;
@@ -101,24 +105,24 @@ html, body {
     z-index: 0;
     top: 66px;
   }
-  .header_menu{
-      position: absolute;
-      display: flex;
-      /*height: 20%;*/
-      padding:0px;
-      z-index: 3;
-      background: #fbfbfbf2;
-      border-radius: 10px;
-      box-shadow: 1px 1px 4px 0px #ababab;
-      right: 0px;
+  .header_menu {
+    position: absolute;
+    display: flex;
+    /*height: 20%;*/
+    padding: 0px;
+    z-index: 3;
+    background: #fbfbfbf2;
+    border-radius: 10px;
+    box-shadow: 1px 1px 4px 0px #ababab;
+    right: 0px;
   }
-  .menu_list{
+  .menu_list {
     padding-left: 0px;
     margin-top: 5px;
     margin-bottom: 5px;
     flex-grow: 1;
   }
-  .menu_list li{
+  .menu_list li {
     cursor: pointer;
     text-align: center;
     margin: 7px;
@@ -126,8 +130,8 @@ html, body {
     font-family: -webkit-body;
   }
 }
-@media all and (min-width:768px){
-  .language-container{
+@media all and (min-width: 768px) {
+  .language-container {
     display: -webkit-inline-box;
     position: absolute;
     left: unset;
@@ -137,7 +141,7 @@ html, body {
     font-weight: 500;
     font-size: 0.9rem;
   }
-  .callout{
+  .callout {
     position: absolute;
     width: 0;
     height: 0;
@@ -150,24 +154,24 @@ html, body {
     z-index: 0;
     top: 66px;
   }
-  .header_menu{
-      position: absolute;
-      display: flex;
-      /*height: 20%;*/
-      padding:0px;
-      z-index: 3;
-      background: #fbfbfbf2;
-      border-radius: 10px;
-      box-shadow: 1px 1px 4px 0px #ababab;
-      right: 7px;
+  .header_menu {
+    position: absolute;
+    display: flex;
+    /*height: 20%;*/
+    padding: 0px;
+    z-index: 3;
+    background: #fbfbfbf2;
+    border-radius: 10px;
+    box-shadow: 1px 1px 4px 0px #ababab;
+    right: 7px;
   }
-  .menu_list{
+  .menu_list {
     padding-left: 0px;
     margin-top: 5px;
     margin-bottom: 5px;
     flex-grow: 1;
   }
-  .menu_list li{
+  .menu_list li {
     cursor: pointer;
     text-align: center;
     margin: 7px;
@@ -175,8 +179,8 @@ html, body {
     font-family: -webkit-body;
   }
 }
-@media(min-width:426px) and (max-width:767px){
-  .language-container{
+@media (min-width: 426px) and (max-width: 767px) {
+  .language-container {
     display: -webkit-inline-box;
     position: absolute;
     right: 0;
@@ -184,7 +188,7 @@ html, body {
     font-weight: 500;
     font-size: 1.2rem;
   }
-  .callout{
+  .callout {
     position: absolute;
     width: 0;
     height: 0;
@@ -197,7 +201,7 @@ html, body {
     z-index: 0;
     top: 66px;
   }
-  .header_menu{
+  .header_menu {
     position: absolute;
     display: flex;
     flex-direction: row;
@@ -211,14 +215,14 @@ html, body {
     right: 0px;
     top: 0;
   }
-  .menu_list{
+  .menu_list {
     display: flex;
     padding-left: 0px;
     margin-top: 5px;
     margin-bottom: 5px;
     flex-grow: 1;
   }
-  .menu_list li{
+  .menu_list li {
     cursor: pointer;
     text-align: center;
     margin: 7px;
@@ -226,8 +230,8 @@ html, body {
     font-family: -webkit-body;
   }
 }
-@media (max-width:425px) and (min-width:366px){
-  .language-container{
+@media (max-width: 425px) and (min-width: 366px) {
+  .language-container {
     display: -webkit-inline-box;
     position: relative;
     left: 7%;
@@ -235,18 +239,18 @@ html, body {
     font-weight: 500;
     font-size: 1.2rem;
   }
-  .language-container span{
+  .language-container span {
     margin: 7px;
     padding: 5px;
     border: 3px solid white;
     border-radius: 4px;
     cursor: pointer;
-    color:white;
+    color: white;
   }
-  .callout{
+  .callout {
     display: none;
   }
-  .header_menu{
+  .header_menu {
     position: absolute;
     display: flex;
     flex-direction: row;
@@ -260,14 +264,14 @@ html, body {
     right: 0px;
     top: 0;
   }
-  .menu_list{
+  .menu_list {
     display: flex;
     padding-left: 0px;
     margin-top: 5px;
     margin-bottom: 5px;
     flex-grow: 1;
   }
-  .menu_list li{
+  .menu_list li {
     cursor: pointer;
     text-align: center;
     margin: 7px;
@@ -275,8 +279,8 @@ html, body {
     font-family: -webkit-body;
   }
 }
-@media (max-width:367px) and (min-width:360px){
-  .language-container{
+@media (max-width: 367px) and (min-width: 360px) {
+  .language-container {
     display: flex;
     position: relative;
     align-items: center;
@@ -287,18 +291,18 @@ html, body {
     font-weight: 500;
     font-size: 1.2rem;
   }
-  .language-container span{
+  .language-container span {
     margin: 7px;
     padding: 5px;
     border: 3px solid white;
     border-radius: 4px;
     cursor: pointer;
-    color:white;
+    color: white;
   }
-  .callout{
+  .callout {
     display: none;
   }
-  .header_menu{
+  .header_menu {
     position: absolute;
     display: flex;
     flex-direction: row;
@@ -312,14 +316,14 @@ html, body {
     right: 0px;
     top: 0;
   }
-  .menu_list{
+  .menu_list {
     display: flex;
     padding-left: 0px;
     margin-top: 5px;
     margin-bottom: 5px;
     flex-grow: 1;
   }
-  .menu_list li{
+  .menu_list li {
     cursor: pointer;
     text-align: center;
     margin: 7px;
@@ -327,28 +331,28 @@ html, body {
     font-family: -webkit-body;
   }
 }
-@media (max-width:359px) and (min-width:320px){
-  .language-container{
+@media (max-width: 359px) and (min-width: 320px) {
+  .language-container {
     display: -webkit-inline-box;
     position: relative;
     left: 0%;
     top: 25px;
     font-weight: 500;
-    font-size: 1.0rem;
+    font-size: 1rem;
     align-self: center;
   }
-  .language-container span{
+  .language-container span {
     margin: 7px;
     padding: 5px;
     border: 3px solid white;
     border-radius: 4px;
     cursor: pointer;
-    color:white;
+    color: white;
   }
-  .callout{
+  .callout {
     display: none;
   }
-  .header_menu{
+  .header_menu {
     position: absolute;
     display: flex;
     flex-direction: row;
@@ -362,14 +366,14 @@ html, body {
     right: 0px;
     top: 0;
   }
-  .menu_list{
+  .menu_list {
     display: flex;
     padding-left: 0px;
     margin-top: 5px;
     margin-bottom: 5px;
     flex-grow: 1;
   }
-  .menu_list li{
+  .menu_list li {
     cursor: pointer;
     text-align: center;
     margin: 7px;
@@ -377,7 +381,3 @@ html, body {
     font-family: -webkit-body;
   }
 }
-
-
-
-
