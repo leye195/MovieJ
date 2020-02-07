@@ -30,6 +30,9 @@ class Home extends React.Component {
         <div className="upbtn">
           <a href="#header">Top</a>
         </div>
+        <div className="notice">
+          <span>Added to Favourite List</span>
+        </div>
       </div>
     );
   }

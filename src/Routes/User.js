@@ -15,7 +15,7 @@ class User extends Component {
     }
   }
   getFavList = async uid => {
-    console.log(uid);
+    //console.log(uid);
     const response = await services.getFavouriteMovie(uid);
     if (response.status === 200) {
       const {
@@ -28,7 +28,7 @@ class User extends Component {
     const { fav_list } = this.props;
     const favTags = fav_list.map(fav => {
       return (
-        <a key={fav.m_id} href={fav.link}>
+        <a key={fav._id} href={fav.link}>
           <div className="fav-item">
             <img src={fav.imgUrl} alt={fav.m_id} />
             <p>{fav.title}</p>

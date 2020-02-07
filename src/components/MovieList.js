@@ -22,15 +22,14 @@ class MovieList extends React.Component {
     select.value = view;
     this.props.handleView(view);
     this.getMovies(1);
+    //await this.getFavList();
   }
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.cur_page !== this.props.cur_page)
       localStorage.cur_page = this.props.cur_page;
     if (prevProps.view !== this.props.view) localStorage.view = this.props.view;
   }
-  componentWillUnmount() {
-    clearInterval(this.timer);
-  }
+  componentWillUnmount() {}
   /**
    * @param page : For loading page's data from API
    **/
@@ -43,9 +42,6 @@ class MovieList extends React.Component {
       page
     );
   };
-  //ChangeView=(e)=>{
-  //  this.props.handleView(e.target.value);
-  //}
   ChangeView = e => {
     this.props.handleView(e.target.value);
   };
@@ -54,23 +50,31 @@ class MovieList extends React.Component {
     if (cur_page < total_pages) this.getMovies(Number(cur_page) + 1);
     else alert("Done");
   };
+
   render() {
     const { movie_list, cur_page, view, lan, total_pages } = this.props;
-    const movies = movie_list.map((movie, i) => {
-      return (
-        <Movie
-          id={movie.id}
-          key={i}
-          title={movie.title}
-          release_date={movie.release_date}
-          poster={view === "poster" ? movie.poster_path : movie.backdrop_path}
-          overview={movie.overview}
-          view={view}
-          lan={lan}
-          avg_rate={movie.vote_average}
-        ></Movie>
-      );
-    });
+    //console.log(this.state.mids);
+    //const { mids } = this.state;
+    //console.log(movie_list, fav_list);
+    const movies = () => {
+      //console.log(fav_list);
+      const tag = movie_list.map((movie, i) => {
+        return (
+          <Movie
+            id={movie.id}
+            key={i}
+            title={movie.title}
+            release_date={movie.release_date}
+            poster={view === "poster" ? movie.poster_path : movie.backdrop_path}
+            overview={movie.overview}
+            view={view}
+            lan={lan}
+            avg_rate={movie.vote_average}
+          ></Movie>
+        );
+      });
+      return tag;
+    };
     return (
       <div style={{ backgroundColor: "#efefefa6" }}>
         <div>
@@ -85,7 +89,7 @@ class MovieList extends React.Component {
             <option value="backdrop">Backdrop Card</option>
           </select>
         </div>
-        <div className="movies_wrapper">{movies}</div>
+        <div className="movies_wrapper">{movies()}</div>
         <div className="btns">
           <button
             onClick={this.onNext}
@@ -105,7 +109,8 @@ const mapStateToProps = state => {
     cur_page: state.movielist.cur_page, // current page
     view: state.movielist.view, //view: post or backdrop
     lan: state.movielist.lan, //language: ko-KR or en-US
-    completed: state.load.completed //check loading is finished or not
+    completed: state.load.completed, //check loading is finished or not
+    fav_list: state.favorite_movies.fav_list
   };
 };
 const mapDispatchToProps = dispatch => {

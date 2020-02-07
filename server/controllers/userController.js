@@ -61,12 +61,11 @@ export const postFavMovie = async (req, res) => {
   const {
     body: { uid, m_id, title, imgUrl, link }
   } = req;
+  console.log(uid, m_id, title, imgUrl, link);
   try {
-    const user = await User.findById(uid);
-    const movie = await Movie.findOne({ m_id });
-    console.log(user);
-    console.log(movie);
-    if (movie === null) {
+    const user = await User.findById(uid).populate("favourites");
+    const movie = await Movie.findOne({ m_id: m_id });
+    if (!movie) {
       const newMovie = await Movie.create({
         m_id,
         title,
@@ -77,11 +76,40 @@ export const postFavMovie = async (req, res) => {
       user.favourites.push(newMovie.id);
       user.save();
     } else {
-      user.favourites.push(movie.id);
-      user.save();
+      let idx = -1;
+      for (let i = 0; i < user.favourites.length; i++) {
+        if (user.favourites[i].m_id === m_id) {
+          idx = i;
+          break;
+        }
+      }
+      console.log(idx);
+      if (idx !== -1) {
+        user.favourites.splice(idx, 1);
+        user.save();
+        res.status(200).json({ success: 0 });
+      } else {
+        user.favourites.push(movie.id);
+        user.save();
+      }
     }
-    res.status(200).json({});
+    res.status(200).json({ success: 1 });
   } catch (error) {
-    res.status(400);
+    res.status(400).json();
+  }
+};
+export const postCancelFav = async (req, res) => {
+  const {
+    body: { uid, m_id }
+  } = req;
+  try {
+    const user = await User.findById(uid).populate("favourites");
+    user.favourites = user.favourites.filter(item => {
+      if (item.m_id !== m_id) return item;
+    });
+    user.save();
+    res.status(200).json();
+  } catch (error) {
+    res.status(400).json();
   }
 };

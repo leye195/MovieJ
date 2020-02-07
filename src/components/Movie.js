@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import * as services from "../services/posts";
 class Movie extends React.Component {
   //default img 설정
-  postFavInfo = async (uid, id, title, imgUrl, link) => {
+  postFavInfo = async (uid, id, title, imgUrl, link, target) => {
     //console.log(uid, id, title, imgUrl, link);
     const response = await services.postFavouriteMovie({
       uid,
@@ -14,21 +14,45 @@ class Movie extends React.Component {
       imgUrl,
       link
     });
-    console.log(response);
+    const notice = document.querySelector(".notice");
+    if (response.status === 200) {
+      if (response.data.success === 1) {
+        notice.innerHTML = "Added to Favourite";
+        notice.style.backgroundColor = "#347cff";
+        target.classList.add("liked");
+      } else if (response.data.success === 0) {
+        notice.innerHTML = "Canceled Favourite";
+        notice.style.backgroundColor = "#e62113";
+      }
+      notice.animate(
+        [
+          { transform: "translateY(40px)" },
+          { transform: "translateY(-30px)" },
+          { transform: "translateY(-30px)" },
+          { transform: "translateY(40px)" }
+        ],
+        3000
+      );
+    }
   };
   handleFav = e => {
-    const {
-      target: { id }
-    } = e;
-    console.log(e.target);
-    const aTag = e.target.parentNode.previousSibling;
+    let aTag = e.target.parentNode.previousSibling;
+    let tar = e.target;
+    if (e.target.tagName === "I") {
+      aTag = e.target.parentNode.parentNode.parentNode.previousSibling;
+      tar = e.target.parentNode.parentNode;
+    } else if (e.target.tagName === "SPAN") {
+      aTag = e.target.parentNode.parentNode.previousSibling;
+      tar = e.target.parentNode;
+    }
     const uid = document.querySelector(".language-container span:nth-child(3)")
       .id;
-    //console.log(aTag);
     const link = aTag.href,
       title = aTag.querySelector("img").alt,
       imgUrl = aTag.querySelector("img").src;
-    this.postFavInfo(uid, id, title, imgUrl, link);
+    if (!tar.classList.contains("liked"))
+      this.postFavInfo(uid, tar.id, title, imgUrl, link, tar);
+    else tar.classList.remove("liked");
   };
   handleError = () => {
     return default_movie;
@@ -45,6 +69,7 @@ class Movie extends React.Component {
       avg_rate
     } = this.props;
     const imgUrl = "https://image.tmdb.org/t/p/w500" + poster;
+    //console.log(fav);
     return (
       <div className={view}>
         <div className="movie_container">
@@ -57,8 +82,10 @@ class Movie extends React.Component {
               <img alt={title} src={imgUrl} onError={this.handleError} />
             </Link>
             <div className="fav">
-              <button className="fav_btn" id={id} onClick={this.handleFav}>
-                +
+              <button className={`fav_btn`} id={id} onClick={this.handleFav}>
+                <span>
+                  <i className="fas fa-heart"></i>
+                </span>
               </button>
             </div>
           </div>
