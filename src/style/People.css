@@ -1,313 +1,335 @@
-
-@media(min-width:1440px){
-    .m_div img{
-        height: 250px;
-    }
-    .m_aside>div>img{
-        width: 170px;
-        height: 220px;
-        box-sizing: border-box;
-    }
-    .m_container{
-        display: flex;
-        padding-top: 10px;
-    }
-    .m_aside{
-        position: static;
-        width: 25%;
-    }
-    .m_aside>div{
-        position: fixed;
-        left:50px;
-        width: 200px;
-        height: 250px;
-        margin: auto auto;
-        border: 5px solid rgba(109, 107, 107, 0.13);
-        padding: 10px;
-        box-shadow: 0 0 20px 0 #666;
-    }
-    .m_aside p{
-        padding:5px;
-        border-bottom: 1px solid #58555591
-    }
-    .m_aside a{
-        padding: 7px 0;
-        transition: all .5s;
-        font-size: 1.0rem;
-    }
-    .actor_info p{
-        font-size: 1rem;
-        line-height: 1.428571429;
-        color: #333;
-        width: 65%;
-    }
-    .m_div div>span{
-        cursor: pointer;
-        font-size: 1.0rem;
-    }
-    .actor_info[arial-expanded=true]{
-        position: relative;
-        padding-bottom: 10px;
-        max-height: 1000px;
-        transition: max-height 300ms;
-    }
-    .m_item div{
-        display: block;
-        margin-top: 10px;
-        width: 300px;
-        font-size: 1.0rem;
-    }
-    #actor_name{
-        font-size: 1.2rem;
-    }
-    .shade{
-        width: 65%;
-    }
+@media (min-width: 1440px) {
+  .m_div img {
+    height: 250px;
+  }
+  .m_aside > div > img {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+  }
+  .m_container {
+    display: flex;
+    padding-top: 10px;
+  }
+  .m_aside {
+    position: static;
+    width: 25%;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+  }
+  .m_aside > div {
+    position: fixed;
+    left: 50px;
+    width: 200px;
+    height: 250px;
+    margin: auto auto;
+    border: 5px solid rgba(109, 107, 107, 0.13);
+    padding: 10px;
+    box-shadow: 0 0 20px 0 #666;
+  }
+  .m_aside p {
+    padding: 5px;
+    border-bottom: 1px solid #58555591;
+  }
+  .m_aside a {
+    padding: 7px 0;
+    transition: all 0.5s;
+    font-size: 1rem;
+  }
+  .actor_info p {
+    font-size: 1rem;
+    line-height: 1.428571429;
+    color: #333;
+    width: 65%;
+  }
+  .m_div div > span {
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  .actor_info[arial-expanded="true"] {
+    position: relative;
+    padding-bottom: 10px;
+    max-height: 1000px;
+    transition: max-height 300ms;
+  }
+  .m_item div {
+    display: block;
+    margin-top: 10px;
+    width: 300px;
+    font-size: 1rem;
+  }
+  #actor_name {
+    font-size: 1.2rem;
+  }
+  .shade {
+    width: 65%;
+  }
 }
-@media (min-width:768px){
-    .m_div img{
-        width: 200px;
-        height: 200px;
-    }
-    .m_aside>div>img{
-        width: 120px;
-        height: 160px;
-        box-sizing: border-box;
-    }
-    .m_container{
-        display: flex;
-        padding-top: 10px;
-    }
-    .m_aside{
-        position: static;
-        width: 25%;
-    }
-    .m_aside>div{
-        position: fixed;
-        left:1%;
-        width: 150px;
-        height: 195px;        
-
-        margin: auto auto;
-        border: 5px solid rgba(109, 107, 107, 0.13);
-        padding: 10px;
-        box-shadow: 0 0 20px 0 #666;
-    }
-    .m_aside p{
-        padding:5px;
-        border-bottom: 1px solid #58555591;
-    }
-    .m_aside a{
-        padding: 7px 0;
-        transition: all .5s;
-        font-size: 1.0rem;
-    }
-    .actor_info p{
-        font-size: 1rem;
-        line-height: 1.428571429;
-        color: #333;
-        width: 65%;
-    }
-    .m_div div>span{
-        cursor: pointer;
-        font-size: 1.0rem;
-    }
-    .actor_info[arial-expanded=true]{
-        position: relative;
-        padding-bottom: 10px;
-        max-height: 1000px;
-        transition: max-height 300ms;
-    }
-    .m_item div{
-        display: block;
-        margin-top: 10px;
-        width: 300px;
-        font-size: 1.0rem;
-    }
-    #actor_name{
-        font-size: 1.5rem;
-    }
-    .shade{
-        width: 65%;
-    }
+@media (max-width: 1439px) and (min-width: 768px) {
+  .m_div img {
+    width: 200px;
+    height: 200px;
+  }
+  .m_aside > div > img {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+  }
+  .m_container {
+    display: flex;
+    padding-top: 10px;
+  }
+  .m_aside {
+    position: static;
+    width: 25%;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+  }
+  .m_aside > div {
+    position: fixed;
+    width: 150px;
+    height: 195px;
+    margin: auto auto;
+    border: 5px solid rgba(109, 107, 107, 0.13);
+    padding: 10px;
+    box-shadow: 0 0 20px 0 #666;
+  }
+  .m_aside p {
+    padding: 5px;
+    border-bottom: 1px solid #58555591;
+  }
+  .m_aside a {
+    padding: 7px 0;
+    transition: all 0.5s;
+    font-size: 1rem;
+  }
+  .actor_info p {
+    font-size: 1rem;
+    line-height: 1.428571429;
+    color: #333;
+    width: 65%;
+  }
+  .m_div div > span {
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  .actor_info[arial-expanded="true"] {
+    position: relative;
+    padding-bottom: 10px;
+    max-height: 1000px;
+    transition: max-height 300ms;
+  }
+  .m_item div {
+    display: block;
+    margin-top: 10px;
+    width: 300px;
+    font-size: 1rem;
+  }
+  #actor_name {
+    font-size: 1.5rem;
+  }
+  .shade {
+    width: 65%;
+  }
 }
-@media(min-width:425px) and (max-width:767px){
-    .m_div img{
-        width: 200px;
-        height: 300px;
-    }
-    .m_aside>div>img{
-        width: 65px;
-        height: 120px;
-        box-sizing: border-box;
-    }
-    .m_container{
-        display: flex;
-        padding-top: 10px;
-    }
-    .m_aside{
-        position: static;
-        width: 25%;
-    }
-    .m_aside>div{
-        position: fixed;
-        left:0px;
-        height: 155px;
-        width: 95px;
-        margin: auto auto;
-        border: 5px solid rgba(109, 107, 107, 0.13);
-        padding: 10px;
-        box-shadow: 0 0 20px 0 #666;
-    }
-    .m_aside p{
-        padding:5px;
-        border-bottom: 1px solid #58555591;
-    }
-    .m_aside a{
-        padding: 7px 0;
-        transition: all .5s;
-        font-size: 0.7rem;
-    }
-    .actor_info p{
-        font-size: 0.7rem;
-        line-height: 1.428571429;
-        color: #333;
-        width: 80%;
-    }
-    .m_div div>span{
-        cursor: pointer;
-        font-size: 0.9rem;
-    }
-    .actor_info[arial-expanded=true]{
-        position: relative;
-        padding-bottom: 10px;
-        max-height: 3000px;
-        transition: max-height 300ms;
-    }
-    .m_item div{
-        display: block;
-        margin-top: 10px;
-        width: 300px;
-        font-size: 1.0rem;
-    }
-    #actor_name{
-        font-size: 1.0rem;
-    }   
-    .shade{
-        width: 80%;
-        height: 100%;
-        position: absolute;
-        background-image: -webkit-linear-gradient(top,rgba(243,243,243,0) 0%,#fff 100%);
-        top: auto;
-        bottom: 0;
-        visibility: visible;
-    }
+@media (min-width: 425px) and (max-width: 767px) {
+  .m_div img {
+    width: 200px;
+    height: 300px;
+  }
+  .m_aside {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+  }
+  .m_aside > div > img {
+    width: 65px;
+    height: 120px;
+    box-sizing: border-box;
+  }
+  .m_container {
+    display: flex;
+    padding-top: 10px;
+  }
+  .m_aside {
+    position: static;
+    width: 25%;
+  }
+  .m_aside > div {
+    position: fixed;
+    left: 0px;
+    height: 155px;
+    width: 95px;
+    margin: auto auto;
+    /*border: 5px solid rgba(109, 107, 107, 0.13);*/
+    padding: 10px;
+    box-shadow: 0 0 20px 0 #666;
+  }
+  .m_aside p {
+    padding: 5px;
+    border-bottom: 1px solid #58555591;
+  }
+  .m_aside a {
+    padding: 7px 0;
+    transition: all 0.5s;
+    font-size: 0.7rem;
+  }
+  .actor_info p {
+    font-size: 0.7rem;
+    line-height: 1.428571429;
+    color: #333;
+    width: 80%;
+  }
+  .m_div div > span {
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  .actor_info[arial-expanded="true"] {
+    position: relative;
+    padding-bottom: 10px;
+    max-height: 3000px;
+    transition: max-height 300ms;
+  }
+  .m_item div {
+    display: block;
+    margin-top: 10px;
+    width: 300px;
+    font-size: 1rem;
+  }
+  #actor_name {
+    font-size: 1rem;
+  }
+  .shade {
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    background-image: -webkit-linear-gradient(
+      top,
+      rgba(243, 243, 243, 0) 0%,
+      #fff 100%
+    );
+    top: auto;
+    bottom: 0;
+    visibility: visible;
+  }
 }
-@media(min-width:320px) and (max-width:424px){
-    .m_div{
-        box-sizing: border-box;
-        width: 75%;
-        overflow-y: scroll;
-        padding-left: 8%;
-    }
-    .m_div img{
-        width: 80%;
-        height: 200px;
-    }
-    .m_aside>div>img{
-        width: 65px;
-        height: 120px;
-        box-sizing: border-box;
-    }
-    .m_container{
-        display: flex;
-        padding-top: 10px;
-    }
-    .m_aside{
-        position: static;
-        width: 25%;
-    }
-    .m_aside>div{
-        position: fixed;
-        left:0px;
-        height: 155px;
-        width: 95px;
-        margin: auto auto;
-        border: 5px solid rgba(109, 107, 107, 0.13);
-        padding: 10px;
-        box-shadow: 0 0 20px 0 #666;
-    }
-    .m_aside p{
-        padding:5px;
-        border-bottom: 1px solid #58555591;
-    }
-    .m_aside a{
-        padding: 7px 0;
-        transition: all .5s;
-        font-size: 0.7rem;
-    }
-    .actor_info p{
-        font-size: 0.6rem;
-        line-height: 1.428571429;
-        color: #333;
-        width: 80%;
-    }
-    .m_div div>span{
-        cursor: pointer;
-        font-size: 0.9rem;
-    }
-    .actor_info[arial-expanded=true]{
-        position: relative;
-        padding-bottom: 10px;
-        max-height: 3000px;
-        transition: max-height 300ms;
-    }
-    .m_item div{
-        display: block;
-        margin-top: 10px;
-        width: 100%;
-        font-size: 1.0rem;
-    }
-    #actor_name{
-        font-size: 1.0rem;
-    }   
-    .shade{
-        width: 80%;
-        height: 100%;
-        position: absolute;
-        background-image: -webkit-linear-gradient(top,rgba(243,243,243,0) 0%,#fff 100%);
-        top: auto;
-        bottom: 0;
-        visibility: visible;
-    }
-}
-.m_div{
+@media (min-width: 320px) and (max-width: 424px) {
+  .m_div {
     box-sizing: border-box;
     width: 75%;
     overflow-y: scroll;
-}
-.m_wrapper div{
-    display: inline-table;
-}
-.m_item{
-    display:contents;
-    column-gap:15px;
-    padding-left: 5px;
-    padding-right: 5px;
-    border-radius: 5px;
-    border: 1px solid #c3bdc333;
+    padding-left: 8%;
+  }
+  .m_div img {
+    width: 80%;
+    height: 200px;
+  }
+  .m_aside > div > img {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+  }
+  .m_container {
+    display: flex;
+    padding-top: 10px;
+  }
+  .m_aside {
+    position: static;
+    width: 25%;
+    display: flex;
+    flex-direction: row;
     text-align: center;
-}
-.m_item div{
-    display: block;
-    
-}
-.actor_info[arial-expanded=false]{
+    justify-content: center;
+  }
+  .m_aside > div {
+    position: fixed;
+    left: 0px;
+    height: 155px;
+    width: 95px;
+    margin: auto auto;
+    /*border: 5px solid rgba(109, 107, 107, 0.13);*/
+    padding: 10px;
+    box-shadow: 0 0 20px 0 #666;
+  }
+  .m_aside p {
+    padding: 5px;
+    border-bottom: 1px solid #58555591;
+  }
+  .m_aside a {
+    padding: 7px 0;
+    transition: all 0.5s;
+    font-size: 0.7rem;
+  }
+  .actor_info p {
+    font-size: 0.6rem;
+    line-height: 1.428571429;
+    color: #333;
+    width: 80%;
+  }
+  .m_div div > span {
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  .actor_info[arial-expanded="true"] {
     position: relative;
-    overflow: hidden;
-    max-height: 300px;
+    padding-bottom: 10px;
+    max-height: 3000px;
     transition: max-height 300ms;
+  }
+  .m_item div {
+    display: block;
+    margin-top: 10px;
+    width: 100%;
+    font-size: 1rem;
+  }
+  #actor_name {
+    font-size: 1rem;
+  }
+  .shade {
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    background-image: -webkit-linear-gradient(
+      top,
+      rgba(243, 243, 243, 0) 0%,
+      #fff 100%
+    );
+    top: auto;
+    bottom: 0;
+    visibility: visible;
+  }
 }
-h3[showup="false"]{
-    display: none;
+.m_div {
+  box-sizing: border-box;
+  width: 75%;
+  overflow-y: scroll;
+}
+.m_wrapper div {
+  display: inline-table;
+}
+.m_item {
+  display: contents;
+  column-gap: 15px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 5px;
+  border: 1px solid #c3bdc333;
+  text-align: center;
+}
+.m_item div {
+  display: block;
+}
+.actor_info[arial-expanded="false"] {
+  position: relative;
+  overflow: hidden;
+  max-height: 300px;
+  transition: max-height 300ms;
+}
+h3[showup="false"] {
+  display: none;
 }

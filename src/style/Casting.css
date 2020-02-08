@@ -13,7 +13,7 @@
     width: 62%;
     overflow-x: auto;
     overflow-y: hidden;
-    border: 1px solid #a4a4ad73;
+    /*border: 1px solid #a4a4ad73;*/
     border-radius: 10px;
   }
   .cast_item {
@@ -24,16 +24,20 @@
     transition: all 1s;
     color: black;
     cursor: pointer;
-    box-shadow: 3px 2px 2px 0px #999;
+    box-shadow: 3px 2px 8px 0px #99999959;
     height: 222px;
+    text-align: center;
   }
   .cast_item img {
-    width: 120px;
-    height: 105px;
+    width: 125px;
+    height: 140px;
     border-radius: 10px;
   }
   .cast_item p {
-    font-size: 1rem;
+    font-size: 0.7rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
 @media (max-width: 425px) and (min-width: 320px) {
@@ -45,7 +49,7 @@
     transition: all 1s;
     color: black;
     cursor: pointer;
-    box-shadow: 3px 2px 2px 0px #999;
+    box-shadow: 3px 2px 8px 0px #99999959;
     height: 163px;
   }
   .cast_item img {
@@ -64,7 +68,7 @@
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
-  border: 1px solid #a4a4ad73;
+  /*border: 1px solid #a4a4ad73;*/
   border-radius: 10px;
 }
 .cast_container::-webkit-scrollbar {

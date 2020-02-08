@@ -6,7 +6,6 @@ import * as services from "../services/posts";
 class Movie extends React.Component {
   //default img 설정
   postFavInfo = async (uid, id, title, imgUrl, link, target) => {
-    //console.log(uid, id, title, imgUrl, link);
     const response = await services.postFavouriteMovie({
       uid,
       id,
@@ -14,25 +13,13 @@ class Movie extends React.Component {
       imgUrl,
       link
     });
-    const notice = document.querySelector(".notice");
     if (response.status === 200) {
       if (response.data.success === 1) {
-        notice.innerHTML = "Added to Favourite";
-        notice.style.backgroundColor = "#347cff";
+        flashMsg("Added to Favourite", "#347cff");
         target.classList.add("liked");
       } else if (response.data.success === 0) {
-        notice.innerHTML = "Canceled Favourite";
-        notice.style.backgroundColor = "#e62113";
+        flashMsg("Canceled Favourite", "#e62113");
       }
-      notice.animate(
-        [
-          { transform: "translateY(40px)" },
-          { transform: "translateY(-30px)" },
-          { transform: "translateY(-30px)" },
-          { transform: "translateY(40px)" }
-        ],
-        3000
-      );
     }
   };
   handleFav = e => {
@@ -45,14 +32,20 @@ class Movie extends React.Component {
       aTag = e.target.parentNode.parentNode.previousSibling;
       tar = e.target.parentNode;
     }
-    const uid = document.querySelector(".language-container span:nth-child(3)")
-      .id;
-    const link = aTag.href,
-      title = aTag.querySelector("img").alt,
-      imgUrl = aTag.querySelector("img").src;
-    if (!tar.classList.contains("liked"))
-      this.postFavInfo(uid, tar.id, title, imgUrl, link, tar);
-    else tar.classList.remove("liked");
+    const uid = document.querySelector(
+      ".language-container a span:nth-child(3)"
+    );
+    //console.log(uid);
+    if (uid) {
+      const link = aTag.href,
+        title = aTag.querySelector("img").alt,
+        imgUrl = aTag.querySelector("img").src;
+      if (!tar.classList.contains("liked"))
+        this.postFavInfo(uid.id, tar.id, title, imgUrl, link, tar);
+      else tar.classList.remove("liked");
+    } else {
+      flashMsg("Please Login", "#e62113");
+    }
   };
   handleError = () => {
     return default_movie;
@@ -97,9 +90,10 @@ class Movie extends React.Component {
             <div>
               <p>
                 <strong>
-                  {lan === "en-US" || lan === ""
-                    ? `Released: ${release_date}`
-                    : `개봉 일: ${release_date}`}
+                  <span>
+                    <i className="m_date far fa-calendar-alt"></i>
+                  </span>
+                  {release_date}
                 </strong>
               </p>
             </div>
@@ -123,4 +117,18 @@ class Movie extends React.Component {
     );
   }
 }
+const flashMsg = (msg, color) => {
+  const notice = document.querySelector(".notice");
+  notice.innerHTML = msg;
+  notice.style.backgroundColor = color;
+  notice.animate(
+    [
+      { transform: "translateY(40px)" },
+      { transform: "translateY(-30px)" },
+      { transform: "translateY(-30px)" },
+      { transform: "translateY(40px)" }
+    ],
+    2000
+  );
+};
 export default Movie;

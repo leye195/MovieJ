@@ -87,10 +87,14 @@
     -webkit-box-orient: vertical;
   }
   .item_title {
-    display: inline;
+    display: block;
     font-size: 1.5rem;
     margin-top: 10px;
-    margin-bottom: 0px;
+    margin-bottom: 5px;
+    width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .posteritem_content p {
     display: inline-block;
@@ -104,7 +108,7 @@
     background-color: #a871ff;
     color: white;
     border-radius: 10px;
-    margin: 10px;
+    margin: 0px;
     box-shadow: 5px 5px 14px 5px rgba(37, 36, 36, 0.19);
   }
   .backdrop {

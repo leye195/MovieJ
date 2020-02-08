@@ -16,7 +16,7 @@
   }
   .MuiCardContent-root:last-child {
     /* padding-bottom: 24px; */
-    padding-bottom: 0px;
+    padding-bottom: 0px !important;
   }
   .recommendation_container::-webkit-scrollbar {
     display: none;
@@ -39,6 +39,10 @@
   }
   .recommendation_wrapper p {
     font-size: 1rem;
+    font-weight: 200;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
   }
 }
 @media (max-width: 767px) and (min-width: 425px) {
@@ -58,8 +62,7 @@
     padding-left: 10px;
   }
   .MuiCardContent-root:last-child {
-    /* padding-bottom: 24px; */
-    padding-bottom: 0px;
+    padding-bottom: 0px !important;
   }
   .recommendation_container::-webkit-scrollbar {
     display: none;
@@ -68,7 +71,7 @@
     margin: 10px;
     cursor: pointer;
     width: 130px;
-    height: 245px;
+    height: 230px;
   }
   .recommendation_wrapper div {
     padding: 0;
@@ -79,8 +82,12 @@
     animation: fadeIn 3s;
   }
   .recommendation_wrapper p {
-    font-size: 0.6rem;
-    white-space: normal;
+    font-size: 0.75rem;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    font-weight: 200;
+    margin: 0;
   }
 }
 @media (max-width: 424px) and (min-width: 320px) {
@@ -101,7 +108,7 @@
   }
   .MuiCardContent-root:last-child {
     /* padding-bottom: 24px; */
-    padding-bottom: 0px;
+    padding-bottom: 0px !important;
   }
   .recommendation_container::-webkit-scrollbar {
     display: none;
@@ -122,6 +129,9 @@
   }
   .recommendation_wrapper p {
     font-size: 0.6rem;
-    white-space: normal;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    font-weight: 200;
   }
 }
