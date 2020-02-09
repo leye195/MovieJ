@@ -133,5 +133,6 @@
     text-overflow: ellipsis !important;
     white-space: nowrap !important;
     font-weight: 200;
+    margin-bottom: 5px;
   }
 }

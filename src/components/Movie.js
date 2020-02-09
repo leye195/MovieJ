@@ -32,10 +32,8 @@ class Movie extends React.Component {
       aTag = e.target.parentNode.parentNode.previousSibling;
       tar = e.target.parentNode;
     }
-    const uid = document.querySelector(
-      ".language-container a span:nth-child(3)"
-    );
-    //console.log(uid);
+    const uid = document.querySelector(".user");
+    console.log(uid);
     if (uid) {
       const link = aTag.href,
         title = aTag.querySelector("img").alt,
