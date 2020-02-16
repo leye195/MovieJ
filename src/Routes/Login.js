@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Cookies from "universal-cookie";
 import Header from "../components/Header";
 import { Link } from "react-router-dom";
 import "../style/Login.css";
@@ -12,7 +13,9 @@ class Login extends Component {
       pw = document.querySelector("#password");
     return this.props.loginRequest(id.value, pw.value).then(() => {
       const { status, _id } = this.props;
+      const cookies = new Cookies();
       if (status === "success") {
+        alert(cookies.get("atk"));
         let loginData = {
           loggedIn: true,
           name: id.value,
@@ -76,9 +79,17 @@ const mapDispatchToProps = dispatch => {
       dispatch(actions.login());
       return services.login(name, pw).then(response => {
         //alert(JSON.stringify(response.data.uid));
-        if (response.data.success === 1)
+        alert(JSON.stringify(response.data.token));
+        //console.log(response);
+        if (response.data.success === 1) {
+          const cookies = new Cookies();
+          cookies.set("atk", response.data.token, {
+            path: "/",
+            maxAge: 1000 * 60 * 60 * 24 * 7,
+            httpOnly: true
+          });
           dispatch(actions.loginSuccess(response.data.uid, name));
-        else dispatch(actions.loginFailure());
+        } else dispatch(actions.loginFailure());
       });
     }
   };

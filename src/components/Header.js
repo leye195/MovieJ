@@ -11,7 +11,6 @@ class Header extends React.Component {
   checkLogin = () => {
     const loggedIn = localStorage.loggedIn;
     if (loggedIn) {
-      //console.log(loggedIn);
       return JSON.parse(loggedIn);
     } else {
       return { loggedIn: false };
@@ -54,7 +53,7 @@ class Header extends React.Component {
       <header id="header">
         <div>
           <h1 style={{ Fontsize: "1.5rem" }}>
-            <a href={lan === "en-US" ? "/en-US" : "/ko-KR"}>MovieJ</a>
+            <Link to={lan === "en-US" ? "/en-US" : "/ko-KR"}>MovieJ</Link>
           </h1>
           <span></span>
           <p className="language-container">
