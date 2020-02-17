@@ -1,21 +1,60 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-
+import Cookies from "universal-cookie";
 import * as actions from "../actions";
 import * as services from "../services/posts";
 class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: {},
+      loggedIn: false,
+      loading: false
+    };
+  }
+  componentDidMount() {
+    this.checkLogin();
+  }
   /**
    * check User already Login or Not
    */
-  checkLogin = () => {
-    const loggedIn = localStorage.loggedIn;
+  checkLogin = async () => {
+    if (this.state.loading) return;
+    this.setState({
+      loading: true
+    });
+    try {
+      const cookies = new Cookies();
+      const res = await services.checkUser(cookies.get("atk"));
+      if (res.status === 200) {
+        this.setState({
+          user: res.data.user,
+          loggedIn: true
+        });
+      }
+    } catch (e) {
+      console.log(e);
+    }
+    this.setState({ loading: false });
+    /*.then(res => {
+        const { data, status } = res;
+        if (status === 200) {
+          this.setState({
+            user: JSON.parse(data.user),
+            loggedIn: true
+          });
+        }
+      })
+      .catch(err => {
+        this.setState({ loggedIn: false });
+      });*/
+    /*const loggedIn = localStorage.loggedIn;
     if (loggedIn) {
       //console.log(loggedIn);
-      return JSON.parse(loggedIn);
+      
     } else {
-      return { loggedIn: false };
-    }
+      return { loggedIn: false };*/
   };
   handleClick = e => {
     const callout = document.querySelector(".callout"),
@@ -42,6 +81,8 @@ class Header extends React.Component {
     return this.props.logoutRequest().then(() => {
       if (this.props.status === "waiting") {
         //document.cookie="key=;Max-Age=0";
+        const cookies = new Cookies();
+        cookies.remove("atk");
         localStorage.clear(); //localStorage Clear
         window.location.href = "/";
       }
@@ -49,7 +90,6 @@ class Header extends React.Component {
   };
   render() {
     const { to, id, lan } = this.props;
-    const check = this.checkLogin();
     return (
       <header id="header">
         <div>
@@ -64,9 +104,13 @@ class Header extends React.Component {
             <a href={lan !== "ko-KR" ? to + id + "/ko-KR" : "#"}>
               <span className="kr">Kr</span>
             </a>
-            {check.loggedIn === true ? (
-              <span className="user" id={check._id} onClick={this.handleClick}>
-                {check.name}
+            {this.state.loggedIn === true ? (
+              <span
+                className="user"
+                id={this.state.user._id}
+                onClick={this.handleClick}
+              >
+                {this.state.user.email}
               </span>
             ) : (
               <a href={"/login"}>

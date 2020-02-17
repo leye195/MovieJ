@@ -4,21 +4,11 @@ dotenv.config();
 const jwtSecret = process.env.TOKEN_SECRET_KEY;
 //첫번째 파라미터는 토큰에 넣을 데이터, 두번째는 비밀 키, 세번째는 옵션, 네번째는 콜백함수
 export const generateToken = payload => {
-  return new Promise((resolve, reject) => {
-    jwt.sign(payload, jwtSecret, { expiresIn: "7d" }, (err, token) => {
-      if (err) reject(err);
-      resolve(token);
-    });
-  });
+  return jwt.sign(payload, jwtSecret, { expiresIn: "7d" });
 };
 //jwt 디코딩
-const decodeToken = token => {
-  return new Promise((resolve, reject) => {
-    jwt.verify(token, jwtSecret, (error, decoded) => {
-      if (error) reject(error);
-      resolve(decoded);
-    });
-  });
+export const decodeToken = token => {
+  return jwt.verify(token, jwtSecret);
 };
 const jwtMiddleware = async (req, res, next) => {
   const token = req.cookies.access_token;

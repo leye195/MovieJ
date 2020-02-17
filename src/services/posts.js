@@ -93,3 +93,12 @@ export const postFavouriteMovie = data => {
 export const getFavouriteMovie = id => {
   return axios.get(`http://localhost:8080/api/fav/${id}`);
 };
+
+export const checkUser = token => {
+  const api = axios.create({
+    headers: {
+      "x-access-token": token
+    }
+  });
+  return api.get(`http://localhost:8080/api/check`);
+};

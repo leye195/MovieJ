@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import "../style/Login.css";
 import * as actions from "../actions";
 import * as services from "../services/posts";
+import Cookies from "universal-cookie";
 class Login extends Component {
   handleLogin = e => {
     e.preventDefault();
@@ -75,10 +76,17 @@ const mapDispatchToProps = dispatch => {
     loginRequest: (name, pw) => {
       dispatch(actions.login());
       return services.login(name, pw).then(response => {
-        //alert(JSON.stringify(response.data.uid));
-        if (response.data.success === 1)
+        alert(JSON.stringify(response));
+        if (response.data.success === 1) {
+          const cookies = new Cookies();
+          cookies.set("atk", response.data.token, {
+            path: "/",
+            //httpOnly: true,
+            maxAge: 60 * 60 * 24
+          });
+          console.log(cookies.get("atk"));
           dispatch(actions.loginSuccess(response.data.uid, name));
-        else dispatch(actions.loginFailure());
+        } else dispatch(actions.loginFailure());
       });
     }
   };

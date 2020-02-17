@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
+import Cookies from "universal-cookie";
+
 import * as services from "../services/posts";
 import * as actions from "../actions";
 
@@ -10,13 +12,17 @@ import "../style/User.css";
 class User extends Component {
   componentDidMount() {
     const uid = document.querySelector(".user");
-    if (uid) {
-      this.getFavList(uid.id);
-    }
+    console.log(uid);
+    //if (uid) {
+    this.getFavList();
+    // }
   }
+
   getFavList = async uid => {
     //console.log(uid);
-    const response = await services.getFavouriteMovie(uid);
+    const cookies = new Cookies();
+    const res = await services.checkUser(cookies.get("atk"));
+    const response = await services.getFavouriteMovie(res.data.user._id);
     if (response.status === 200) {
       const {
         data: { favourites }

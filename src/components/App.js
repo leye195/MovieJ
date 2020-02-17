@@ -1,19 +1,20 @@
-import React from 'react';
-import Home from '../Routes/Home';
-import Detail from '../Routes/Detail';
-import Review from '../Routes/Review';
-import NoMatch from '../Routes/NoMatch';
-import Search from '../Routes/Search';
-import People from '../Routes/People';
-import Login from '../Routes/Login';
+import React from "react";
+import Home from "../Routes/Home";
+import Detail from "../Routes/Detail";
+import Review from "../Routes/Review";
+import NoMatch from "../Routes/NoMatch";
+import Search from "../Routes/Search";
+import People from "../Routes/People";
+import Login from "../Routes/Login";
 
-import SignUp from '../Routes/SignUp';
-import User from '../Routes/User';
-import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
-import {faGithub} from '@fortawesome/free-brands-svg-icons';
+import SignUp from "../Routes/SignUp";
+import User from "../Routes/User";
+import Header from "../components/Header";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import powered_by_rectangle_green from '../img/powered_by_rectangle_green.svg'
-import '../style/App.css';
+import powered_by_rectangle_green from "../img/powered_by_rectangle_green.svg";
+import "../style/App.css";
 function App() {
   return (
     <Router>
@@ -34,10 +35,16 @@ function App() {
           <Route component={NoMatch}></Route>
         </Switch>
         <footer>
-          <a className="giticon" href="https://github.com/leye195"><FontAwesomeIcon icon={faGithub} size="2x"></FontAwesomeIcon></a>
-          <p style={{marginTop:"0px"}}>CopyRight@YJDaniel</p>            
+          <a className="giticon" href="https://github.com/leye195">
+            <FontAwesomeIcon icon={faGithub} size="2x"></FontAwesomeIcon>
+          </a>
+          <p style={{ marginTop: "0px" }}>CopyRight@YJDaniel</p>
           <div>
-            <img src={powered_by_rectangle_green} alt="tmdb" style={{width:"150px"}}></img>
+            <img
+              src={powered_by_rectangle_green}
+              alt="tmdb"
+              style={{ width: "150px" }}
+            ></img>
           </div>
         </footer>
       </div>
