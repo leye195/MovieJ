@@ -1,9 +1,9 @@
 /* Tablet Device */
-@media all and (min-width:768px) {
-.recommendation{
-    margin: 0 auto;   
-}
-.recommendation_container{
+@media all and (min-width: 768px) {
+  .recommendation {
+    margin: 0 auto;
+  }
+  .recommendation_container {
     display: -webkit-box;
     -webkit-overflow-scrolling: touch;
     overflow-y: hidden;
@@ -13,36 +13,44 @@
     padding-bottom: 16px;
     padding-right: 10px;
     padding-left: 10px;
-}
-.MuiCardContent-root:last-child {
+  }
+  .MuiCardContent-root:last-child {
     /* padding-bottom: 24px; */
-    padding-bottom: 0px;
-}
-.recommendation_container::-webkit-scrollbar{
+    padding-bottom: 0px !important;
+  }
+  .recommendation_container::-webkit-scrollbar {
     display: none;
-}
-.recommendation_wrapper{
+  }
+  .recommendation_wrapper {
     margin: 10px;
     cursor: pointer;
-    width:100%;
-}
-.recommendation_wrapper div{
-    padding:0;
-}
-.recommendation_wrapper img{
+    width: 100%;
+  }
+  .recommendation_wrapper div {
+    padding: 0;
+  }
+  .recommendation_wrapper img {
     width: 240px;
     height: 200px;
+    transition: all 0.3s;
+  }
+  .recommendation_wrapper img:hover {
+    transform: scale(1.02);
+  }
+  .recommendation_wrapper p {
+    font-size: 1rem;
+    font-weight: 200;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
 }
-.recommendation_wrapper p{
-    font-size:1.0rem;
-}
-}
-@media (max-width:767px) and (min-width:425px){
-     /* Mobile Device */
-.recommendation{
-    margin: 0 auto;   
-}
-.recommendation_container{
+@media (max-width: 767px) and (min-width: 425px) {
+  /* Mobile Device */
+  .recommendation {
+    margin: 0 auto;
+  }
+  .recommendation_container {
     display: -webkit-box;
     -webkit-overflow-scrolling: touch;
     overflow-y: hidden;
@@ -52,39 +60,42 @@
     padding-bottom: 16px;
     padding-right: 10px;
     padding-left: 10px;
-}
-.MuiCardContent-root:last-child {
-    /* padding-bottom: 24px; */
-    padding-bottom: 0px;
-}
-.recommendation_container::-webkit-scrollbar{
+  }
+  .MuiCardContent-root:last-child {
+    padding-bottom: 0px !important;
+  }
+  .recommendation_container::-webkit-scrollbar {
     display: none;
-}
-.recommendation_wrapper{
+  }
+  .recommendation_wrapper {
     margin: 10px;
     cursor: pointer;
     width: 130px;
-    height: 245px;
-}
-.recommendation_wrapper div{
-    padding:0;
-}
-.recommendation_wrapper img{
+    height: 230px;
+  }
+  .recommendation_wrapper div {
+    padding: 0;
+  }
+  .recommendation_wrapper img {
     width: 130px;
     height: 200px;
-    animation: fadeIn 3.0s;
+    animation: fadeIn 3s;
+  }
+  .recommendation_wrapper p {
+    font-size: 0.75rem;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    font-weight: 200;
+    margin: 0;
+  }
 }
-.recommendation_wrapper p{
-    font-size:0.6rem;
-    white-space: normal;
-}
-}
-@media (max-width:424px) and (min-width:320px){
-    /* Mobile Device */
-.recommendation{
-    margin: 0 auto;   
-}
-.recommendation_container{
+@media (max-width: 424px) and (min-width: 320px) {
+  /* Mobile Device */
+  .recommendation {
+    margin: 0 auto;
+  }
+  .recommendation_container {
     display: -webkit-box;
     -webkit-overflow-scrolling: touch;
     overflow-y: hidden;
@@ -94,30 +105,34 @@
     padding-bottom: 16px;
     padding-right: 10px;
     padding-left: 10px;
-}
-.MuiCardContent-root:last-child {
+  }
+  .MuiCardContent-root:last-child {
     /* padding-bottom: 24px; */
-    padding-bottom: 0px;
-}
-.recommendation_container::-webkit-scrollbar{
+    padding-bottom: 0px !important;
+  }
+  .recommendation_container::-webkit-scrollbar {
     display: none;
-}
-.recommendation_wrapper{
+  }
+  .recommendation_wrapper {
     margin: 10px;
     cursor: pointer;
     width: 100px;
     height: 190px;
-}
-.recommendation_wrapper div{
-    padding:0;
-}
-.recommendation_wrapper img{
+  }
+  .recommendation_wrapper div {
+    padding: 0;
+  }
+  .recommendation_wrapper img {
     width: 100px;
     height: 150px;
-    animation: fadeIn 3.0s;
-}
-.recommendation_wrapper p{
-    font-size:0.6rem;
-    white-space: normal;
-}
+    animation: fadeIn 3s;
+  }
+  .recommendation_wrapper p {
+    font-size: 0.6rem;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    font-weight: 200;
+    margin-bottom: 5px;
+  }
 }

@@ -8,8 +8,7 @@ import {
   getLoginFailure,
   getFavMovie,
   postFavMovie,
-  getUser,
-  getInfo
+  getUser
 } from "../controllers/userController";
 
 const routes = express.Router();
@@ -46,7 +45,7 @@ routes.post(
 routes.get("/api/logout", logout);
 routes.get("/api/loginSuccess/:id", getLoginSuccess);
 routes.get("/api/loginFailure", getLoginFailure);
-//routes.get("/api/u", getInfo);
+
 /**
  * Favourite Movies
  */

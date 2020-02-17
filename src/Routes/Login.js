@@ -6,25 +6,18 @@ import "../style/Login.css";
 import * as actions from "../actions";
 import * as services from "../services/posts";
 class Login extends Component {
-  /*getResult=async(id,pw)=>{
-        const result=await services.login(id,pw);
-        console.log(result.data);
-        if(result.error===0){
-
-        }else
-            alert("id or password is wrong");
-    }*/
   handleLogin = e => {
     e.preventDefault();
     const id = document.querySelector("#id"),
       pw = document.querySelector("#password");
     return this.props.loginRequest(id.value, pw.value).then(() => {
-      if (this.props.status === "success") {
+      const { status, _id } = this.props;
+      if (status === "success") {
         let loginData = {
           loggedIn: true,
-          name: id.value
+          name: id.value,
+          _id
         };
-        //document.cookie=`key=${JSON.stringify(loginData)}`;
         localStorage.loggedIn = JSON.stringify(loginData);
         window.location.href = "/";
         return true;
@@ -42,11 +35,17 @@ class Login extends Component {
           <h2>Login </h2>
           <form id="form" method="post" onSubmit={this.handleLogin}>
             <div>
-              <input id="id" type="text" placeholder="ID"></input>
+              <input
+                id="id"
+                type="text"
+                name="email"
+                placeholder="Email"
+              ></input>
             </div>
             <div>
               <input
                 id="password"
+                name="password"
                 type="password"
                 placeholder="Password"
               ></input>
@@ -66,21 +65,21 @@ class Login extends Component {
 const mapStateToProps = state => {
   return {
     lan: state.movielist.lan,
-    status: state.login.login.status
+    status: state.login.login.status,
+    _id: state.login.login._id,
+    loggedIn: state.login.login.isLoggedIn
   };
 };
 const mapDispatchToProps = dispatch => {
   return {
     loginRequest: (name, pw) => {
       dispatch(actions.login());
-      return services
-        .login(name, pw)
-        .then(response => {
-          dispatch(actions.loginSuccess(name));
-        })
-        .catch(err => {
-          dispatch(actions.loginFailure());
-        });
+      return services.login(name, pw).then(response => {
+        //alert(JSON.stringify(response.data.uid));
+        if (response.data.success === 1)
+          dispatch(actions.loginSuccess(response.data.uid, name));
+        else dispatch(actions.loginFailure());
+      });
     }
   };
 };
