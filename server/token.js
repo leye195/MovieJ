@@ -10,7 +10,7 @@ export const generateToken = payload => {
 export const decodeToken = token => {
   return jwt.verify(token, jwtSecret);
 };
-const jwtMiddleware = async (req, res, next) => {
+/*const jwtMiddleware = async (req, res, next) => {
   const token = req.cookies.access_token;
   if (!token) return next();
   try {
@@ -27,4 +27,4 @@ const jwtMiddleware = async (req, res, next) => {
     req.user = null;
   }
   return next();
-};
+};*/

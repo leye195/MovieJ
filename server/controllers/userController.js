@@ -1,7 +1,7 @@
 import User from "../models/users";
 import Movie from "../models/movies";
 import { generateToken, decodeToken } from "../token";
-import Cookies from "universal-cookie";
+//import Cookies from "universal-cookie";
 export const getUserList = async (req, res) => {
   //console.log(req.session);
   await User.find((err, data) => {
