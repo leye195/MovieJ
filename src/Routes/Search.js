@@ -7,33 +7,42 @@ import * as services from "../services/posts";
 class Search extends React.Component {
   state = {
     total_pages: 0,
-    page: 0,
+    page: 1,
     results: []
   };
-  shouldComponentUpdate(nextprops, nextState) {
-    return true;
-  }
   componentDidMount() {
     const { location } = this.props;
     const query = new URLSearchParams(location.search);
     this.getSearchResults(query.get("p"), query.get("language"));
+    window.addEventListener("scroll", this.getNextPage);
   }
-  getSearchResults = async (key, lan) => {
-    const search = await services.getSearch(key, lan);
+  getSearchResults = async (key, lan, page = 1) => {
+    const search = await services.getSearch(key, lan, page);
     this.setState({
       total_pages: search.data.total_pages,
       page: search.data.page,
-      results: search.data.results
+      results: [...this.state.results, ...search.data.results]
     });
-    //console.log(this.state.results);
-    console.log(search);
+  };
+  getNextPage = () => {
+    const { location } = this.props;
+    const { page } = this.state;
+    const innerHeight = window.innerHeight;
+    const scrollHeight = document.body.scrollHeight;
+    const scrollTop =
+      (document.documentElement && document.documentElement.scrollTop) ||
+      document.body.scrollTop;
+    if (scrollHeight - innerHeight - scrollTop < 200) {
+      const query = new URLSearchParams(location.search);
+      this.getSearchResults(query.get("p"), query.get("language"), page + 1);
+    }
   };
   render() {
     const { location } = this.props;
     const { results, page } = this.state;
     const query = new URLSearchParams(location.search);
     const lan = query.get("language");
-    console.log("location: " + query);
+    //console.log("location: " + query);
     const result_list = results.map(movie => {
       return (
         <Movie

@@ -65,9 +65,6 @@ class MovieList extends React.Component {
 
   render() {
     const { movie_list, cur_page, view, lan, total_pages } = this.props;
-    //console.log(this.state.mids);
-    //const { mids } = this.state;
-    //console.log(movie_list, fav_list);
     const movies = () => {
       //console.log(fav_list);
       const tag = movie_list.map((movie, i) => {
