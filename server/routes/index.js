@@ -48,7 +48,6 @@ routes.post(
       httpOnly: true
     });*/
     res.status(200).json({ success: 1, msg: "success", user, token });
-    //res.redirect("/api/loginSuccess/" + req.user.id);
   }
 );
 /**

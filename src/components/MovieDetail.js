@@ -21,6 +21,7 @@ class MovieDetail extends React.Component {
     return nextState !== this.state;
   }
   componentDidMount() {
+    window.scrollTo(0, 0);
     this.timer = setInterval(this.progress, 30);
     const { id, lan } = this.props;
     this.getDetail(id, lan);

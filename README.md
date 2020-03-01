@@ -19,6 +19,12 @@ Back-End technologies used in the project<br/>
 -Express<br/>
 -MongoDB</br>
 
+### 제공기능
+
+- 유저 로그인,회원가입( passport 이용)
+- 좋아하는 영화 리스트에 추가/삭제
+- 영화 검색 및 영화 정보 제공 ( The movie DB API 활용 )
+
 ### 스크린샷
 
 <div>

@@ -22,6 +22,7 @@ class MovieList extends React.Component {
     select.value = view;
     this.props.handleView(view);
     this.getMovies(1);
+    window.addEventListener("scroll", this.onNext);
     //await this.getFavList();
   }
   componentDidUpdate(prevProps, prevState) {
@@ -29,7 +30,9 @@ class MovieList extends React.Component {
       localStorage.cur_page = this.props.cur_page;
     if (prevProps.view !== this.props.view) localStorage.view = this.props.view;
   }
-  componentWillUnmount() {}
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.onNext);
+  }
   /**
    * @param page : For loading page's data from API
    **/
@@ -47,8 +50,17 @@ class MovieList extends React.Component {
   };
   onNext = () => {
     const { cur_page, total_pages } = this.props;
-    if (cur_page < total_pages) this.getMovies(Number(cur_page) + 1);
-    else alert("Done");
+    const innerHeight = window.innerHeight;
+    const scrollHeight = document.body.scrollHeight;
+    const scrollTop =
+      (document.documentElement && document.documentElement.scrollTop) ||
+      document.body.scrollTop;
+    if (scrollHeight - innerHeight - scrollTop < 200) {
+      if (cur_page < total_pages) this.getMovies(Number(cur_page) + 1);
+      else alert("Done");
+    }
+    //if (cur_page < total_pages) this.getMovies(Number(cur_page) + 1);
+    //else alert("Done");
   };
 
   render() {
@@ -91,12 +103,12 @@ class MovieList extends React.Component {
         </div>
         <div className="movies_wrapper">{movies()}</div>
         <div className="btns">
-          <button
+          {/*<button
             onClick={this.onNext}
             disabled={cur_page < total_pages ? false : true}
           >
-            {lan !== "ko-KR" ? "Show more" : "더 보기"}
-          </button>
+            {/*lan !== "ko-KR" ? "Show more" : "더 보기"
+          </button>*/}
         </div>
       </div>
     );
