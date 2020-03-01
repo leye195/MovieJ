@@ -22,13 +22,14 @@ let options = {
   saveUninitialized: true, //session이 필요할때 사용 true
   store: new cookieStore({ mongooseConnection: mongoose.connection })
 };
-
+app.enable("trust proxy");
+app.use(cors({ credentials: true }));
 app.use(helmet());
 app.use("/static", express.static(path.join(__dirname, "static")));
 app.use(cookieparser());
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
-app.use(cors());
+
 app.use(morgan("dev"));
 app.use(session(options));
 app.use(passport.initialize());

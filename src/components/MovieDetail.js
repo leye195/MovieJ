@@ -21,20 +21,21 @@ class MovieDetail extends React.Component {
     return nextState !== this.state;
   }
   componentDidMount() {
+    window.scrollTo(0, 0);
     this.timer = setInterval(this.progress, 30);
     const { id, lan } = this.props;
     this.getDetail(id, lan);
-    this.setState({
-      load: true
-    });
   }
   componentWillUnmount() {
     clearInterval(this.timer);
   }
   progress = () => {
-    const { completed } = this.state;
+    const { completed, load } = this.state;
     this.setState({
-      completed: completed >= 100 ? clearInterval(this.timer) : completed + 1
+      completed:
+        completed >= 100 || load === false
+          ? clearInterval(this.timer)
+          : completed + 1
     });
   };
   checkLanguage = () => {
@@ -43,52 +44,64 @@ class MovieDetail extends React.Component {
     return false;
   };
   getDetail = async (id, lan) => {
-    const info = await Promise.all([
-      services.getMovieInfo(id, lan),
-      services.getReviews(id, lan),
-      services.get_video(id)
-    ]);
-    if (info[1].data.results.length > 0) {
-      const obj = {
-        id: id,
-        title: info[0].data.title,
-        overview: info[0].data.overview,
-        vote_average: info[0].data.vote_average,
-        backdrop: info[0].data.backdrop_path,
-        poster_path: info[0].data.poster_path,
-        state: info[0].data.status,
-        runtime: info[0].data.runtime,
-        release_date: info[0].data.release_date,
-        tagline: info[0].data.tagline,
-        revenue: info[0].data.revenue,
-        review: info[1].data.results[info[1].data.results.length - 1],
-        links: info[2].data.results
-      };
-      this.props.handleInfo(obj);
-    } else {
-      const obj = {
-        id: id,
-        title: info[0].data.title,
-        overview: info[0].data.overview,
-        vote_average: info[0].data.vote_average,
-        backdrop: info[0].data.backdrop_path,
-        poster_path: info[0].data.poster_path,
-        state: info[0].data.status,
-        runtime: info[0].data.runtime,
-        release_date: info[0].data.release_date,
-        tagline: info[0].data.tagline,
-        revenue: info[0].data.revenue,
-        links: info[2].data.results
-      };
-      this.props.handleInfo(obj);
+    this.setState({
+      load: true
+    });
+    try {
+      const info = await Promise.all([
+        services.getMovieInfo(id, lan),
+        services.getReviews(id, lan),
+        services.get_video(id)
+      ]);
+      if (info[1].data.results.length > 0) {
+        const obj = {
+          id: id,
+          title: info[0].data.title,
+          overview: info[0].data.overview,
+          vote_average: info[0].data.vote_average,
+          backdrop: info[0].data.backdrop_path,
+          poster_path: info[0].data.poster_path,
+          state: info[0].data.status,
+          runtime: info[0].data.runtime,
+          release_date: info[0].data.release_date,
+          tagline: info[0].data.tagline,
+          revenue: info[0].data.revenue,
+          review: info[1].data.results[info[1].data.results.length - 1],
+          links: info[2].data.results
+        };
+        this.props.handleInfo(obj);
+      } else {
+        const obj = {
+          id: id,
+          title: info[0].data.title,
+          overview: info[0].data.overview,
+          vote_average: info[0].data.vote_average,
+          backdrop: info[0].data.backdrop_path,
+          poster_path: info[0].data.poster_path,
+          state: info[0].data.status,
+          runtime: info[0].data.runtime,
+          release_date: info[0].data.release_date,
+          tagline: info[0].data.tagline,
+          revenue: info[0].data.revenue,
+          links: info[2].data.results
+        };
+        this.props.handleInfo(obj);
+      }
+      let detail = document.getElementsByClassName("detail");
+      if (this.props.info.backdrop !== undefined)
+        detail[0].style.backgroundImage =
+          "url(https://image.tmdb.org/t/p/w500" +
+          this.props.info.backdrop +
+          ")";
+      else
+        detail[0].style.backgroundImage =
+          "url(/Users/yjlee/Documents/WorkSpace/moviej/src/img/collect.gif)";
+    } catch (err) {
+      console.log(err);
     }
-    let detail = document.getElementsByClassName("detail");
-    if (this.props.info.backdrop !== undefined)
-      detail[0].style.backgroundImage =
-        "url(https://image.tmdb.org/t/p/w500" + this.props.info.backdrop + ")";
-    else
-      detail[0].style.backgroundImage =
-        "url(/Users/yjlee/Documents/WorkSpace/moviej/src/img/collect.gif)";
+    this.setState({
+      load: false
+    });
   };
   render() {
     const { load } = this.state;

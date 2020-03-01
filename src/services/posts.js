@@ -27,9 +27,9 @@ export const getRecommendations = (id, lan = "en-US") => {
     `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${API_KEY}&language=${lan}&page=1`
   );
 };
-export const getSearch = (keyword, lan = "en-US") => {
+export const getSearch = (keyword, lan = "en-US", page = 1) => {
   return axios.get(
-    `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=${lan}&query=${keyword}&include_adult=false`
+    `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=${lan}&query=${keyword}&include_adult=false&page=${page}`
   );
 };
 export const getCredits = id => {
@@ -92,4 +92,13 @@ export const postFavouriteMovie = data => {
 };
 export const getFavouriteMovie = id => {
   return axios.get(`http://localhost:8080/api/fav/${id}`);
+};
+
+export const checkUser = token => {
+  const api = axios.create({
+    headers: {
+      "x-access-token": token
+    }
+  });
+  return api.get(`http://localhost:8080/api/check`);
 };

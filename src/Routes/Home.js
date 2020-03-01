@@ -30,7 +30,7 @@ class Home extends React.Component {
         </div>
         {movies}
         <div className="upbtn">
-          <a href="#header">Top</a>
+          <a href="#header">Up</a>
         </div>
         <div className="notice">
           <span>Added to Favourite List</span>

@@ -1,5 +1,6 @@
 import express from "express";
 import passport from "passport";
+import { generateToken } from "../token";
 import {
   getUserList,
   postSignUp,
@@ -9,7 +10,7 @@ import {
   getFavMovie,
   postFavMovie,
   getUser,
-  getInfo
+  checkUser
 } from "../controllers/userController";
 
 const routes = express.Router();
@@ -26,6 +27,8 @@ routes.get("/api/users", getUserList);
  * Sign Up: Post /api/users
  */
 routes.post("/api/users", postSignUp);
+
+routes.get("/api/check", checkUser);
 /**
  * Login: Post /api/users/login
  * body sample: {"email":"test","password":"test"}
@@ -33,11 +36,18 @@ routes.post("/api/users", postSignUp);
 routes.post(
   "/api/login",
   passport.authenticate("local", {
+    session: false,
     failureRedirect: "/api/loginFailure"
   }),
   (req, res) => {
-    //console.log(req.user);
-    res.redirect("/api/loginSuccess/" + req.user.id);
+    const { user } = req;
+    const token = generateToken({ user });
+    /*res.cookie("atk", token, {
+      path: "/",
+      maxAge: 60 * 60 * 24 * 7,
+      httpOnly: true
+    });*/
+    res.status(200).json({ success: 1, msg: "success", user, token });
   }
 );
 /**
@@ -46,7 +56,7 @@ routes.post(
 routes.get("/api/logout", logout);
 routes.get("/api/loginSuccess/:id", getLoginSuccess);
 routes.get("/api/loginFailure", getLoginFailure);
-//routes.get("/api/u", getInfo);
+
 /**
  * Favourite Movies
  */

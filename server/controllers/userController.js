@@ -1,11 +1,14 @@
 import User from "../models/users";
 import Movie from "../models/movies";
+
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 dotenv.config();
 const jwtSecret = process.env.TOKEN_SECRET_KEY;
+import { generateToken, decodeToken } from "../token";
+//import Cookies from "universal-cookie";
 export const getUserList = async (req, res) => {
-  console.log(req.session);
+  //console.log(req.session);
   await User.find((err, data) => {
     if (err) return res.status(500).send({ error: "database failure" });
     res.status(200).json(data);
@@ -22,11 +25,30 @@ export const getUser = async (req, res) => {
     res.status(400).end();
   }
 };
+<<<<<<< HEAD
 /*export const getInfo = async (req, res) => {
   const token = req.cookies.atk;
   const info = jwt.verify(token, jwtSecret); //token decoding
   res.json(info);
 };*/
+=======
+export const checkUser = async (req, res) => {
+  console.log(req.headers);
+  const token = req.headers["x-access-token"];
+  if (!token) {
+    return res.status(403).end();
+  } else {
+    const decodedToken = decodeToken(token);
+    return res.status(200).json({ user: decodedToken.user });
+  }
+  /*const cookies = new Cookies(req.headers.cookie);
+  const token = decodeToken(cookies.cookies.atk);
+  if (token.iat < 60 * 60) {
+    const refreshToken = generateToken({ user: token.user });
+    return res.status(200).json({ token: refreshToken, user: token.user });
+  }*/
+};
+>>>>>>> test
 export const postSignUp = async (req, res) => {
   const { email, name, password } = req.body.params;
   try {
@@ -49,9 +71,15 @@ export const getLoginSuccess = async (req, res) => {
   const {
     params: { id }
   } = req;
+<<<<<<< HEAD
 
   const token = jwt.sign({ uid: id }, jwtSecret, { expiresIn: "7d" });
   res.status(200).json({ success: 1, msg: "success", uid: id, token: token });
+=======
+  const token = generateToken({ id });
+
+  res.status(200).json({ success: 1, msg: "success", uid: id, token });
+>>>>>>> test
 };
 export const getLoginFailure = async (req, res) => {
   res.status(200).json({ success: 0, msg: "failure" });
