@@ -32,7 +32,7 @@ class Search extends React.Component {
     const scrollTop =
       (document.documentElement && document.documentElement.scrollTop) ||
       document.body.scrollTop;
-    if (scrollHeight - innerHeight - scrollTop < 200) {
+    if (scrollHeight - innerHeight - scrollTop === 0) {
       const query = new URLSearchParams(location.search);
       this.getSearchResults(query.get("p"), query.get("language"), page + 1);
     }
@@ -63,7 +63,7 @@ class Search extends React.Component {
         <Header lan={lan === "ko-KR" ? "ko-KR" : "en-US"}></Header>
         <SearchBar lan={lan === "ko-KR" ? "ko-KR" : "en-US"}></SearchBar>
         <div className="search_results_container" style={{ padding: "10px" }}>
-          <h2>Search > Results</h2>
+          <h2>Search > {query.get("p")}</h2>
           {result_list}
           <div className="btns"></div>
         </div>

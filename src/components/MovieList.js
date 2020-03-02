@@ -55,12 +55,10 @@ class MovieList extends React.Component {
     const scrollTop =
       (document.documentElement && document.documentElement.scrollTop) ||
       document.body.scrollTop;
-    if (scrollHeight - innerHeight - scrollTop < 200) {
+    if (scrollHeight - innerHeight - scrollTop === 0) {
       if (cur_page < total_pages) this.getMovies(Number(cur_page) + 1);
       else alert("Done");
     }
-    //if (cur_page < total_pages) this.getMovies(Number(cur_page) + 1);
-    //else alert("Done");
   };
 
   render() {

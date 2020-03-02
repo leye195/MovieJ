@@ -8,16 +8,19 @@ Link:https://moviej.herokuapp.com/
 ### Client
 
 Front-End technologies used in the project<br/>
--React<br/>
--React-Router v5<br/>
--Redux<br/>
+
+- React
+- React-Router v5
+- Redux
+- css (scss의변수 및 mixin을 이용해 중복 코드를 줄이고 관리를 수웧하게 하기 위해 scss로 변환 예정)
 
 ### Server
 
 Back-End technologies used in the project<br/>
--Node.js<br/>
--Express<br/>
--MongoDB</br>
+
+- Node.js<br/>
+- Express<br/>
+- MongoDB</br>
 
 ### 제공기능
 

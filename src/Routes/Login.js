@@ -76,7 +76,7 @@ const mapDispatchToProps = dispatch => {
     loginRequest: (name, pw) => {
       dispatch(actions.login());
       return services.login(name, pw).then(response => {
-        alert(JSON.stringify(response));
+        //alert(JSON.stringify(response));
         if (response.data.success === 1) {
           const cookies = new Cookies();
           cookies.set("atk", response.data.token, {

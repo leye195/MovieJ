@@ -34,7 +34,7 @@
     font-size: 2rem;
   }
   .img_container img {
-    height: 500px;
+    height: 600px;
     width: 300px;
     margin-top: 40px;
     margin-bottom: 40px;
@@ -146,7 +146,6 @@
     justify-content: center;
   }
   .img_container img {
-    height: 500px;
     width: 80%;
     margin-top: 40px;
     margin-bottom: 40px;
@@ -264,7 +263,6 @@
     justify-content: center;
   }
   .img_container img {
-    height: 380px;
     width: 67%;
     margin-top: 40px;
     margin-bottom: 40px;

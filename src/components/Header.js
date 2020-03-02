@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Cookies from "universal-cookie";
@@ -30,13 +30,13 @@ class Header extends React.Component {
       if (res.status === 200) {
         this.setState({
           user: res.data.user,
-          loggedIn: true
+          loggedIn: true,
+          loading: false
         });
       }
     } catch (e) {
       console.log(e);
     }
-    this.setState({ loading: false });
     /*.then(res => {
         const { data, status } = res;
         if (status === 200) {
@@ -88,39 +88,101 @@ class Header extends React.Component {
       }
     });
   };
+  handleOpenMobileMenu = e => {
+    const menu = document.querySelector(".mobile-menu");
+    menu.classList.toggle("openMenu");
+  };
   render() {
     const { to, id, lan } = this.props;
+    const { loggedIn } = this.state;
     return (
-      <header id="header">
-        <div>
-          <h1 style={{ Fontsize: "1.5rem" }}>
-            <a href={lan === "en-US" ? "/en-US" : "/ko-KR"}>MovieJ</a>
-          </h1>
-          <span></span>
-          <p className="language-container">
-            <a href={lan !== "en-US" ? to + id + "/en-US" : "#"}>
-              <span className="en">En</span>
-            </a>
-            <a href={lan !== "ko-KR" ? to + id + "/ko-KR" : "#"}>
-              <span className="kr">Kr</span>
-            </a>
-            {this.state.loggedIn === true ? (
-              <span
-                className="user"
-                id={this.state.user._id}
-                onClick={this.handleClick}
-              >
-                {this.state.user.email}
-              </span>
-            ) : (
-              <a href={"/login"}>
-                <span>Login</span>
+      <Fragment>
+        <header id="header">
+          <div>
+            <h1 style={{ Fontsize: "1.5rem" }}>
+              <Link to={lan === "en-US" ? "/en-US" : "/ko-KR"}>MovieJ</Link>
+            </h1>
+            <span></span>
+            <div className="mobile">
+              <div className="mobile-bar" onClick={this.handleOpenMobileMenu}>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+            <div className="non-mobile">
+              <p className="language-container">
+                <a href={lan !== "en-US" ? to + id + "/en-US" : "#"}>
+                  <span className="en">En</span>
+                </a>
+                <a href={lan !== "ko-KR" ? to + id + "/ko-KR" : "#"}>
+                  <span className="kr">Kr</span>
+                </a>
+                {loggedIn === true ? (
+                  <span
+                    className="user"
+                    id={this.state.user._id}
+                    onClick={this.handleClick}
+                  >
+                    {this.state.user.email}
+                  </span>
+                ) : (
+                  <a href={"/login"}>
+                    <span>Login</span>
+                  </a>
+                )}
+              </p>
+              <div className="callout m_hide"></div>
+              <div className="header_menu m_hide">
+                <ul className="menu_list">
+                  <li>
+                    <span>
+                      <Link to="/user/favorites">Favorites</Link>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <Link to="/user/edit">Edit</Link>
+                    </span>
+                  </li>
+                  <li>
+                    <span onClick={this.handleLogOut}>LogOut</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div className="mobile-menu">
+          {/*<li>
+              <a href={lan !== "en-US" ? to + id + "/en-US" : "#"}>
+                <span className="en">En</span>
               </a>
-            )}
-          </p>
-          <div className="callout m_hide"></div>
-          <div className="header_menu m_hide">
-            <ul className="menu_list">
+            </li>
+            <li>
+              <a href={lan !== "ko-KR" ? to + id + "/ko-KR" : "#"}>
+                <span className="kr">Kr</span>
+              </a>
+            </li>*/}
+          <ul>
+            <li>
+              {loggedIn === true ? (
+                <span
+                  className="user"
+                  id={this.state.user._id}
+                  onClick={this.handleClick}
+                >
+                  {this.state.user.email}
+                </span>
+              ) : (
+                <a href={"/login"}>
+                  <span>Login</span>
+                </a>
+              )}
+            </li>
+          </ul>
+          {this.state.loggedIn === true ? (
+            <ul>
               <li>
                 <span>
                   <Link to="/user/favorites">Favorites</Link>
@@ -135,9 +197,11 @@ class Header extends React.Component {
                 <span onClick={this.handleLogOut}>LogOut</span>
               </li>
             </ul>
-          </div>
+          ) : (
+            <Fragment />
+          )}
         </div>
-      </header>
+      </Fragment>
     );
   }
 }
