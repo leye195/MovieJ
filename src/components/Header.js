@@ -37,24 +37,6 @@ class Header extends React.Component {
     } catch (e) {
       console.log(e);
     }
-    /*.then(res => {
-        const { data, status } = res;
-        if (status === 200) {
-          this.setState({
-            user: JSON.parse(data.user),
-            loggedIn: true
-          });
-        }
-      })
-      .catch(err => {
-        this.setState({ loggedIn: false });
-      });*/
-    /*const loggedIn = localStorage.loggedIn;
-    if (loggedIn) {
-      //console.log(loggedIn);
-      
-    } else {
-      return { loggedIn: false };*/
   };
   handleClick = e => {
     const callout = document.querySelector(".callout"),
