@@ -4,6 +4,27 @@ import default_movie from "../img/default_movie.png";
 import { Link } from "react-router-dom";
 import * as services from "../services/posts";
 class Movie extends React.Component {
+  componentDidMount() {
+    this.imageLoad();
+  }
+  imageLoad = () => {
+    let lazyImages = null;
+    if ("IntersectionObserver" in window) {
+      lazyImages = document.querySelectorAll(".posterimg_contents img");
+      const imgObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            let img = entry.target;
+            img.src = img.dataset.src;
+            imgObserver.unobserve(img);
+          }
+        });
+      });
+      lazyImages.forEach(img => {
+        imgObserver.observe(img);
+      });
+    }
+  };
   //default img 설정
   postFavInfo = async (uid, id, title, imgUrl, link, target) => {
     const response = await services.postFavouriteMovie({
@@ -70,7 +91,7 @@ class Movie extends React.Component {
             onMouseOut={this.handleMouseOut}
           >
             <Link to={`/movie_detail/` + id + "/" + lan}>
-              <img alt={title} src={imgUrl} onError={this.handleError} />
+              <img alt={title} data-src={imgUrl} onError={this.handleError} />
             </Link>
             <div className="fav">
               <button className={`fav_btn`} id={id} onClick={this.handleFav}>

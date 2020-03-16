@@ -24,6 +24,7 @@ class MovieList extends React.Component {
     this.getMovies(1);
     window.addEventListener("scroll", this.onNext);
     //await this.getFavList();
+    //this.imageLoad();
   }
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.cur_page !== this.props.cur_page)
@@ -33,6 +34,7 @@ class MovieList extends React.Component {
   componentWillUnmount() {
     window.removeEventListener("scroll", this.onNext);
   }
+
   /**
    * @param page : For loading page's data from API
    **/

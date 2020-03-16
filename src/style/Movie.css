@@ -7,7 +7,8 @@
 }
 .posterimg_contents:hover .fav,
 .backdropimg_contents:hover .fav {
-  visibility: visible;
+  opacity: 1;
+  transition: opacity 1s ease-out;
 }
 .posterimg_contents .fav {
   position: absolute;
@@ -15,8 +16,9 @@
   width: 100%;
   height: 14%;
   background: #d8d8d89c;
-  visibility: hidden;
+  opacity: 0;
   z-index: 1;
+  transition: opacity 1s ease-out;
 }
 .fav_btn:active {
   color: black;
@@ -60,6 +62,7 @@
     border-width: 0px;
     outline: none;
     cursor: pointer;
+    background-color: #e3e3e3;
   }
   .more {
     width: 100%;
@@ -141,6 +144,7 @@
     border-width: 0px;
     outline: none;
     cursor: pointer;
+    background-color: #e3e3e3;
   }
   .posterimg_contents .fav {
     position: absolute;
@@ -150,6 +154,7 @@
     background: #d8d8d89c;
     visibility: visible !important;
     z-index: 1;
+    transition: 1s ease-out;
   }
   .overview_container p {
     word-wrap: break-word;
@@ -224,6 +229,7 @@
     border-width: 0px;
     outline: none;
     cursor: pointer;
+    background-color: #e3e3e3;
   }
   .posterimg_contents .fav {
     position: absolute;
@@ -232,6 +238,7 @@
     height: 14%;
     background: #d8d8d89c;
     visibility: visible !important;
+    opacity: 1;
     z-index: 1;
   }
   .overview_container p {

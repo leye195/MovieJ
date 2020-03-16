@@ -72,7 +72,11 @@ class Header extends React.Component {
   };
   handleOpenMobileMenu = e => {
     const menu = document.querySelector(".mobile-menu");
-    menu.classList.toggle("openMenu");
+    const { loggedIn } = this.state;
+    if (loggedIn) menu.classList.toggle("openMenu-l");
+    else {
+      menu.classList.toggle("openMenu-s");
+    }
   };
   render() {
     const { to, id, lan } = this.props;

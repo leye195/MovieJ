@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
 import Cookies from "universal-cookie";
-
 import * as services from "../services/posts";
 import * as actions from "../actions";
 
@@ -15,11 +14,25 @@ class User extends Component {
     console.log(uid);
     //if (uid) {
     this.getFavList();
-    // }
   }
-
+  postFavInfo = async (uid, id, title, imgUrl, link, target) => {
+    const response = await services.postFavouriteMovie({
+      uid,
+      id,
+      title,
+      imgUrl,
+      link
+    });
+    if (response.status === 200) {
+      if (response.data.success === 1) {
+        if (!target.classList.contains("liked")) target.classList.add("liked");
+        else target.classList.remove("liked");
+      } else if (response.data.success === 0) {
+        target.classList.remove("liked");
+      }
+    }
+  };
   getFavList = async uid => {
-    //console.log(uid);
     const cookies = new Cookies();
     const res = await services.checkUser(cookies.get("atk"));
     const response = await services.getFavouriteMovie(res.data.user._id);
@@ -30,16 +43,51 @@ class User extends Component {
       this.props.handleFavoriteInfo(favourites);
     }
   };
+  clickLink = (target, currentTarget, fav) => {
+    const { history } = this.props;
+    if (target === currentTarget || target.classList.contains("fav-title"))
+      history.push(`/movie_detail/${fav.m_id}`);
+    else {
+      const uid = document.querySelector(".user");
+      if (uid) {
+        /*if (target.classList.contains("liked")) {
+          target.classList.remove("liked");
+        } else if (!target.classList.contains("liked")) {
+          target.classList.add("liked");
+        }*/
+        this.postFavInfo(
+          uid.id,
+          fav.m_id,
+          fav.title,
+          fav.imgUrl,
+          fav.link,
+          target
+        );
+      }
+    }
+  };
   favComponent = () => {
     const { fav_list } = this.props;
+
     const favTags = fav_list.map(fav => {
+      console.log(fav);
       return (
-        <a key={fav._id} href={fav.link}>
-          <div className="fav-item">
+        <div key={fav._id} className="fav-item">
+          <Link to={`/movie_detail/${fav.m_id}`}>
             <img src={fav.imgUrl} alt={fav.m_id} />
-            <p>{fav.title}</p>
+          </Link>
+          <div
+            className="item-hover"
+            onClick={e => this.clickLink(e.target, e.currentTarget, fav)}
+          >
+            <p className="fav-title"> {fav.title}</p>
+            <div>
+              <span>
+                <i className="fas fa-heart liked"></i>
+              </span>
+            </div>
           </div>
-        </a>
+        </div>
       );
     });
     return (
