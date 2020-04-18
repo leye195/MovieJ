@@ -10,11 +10,11 @@ class Header extends React.Component {
     this.state = {
       user: {},
       loggedIn: false,
-      loading: false
+      loading: false,
     };
   }
   componentDidMount() {
-    this.checkLogin();
+    //this.checkLogin();
   }
   /**
    * check User already Login or Not
@@ -22,7 +22,7 @@ class Header extends React.Component {
   checkLogin = async () => {
     if (this.state.loading) return;
     this.setState({
-      loading: true
+      loading: true,
     });
     try {
       const cookies = new Cookies();
@@ -31,14 +31,14 @@ class Header extends React.Component {
         this.setState({
           user: res.data.user,
           loggedIn: true,
-          loading: false
+          loading: false,
         });
       }
     } catch (e) {
       console.log(e);
     }
   };
-  handleClick = e => {
+  handleClick = (e) => {
     const callout = document.querySelector(".callout"),
       menu = document.querySelector(".header_menu");
     if (callout.classList.contains("m_show")) {
@@ -70,7 +70,7 @@ class Header extends React.Component {
       }
     });
   };
-  handleOpenMobileMenu = e => {
+  handleOpenMobileMenu = (e) => {
     const menu = document.querySelector(".mobile-menu");
     const { loggedIn } = this.state;
     if (loggedIn) menu.classList.toggle("openMenu-l");
@@ -86,7 +86,7 @@ class Header extends React.Component {
         <header id="header">
           <div>
             <h1 style={{ Fontsize: "1.5rem" }}>
-              <Link to={lan === "en-US" ? "/en-US" : "/ko-KR"}>MovieJ</Link>
+              <Link to={"/en-US"}>MovieJ</Link>
             </h1>
             <span></span>
             <div className="mobile">
@@ -98,12 +98,6 @@ class Header extends React.Component {
             </div>
             <div className="non-mobile">
               <p className="language-container">
-                <a href={lan !== "en-US" ? to + id + "/en-US" : "#"}>
-                  <span className="en">En</span>
-                </a>
-                <a href={lan !== "ko-KR" ? to + id + "/ko-KR" : "#"}>
-                  <span className="kr">Kr</span>
-                </a>
                 {loggedIn === true ? (
                   <span
                     className="user"
@@ -140,16 +134,6 @@ class Header extends React.Component {
           </div>
         </header>
         <div className="mobile-menu">
-          {/*<li>
-              <a href={lan !== "en-US" ? to + id + "/en-US" : "#"}>
-                <span className="en">En</span>
-              </a>
-            </li>
-            <li>
-              <a href={lan !== "ko-KR" ? to + id + "/ko-KR" : "#"}>
-                <span className="kr">Kr</span>
-              </a>
-            </li>*/}
           <ul>
             <li>
               {loggedIn === true ? (
@@ -194,17 +178,17 @@ class Header extends React.Component {
 Header.defaultProps = {
   to: "",
   id: "",
-  lan: "en-US"
+  lan: "en-US",
 };
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return { status: state.login.login.status };
 };
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     logoutRequest: () => {
       dispatch(actions.logout());
       return services.logout();
-    }
+    },
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

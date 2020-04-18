@@ -1,13 +1,16 @@
-import * as types from '../actions/ActionTypes';
+import { handleActions } from "redux-actions";
+export const LOADING = "LOADING";
 
-const initialState={
-    completed:-1
-}
-export default function load(state=initialState,action){
-    if(action.type===types.LOADING){
-        return{
-            completed:action.completed
-        }
-    }
-    return state;
-}
+const initialState = {
+  completed: -1,
+};
+export default handleActions(
+  {
+    [LOADING]: (state, action) => {
+      return {
+        completed: action.completed,
+      };
+    },
+  },
+  initialState
+);

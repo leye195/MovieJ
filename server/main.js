@@ -23,10 +23,10 @@ let options = {
   store: new cookieStore({ mongooseConnection: mongoose.connection })
 };
 app.enable("trust proxy");
-app.use(cors({ credentials: true }));
+app.use(cors({ credentials: true, origin: true }));
 app.use(helmet());
 app.use("/static", express.static(path.join(__dirname, "static")));
-app.use(cookieparser());
+app.use(cookieparser(process.env.SECRET_KEY));
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 

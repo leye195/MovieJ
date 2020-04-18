@@ -71,10 +71,16 @@ export const signup = (id, name, password) => {
   });
 };
 export const login = (id, pw) => {
-  return axios.post(`http://localhost:8080/api/login`, {
-    email: id,
-    password: pw
-  });
+  return axios.post(
+    `http://localhost:8080/api/login`,
+    {
+      email: id,
+      password: pw
+    },
+    {
+      withCredentials: true
+    }
+  );
 };
 export const logout = () => {
   return axios.get(`http://localhost:8080/api/logout`);
@@ -100,5 +106,7 @@ export const checkUser = token => {
       "x-access-token": token
     }
   });
-  return api.get(`http://localhost:8080/api/check`);
+  return api.get(`http://localhost:8080/api/check`, {
+    withCredentials: true
+  });
 };

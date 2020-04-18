@@ -12,7 +12,7 @@ class Movie extends React.Component {
     if ("IntersectionObserver" in window) {
       lazyImages = document.querySelectorAll(".posterimg_contents img");
       const imgObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
             let img = entry.target;
             img.src = img.dataset.src;
@@ -20,7 +20,7 @@ class Movie extends React.Component {
           }
         });
       });
-      lazyImages.forEach(img => {
+      lazyImages.forEach((img) => {
         imgObserver.observe(img);
       });
     }
@@ -32,7 +32,7 @@ class Movie extends React.Component {
       id,
       title,
       imgUrl,
-      link
+      link,
     });
     if (response.status === 200) {
       if (response.data.success === 1) {
@@ -43,7 +43,7 @@ class Movie extends React.Component {
       }
     }
   };
-  handleFav = e => {
+  handleFav = (e) => {
     let aTag = e.target.parentNode.previousSibling;
     let tar = e.target;
     if (e.target.tagName === "I") {
@@ -78,15 +78,14 @@ class Movie extends React.Component {
       overview,
       view,
       lan,
-      avg_rate
+      avg_rate,
     } = this.props;
-    const imgUrl = "https://image.tmdb.org/t/p/w500" + poster;
-    //console.log(fav);
+    const imgUrl = `https://image.tmdb.org/t/p/w500${poster}`;
     return (
       <div className={view}>
         <div className="movie_container">
           <div
-            className={view + "img_contents"}
+            className={`${view} img_contents`}
             onMouseEnter={this.handleMouseOn}
             onMouseOut={this.handleMouseOut}
           >
@@ -145,7 +144,7 @@ const flashMsg = (msg, color) => {
       { transform: "translateY(40px)" },
       { transform: "translateY(-30px)" },
       { transform: "translateY(-30px)" },
-      { transform: "translateY(40px)" }
+      { transform: "translateY(40px)" },
     ],
     2000
   );

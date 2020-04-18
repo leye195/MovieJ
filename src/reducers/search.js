@@ -1,17 +1,22 @@
-import * as types from '../actions/ActionTypes';
+import { handleActions, createAction } from "redux-actions";
+export const SEARCH = "SEARCH";
+export const KEYWORD = "KEYWORD";
 
-const initialState={
-    keyword:"",
-    results:[]
-}
-export default function search(state=initialState,action){
-    switch(action.type){
-        case types.SEARCH:
-            return {...state,results:action.results};
-        case types.KEYWORD:
-            return {...state,keyword:action.keyword};
-        default:
-            return state;
-    }
-    
-}
+export const search = createAction(SEARCH);
+export const keyword = createAction(KEYWORD);
+
+const initialState = {
+  keyword: "",
+  results: [],
+};
+export default handleActions(
+  {
+    [SEARCH]: (state, action) => {
+      return { ...state, results: action.results };
+    },
+    [KEYWORD]: (state, action) => {
+      return { ...state, keyword: action.keyword };
+    },
+  },
+  initialState
+);

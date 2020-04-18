@@ -8,13 +8,14 @@ import Recommendation from "./Recommendation";
 import Loading from "./Loading";
 import CastingList from "./CastingList";
 import youtube from "../img/youtube.svg";
+import { loadMovieDetail } from "../reducers/movie_info";
 class MovieDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       completed: 0,
       load: false,
-      credits: {}
+      credits: {},
     };
   }
   shouldComponentUpdate(nextProps, nextState) {
@@ -35,7 +36,7 @@ class MovieDetail extends React.Component {
       completed:
         completed >= 100 || load === false
           ? clearInterval(this.timer)
-          : completed + 1
+          : completed + 1,
     });
   };
   checkLanguage = () => {
@@ -45,13 +46,13 @@ class MovieDetail extends React.Component {
   };
   getDetail = async (id, lan) => {
     this.setState({
-      load: true
+      load: true,
     });
     try {
       const info = await Promise.all([
         services.getMovieInfo(id, lan),
         services.getReviews(id, lan),
-        services.get_video(id)
+        services.get_video(id),
       ]);
       if (info[1].data.results.length > 0) {
         const obj = {
@@ -67,7 +68,7 @@ class MovieDetail extends React.Component {
           tagline: info[0].data.tagline,
           revenue: info[0].data.revenue,
           review: info[1].data.results[info[1].data.results.length - 1],
-          links: info[2].data.results
+          links: info[2].data.results,
         };
         this.props.handleInfo(obj);
       } else {
@@ -83,16 +84,13 @@ class MovieDetail extends React.Component {
           release_date: info[0].data.release_date,
           tagline: info[0].data.tagline,
           revenue: info[0].data.revenue,
-          links: info[2].data.results
+          links: info[2].data.results,
         };
         this.props.handleInfo(obj);
       }
       let detail = document.getElementsByClassName("detail");
       if (this.props.info.backdrop !== undefined)
-        detail[0].style.backgroundImage =
-          "url(https://image.tmdb.org/t/p/w500" +
-          this.props.info.backdrop +
-          ")";
+        detail[0].style.backgroundImage = `url(https://image.tmdb.org/t/p/w500${this.props.info.backdrop})`;
       else
         detail[0].style.backgroundImage =
           "url(/Users/yjlee/Documents/WorkSpace/moviej/src/img/collect.gif)";
@@ -100,7 +98,7 @@ class MovieDetail extends React.Component {
       console.log(err);
     }
     this.setState({
-      load: false
+      load: false,
     });
   };
   render() {
@@ -116,7 +114,7 @@ class MovieDetail extends React.Component {
       release_date,
       revenue,
       review,
-      links
+      links,
     } = this.props.info;
     const { lan } = this.props;
     const links_tag = () => {
@@ -236,16 +234,20 @@ class MovieDetail extends React.Component {
     );
   }
 }
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    info: state.movie_detail.info
+    info: state.movie_detail.info,
   };
 };
-const mapStateToDispatch = dispatch => {
+const mapStateToDispatch = (dispatch) => {
   return {
-    handleInfo: info => {
-      dispatch(actions.get_movie_detail(info));
-    }
+    handleInfo: (info) => {
+      dispatch(
+        loadMovieDetail({
+          movieinfo: info,
+        })
+      );
+    },
   };
 };
 export default connect(mapStateToProps, mapStateToDispatch)(MovieDetail);

@@ -1,15 +1,19 @@
-import * as types from "../actions/ActionTypes";
-const initialState = {
-  fav_list: []
-};
-const favorite_movies = (state = initialState, action) => {
-  if (action.type === types.FAVORITE) {
-    return {
-      ...state,
-      fav_list: action.fav_list
-    };
-  }
-  return state;
-};
+import { handleActions, createAction } from "redux-actions";
+//Fav Movie
+export const FAVORITE = "FAVORITE";
+export const loadFavorite = createAction(FAVORITE);
 
-export default favorite_movies;
+const initialState = {
+  fav_list: [],
+};
+export default handleActions(
+  {
+    [FAVORITE]: (state, action) => {
+      return {
+        ...state,
+        fav_list: action.payload,
+      };
+    },
+  },
+  initialState
+);

@@ -5,17 +5,18 @@ import "../style/MovieList.css";
 import { connect } from "react-redux";
 import * as actions from "../actions";
 import * as services from "../services/posts";
+import { loadMovieList, setLoading } from "../reducers/movielist";
 
+let timer = null;
 class MovieList extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
     if (this.props.lan !== nextProps.lan) return true;
     if (this.props.cur_page !== nextProps.cur_page) return true;
     if (this.props.view !== nextProps.view) return true;
-    if (this.props.completed !== nextProps.completed) return true;
+    if (this.props.isloading !== nextProps.isloading) return true;
     return false;
   }
   componentDidMount() {
-    //this.timer=setInterval(this.progress,30);
     let view = localStorage.view,
       select = document.querySelector("select");
     if (!view) view = this.props.view;
@@ -23,8 +24,6 @@ class MovieList extends React.Component {
     this.props.handleView(view);
     this.getMovies(1);
     window.addEventListener("scroll", this.onNext);
-    //await this.getFavList();
-    //this.imageLoad();
   }
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.cur_page !== this.props.cur_page)
@@ -38,16 +37,19 @@ class MovieList extends React.Component {
   /**
    * @param page : For loading page's data from API
    **/
-  getMovies = async page => {
+  getMovies = async (page) => {
     const lan = this.props.lang;
     const movies = await services.getAllMovies(page, lan);
-    this.props.handleMovielist(
-      movies.data.results,
-      movies.data.total_pages,
-      page
-    );
+    if (movies.status === 200) {
+      this.props.handleMovielist(
+        movies.data.results,
+        movies.data.total_pages,
+        page
+      );
+    }
+    this.props.handleLoading(false);
   };
-  ChangeView = e => {
+  ChangeView = (e) => {
     this.props.handleView(e.target.value);
   };
   onNext = () => {
@@ -57,16 +59,22 @@ class MovieList extends React.Component {
     const scrollTop =
       (document.documentElement && document.documentElement.scrollTop) ||
       document.body.scrollTop;
-    if (scrollHeight - innerHeight - scrollTop === 0) {
-      if (cur_page < total_pages) this.getMovies(Number(cur_page) + 1);
-      else alert("Done");
+    if (scrollHeight - innerHeight - scrollTop < 200) {
+      if (!timer) {
+        timer = setTimeout(() => {
+          timer = null;
+          if (cur_page < total_pages) {
+            this.props.handleLoading(true);
+            this.getMovies(Number(cur_page) + 1);
+          } else alert("Done");
+        }, 2000);
+      }
     }
   };
 
   render() {
-    const { movie_list, cur_page, view, lan, total_pages } = this.props;
+    const { movie_list, view, lan, isloading } = this.props;
     const movies = () => {
-      //console.log(fav_list);
       const tag = movie_list.map((movie, i) => {
         return (
           <Movie
@@ -85,10 +93,7 @@ class MovieList extends React.Component {
       return tag;
     };
     return (
-      <div style={{ backgroundColor: "#efefefa6" }}>
-        <div>
-          <Loading></Loading>
-        </div>
+      <section style={{ backgroundColor: "#efefefa6" }}>
         <div className="select_wrapper">
           <span>
             <b>View </b>
@@ -99,19 +104,13 @@ class MovieList extends React.Component {
           </select>
         </div>
         <div className="movies_wrapper">{movies()}</div>
-        <div className="btns">
-          {/*<button
-            onClick={this.onNext}
-            disabled={cur_page < total_pages ? false : true}
-          >
-            {/*lan !== "ko-KR" ? "Show more" : "더 보기"
-          </button>*/}
-        </div>
-      </div>
+        {console.log(isloading)}
+        <Loading isloading={isloading} />
+      </section>
     );
   }
 }
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     total_pages: state.movielist.total_pages, //total pages in movielist
     movie_list: state.movielist.movie_list, //movie data list
@@ -119,23 +118,34 @@ const mapStateToProps = state => {
     view: state.movielist.view, //view: post or backdrop
     lan: state.movielist.lan, //language: ko-KR or en-US
     completed: state.load.completed, //check loading is finished or not
-    fav_list: state.favorite_movies.fav_list
+    fav_list: state.favorite_movies.fav_list,
+    isloading: state.movielist.isloadingMovieList,
   };
 };
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    handlePage: cur_page => {
-      dispatch(actions.page(cur_page));
+    handleLoading: (loading) => {
+      dispatch(
+        setLoading({
+          loading,
+        })
+      );
     },
-    handleView: view => {
+    handleView: (view) => {
       dispatch(actions.view(view));
     },
     handleMovielist: (movie_list, total_pages, cur_page) => {
-      dispatch(actions.get_movielist(movie_list, total_pages, cur_page));
+      dispatch(
+        loadMovieList({
+          movie_list,
+          total_pages,
+          cur_page,
+        })
+      );
     },
-    page_loading: completed => {
+    page_loading: (completed) => {
       dispatch(actions.loading(completed));
-    }
+    },
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(MovieList);
