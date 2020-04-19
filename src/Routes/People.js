@@ -13,7 +13,7 @@ class People extends React.Component {
     this.state = {
       m_credits: [],
       actor_img: user,
-      actor_info: {}
+      actor_info: {},
     };
   }
   componentDidMount() {
@@ -24,16 +24,16 @@ class People extends React.Component {
   getMovieCredit = async (id, lan) => {
     const info = await services.movie_credit(id, lan);
     this.setState({
-      m_credits: info.data.cast
+      m_credits: info.data.cast,
     });
   };
-  getInfo = async id => {
+  getInfo = async (id) => {
     const imgs = await services.get_actor_img(id);
     const actor_info = await services.get_actor_info(id);
     this.setState({
       actor_img:
         "https://image.tmdb.org/t/p/w500" + imgs.data.profiles[0].file_path,
-      actor_info: actor_info.data
+      actor_info: actor_info.data,
     });
   };
   data_more = () => {
@@ -94,7 +94,7 @@ class People extends React.Component {
             </div>
           </aside>
           <section className="m_div" onScroll={this.handleShowup}>
-            <div>
+            <article>
               <h1 id="actor_name">{actor_info.name}</h1>
               <div className="actor_info" id="overview" arial-expanded="false">
                 <div className="shade"></div>
@@ -107,9 +107,11 @@ class People extends React.Component {
               >
                 Read more
               </span>
-            </div>
-            <h2 id="credits">Credits</h2>
-            <div className="m_wrapper">{item_list}</div>
+            </article>
+            <section>
+              <h2 id="credits">Credits</h2>
+              <div className="m_wrapper">{item_list}</div>
+            </section>
           </section>
         </div>
       </div>
