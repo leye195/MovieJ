@@ -11,7 +11,7 @@ export default handleActions(
     [FAVORITE]: (state, action) => {
       return {
         ...state,
-        fav_list: action.payload,
+        fav_list: action.payload.fav_list,
       };
     },
   },

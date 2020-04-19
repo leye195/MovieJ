@@ -3,7 +3,7 @@ export const SEARCH = "SEARCH";
 export const KEYWORD = "KEYWORD";
 
 export const search = createAction(SEARCH);
-export const keyword = createAction(KEYWORD);
+export const getKeyword = createAction(KEYWORD);
 
 const initialState = {
   keyword: "",

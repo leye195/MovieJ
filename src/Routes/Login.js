@@ -3,11 +3,11 @@ import { connect } from "react-redux";
 import Header from "../components/Header";
 import { Link } from "react-router-dom";
 import "../style/Login.css";
-import * as actions from "../actions";
 import * as services from "../services/posts";
 import Cookies from "universal-cookie";
+import { login, loginSuccess, loginFailure } from "../reducers/login";
 class Login extends Component {
-  handleLogin = e => {
+  handleLogin = (e) => {
     e.preventDefault();
     const id = document.querySelector("#id"),
       pw = document.querySelector("#password");
@@ -17,7 +17,7 @@ class Login extends Component {
         let loginData = {
           loggedIn: true,
           name: id.value,
-          _id
+          _id,
         };
         localStorage.loggedIn = JSON.stringify(loginData);
         window.location.href = "/";
@@ -63,32 +63,36 @@ class Login extends Component {
     );
   }
 }
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     lan: state.movielist.lan,
     status: state.login.login.status,
     _id: state.login.login._id,
-    loggedIn: state.login.login.isLoggedIn
+    loggedIn: state.login.login.isLoggedIn,
   };
 };
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     loginRequest: (name, pw) => {
-      dispatch(actions.login());
-      return services.login(name, pw).then(response => {
-        //alert(JSON.stringify(response));
+      dispatch(login());
+      return services.login(name, pw).then((response) => {
         if (response.data.success === 1) {
           const cookies = new Cookies();
           cookies.set("atk", response.data.token, {
             path: "/",
             //httpOnly: true,
-            maxAge: 60 * 60 * 24
+            maxAge: 60 * 60 * 24,
           });
           console.log(cookies.get("atk"));
-          dispatch(actions.loginSuccess(response.data.uid, name));
-        } else dispatch(actions.loginFailure());
+          dispatch(
+            loginSuccess({
+              _id: response.data.uid,
+              name,
+            })
+          );
+        } else dispatch(loginFailure());
       });
-    }
+    },
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

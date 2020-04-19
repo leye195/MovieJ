@@ -5,6 +5,8 @@ export const LOGIN_FAILURE = "LOGIN_FAILURE";
 export const LOGOUT = "LOGOUT";
 
 export const login = createAction(LOGIN);
+export const loginSuccess = createAction(LOGIN_SUCCESS);
+export const loginFailure = createAction(LOGIN_FAILURE);
 export const logout = createAction(LOGOUT);
 
 const initialState = {

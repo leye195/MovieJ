@@ -2,6 +2,7 @@ import React from "react";
 import MovieList from "../components/MovieList";
 import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
+import FilterBar from "../components/FilterBar";
 import * as services from "../services/posts";
 import * as actions from "../actions";
 import { connect } from "react-redux";
@@ -18,6 +19,7 @@ class Home extends React.Component {
           <SearchBar lan={"en-US"}></SearchBar>
         </div>
         <main>
+          <FilterBar />
           <MovieList lang="en-US" />
           <div className="upbtn">
             <a href="#header">Up</a>

@@ -5,7 +5,7 @@ import "../style/MovieList.css";
 import { connect } from "react-redux";
 import * as actions from "../actions";
 import * as services from "../services/posts";
-import { loadMovieList, setLoading } from "../reducers/movielist";
+import { loadMovieList, setLoading, setView } from "../reducers/movielist";
 
 let timer = null;
 class MovieList extends React.Component {
@@ -14,14 +14,10 @@ class MovieList extends React.Component {
     if (this.props.cur_page !== nextProps.cur_page) return true;
     if (this.props.view !== nextProps.view) return true;
     if (this.props.isloading !== nextProps.isloading) return true;
+    if (this.props.movie_list !== nextProps.movie_list) return true;
     return false;
   }
   componentDidMount() {
-    let view = localStorage.view,
-      select = document.querySelector("select");
-    if (!view) view = this.props.view;
-    select.value = view;
-    this.props.handleView(view);
     this.getMovies(1);
     window.addEventListener("scroll", this.onNext);
   }
@@ -38,8 +34,23 @@ class MovieList extends React.Component {
    * @param page : For loading page's data from API
    **/
   getMovies = async (page) => {
-    const lan = this.props.lang;
-    const movies = await services.getAllMovies(page, lan);
+    const {
+      maxRate,
+      minRate,
+      maxDate,
+      minDate,
+      maxRunTime,
+      minRunTime,
+    } = this.props;
+    const movies = await services.getAllMovies(
+      page,
+      maxRunTime,
+      minRunTime,
+      maxRate,
+      minRate,
+      maxDate,
+      minDate
+    );
     if (movies.status === 200) {
       this.props.handleMovielist(
         movies.data.results,
@@ -48,9 +59,6 @@ class MovieList extends React.Component {
       );
     }
     this.props.handleLoading(false);
-  };
-  ChangeView = (e) => {
-    this.props.handleView(e.target.value);
   };
   onNext = () => {
     const { cur_page, total_pages } = this.props;
@@ -82,7 +90,11 @@ class MovieList extends React.Component {
             key={i}
             title={movie.title}
             release_date={movie.release_date}
-            poster={view === "poster" ? movie.poster_path : movie.backdrop_path}
+            poster={
+              movie.poster_path !== null
+                ? movie.poster_path
+                : movie.backdrop_path
+            }
             overview={movie.overview}
             view={view}
             lan={lan}
@@ -93,18 +105,8 @@ class MovieList extends React.Component {
       return tag;
     };
     return (
-      <section style={{ backgroundColor: "#efefefa6" }}>
-        <div className="select_wrapper">
-          <span>
-            <b>View </b>
-          </span>
-          <select onChange={this.ChangeView}>
-            <option value="poster">Poster Card</option>
-            <option value="backdrop">Backdrop Card</option>
-          </select>
-        </div>
+      <section className="movies" style={{ backgroundColor: "#efefefa6" }}>
         <div className="movies_wrapper">{movies()}</div>
-        {console.log(isloading)}
         <Loading isloading={isloading} />
       </section>
     );
@@ -120,6 +122,12 @@ const mapStateToProps = (state) => {
     completed: state.load.completed, //check loading is finished or not
     fav_list: state.favorite_movies.fav_list,
     isloading: state.movielist.isloadingMovieList,
+    maxRate: state.movielist.maxRate,
+    minRate: state.movielist.minRate,
+    minRunTime: state.movielist.minRunTime,
+    maxRunTime: state.movielist.maxRunTime,
+    minDate: state.movielist.minDate,
+    maxDate: state.movielist.maxDate,
   };
 };
 const mapDispatchToProps = (dispatch) => {
@@ -132,7 +140,11 @@ const mapDispatchToProps = (dispatch) => {
       );
     },
     handleView: (view) => {
-      dispatch(actions.view(view));
+      dispatch(
+        setView({
+          view,
+        })
+      );
     },
     handleMovielist: (movie_list, total_pages, cur_page) => {
       dispatch(

@@ -2,8 +2,8 @@ import React, { Fragment } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Cookies from "universal-cookie";
-import * as actions from "../actions";
 import * as services from "../services/posts";
+import { logout } from "../reducers/login";
 class Header extends React.Component {
   constructor(props) {
     super(props);
@@ -186,7 +186,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     logoutRequest: () => {
-      dispatch(actions.logout());
+      dispatch(logout());
       return services.logout();
     },
   };

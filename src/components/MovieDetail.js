@@ -191,7 +191,7 @@ class MovieDetail extends React.Component {
                 <div className="vote_rate">
                   <h2>
                     {this.checkLanguage ? (
-                      <p>{`Average Rate:${vote_average}/10`}</p>
+                      <p>{`Average Rate: ⭐️${vote_average}/10`}</p>
                     ) : (
                       <p>{`평균 평점: ${vote_average}/10`}</p>
                     )}

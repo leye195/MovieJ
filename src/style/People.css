@@ -60,6 +60,12 @@
     width: 300px;
     font-size: 1rem;
   }
+  .m_item p {
+    text-overflow: ellipsis;
+    white-space: pre;
+    width: auto;
+    overflow: hidden;
+  }
   #actor_name {
     font-size: 1.2rem;
   }
@@ -201,6 +207,12 @@
     width: 300px;
     font-size: 1rem;
   }
+  .m_item p {
+    text-overflow: ellipsis;
+    white-space: pre;
+    width: auto;
+    overflow: hidden;
+  }
   #actor_name {
     font-size: 1rem;
   }
@@ -309,8 +321,16 @@
   width: 75%;
   overflow-y: scroll;
 }
+.m_wrapper {
+  display: flex;
+  overflow-x: scroll;
+}
 .m_wrapper div {
-  display: inline-table;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 210px;
 }
 .m_item {
   display: contents;
@@ -323,6 +343,13 @@
 }
 .m_item div {
   display: block;
+}
+.m_item p {
+  text-overflow: ellipsis;
+  white-space: pre;
+  width: auto;
+  overflow: hidden;
+  margin: 10px 10px;
 }
 .actor_info[arial-expanded="false"] {
   position: relative;

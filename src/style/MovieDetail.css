@@ -19,11 +19,11 @@
 }
 
 /* Tablet Device */
-@media all and (min-width: 768px) {
+@media (min-width: 768px) {
   .movie_wrapper {
     display: flex;
     align-items: center;
-    padding: 50px;
+    padding: 20px;
   }
   .movie_title {
     font-size: 2.5rem;
@@ -34,10 +34,10 @@
     font-size: 2rem;
   }
   .img_container img {
-    height: 600px;
+    height: 500px;
     width: 300px;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     transition: transform 1s linear;
   }
   .img_container img:hover {
@@ -111,8 +111,10 @@
     font-weight: 500;
   }
   .menu h3 {
-    margin: 20px 20px;
+    padding: 10px 20px;
     font-size: 1.5rem;
+    background: #ff7675;
+    color: white;
   }
   /*video link */
   .video_link {
@@ -224,8 +226,10 @@
     font-weight: 500;
   }
   .menu h3 {
-    margin: 20px 20px;
+    padding: 10px 20px;
     font-size: 1rem;
+    background: #ff7675;
+    color: white;
   }
   /*video link */
   .video_link {
@@ -318,8 +322,10 @@
   }
 
   .menu h3 {
-    margin: 20px 20px;
+    padding: 10px 20px;
     font-size: 0.8rem !important;
+    background: #ff7675;
+    color: white;
   }
   /*video link */
   .video_link {

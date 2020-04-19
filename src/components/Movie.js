@@ -7,6 +7,14 @@ class Movie extends React.Component {
   componentDidMount() {
     this.imageLoad();
   }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.props.title !== nextProps.title) {
+      this.imageLoad();
+      return true;
+    }
+    return false;
+  }
   imageLoad = () => {
     let lazyImages = null;
     if ("IntersectionObserver" in window) {
@@ -54,7 +62,6 @@ class Movie extends React.Component {
       tar = e.target.parentNode;
     }
     const uid = document.querySelector(".user");
-    console.log(uid);
     if (uid) {
       const link = aTag.href,
         title = aTag.querySelector("img").alt,
@@ -80,16 +87,20 @@ class Movie extends React.Component {
       lan,
       avg_rate,
     } = this.props;
-    const imgUrl = `https://image.tmdb.org/t/p/w500${poster}`;
+    const imgUrl = `${
+      poster !== null
+        ? `https://image.tmdb.org/t/p/w500${poster}`
+        : `https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg`
+    }`;
     return (
       <div className={view}>
         <div className="movie_container">
           <div
-            className={`${view} img_contents`}
+            className={`${view}img_contents`}
             onMouseEnter={this.handleMouseOn}
             onMouseOut={this.handleMouseOut}
           >
-            <Link to={`/movie_detail/` + id + "/" + lan}>
+            <Link to={`/movie_detail/${id}/${lan}`}>
               <img alt={title} data-src={imgUrl} onError={this.handleError} />
             </Link>
             <div className="fav">
@@ -100,10 +111,10 @@ class Movie extends React.Component {
               </button>
             </div>
           </div>
-          <div className={view + "item_content"}>
+          <div className={`${view}item_content`}>
             <div>
               <h2 className="item_title">{title}</h2>
-              <h5 className="item_rate">{`${avg_rate}/10`}</h5>
+              <h5 className="item_rate">{`⭐️${avg_rate}/10`}</h5>
             </div>
             <div>
               <p>

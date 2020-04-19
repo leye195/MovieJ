@@ -1,0 +1,224 @@
+@media (min-width: 1024px) {
+  .filter-bar {
+    width: 25%;
+    height: fit-content;
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
+    background-color: white;
+    box-shadow: 0 2px 19px 3px rgba(0, 0, 0, 0.1);
+  }
+  .filter-bar section {
+    border-bottom: 1px solid #e3e3e3;
+    width: 100%;
+    border-top: 1px solid #eee;
+    padding: 14px 16px 16px 16px;
+  }
+  .date-filter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .date-picker-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 10px 0;
+  }
+  .date-picker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .date-input {
+    padding: 0.375rem 0.75rem;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 2.5px solid;
+    border-color: #34495e;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    background: #fff
+      url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)
+      97% 50% no-repeat;
+  }
+  [type="date"]::-webkit-inner-spin-button {
+    display: none;
+  }
+  [type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+  }
+  .date-select {
+    padding: 0.375rem 0.375rem;
+    border-width: 0 0 0 1px;
+    background: #34495e;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    cursor: pointer;
+    color: white;
+  }
+  .search-btn {
+    width: 100%;
+    margin: 0;
+    background: #1cbc9c;
+    font-size: 1.2rem;
+    font-weight: 800;
+    height: 40px;
+    color: white;
+    border-radius: 0;
+  }
+}
+@media (max-width: 1023px) and (min-width: 426px) {
+  .filter-bar {
+    width: 25%;
+    height: fit-content;
+    margin-top: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: white;
+    box-shadow: 0 2px 19px 3px rgba(0, 0, 0, 0.1);
+  }
+  .filter-bar section {
+    border-bottom: 1px solid #e3e3e3;
+    width: 100%;
+    border-top: 1px solid #eee;
+    padding: 14px 10px 16px 10px;
+  }
+  .date-filter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .date-picker-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 10px 0px;
+  }
+  .date-picker-container p {
+    display: none;
+  }
+  .date-picker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+  }
+  .date-input {
+    padding: 0.375rem 0.75rem;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 2.5px solid;
+    border-color: #34495e;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    background: #fff
+      url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)
+      97% 50% no-repeat;
+  }
+  [type="date"]::-webkit-inner-spin-button {
+    display: none;
+  }
+  [type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+  }
+  .date-select {
+    padding: 0.375rem 0.375rem;
+    border-width: 0 0 0 1px;
+    background: #34495e;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    cursor: pointer;
+    color: white;
+  }
+  .search-btn {
+    width: 100%;
+    margin: 0;
+    background: #1cbc9c;
+    font-size: 1.2rem;
+    font-weight: 800;
+    height: 40px;
+    color: white;
+    border-radius: 0;
+  }
+}
+@media (max-width: 425px) {
+  .filter-bar {
+    width: 25%;
+    height: fit-content;
+    margin-top: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: white;
+    box-shadow: 0 2px 19px 3px rgba(0, 0, 0, 0.1);
+  }
+  .filter-bar section {
+    border-bottom: 1px solid #e3e3e3;
+    width: 100%;
+    border-top: 1px solid #eee;
+    padding: 14px 16px 16px 16px;
+  }
+  .date-filter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .date-picker-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .date-picker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .date-input {
+    padding: 0.375rem 0.75rem;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 2.5px solid;
+    border-color: #34495e;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    background: #fff
+      url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)
+      97% 50% no-repeat;
+  }
+  [type="date"]::-webkit-inner-spin-button {
+    display: none;
+  }
+  [type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+  }
+  .date-select {
+    padding: 0.375rem 0.375rem;
+    border-width: 0 0 0 1px;
+    background: #34495e;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    cursor: pointer;
+    color: white;
+  }
+  .search-btn {
+    width: 100%;
+    margin: 0;
+    background: #1cbc9c;
+    font-size: 1.2rem;
+    font-weight: 800;
+    height: 40px;
+    margin: 5px;
+    color: white;
+    border-radius: 0;
+  }
+}

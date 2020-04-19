@@ -5,9 +5,8 @@ import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
 import Cookies from "universal-cookie";
 import * as services from "../services/posts";
-import * as actions from "../actions";
-
 import "../style/User.css";
+import { loadFavorite } from "../reducers/favorite_movie";
 class User extends Component {
   componentDidMount() {
     const uid = document.querySelector(".user");
@@ -21,7 +20,7 @@ class User extends Component {
       id,
       title,
       imgUrl,
-      link
+      link,
     });
     if (response.status === 200) {
       if (response.data.success === 1) {
@@ -32,13 +31,13 @@ class User extends Component {
       }
     }
   };
-  getFavList = async uid => {
+  getFavList = async (uid) => {
     const cookies = new Cookies();
     const res = await services.checkUser(cookies.get("atk"));
     const response = await services.getFavouriteMovie(res.data.user._id);
     if (response.status === 200) {
       const {
-        data: { favourites }
+        data: { favourites },
       } = response;
       this.props.handleFavoriteInfo(favourites);
     }
@@ -69,7 +68,7 @@ class User extends Component {
   favComponent = () => {
     const { fav_list } = this.props;
 
-    const favTags = fav_list.map(fav => {
+    const favTags = fav_list.map((fav) => {
       console.log(fav);
       return (
         <div key={fav._id} className="fav-item">
@@ -78,7 +77,7 @@ class User extends Component {
           </Link>
           <div
             className="item-hover"
-            onClick={e => this.clickLink(e.target, e.currentTarget, fav)}
+            onClick={(e) => this.clickLink(e.target, e.currentTarget, fav)}
           >
             <p className="fav-title"> {fav.title}</p>
             <div>
@@ -146,16 +145,20 @@ class User extends Component {
     );
   }
 }
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    fav_list: state.favorite_movies.fav_list
+    fav_list: state.favorite_movies.fav_list,
   };
 };
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    handleFavoriteInfo: fav_list => {
-      dispatch(actions.favoriteMovie(fav_list));
-    }
+    handleFavoriteInfo: (fav_list) => {
+      dispatch(
+        loadFavorite({
+          fav_list,
+        })
+      );
+    },
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(User);
