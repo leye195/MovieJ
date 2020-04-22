@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
-//import Loading from '../components/Loading';
 import default_movie from "../img/default_movie.png";
 import "../style/People.css";
 import user from "../img/user.svg";
@@ -51,7 +50,6 @@ class People extends React.Component {
       overview.setAttribute("arial-expanded", false);
       shade.style.visibility = "visible";
     }
-    //console.log(ele);
   };
   render() {
     const { m_credits, actor_img, actor_info } = this.state;
@@ -73,7 +71,6 @@ class People extends React.Component {
         </div>
       </Link>
     ));
-    //console.log(m_credits);
     return (
       <div>
         <div>

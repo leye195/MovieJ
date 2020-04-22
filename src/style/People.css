@@ -2,17 +2,18 @@
   display: flex;
   padding-top: 10px;
 }
-.m_aside {
-  position: static;
-  width: 25%;
-  display: flex;
-  flex-direction: row;
-  text-align: center;
-  justify-content: center;
-}
 @media (min-width: 1440px) {
   .m_div img {
     height: 250px;
+    border-radius: 10px;
+  }
+  .m_aside {
+    position: static;
+    width: 25%;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
   }
   .m_aside > div > img {
     width: 100%;
@@ -20,14 +21,13 @@
     box-sizing: border-box;
   }
   .m_aside > div {
-    position: fixed;
     left: 50px;
     width: 200px;
     height: 250px;
-    margin: auto auto;
     border: 5px solid rgba(109, 107, 107, 0.13);
     padding: 10px;
     box-shadow: 0 0 20px 0 #666;
+    border-radius: 5px;
   }
   .m_aside p {
     padding: 5px;
@@ -75,8 +75,17 @@
 }
 @media (max-width: 1439px) and (min-width: 768px) {
   .m_div img {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+  }
+  .m_aside {
+    position: static;
+    width: 25%;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
   }
   .m_aside > div > img {
     width: 100%;
@@ -84,13 +93,12 @@
     box-sizing: border-box;
   }
   .m_aside > div {
-    position: fixed;
     width: 150px;
     height: 195px;
-    margin: auto auto;
     border: 5px solid rgba(109, 107, 107, 0.13);
     padding: 10px;
     box-shadow: 0 0 20px 0 #666;
+    border-radius: 5px;
   }
   .m_aside p {
     padding: 5px;
@@ -120,8 +128,15 @@
   .m_item div {
     display: block;
     margin-top: 10px;
-    width: 300px;
     font-size: 1rem;
+  }
+  .m_item p {
+    text-overflow: ellipsis;
+    white-space: pre;
+    width: auto;
+    overflow: hidden;
+    width: 140px;
+    margin: 0;
   }
   #actor_name {
     font-size: 1.5rem;
@@ -129,27 +144,43 @@
   .shade {
     width: 65%;
   }
+  .m_wrapper a {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 180px;
+    height: 250px;
+    margin: 5px;
+  }
 }
 @media (min-width: 425px) and (max-width: 767px) {
   .m_div img {
-    width: 200px;
-    height: 300px;
+    width: 130px;
+    height: 150px;
+    border-radius: 10px;
   }
-
+  .m_aside {
+    position: static;
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+  }
   .m_aside > div > img {
     width: 65px;
     height: 120px;
     box-sizing: border-box;
   }
   .m_aside > div {
-    position: fixed;
     left: 0px;
     height: 155px;
     width: 95px;
-    margin: auto auto;
-    /*border: 5px solid rgba(109, 107, 107, 0.13);*/
+    border: 5px solid rgba(109, 107, 107, 0.13);
     padding: 10px;
     box-shadow: 0 0 20px 0 #666;
+    border-radius: 5px;
   }
   .m_aside p {
     padding: 5px;
@@ -179,14 +210,15 @@
   .m_item div {
     display: block;
     margin-top: 10px;
-    width: 300px;
-    font-size: 1rem;
+    font-size: 0.7rem;
   }
   .m_item p {
     text-overflow: ellipsis;
     white-space: pre;
     width: auto;
     overflow: hidden;
+    margin: 0;
+    width: 120px;
   }
   #actor_name {
     font-size: 1rem;
@@ -204,17 +236,41 @@
     bottom: 0;
     visibility: visible;
   }
+  .m_wrapper a {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 150px;
+    height: 250px;
+    margin: 5px;
+  }
 }
 @media (min-width: 320px) and (max-width: 424px) {
   .m_div {
     box-sizing: border-box;
     width: 75%;
     overflow-y: scroll;
-    padding-left: 8%;
+    padding-left: 5%;
+  }
+  .m_aside {
+    position: static;
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+  }
+  .m_div article {
+    padding-bottom: 10px;
+  }
+  .m_div article span {
+    font-size: 0.7rem;
   }
   .m_div img {
-    width: 80%;
-    height: 200px;
+    width: 100px;
+    height: 120px;
+    border-radius: 10px;
   }
   .m_aside > div > img {
     width: 100%;
@@ -222,11 +278,9 @@
     box-sizing: border-box;
   }
   .m_aside > div {
-    position: fixed;
     left: 0px;
     height: 155px;
     width: 95px;
-    margin: auto auto;
     padding: 10px;
     box-shadow: 0 0 20px 0 #666;
   }
@@ -257,9 +311,9 @@
   }
   .m_item div {
     display: block;
-    margin-top: 10px;
     width: 100%;
-    font-size: 1rem;
+    font-size: 0.5rem;
+    margin-top: 5px;
   }
   #actor_name {
     font-size: 1rem;
@@ -277,6 +331,18 @@
     bottom: 0;
     visibility: visible;
   }
+  .m_wrapper div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 150px;
+    margin: 3px;
+  }
+  #credits {
+    font-size: 1rem;
+  }
 }
 .m_div {
   box-sizing: border-box;
@@ -286,13 +352,6 @@
 .m_wrapper {
   display: flex;
   overflow-x: scroll;
-}
-.m_wrapper div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 210px;
 }
 .m_item {
   display: contents;
@@ -306,13 +365,7 @@
 .m_item div {
   display: block;
 }
-.m_item p {
-  text-overflow: ellipsis;
-  white-space: pre;
-  width: auto;
-  overflow: hidden;
-  margin: 10px 10px;
-}
+
 .actor_info[arial-expanded="false"] {
   position: relative;
   overflow: hidden;

@@ -1,30 +1,30 @@
 import React, { Component } from "react";
-//import * as actions from '../actions';
 import { connect } from "react-redux";
 import Header from "../components/Header";
 import { Link } from "react-router-dom";
 import "../style/Login.css";
 import * as services from "../services/posts";
+import { signup, signupSuccess, signupFailure } from "../reducers/login";
 class SignUp extends Component {
   getResult = async (id, name, password) => {
     const result = await services.signup(id, name, password);
-    console.log(result.data);
     if (result.data.result === 0) alert(result.data.error);
     else {
+      this.props.signSuccess();
       alert(`Sign Up Success`);
-      window.location.href = "/login";
+      this.props.history.push("/login");
     }
   };
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault();
     const id = document.querySelector("#id"),
       name = document.querySelector("#name"),
       pwd = document.querySelector("#pwd"),
       pwd_again = document.querySelector("#pwd_again");
-    //console.log(id.value);
-    if (pwd.value === pwd_again.value)
+    if (pwd.value === pwd_again.value) {
+      this.props.signRequest();
       this.getResult(id.value, name.value, pwd.value);
-    else alert("Please check your password");
+    } else alert("Please check your password");
   };
   render() {
     return (
@@ -39,7 +39,8 @@ class SignUp extends Component {
                 name="email"
                 type="text"
                 placeholder="Email"
-              ></input>
+                required
+              />
             </div>
             <div>
               <input
@@ -47,7 +48,8 @@ class SignUp extends Component {
                 name="name"
                 type="text"
                 placeholder="Name"
-              ></input>
+                required
+              />
             </div>
             <div>
               <input
@@ -55,7 +57,8 @@ class SignUp extends Component {
                 name="password1"
                 type="password"
                 placeholder="Password"
-              ></input>
+                required
+              />
             </div>
             <div>
               <input
@@ -63,13 +66,12 @@ class SignUp extends Component {
                 name="password2"
                 type="password"
                 placeholder="Verify Password"
-              ></input>
+                required
+              />
             </div>
-            <div>
-              <input type="submit" value="SignUp"></input>
-              <button>
-                <Link to="/login">Cancel</Link>
-              </button>
+            <div className="ls-container">
+              <input type="submit" value="SignUp" />
+              <Link to="/login">Cancel</Link>
             </div>
           </form>
         </div>
@@ -77,5 +79,20 @@ class SignUp extends Component {
     );
   }
 }
-
-export default connect()(SignUp);
+const mapStateToProps = (state) => {
+  return {};
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signRequest: () => {
+      dispatch(signup());
+    },
+    signSuccess: () => {
+      dispatch(signupSuccess());
+    },
+    signFailure: () => {
+      dispatch(signupFailure());
+    },
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);

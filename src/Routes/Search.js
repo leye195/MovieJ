@@ -2,13 +2,12 @@ import React from "react";
 import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
 import Movie from "../components/Movie";
-//import Button from '@material-ui/core/Button';
 import * as services from "../services/posts";
 class Search extends React.Component {
   state = {
     total_pages: 0,
     page: 1,
-    results: []
+    results: [],
   };
   componentDidMount() {
     const { location } = this.props;
@@ -21,7 +20,7 @@ class Search extends React.Component {
     this.setState({
       total_pages: search.data.total_pages,
       page: search.data.page,
-      results: [...this.state.results, ...search.data.results]
+      results: [...this.state.results, ...search.data.results],
     });
   };
   getNextPage = () => {
@@ -43,7 +42,7 @@ class Search extends React.Component {
     const query = new URLSearchParams(location.search);
     const lan = query.get("language");
     //console.log("location: " + query);
-    const result_list = results.map(movie => {
+    const result_list = results.map((movie) => {
       return (
         <Movie
           id={movie.id}

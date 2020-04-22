@@ -28,6 +28,9 @@ class Login extends Component {
       }
     });
   };
+  onClickSign = (e) => {
+    e.preventDefault();
+  };
   render() {
     return (
       <div>
@@ -41,7 +44,8 @@ class Login extends Component {
                 type="text"
                 name="email"
                 placeholder="Email"
-              ></input>
+                required
+              />
             </div>
             <div>
               <input
@@ -49,13 +53,12 @@ class Login extends Component {
                 name="password"
                 type="password"
                 placeholder="Password"
-              ></input>
+                required
+              />
             </div>
-            <div>
-              <input type="submit" value="Login"></input>
-              <button>
-                <Link to={"/signup"}>Sign Up</Link>
-              </button>
+            <div className="ls-container">
+              <input type="submit" value="Login" />
+              <Link to={"/signup"}>Sign Up</Link>
             </div>
           </form>
         </div>
