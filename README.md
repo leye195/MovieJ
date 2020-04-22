@@ -32,8 +32,7 @@ Back-End technologies used in the project<br/>
 ### 스크린샷
 
 <div>
-    <img width="200" alt="스크린샷 2020-04-20 오전 3 06 56" src="https://user-images.githubusercontent.com/30601503/79695859-1cf89a00-82b4-11ea-9096-ec1c11458962.png">
-    <img width="200" alt="스크린샷 2020-04-20 오전 3 03 31" src="https://user-images.githubusercontent.com/30601503/79695861-1e29c700-82b4-11ea-9a4c-78feee7175e2.png">
-    <img width="200" alt="스크린샷 2020-04-20 오전 3 06 30" src="https://user-images.githubusercontent.com/30601503/79695862-1f5af400-82b4-11ea-8278-e6a9f140016e.png">
-
+    <img width="226" alt="스크린샷 2020-04-23 오전 12 10 44" src="https://user-images.githubusercontent.com/30601503/79999661-1f970180-84f7-11ea-9d7a-bd300fe1ed39.png">
+    <img width="220" alt="스크린샷 2020-04-23 오전 12 11 07" src="https://user-images.githubusercontent.com/30601503/79999658-1efe6b00-84f7-11ea-8594-d7b2d278df59.png">
+    <img width="220" alt="스크린샷 2020-04-23 오전 12 11 31" src="https://user-images.githubusercontent.com/30601503/79999625-19088a00-84f7-11ea-9d7e-3a60ed00c9e0.png">
 </div>
