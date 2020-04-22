@@ -23,7 +23,7 @@ class SignUp extends Component {
       pwd_again = document.querySelector("#pwd_again");
     if (pwd.value === pwd_again.value) {
       this.props.signRequest();
-      this.getResult(id.value, name.value, pwd.value);
+      //this.getResult(id.value, name.value, pwd.value);
     } else alert("Please check your password");
   };
   render() {

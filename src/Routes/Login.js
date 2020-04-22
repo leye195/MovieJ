@@ -11,7 +11,7 @@ class Login extends Component {
     e.preventDefault();
     const id = document.querySelector("#id"),
       pw = document.querySelector("#password");
-    return this.props.loginRequest(id.value, pw.value).then(() => {
+    /*return this.props.loginRequest(id.value, pw.value).then(() => {
       const { status, _id } = this.props;
       if (status === "success") {
         let loginData = {
@@ -26,7 +26,7 @@ class Login extends Component {
         alert("Incorrect ID or Password");
         return false;
       }
-    });
+    });*/
   };
   onClickSign = (e) => {
     e.preventDefault();
