@@ -19,6 +19,7 @@
     box-shadow: 3px 2px 8px 0px #99999959;
     height: 222px;
     text-align: center;
+    background: white;
   }
   .cast_item img {
     width: 120px;
@@ -53,6 +54,7 @@
     box-shadow: 3px 2px 8px 0px #99999959;
     height: 222px;
     text-align: center;
+    background: white;
   }
   .cast_item img {
     width: 125px;
@@ -78,6 +80,7 @@
     cursor: pointer;
     box-shadow: 3px 2px 8px 0px #99999959;
     height: 163px;
+    background-color: white;
   }
   .cast_item img {
     width: 100px;

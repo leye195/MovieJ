@@ -2,13 +2,12 @@ import React from "react";
 import * as services from "../services/posts";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-
 import "../style/Recommendation.css";
 class Recommendation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      recommendations: []
+      recommendations: [],
     };
   }
   componentDidMount() {
@@ -17,16 +16,15 @@ class Recommendation extends React.Component {
   getRecommendations = async () => {
     const { id, lan } = this.props;
     const list = await services.getRecommendations(id, lan);
-    console.log(list);
     this.setState({
-      recommendations: list.data.results
+      recommendations: list.data.results,
     });
   };
   render() {
     const { recommendations } = this.state;
     const { lan } = this.props;
     let rr = recommendations.slice(0, 10);
-    const data_list = rr.map(item => {
+    const data_list = rr.map((item) => {
       return (
         <Card key={item.id}>
           <div

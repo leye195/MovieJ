@@ -1,6 +1,5 @@
 import React from "react";
 import "../style/MovieDetail.css";
-import * as actions from "../actions";
 import * as services from "../services/posts";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
@@ -54,40 +53,22 @@ class MovieDetail extends React.Component {
         services.getReviews(id, lan),
         services.get_video(id),
       ]);
-      if (info[1].data.results.length > 0) {
-        const obj = {
-          id: id,
-          title: info[0].data.title,
-          overview: info[0].data.overview,
-          vote_average: info[0].data.vote_average,
-          backdrop: info[0].data.backdrop_path,
-          poster_path: info[0].data.poster_path,
-          state: info[0].data.status,
-          runtime: info[0].data.runtime,
-          release_date: info[0].data.release_date,
-          tagline: info[0].data.tagline,
-          revenue: info[0].data.revenue,
-          review: info[1].data.results[info[1].data.results.length - 1],
-          links: info[2].data.results,
-        };
-        this.props.handleInfo(obj);
-      } else {
-        const obj = {
-          id: id,
-          title: info[0].data.title,
-          overview: info[0].data.overview,
-          vote_average: info[0].data.vote_average,
-          backdrop: info[0].data.backdrop_path,
-          poster_path: info[0].data.poster_path,
-          state: info[0].data.status,
-          runtime: info[0].data.runtime,
-          release_date: info[0].data.release_date,
-          tagline: info[0].data.tagline,
-          revenue: info[0].data.revenue,
-          links: info[2].data.results,
-        };
-        this.props.handleInfo(obj);
-      }
+      const obj = {
+        id: id,
+        title: info[0].data.title,
+        overview: info[0].data.overview,
+        vote_average: info[0].data.vote_average,
+        backdrop: info[0].data.backdrop_path,
+        poster_path: info[0].data.poster_path,
+        state: info[0].data.status,
+        runtime: info[0].data.runtime,
+        release_date: info[0].data.release_date,
+        tagline: info[0].data.tagline,
+        revenue: info[0].data.revenue,
+        review: info[1].data.results.length > 0 ? info[1].data.results : [],
+        links: info[2].data.results,
+      };
+      this.props.handleInfo(obj);
       let detail = document.getElementsByClassName("detail");
       if (this.props.info.backdrop !== undefined)
         detail[0].style.backgroundImage = `url(https://image.tmdb.org/t/p/w500${this.props.info.backdrop})`;
@@ -132,39 +113,12 @@ class MovieDetail extends React.Component {
       });
       return <ul>{r}</ul>;
     };
-    let review_tag = (
-      <div className="review_notice">
-        {this.checkLanguage
-          ? "Sorry, We do not have any reviews for this movie"
-          : "리뷰가 없습니다."}
-      </div>
-    );
-    if (review !== undefined) {
-      review_tag = (
-        <div>
-          <div className="card">
-            <h3 className="review_author">
-              A review Written by {review.author}
-            </h3>
-            <p className="review_content">{review.content}</p>
-            <Link to={`/movie_review/${id}/${lan}/${review.id}?title=${title}`}>
-              Read more...
-            </Link>
-          </div>
-          <p className="read_all">
-            <Link to={`/movie_review/${id}/${lan}?title=${title}`}>
-              Read All Reviews
-            </Link>
-          </p>
-        </div>
-      );
-    }
     return (
-      <div>
+      <main className="movie-detail">
         <div>
           <Loading value={this.state.completed} load={load}></Loading>
         </div>
-        <div className="detail">
+        <section className="detail">
           <div className="custom_bg">
             <div className="movie_wrapper">
               <div className="img_container">
@@ -177,24 +131,16 @@ class MovieDetail extends React.Component {
                 <h2 className="movie_title">{title}</h2>
                 <h3>{tagline}</h3>
                 <div className="overview">
-                  <h3>{this.checkLanguage ? "OverView" : "줄거리"}</h3>
+                  <h3>OverView</h3>
                   <p>
                     <b>
-                      {overview === ""
-                        ? this.checkLanguage
-                          ? "We don't have an overview"
-                          : "해당 언어의 줄거리가 존재하지 않습니다"
-                        : overview}
+                      {overview === "" ? "We don't have an overview" : overview}
                     </b>
                   </p>
                 </div>
                 <div className="vote_rate">
                   <h2>
-                    {this.checkLanguage ? (
-                      <p>{`Average Rate: ⭐️${vote_average}/10`}</p>
-                    ) : (
-                      <p>{`평균 평점: ${vote_average}/10`}</p>
-                    )}
+                    <p>{`Average Rate: ⭐️${vote_average}/10`}</p>
                   </h2>
                 </div>
                 <p>
@@ -219,18 +165,46 @@ class MovieDetail extends React.Component {
               </div>
             </div>
           </div>
-        </div>
-        <div className="casting menu">
-          <h3>{this.checkLanguage ? "Actors" : "출연진"}</h3>
+        </section>
+        <section className="casting menu">
+          <h3>Actors</h3>
           <CastingList id={this.props.id}></CastingList>
-        </div>
-        <div className="menu">
-          <h3>{this.checkLanguage ? "Review" : "리뷰"}</h3>
-        </div>
-        <div className="review_container">{review_tag}</div>
+        </section>
+        <section className="review menu">
+          <article>
+            <h3>{`${
+              review && review.length > 1
+                ? `${review && review.length} Reviews`
+                : `${review && review.length} Review`
+            }`}</h3>
+            <Link to={`/movie_review/${id}/${lan}?title=${title}`}>More</Link>
+          </article>
+          <div className="review_container">
+            {review && review.length > 0 ? (
+              review &&
+              review.map((item) => {
+                return (
+                  <Link
+                    key={item.id}
+                    to={`/movie_review/${id}/${lan}/${item.id}?title=${title}`}
+                  >
+                    <div className="card">
+                      <h3 className="review_author">{item.author}</h3>
+                      <p className="review_content">{item.content}</p>
+                    </div>
+                  </Link>
+                );
+              })
+            ) : (
+              <div className="card" style={{ width: "100%" }}>
+                No Review
+              </div>
+            )}
+          </div>
+        </section>
         <hr></hr>
         <Recommendation id={this.props.id} lan={lan} />
-      </div>
+      </main>
     );
   }
 }

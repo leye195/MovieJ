@@ -1,4 +1,5 @@
 import { handleActions, createAction } from "redux-actions";
+import produce from "immer";
 export const SEARCH = "SEARCH";
 export const KEYWORD = "KEYWORD";
 
@@ -11,12 +12,14 @@ const initialState = {
 };
 export default handleActions(
   {
-    [SEARCH]: (state, action) => {
-      return { ...state, results: action.results };
-    },
-    [KEYWORD]: (state, action) => {
-      return { ...state, keyword: action.keyword };
-    },
+    [SEARCH]: (state, action) =>
+      produce(state, (draft) => {
+        draft.results = action.payload.results;
+      }),
+    [KEYWORD]: (state, action) =>
+      produce(state, (draft) => {
+        draft.keyword = action.payload.keyword;
+      }),
   },
   initialState
 );

@@ -1,3 +1,15 @@
+.m_container {
+  display: flex;
+  padding-top: 10px;
+}
+.m_aside {
+  position: static;
+  width: 25%;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+}
 @media (min-width: 1440px) {
   .m_div img {
     height: 250px;
@@ -6,18 +18,6 @@
     width: 100%;
     height: 100%;
     box-sizing: border-box;
-  }
-  .m_container {
-    display: flex;
-    padding-top: 10px;
-  }
-  .m_aside {
-    position: static;
-    width: 25%;
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    justify-content: center;
   }
   .m_aside > div {
     position: fixed;
@@ -83,18 +83,6 @@
     height: 100%;
     box-sizing: border-box;
   }
-  .m_container {
-    display: flex;
-    padding-top: 10px;
-  }
-  .m_aside {
-    position: static;
-    width: 25%;
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    justify-content: center;
-  }
   .m_aside > div {
     position: fixed;
     width: 150px;
@@ -147,24 +135,11 @@
     width: 200px;
     height: 300px;
   }
-  .m_aside {
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    justify-content: center;
-  }
+
   .m_aside > div > img {
     width: 65px;
     height: 120px;
     box-sizing: border-box;
-  }
-  .m_container {
-    display: flex;
-    padding-top: 10px;
-  }
-  .m_aside {
-    position: static;
-    width: 25%;
   }
   .m_aside > div {
     position: fixed;
@@ -246,25 +221,12 @@
     height: 100%;
     box-sizing: border-box;
   }
-  .m_container {
-    display: flex;
-    padding-top: 10px;
-  }
-  .m_aside {
-    position: static;
-    width: 25%;
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    justify-content: center;
-  }
   .m_aside > div {
     position: fixed;
     left: 0px;
     height: 155px;
     width: 95px;
     margin: auto auto;
-    /*border: 5px solid rgba(109, 107, 107, 0.13);*/
     padding: 10px;
     box-shadow: 0 0 20px 0 #666;
   }

@@ -1,6 +1,6 @@
 ## MovieJ
 
-MovieJ는 The movie DB API를 이용하여 영화 정보를 제공합니다.
+MovieJ는 The movie DB API를 이용하여 영화 정보를 제공
 React 공부 및 포트폴리오를 위해 만들었습니다.
 
 Link:https://moviej.herokuapp.com/
@@ -25,7 +25,7 @@ Back-End technologies used in the project<br/>
 ### 제공기능
 
 - 유저 로그인,회원가입( passport 이용)
-- 검색 조건 필터링
+- 영화 검색 조건 필터링
 - 좋아하는 영화 리스트에 추가/삭제
 - 영화 검색 및 영화 정보 제공 ( The movie DB API 활용 )
 

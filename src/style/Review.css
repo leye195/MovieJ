@@ -15,10 +15,31 @@
 .review_list {
   margin: 20px auto;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.review {
-  margin: 0 auto;
+.review_list .card {
+  width: 80%;
+  height: auto;
+}
+.review_list .card .review_content {
   width: 100%;
+  height: auto;
+  padding: 15px;
+  background: #e3e3e3;
+  border-radius: 10px;
+  -webkit-line-clamp: 7;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.user-review {
+  margin: 0 auto;
+  width: 80%;
+  height: auto;
 }
 .all {
   line-height: 1.2em;
@@ -47,8 +68,24 @@
   .review_list {
     margin: 20px auto;
     width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
-  .review {
+  .review_list .card .review_content {
+    width: 100%;
+    padding: 15px;
+    margin-right: 0 !important;
+    background: #e3e3e3;
+    border-radius: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-line-clamp: 13;
+    word-break: break-all;
+  }
+  .user-review {
     margin: 0 auto !important;
     width: 100% !important;
   }

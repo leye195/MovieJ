@@ -1,12 +1,10 @@
-.posterimg_contents img,
-.backdrop {
+.posterimg_contents img {
   animation: fadeIn 4s;
 }
 .posterimg_contents {
   position: relative;
 }
-.posterimg_contents:hover .fav,
-.backdropimg_contents:hover .fav {
+.posterimg_contents:hover .fav {
   opacity: 1;
   transition: opacity 1s ease-out;
 }
@@ -44,11 +42,11 @@
 /* Mobile Device */
 @media all and (min-width: 768px) {
   .poster {
-    width: 550px;
     margin: 10px auto;
     z-index: 0;
     box-shadow: 0 2px 19px 3px rgba(0, 0, 0, 0.1);
     background-color: white;
+    width: 100%;
   }
   .poster:hover {
     box-shadow: 5px 5px 10px 5px rgba(136, 133, 133, 0.58);
@@ -114,17 +112,8 @@
     margin: 0px;
     box-shadow: 5px 5px 14px 5px rgba(37, 36, 36, 0.19);
   }
-  .backdrop {
-    background-color: white;
-    width: 330px;
-    margin: 10px auto;
-    z-index: 0;
-    box-shadow: 0 2px 19px 3px rgba(0, 0, 0, 0.1);
-    transition-timing-function: ease;
-  }
   .poster .movie_container {
     display: flex;
-    margin: 10px;
     padding: 0px;
     /*width: 300px;*/
   }
@@ -211,7 +200,6 @@
   }
   .poster .movie_container {
     display: flex;
-    margin: 10px;
     padding: 0px;
   }
 }
@@ -298,45 +286,13 @@
   }
   .poster .movie_container {
     display: flex;
-    margin: 10px;
     padding: 0px;
   }
-}
-.backdrop:hover {
-  box-shadow: 5px 5px 10px 5px rgba(136, 133, 133, 0.58);
-  transition-timing-function: ease;
-  transition: ease 2s;
-}
-
-.backdrop .movie_container {
-  margin: 10px;
-  padding: 0px;
-}
-.backdropimg_contents img {
-  display: block;
-  width: 90%;
-  height: 200px;
-  margin: 0 auto;
-  border-width: 0px;
-  outline: none;
-  cursor: pointer;
 }
 .posteritem_content {
   position: relative;
   padding: 10px;
   width: 100%;
-}
-.backdropitem_content {
-  position: relative;
-  padding: 10px;
-}
-.backdropitem_content .overview_container,
-.backdropitem_content .more {
-  display: none;
-}
-.backdropitem_content p {
-  font-size: 1rem;
-  display: inline-block;
 }
 .overview_container h3 {
   font-size: 1.5rem;
