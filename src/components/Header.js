@@ -107,9 +107,9 @@ class Header extends React.Component {
                     {this.state.user.email}
                   </span>
                 ) : (
-                  <a href={"/login"}>
+                  <Link to={"/login"}>
                     <span>Login</span>
-                  </a>
+                  </Link>
                 )}
               </p>
               <div className="callout m_hide"></div>
